@@ -25,7 +25,7 @@ export class UserService {
      username: username,
      password: password
     }
-     return this.http.post('${process.env.PORT}/guest/loginprovera', data);
+     return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data);
   }
  
   addUser(username,password, brTipa, firstname,lastname){
@@ -451,7 +451,7 @@ export class UserService {
   }
   getAllUsers()
   {
-    return this.http.get('${process.env.PORT}/guest/getallusers')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallusers')
   }
   getAllStainingProcess()
   {
