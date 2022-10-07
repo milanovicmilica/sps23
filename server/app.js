@@ -106,4 +106,4 @@ app.get('/', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
-app.listen(process.env.PORT || 80);
+app.listen(process.env.PORT);
