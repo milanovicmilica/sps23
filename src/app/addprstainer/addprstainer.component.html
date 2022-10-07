@@ -1,0 +1,73 @@
+<p>addprotocol works!</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <ul class="navbar-nav">
+                <li class="nf">
+                <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center; align-self: center;"  (click)="addadmin()">ADMIN</label>  </li>
+           </ul>
+           <ul class="navbar-nav">
+            
+            <li class="nf2">
+                <label (click)="logout()"  class="stavka3"  style="text-align: right; ">LOGOUT</label>    </li>   
+           
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+        <div class="naslovpoc">
+            <hr class="lin">
+            <label class="naslovpocLabela">ADD PROTOCOL FOR STAINER</label>
+            <hr class="lin">
+        </div>
+        <div class="polja">
+            <label class="username" >Choose stainer:</label>
+            <select [(ngModel)]="stainer" class="select1">
+                <option selected hidden>Select stainer</option>
+                <option *ngFor="let a of allStainers" [value]="a.name">{{a.name}}</option>
+            </select>
+            <label class="username" >Protocol name:</label>
+            <input type="text" class="poljazaUnos" name='username' [(ngModel)]='name'>
+            <span class='error'>{{message3}}</span>
+            
+            <label class="username" >Duration:</label>
+            <div class="time">
+            <input type="text" class="poljazaUnos2" name='username' [(ngModel)]='hours'><label style="text-align: center;"></label>
+            :
+            <input type="text" class="poljazaUnos2" name='username' [(ngModel)]='minutes'>(hh:mm)</div>
+            <span class='error'>{{message4}}</span>
+         
+        
+            <button class="signupDugme" (click)='addProtocol()' >ADD PROTOCOL</button>
+            <span class='error'>{{message}}</span>
+        </div>
+       
+
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>

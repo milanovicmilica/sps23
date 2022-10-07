@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div>
+              <label  class="stavka2" (click)="poc()" style="text-align: center; align-self: center;
+              align-items: center;
+              align-content: center; align-self: center;">ACCESSIONING</label>  
+          </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                
+                <label (click)="cl()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">CASE LIST</label> 
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">LOGOUT</label>           
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+      <div class="caselist">
+        <table>
+            <tr> 
+                <th class="pr"></th>
+                <th>Case ID:</th>
+                <th>First name:</th>
+                <th>Last name:</th>
+                <th>Date of birth:</th>
+                <th>Gender:</th>
+              <th>Number of Specimens:</th>
+              </tr>
+              <tbody>
+              <tr *ngFor="let a of allCase;let i=index" class="redovi">
+                <td class="pr">{{(i+1)}}</td>
+                <td>{{a.formatcn}}</td>
+                <td>{{a.firstname}}</td>
+                <td>{{a.lastname}}</td>
+                <td>{{a.date}}</td>
+                <td>{{a.gen}}</td>
+                <td>{{numofSpec[i]}}</td>
+              </tr></tbody>
+        </table>
+      </div>
+      <div class="d">
+       
+      </div>
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>

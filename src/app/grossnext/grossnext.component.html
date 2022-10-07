@@ -1,0 +1,190 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div>
+                <label  class="stavka2" (click)="poc()"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">GROSSING</label>  
+            </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+            
+                   <label  class="stavka2"  style="text-align: center; align-self: center;
+                   align-items: center;
+                   align-content: center;">dr. {{me.firstname}} {{me.lastname}}</label>  
+                
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">LOGOUT</label>      
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+        <div class="pt1">
+      <div class="case">
+        <div class="c1">
+            <label>Case ID:</label>
+            <label>First name:</label>
+            <label> Last name:</label>
+            </div>
+            <div class="c1">
+                <label class="a1">{{myCase.formatcn}}</label>
+                <label class="a1">{{myCase.firstname}}</label>
+                <label class="a1">{{myCase.lastname}}</label>
+            </div>
+   
+      </div></div>
+    <div class="middle">
+<div class="opt">
+<div  *ngFor="let s of mySamples; let i=index" (click)="plavi(s, i)">
+    <div *ngIf="lamp[i]==0" class="cards">
+    <div ><img class="slika2" src="../../assets/Group 752.png"></div>
+    <label class="lab2">{{s.slovo}}</label></div>
+    <div *ngIf="lamp[i]==1" class="cards1">
+        <div ><img class="slika2" src="../../assets/Group 752.png"></div>
+        <label class="lab2">{{s.slovo}}</label></div>
+</div>
+
+</div>
+
+<div class="k" >
+
+
+<div class="kasetice" *ngFor="let r of kasetice; let i=index;">
+<div class="basic" *ngIf="sem1==1">
+    <div class="whitediv">
+<div class="plocice1">
+<div class="plusminus">
+    <button class="pm" (click)="dkas(r,i)">-</button>
+    <button class="pm" (click)="pkas()">+</button>
+</div>
+<img class="slika3" src="../../assets/касетица.png" style="text-align: center;">
+<label>{{r}}</label>
+</div>
+<div class="pddiv">
+<button class="pdButton" (click)="print(i,r)">PRINT</button>
+<button class="pdButton">DELETE</button>
+</div></div>
+<div class="plocice">
+    <div class="kaspt2">
+    <div class="plusminus">
+        <button class="pm" (click)="oduzmip(r)">-</button>
+        <button class="pm" (click)="dodp(r)">+</button>
+    </div><div class="pl1">
+    <img class="slika4" src="../../assets/novaplocica.png" >
+    
+    <label >{{r}}.{{brP}}</label>
+</div>
+</div>
+    
+</div>
+<div class="ostplo">
+<div class="jedna" >
+    
+    
+    <label class="fl" *ngIf="r.indexOf">x{{plocice[i]}}</label>
+</div>
+</div>
+</div>
+
+<div class="comm">
+    <label class="comlab">Comments(ex. slice...)</label>
+    <input type="text" class="incom" [(ngModel)]="comm[i]" rows="2" cols="20" >
+</div>
+</div>
+</div>
+
+<div class="selectm">
+   
+
+  <div class="selmenifirst">
+    <form>
+        <div class="multiselect">
+          <div class="selectBox" (click)="showCheckboxes()">
+            <select class="select1">
+              <option>SPECIAL STAIN</option>
+            </select>
+            <div class="overSelect"></div>
+          </div>
+          <div id="checkboxes">
+            <div class="oneopt" *ngFor='let b of ss; let i=index'>
+              <div class="exblop1">
+             {{b}} 
+              </div>
+              <div class="exblop">
+              <button class="buttss1" (click)="exblpovecaj(i)">+</button>
+              <label>{{niz1[i]}}</label>
+              <button class="buttss" (click)="exblumanji(i)">-</button>
+              </div>
+       
+         </div>
+
+          </div>
+        </div>
+      </form>
+  </div>
+  <div>
+    <form>
+        <div class="multiselect">
+          <div class="selectBox" (click)="showCheckboxes2()">
+            <select class="select1">
+              <option>IHC</option>
+            </select>
+            <div class="overSelect"></div>
+          </div>
+          <div id="checkboxes1">
+            <div class="oneopt" *ngFor='let b of ihc; let i=index'>
+              <div class="exblop1">
+                {{b}} 
+              </div>
+              <div class="exblop">
+                  <button class="buttss1" (click)="exblpovecaj2(i)">+</button>
+                  <label>{{niz2[i]}}</label>
+                  <button class="buttss" (click)="exblumanji2(i)">-</button>
+               </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+  </div>
+</div>
+<div class="d1" *ngIf="znakD==1 ">
+    <div class="d1A">
+    <button class="dugme" (click)="addW()">DONE CASSETTE</button>
+    <span class='error'>{{message}}</span>
+    </div>
+</div>
+<div class="d1" *ngIf="message=='Aleready added' ">
+  <div class="d1A">
+    <span class='error'>{{message}}</span>
+    </div>
+</div>
+    </div>
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>

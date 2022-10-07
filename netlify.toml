@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/guest/getallusers"
+  to = "https://sps22.herokuapp.com/$%7Bprocess.env.PORT%7D/guest/getallusers"
+  status = 200
+  force = true

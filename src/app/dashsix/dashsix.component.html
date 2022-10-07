@@ -1,0 +1,99 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+    <script>
+        $( function() {
+          $( "#dialog" ).dialog();
+        } );
+        </script>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div> <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">STAINING H&E</label>  </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">{{me.firstname}} {{me.lastname}}</label>  
+                
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">LOGOUT</label>      
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+        
+      
+        <div class="polja">
+           
+            <div class="leftside">
+                <label class="title1">STAINING:</label>
+                <table ><tr>
+                    <th>
+
+                    </th>
+                    <th>
+
+                    </th></tr>
+                    <tr *ngFor="let a of unfProcess;let i=index" class="rowt">
+                        <td  class="label1" *ngIf="a.status==0">{{(i+1)}}. <label class="lab1bold"> Stainer: </label>
+                            {{a.stainer}}, <label  class="lab1bold"> Protocol:</label> {{a.protocol}}, 
+                            <label  class="lab1bold">End time:</label> {{a.poshours}}h{{a.posminutes}}min </td>
+                        <td *ngIf="a.status==0"><button class="button2" (click)="doneprocessing(a,i)">DONE STAINING</button>
+                        <div class="popup" *ngIf="popup==1">
+                            <div class="zaglavlje">
+                                <label class="logoz">SMART</label>
+                                <label class="logo2z">PATH</label>
+                                <label class="logoz">SOFT</label>
+                            </div>
+                            <h2>The staining is not over yet!</h2>
+                            <button (click)="close()">OK</button>
+                        </div>
+                        </td>
+                        <td *ngIf="message1[i]!=''" class="lab3">{{message1[i]}}</td>
+                    </tr>
+                </table>
+              
+            </div>
+            <div class="rightside">
+                <div class="rspt1">
+                    <label class="title2">CREATE NEW PROCESS:</label>
+                    <button class="button1" (click)="addnewp()">ADD NEW <label class="plus">+</label></button>
+                    <span class='error'>{{message}}</span>
+                </div>
+            </div>
+
+        </div>
+       
+
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>

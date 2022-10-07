@@ -1,0 +1,380 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div>
+                <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center; align-self: center;">ACCESSIONING</label>  
+            </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                
+                <label (click)="cl()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">CASE LIST</label> 
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">LOGOUT</label>      
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+        <div class="sve">
+      <div class="firstcol">
+        <div class="titlefr">
+        <label>
+            PATIENT INFORMATION
+        </label>
+        </div>
+        <div class="data">
+            <div class="datar">
+                <label>CASE ID:</label>
+            <label >FIRST NAME: </label>
+           
+            <label >LAST NAME: </label>
+          
+             </div>
+             <div class="datar">
+                <label class="datatitle">{{allCases[last].formatcn}}</label>
+            <label class="datatitle">{{allCases[last].firstname}}</label>
+            <label class="datatitle">{{allCases[last].lastname}}</label>
+            
+            </div>
+          
+        </div>
+        <div class="f1">
+    <div class="titlefr">
+        <label>ADD NEW SAMPLE</label></div>
+        <select class='sel1'  [(ngModel)]="sample">
+            <option value="0" selected >Please Select sample type</option>
+            <option *ngFor='let a of allct' [value]="a.ime" >{{a.ime}}</option>
+        </select>
+        <select class='sel1' *ngIf="sample!=null" [(ngModel)]="s2">
+            <option value="0"  selected>Please Select subject type</option>
+            <option *ngFor='let c of histo' [value]="c.i" >{{c.i}}</option>
+        </select>
+      
+        <div class="acs">
+            <div class="acs2" *ngIf="sample=='Histology' && s2=='Skin'" >
+            <div class="divb"  *ngFor="let d of hskin" > <input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="d">{{d}} </div></div>
+            <div class="acs2" *ngIf="sample=='Histology' && s2=='Lungs'" >
+            <div class="divb" *ngFor="let a of hlungs" > <input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Neuropathology'" class="acs2">
+            <div class="divb" *ngFor="let a of hneuropathology"  > <input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Peripheral nervous system and muscles'" class="acs2">
+            <div class="divb" *ngFor="let a of hperi" > <input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Bones, bone marrow and soft tissues'"class="acs2" >
+            <div class="divb" *ngFor="let a of hbbs"><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Hematopathology'" class="acs2">
+            <div class="divb" *ngFor="let a of hhematology" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Liver'" class="acs2">
+            <div class="divb" *ngFor="let a of hliver" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='GiT' " class="acs2">
+            <div class="divb" *ngFor="let a of hgit" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Endocrine' " class="acs2">
+            <div class="divb" *ngFor="let a of hendocrine" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' &&  s2=='Breast'" class="acs2">
+            <div class="divb" *ngFor="let a of hbreast" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Nephropathology'" class="acs2">
+            <div class="divb" *ngFor="let a of hnephro" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Urology'" class="acs2">
+            <div class="divb" *ngFor="let a of hurology"><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Gynecology'" class="acs2">
+            <div class="divb" *ngFor="let a of hgynecology" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Histology' && s2=='Head and cervix'" class="acs2">
+            <div class="divb" *ngFor="let a of hhac" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+
+            <div *ngIf="sample=='Cytology' &&  s2=='Skin'"class="acs2">
+            <div class="divb" *ngFor="let a of cskin" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Lungs'"class="acs2">
+            <div class="divb" *ngFor="let a of clungs" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Heart' "class="acs2">
+            <div class="divb" *ngFor="let a of cheart" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Neuropathology' " class="acs2">
+            <div class="divb" *ngFor="let a of cneuropathology" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Peripheral nervous system and muscles'" class="acs2">
+            <div class="divb" *ngFor="let a of cperi" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Bones, bone marrow and soft tissues'" class="acs2">
+            <div class="divb" *ngFor="let a of cbbs" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Hematopathology'" class="acs2">
+            <div class="divb" *ngFor="let a of chematology" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Liver'" class="acs2">
+            <div class="divb" *ngFor="let a of cliver" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='GiT'" class="acs2">
+            <div class="divb" *ngFor="let a of cgit" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Endocrine'" class="acs2">
+            <div class="divb" *ngFor="let a of cendocrine" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Breast' " class="acs2">
+            <div class="divb" *ngFor="let a of cbreast" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Nephropathology'" class="acs2">
+            <div class="divb" *ngFor="let a of cnephro"><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Urology' " class="acs2">
+            <div class="divb" *ngFor="let a of curology" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Head and cervix'" class="acs2">
+            <div class="divb" *ngFor="let a of cgynecology" ><input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="a.i">{{a.i}}</div></div>
+            
+            <div *ngIf="sample=='External analysis' &&  s2!=null"class="acs2">
+                <div class="exbdiv">
+                <button class="exb" (click)="exb()">External block</button>
+               
+                <button class="exb1"  (click)="exs()">External slide</button></div></div>
+
+        </div>
+        
+        <button class="signupDugme" (click)="addsample()" >ADD SAMPLE</button></div>
+      </div>
+       <div class="seccol">
+        <div class="titlefr">
+            <label>PATIENT SAMPLES</label></div>
+            <div class="allS">
+            <div class="cases">
+
+                <div class="emptys2" *ngIf="exflag==1">
+                    <div class="kaspt3">
+                       <div class="pl2">
+                        
+                        <img src="../../assets/касетица.png" class="slikaexbl">
+                        <img src="../../assets/novaplocica.png" class="slikaexbl2">
+                        <div class="pdbut">
+                            <button class="exblbut" (click)="Addpl()">+</button>
+                            <button class="exblbut" (click)="Subpl()">-</button>
+                        </div>
+                       <label class="exblPllab">X{{Exbl}} H&E</label>
+                    </div>
+                    </div>
+                        <div class="exblhe">
+                          
+                        </div>
+                    
+                    <form class="f1p" >
+                        <div class="multiselect">
+                          <div class="selectBox" (click)="showCheckboxes()">
+                            <select class="select1">
+                              <option>Special stain</option>
+                            </select>
+                            <div class="overSelect"></div>
+                          </div>
+                          <div id="checkboxes">
+                            <div class="oneopt" *ngFor='let b of ss; let i=index'>
+                                <div class="exblop1">
+                               {{b}} 
+                                </div>
+                                <div class="exblop">
+                                <button class="buttss1" (click)="exblpovecaj(i)">+</button>
+                                <label>{{niz1[i]}}</label>
+                                <button class="buttss" (click)="exblumanji(i)">-</button>
+                                </div>
+                         
+                           </div>
+                          </div>
+                        </div>
+                      </form>
+                       
+                      <form >
+                        <div class="multiselect">
+                          <div class="selectBox" (click)="showCheckboxes2()">
+                            <select class="select1">
+                              <option>IHC</option>
+                            </select>
+                            <div class="overSelect"></div>
+                          </div>
+                          <div id="checkboxes1">
+                            <div class="oneopt" *ngFor='let b of ihc; let i=index'>
+                              <div class="exblop1">
+                                {{b}} 
+                              </div>
+                              <div class="exblop">
+                                  <button class="buttss1" (click)="exblpovecaj2(i)">+</button>
+                                  <label>{{niz2[i]}}</label>
+                                  <button class="buttss" (click)="exblumanji2(i)">-</button>
+                               </div>
+                            </div>
+                           
+                                
+                
+                          </div>
+                        </div>
+                      </form>
+                    
+            
+                </div>
+
+                <div class="emptys2" *ngIf="exflag==0">
+                    <div class="kaspt2">
+                       <div class="pl1">
+                        <img class="slika4" src="../../assets/novapl.png" >
+                        
+                       
+                    </div>
+                    </div>
+                    <div class="checkbExslide">
+                      <div class="pdbut">
+                        <button class="exblbut" (click)="Addpl()">+</button>
+                        <button class="exblbut" (click)="Subpl()">-</button>
+                    </div>
+                   <label class="exblPllab">X{{Exbl}} H&E</label>
+                    </div>
+                    <form class="f1p" >
+                      <div class="multiselect">
+                        <div class="selectBox" (click)="showCheckboxes()">
+                          <select class="select1">
+                            <option>Special stain</option>
+                          </select>
+                          <div class="overSelect"></div>
+                        </div>
+                        <div id="checkboxes">
+                          <div class="oneopt" *ngFor='let b of ss; let i=index'>
+                              <div class="exblop1">
+                             {{b}} 
+                              </div>
+                              <div class="exblop">
+                              <button class="buttss1" (click)="exblpovecaj(i)">+</button>
+                              <label>{{niz1[i]}}</label>
+                              <button class="buttss" (click)="exblumanji(i)">-</button>
+                              </div>
+                       
+                         </div>
+                        </div>
+                      </div>
+                    </form>
+                    <form >
+                      <div class="multiselect">
+                        <div class="selectBox" (click)="showCheckboxes2()">
+                          <select class="select1">
+                            <option>IHC</option>
+                          </select>
+                          <div class="overSelect"></div>
+                        </div>
+                        <div id="checkboxes1">
+                          <div class="oneopt" *ngFor='let b of ihc; let i=index'>
+                            <div class="exblop1">
+                              {{b}} 
+                            </div>
+                            <div class="exblop">
+                                <button class="buttss1" (click)="exblpovecaj2(i)">+</button>
+                                <label>{{niz2[i]}}</label>
+                                <button class="buttss" (click)="exblumanji2(i)">-</button>
+                             </div>
+                          </div>
+                         
+                              
+              
+                        </div>
+                      </div>
+                    </form>
+                         
+                    
+            
+                </div>
+                <div class="emptys2" *ngFor="let b of mySamples">
+                  <div *ngIf="b.casetype=='Cytology'" class="prvipl0"><img class="slika411" src="../../assets/novapl.png"></div>
+                    <div *ngIf="b.acs!='External slide' && b.acs!='External block' && b.casetype!='Cytology'"  class="prvipl" ><img class="slika2" src="../../assets/Group 752.png"></div>
+                    <div *ngIf="b.acs=='External slide'" class="prvipl" >
+                    <div *ngIf="b.acs=='External slide'"><img class="slika41" src="../../assets/novapl.png"></div></div>
+                    <div *ngIf="b.acs=='External block'" class="prvipl2" >
+                    <img class="slikaexbl3" src="../../assets/касетица.png">
+                    
+                    </div>
+                    <div class="drugipl"  *ngIf="b.acs!='External slide' && b.acs!='External block' && b.casetype!='Cytology' ">
+             
+                        <div class="rtab4"> <label class="ltab3">  Case type:    {{b.casetype}}</label></div>
+                        <div class="rtab4"> <label class="ltab3">  Sample type:    {{b.sampletype}}</label></div>
+                        <div class="rtab4"> <label class="ltab3">  Accessioning:    {{b.acs}}</label></div>
+                      
+                   </div>
+                   <div *ngIf="b.casetype=='Cytology'"  class="drugipl">
+                    <div class="rtab4"> <label class="ltab3">  Case type:    {{b.casetype}}</label></div>
+                        <div class="rtab4"> <label class="ltab3">  Sample type:    {{b.sampletype}}</label></div>
+                        <div class="rtab4"> <label class="ltab3">  Accessioning:    {{b.acs}}</label></div>
+                   </div>
+                   <div *ngIf="b.acs=='External slide'" class="drugipl" >
+                   <div class="tabs2"  *ngIf="b.acs=='External slide'" >
+             
+                    <div class="rtab2"> 
+                        <label class="ltab2">  Case type:    {{b.casetype}}</label>
+                        <label class="ltab2">  Sample type:    {{b.sampletype}}</label>
+                        <label class="ltab2">   {{b.acs}}</label>
+                    </div>
+                    <div class="rtab3"> 
+                      <div class="exblScroll">
+                        <label class="ltab2"><label>x{{b.exbl}} H&E, </label><label *ngFor="let k of b.spec;let i=index">x{{b.niz1[i]}} {{k}}, </label>
+                        <label *ngFor="let g of b.ihc;let i=index">x{{b.niz2[i]}} {{g}}, </label></label></div>
+                    </div>
+                   
+                  
+               </div></div>
+               <div *ngIf="b.acs=='External block'" class="drugipl2" >
+                <div class="tabs2"  *ngIf="b.acs=='External block'" >
+          
+                 <div class="rtab2"> 
+                     <label class="ltab2">  Case type:    {{b.casetype}}</label>
+                     <label class="ltab2">  Sample type:    {{b.sampletype}}</label>
+                     <label class="ltab2">   {{b.acs}}</label>
+                 </div>
+                 <div class="rtab3"> 
+                    
+                     <div class="exblScroll">
+                     <label class="ltab2"><label>x{{b.exbl}} H&E, </label><label *ngFor="let k of b.spec;let i=index">x{{b.niz1[i]}} {{k}}, </label>
+                     <label *ngFor="let g of b.ihc;let i=index">x{{b.niz2[i]}} {{g}}, </label></label></div>
+                 </div>
+                
+               
+            </div></div>
+            <div *ngIf="b.acs!='External slide' && b.acs!='External block' && b.casetype!='Cytology'" class="trecipl" >
+              <button class="signupDugme42"  >PRINT LABEL</button></div>
+              
+               <div *ngIf="b.acs=='External slide' || b.acs=='External block' || b.casetype=='Cytology'" class="trecipl" >
+                    <button class="signupDugme42"  >PRINT LABEL</button></div>
+                    <div class="cetvrtipl"  *ngIf="b.acs!='External slide' && b.acs!='External block' && b.casetype!='Cytology'">
+                        <img class="slikaKanta" src="../../assets/d.png" (click)="delete(b)">
+                    </div>
+                    <div *ngIf="b.acs=='External slide' || b.acs=='External block' || b.casetype=='Cytology'" class="cetvrtipl" >
+                     <div class="tabe2">
+                        <img class="slikaKanta" src="../../assets/d.png" (click)="delete(b)">
+                     </div>
+                    </div>
+               
+            </div> 
+            <div class="cases">
+                <div class="emptys" *ngFor="let a of emptycase">
+                    
+                </div>
+            </div>
+           </div></div>
+            <div class="down">
+                <hr class="lins">
+            
+            <label class="label3">TOTAL: {{mySamples.length}}</label>
+            <button class="signupDugme5" (click)="poc()" >PRINT ALL LABELS</button>
+        </div>
+       </div>
+       </div>
+
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>

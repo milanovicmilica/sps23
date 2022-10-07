@@ -1,0 +1,152 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div>
+                <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center; align-self: center;">CREATE NEW CASE</label>  
+            </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+               
+                <label (click)="case()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">CASE LIST</label> 
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">LOGOUT</label>      
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+       <div class="firstcol">
+        <div class="titlefr">
+            <label>SENDER INFORMATION</label>
+        </div>
+        <div class="fields">
+            <label class="labblue">Sender</label>
+            <div class="divbuttons">
+                <button class="butt1" (click)="hos()">
+                    Hospital
+                </button>
+                <button  class="butt12" (click)="pers()">
+                    Personal
+                </button>
+            </div>
+           <label *ngIf="flag==1" class="labblue">Contact*</label>
+           <input *ngIf="flag==1 && g1==0" type="text" class="in1" [(ngModel)]="contact">
+           <input *ngIf="flag==1 && g1==1" type="text" class="in1g" [(ngModel)]="contact">
+           <label *ngIf="flag==1" class="labblue">Address/Additional info</label>
+           <input  *ngIf="flag==1"type="text" class="in1" [(ngModel)]="address">
+           <label *ngIf="flag==0" class="labblue">Hospital ID*</label>
+           <select  *ngIf="flag==0 && g8==0" class='sel3'  name="Please-select" [(ngModel)]='hospitalid' >
+            <option value="0"  selected  disabled>Please select</option>
+            <option *ngFor='let b of allHospital' >{{b.hospital}}</option></select>
+            <select *ngIf="flag==0 && g8==1" class='sel3g'  name="Please-select" [(ngModel)]='hospitalid'>
+                <option value="0"  selected disabled>Please select</option>
+                <option *ngFor='let b of allHospital' >{{b.hospital}}</option>
+        </select>
+        <label *ngIf="flag==0" class="labblue">Address/Additional info</label>
+           <input  *ngIf="flag==0"type="text" class="in1" [(ngModel)]="address">
+        </div>
+       </div>
+       <div class="seccol">
+        <div class="titlefr">
+            <label>PATIENT INFORMATION</label>
+        </div>
+        <div class="mid">
+            <div class="midf">
+                <label  class="labblue">First name*</label>
+                <input *ngIf="g2==0" type="text" class="in2" [(ngModel)]="firstname">
+                <input *ngIf="g2==1"type="text" class="in2g" [(ngModel)]="firstname">
+                <label  class="labblue">Personal ID*</label>
+                <input *ngIf="g4==0"type="text" class="in2" [(ngModel)]="pid">
+                <input *ngIf="g4==1"type="text" class="in2g" [(ngModel)]="pid">
+                <label  class="labblue">LBO*</label>
+                <input *ngIf="g6==0" type="text" class="in2" [(ngModel)]="lbo">
+                <input  *ngIf="g6==1" type="text" class="in2g" [(ngModel)]="lbo">
+            </div>
+            <div class="mids">
+                <label  class="labblue">Last name*</label>
+                <input *ngIf="g3==0" type="text" class="in2" [(ngModel)]="lastname"> 
+                <input *ngIf="g3==1" type="text" class="in2g" [(ngModel)]="lastname"> 
+                <label  class="labblue">Date of birth*</label>
+                <input *ngIf="g5==0" type="text" class="in2" [(ngModel)]="date">
+                <input *ngIf="g5==1" type="text" class="in2g" [(ngModel)]="date">
+                <label  class="labblue">Health number</label>
+                <input type="text" class="in2" [(ngModel)]="hnum">
+            </div>
+        </div>
+        <div class="numb">
+         
+            <div class="n1">
+            <div>
+            <label  class="labblue">Number of request forms</label></div>
+            <div>
+            <button class="op1" (click)="minus()">-</button>
+            <label class="in3">{{num}}</label>
+            <button class="op1" (click)="plus()">+</button></div></div>
+            <div class="n1">
+                <label class="l3"> Gender*</label>
+                <div>
+                    <select *ngIf="g9==0" class="sel22" [(ngModel)]='gen'>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <select *ngIf="g9==1" class="sel22g" [(ngModel)]='gen'>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="signupDugme" (click)="addcase()" >SAVE AND PRINT</button>
+            <span class='error'>{{message}}</span>
+        </div>
+       </div>
+       <div class="thcol">
+        <div class="titlefr">
+            <label>OTHER INFORMATION</label>
+        </div>
+        <div class="thirdcol">
+            <label  class="labblue">Referral diagnosis*</label>
+                <input *ngIf="g7==0" type="text" class="in4" [(ngModel)]="diagnosis">
+                <input *ngIf="g7==1" type="text" class="in4g" [(ngModel)]="diagnosis">
+                <label  class="labblue" >Pathologist</label>
+                <select  class='sel1'  name="Please-select" [(ngModel)]='pathologist'>
+                    <option value="0"  selected  class="Invalid" hidden>Please Select</option>
+                    <option *ngFor='let a of allPath' >Dr. {{a.firstname}} {{a.lastname}}</option>
+                </select>
+           
+            <label  class="labblue" >Additional comments</label>
+            <input type="text" class="in5" [(ngModel)]="adcomments">
+        </div>
+       </div>
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>
