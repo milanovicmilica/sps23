@@ -95,7 +95,7 @@ app.post('/guest/login', (req, res) => {
         username: req.body.username,
         password: req.body.password
     }).then((user) => {
-        res.json(user);
+        res.send(user);
     }).catch((e) => {
         res.send("nema");
     });
