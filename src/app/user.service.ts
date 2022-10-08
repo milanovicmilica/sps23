@@ -66,7 +66,7 @@ export class UserService {
       stainer:stainer
     }
 
-    return this.http.post('http://localhost:4000/guest/addSTProtocol', data)
+    return this.http.post('https://sps23.herokuapp.com/addstprotocol/guest/addSTProtocol', data)
   }
   addProcessor(name,num, free){
   let t=0;
