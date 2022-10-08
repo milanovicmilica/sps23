@@ -10,13 +10,15 @@ const jwtSecret = "51778657246321226641fsdklafjasdkljfsklfjd7148924065";
 
 const StainerSchema = new mongoose.Schema({
     name: {
-        type: String,
+        type: String, required: true,
     },
     num: {
         type: Number,
+        required: true,
     },
     free: {
         type: Number,
+        required: true,
     },
    
    
