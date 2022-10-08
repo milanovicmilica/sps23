@@ -6,7 +6,8 @@ const { mongoose } = require('./db/mongoose');
 const bodyParser = require('body-parser');
 
 // Load in the mongoose models
-const { List, Task, User } = require('./db/models');
+const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
+    Protocol2, Sample, Sectioning, Stainer } = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
@@ -68,6 +69,140 @@ app.get('/guest/getallusers', (req, res) => {
         res.send(e);
     });
 })
+app.get('/guest/getallsectioning', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+    //console.log('caoo')
+    Sectioning.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallstainingprocess', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+    //console.log('caoo')
+    ProcessStaining.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallstainers', (req, res) => {
+
+    Stainer.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallemb', (req, res) => {
+    
+    Embedding.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallprocess', (req, res) => {
+    
+    Process.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallprotocols2', (req, res) => {
+    
+    Protocol2.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallprotocols', (req, res) => {
+    
+    Protocol.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallprocessors', (req, res) => {
+    
+    Processor.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallsamples', (req, res) => {
+    
+    Sample.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallhospitals', (req, res) => {
+    
+    Hospital.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallcases', (req, res) => {
+    
+    Case.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallcs', (req, res) => {
+    
+    CS.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/guest/getallpath', (req, res) => {
+    
+    User.find({
+     type: 3  
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+
+
 app.post('/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({

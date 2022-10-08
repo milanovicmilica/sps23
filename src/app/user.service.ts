@@ -410,44 +410,44 @@ export class UserService {
     return this.http.post('http://localhost:4000/guest/addCase', data)
   }
   getAllPath(){
-    return this.http.get('http://localhost:4000/guest/getallpath')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallpath')
   }
   getAllCs(){
-    return this.http.get('http://localhost:4000/guest/getallcs')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcs')
   }
   getAllCases(){
-    return this.http.get('http://localhost:4000/guest/getallcases')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcases')
   }
   getAllHospitals(){
-    return this.http.get('http://localhost:4000/guest/getallhospitals')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals')
   }
   getAllSamples()
   {
-    return this.http.get('http://localhost:4000/guest/getallsamples')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallsamples')
   }
   getAllProcessors()
   {
-    return this.http.get('http://localhost:4000/guest/getallprocessors')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprocessors')
   }
   getAllProtocols()
   {
-    return this.http.get('http://localhost:4000/guest/getallprotocols')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols')
   }
   getAllProtocols2()
   {
-    return this.http.get('http://localhost:4000/guest/getallprotocols2')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols2')
   }
   getAllProcess()
   {
-    return this.http.get('http://localhost:4000/guest/getallprocess')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprocess')
   }
   getAllEmb()
   {
-    return this.http.get('http://localhost:4000/guest/getallemb')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallemb')
   }
   getAllStainers()
   {
-    return this.http.get('http://localhost:4000/guest/getallstainers')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallstainers')
   }
   getAllUsers()
   {
@@ -455,11 +455,11 @@ export class UserService {
   }
   getAllStainingProcess()
   {
-    return this.http.get('http://localhost:4000/guest/getallstainingprocess')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess')
   }
   getAllSectioning()
   {
-    return this.http.get('http://localhost:4000/guest/getallsectioning')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallsectioning')
   }
   dodajKupcaPoc(ime, prezime, korime, lozinka, grad, datum, telefon, mejl, slika){
     let t=0;
