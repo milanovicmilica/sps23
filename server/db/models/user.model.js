@@ -19,17 +19,17 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        minlength: 8
+       
     },
     firstname: {
         type: String,
         required: true,
-        minlength: 8
+    
     },
     lastname: {
         type: String,
         required: true,
-        minlength: 8
+        
     },
     type: {
         type: Number,

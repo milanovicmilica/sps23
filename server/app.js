@@ -376,10 +376,10 @@ app.post('/addprotocol/guest/addProtocol', (req, res) => {
 })
 app.post('/dashfirst/guest/addUser', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
-    let username = req.body.username;
+   
 
     let newP = new User({
-        username,
+        username : req.body.username,
         password: req.body.password,
         type: req.body.type,
         firstname:req.body.firstname,
@@ -402,7 +402,7 @@ app.post('/dashfirst/guest/addUser', (req, res) => {
             res.send({ message: 'zauzeto' });
         }
 
-        
+
     }).catch((e) => {
         res.send({ message: 'error' });
     });
