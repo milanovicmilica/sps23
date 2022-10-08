@@ -374,9 +374,51 @@ app.post('/addprotocol/guest/addProtocol', (req, res) => {
         res.send({ message: 'error' });
     });
 })
+app.post('/dashfirst/guest/addUser', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+    let username = req.body.username;
+
+    let newP = new User({
+        username,
+        password: req.body.password,
+        type: req.body.type,
+        firstname:req.body.firstname,
+        lastname:req.body.lastname,
+        
+    });
+
+    User.findOne({
+        username: req.body.username
+       
+    }).then((user) => {
+        if(user==null)
+        {
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user added' });
+            })
+
+        }else{
+            res.send({ message: 'zauzeto' });
+        }
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+})
+
+
+
+
+
+
+
+
+
+
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
+
 app.listen(process.env.PORT);

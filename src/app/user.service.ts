@@ -40,7 +40,7 @@ export class UserService {
      lastname:lastname
     }
 
-    return this.http.post('http://localhost:4000/guest/addUser', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfirst/guest/addUser', data)
   }
   addProtocol(name,hours, minutes, processor){
     let t=0;
