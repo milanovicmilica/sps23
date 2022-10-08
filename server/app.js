@@ -263,8 +263,9 @@ app.post('/addstprotocol/guest/addSTProtocol', (req, res) => {
 
     let newP = new Protocol2({
         name,
-        num: req.body.num,
-        free: req.body.num
+        hours: req.body.hours,
+        minutes: req.body.minutes,
+        stainer: req.body.stainer
     });
 
     Protocol2.findOne({
