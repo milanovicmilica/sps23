@@ -151,7 +151,7 @@ app.get('/guest/getallprotocols', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallprocessors', (req, res) => {
+app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors', (req, res) => {
     
     Processor.find({
        

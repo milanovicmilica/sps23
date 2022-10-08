@@ -427,8 +427,9 @@ export class UserService {
   }
   getAllProcessors()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallprocessors')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprocessors') ||  this.http.get('https://sps23.herokuapp.com/addprotocol/guest/getallprocessors')
   }
+  
   getAllProtocols()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols')
