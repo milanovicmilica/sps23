@@ -92,7 +92,7 @@ export class UserService {
      
     }
   
-    return this.http.post('http://localhost:4000/guest/addStainer', data)
+    return this.http.post('https://sps23.herokuapp.com/addstainer/guest/addStainer', data)
     }
   addSample(caseid,sample,s2,brTipa,num,id,slovo, spec, ihc){
 

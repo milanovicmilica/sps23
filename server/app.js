@@ -286,7 +286,35 @@ app.post('/addstprotocol/guest/addSTProtocol', (req, res) => {
         res.send({ message: 'error' });
     });
 })
+app.post('/addstainer/guest/addStainer', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+    let name = req.body.name;
 
+    let newP = new Stainer({
+        name,
+        num: req.body.num,
+        free: req.body.num
+        
+    });
+
+    Stainer.findOne({
+        name: req.body.name
+       
+    }).then((user) => {
+        if(user==null)
+        {
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user added' });
+            })
+
+        }else{
+            res.send({ message: 'zauzeto' });
+        }
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+})
 
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>
