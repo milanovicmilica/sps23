@@ -315,7 +315,35 @@ app.post('/addstainer/guest/addStainer', (req, res) => {
         res.send({ message: 'error' });
     });
 })
+app.post('/addprocessor/guest/addProcessor', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+    let name = req.body.name;
 
+    let newP = new Processor({
+        name,
+        num: req.body.num,
+        free: req.body.num
+        
+    });
+
+    Processor.findOne({
+        name: req.body.name
+       
+    }).then((user) => {
+        if(user==null)
+        {
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user added' });
+            })
+
+        }else{
+            res.send({ message: 'zauzeto' });
+        }
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+})
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
