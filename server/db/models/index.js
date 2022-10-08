@@ -1,10 +1,34 @@
 const { List } = require('./list.model');
 const { Task } = require('./task.model');
 const { User } = require('./user.model');
-
-
+const { Case } = require('./case');
+const { Embedding } = require('./embedding');
+const { Hospital } = require('./hospital');
+const { CS } = require('./infocs');
+const { Process } = require('./process');
+const { Processor } = require('./processors');
+const { ProcessStaining } = require('./processstaining');
+const { Protocol } = require('./protocol');
+const { Protocol2 } = require('./protocol2');
+const { Sample } = require('./sample');
+const { Sectioning } = require('./sectioning');
+const { Stainer } = require('./stainer.model');
 module.exports = {
     List,
     Task,
-    User
+    User,
+    Case,
+    Embedding,
+    Hospital,
+    CS,
+    Process,
+    Processor,
+    ProcessStaining,
+    Protocol,
+    Protocol2,
+    Sample,
+    Sectioning,
+    Stainer
+
+
 }
