@@ -35,9 +35,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <hr class="lin">
         </div>
         <div class="polja">
-            <div>
-                <label *ngFor="let a of allUse">{{a.username}} - {{a.firstname}}, </label>
-            </div>
+        
             <label class="username" >Username:</label>
             <input type="text" class="poljazaUnos" name='username' [(ngModel)]='username'>
             <span class='error'>{{message0}}</span>

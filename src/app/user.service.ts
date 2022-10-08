@@ -449,6 +449,10 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallstainers')
   }
+  getAllStainersAdmin()
+  {
+    return this.http.get('https://sps23.herokuapp.com/addstprotocol/guest/getallstainers')
+  }
   getAllUsers()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallusers')

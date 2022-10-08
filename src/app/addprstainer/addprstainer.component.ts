@@ -16,7 +16,7 @@ export class AddprstainerComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.UserService.getAllStainers().subscribe((data: Stainer[])=>{
+    this.UserService.getAllStainersAdmin().subscribe((data: Stainer[])=>{
       this.allStainers=data;});
   }
   logout(){

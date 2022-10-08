@@ -101,6 +101,16 @@ app.get('/guest/getallstainers', (req, res) => {
         res.send(e);
     });
 })
+app.get('/addstprotocol/guest/getallstainers', (req, res) => {
+
+    Stainer.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
 app.get('/guest/getallemb', (req, res) => {
     
     Embedding.find({
