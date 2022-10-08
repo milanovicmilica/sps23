@@ -181,6 +181,16 @@ app.get('/guest/getallcases', (req, res) => {
         res.send(e);
     });
 })
+app.get('/grossfirst/guest/getallcases', (req, res) => {
+    
+    Case.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
 app.get('/guest/getallcs', (req, res) => {
     
     CS.find({

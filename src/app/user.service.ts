@@ -416,7 +416,7 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallcs')
   }
   getAllCases(){
-    return this.http.get('https://sps23.herokuapp.com/guest/getallcases')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases')
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals')
