@@ -344,6 +344,36 @@ app.post('/addprocessor/guest/addProcessor', (req, res) => {
         res.send({ message: 'error' });
     });
 })
+app.post('/addprotocol/guest/addProtocol', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+    let name = req.body.name;
+
+    let newP = new Protocol({
+        name,
+        hours: req.body.hours,
+        minutes: req.body.minutes,
+        processor:req.body.processor
+        
+    });
+
+    Protocol.findOne({
+        name: req.body.name
+       
+    }).then((user) => {
+        if(user==null)
+        {
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user added' });
+            })
+
+        }else{
+            res.send({ message: 'zauzeto' });
+        }
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+})
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
