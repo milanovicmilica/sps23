@@ -502,7 +502,7 @@ app.post('/acssecond/guest/changeid', (req, res) => {
                 res.send({ message: 'nema' }); 
 
         }else{
-
+            console.log("evoooo")
             for (let index = 0; index < user.length; index++) {
                 Sample.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
                     $set: {id: index}
