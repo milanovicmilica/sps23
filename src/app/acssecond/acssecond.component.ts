@@ -89,7 +89,7 @@ export class AcssecondComponent implements OnInit {
       for (let index = 0; index < this.ihc.length; index++) {
         
         this.niz2.push(0);
-      }
+      } this.expanded = false; this.expanded2=false;
       })
     })
       
@@ -268,7 +268,10 @@ addsample(){
     if(resp['message']=='user')
     {this.message='User added'; 
     this.mySamples=[];
-
+    this.sample="";
+    this.s2="";
+    this.brTipa="";
+    this.exflag=2; this.expanded = false; this.expanded2=false;
     this.UserService.getAllSamples().subscribe((data: Sample[])=>{
       this.allSamples=data;
     for (let index = 0; index < this.allSamples.length; index++) {
@@ -311,7 +314,9 @@ addsample(){
     this.ihcsend,this.niz1,this.niz2, this.Exbl).subscribe((resp)=>{
 
     if(resp['message']=='user')
-    {this.message='User added'; this.mySamples=[]
+    {this.message='User added'; this.mySamples=[]; this.sample="";
+    this.s2=""; this.brTipa="";
+    this.exflag=2; this.expanded = false; this.expanded2=false;
     this.UserService.getAllSamples().subscribe((data: Sample[])=>{
       this.allSamples=data;
     for (let index = 0; index < this.allSamples.length; index++) {
@@ -358,7 +363,9 @@ else{
 
       if(resp['message']=='user')
       {this.message='User added';
-      this.mySamples=[]; 
+      this.mySamples=[];  this.sample="";
+      this.s2=""; this.brTipa="";  this.expanded = false; this.expanded2=false;
+      this.exflag=2;
       this.UserService.getAllSamples().subscribe((data: Sample[])=>{
         this.allSamples=data;
       for (let index = 0; index < this.allSamples.length; index++) {
