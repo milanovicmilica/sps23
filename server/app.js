@@ -141,7 +141,7 @@ app.get('/guest/getallprotocols2', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallprotocols', (req, res) => {
+app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols', (req, res) => {
     
     Protocol.find({
        
@@ -151,7 +151,8 @@ app.get('/guest/getallprotocols', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors', (req, res) => {
+app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors'
+|| '/dashfourproc/guest/getallprocessors', (req, res) => {
     
     Processor.find({
        
@@ -452,6 +453,37 @@ app.post('/acssecond/guest/addSampleSlide', (req, res) => {
             });
 
 })
+
+app.post('/dashfourproc/guest/addprocess', (req, res) => {    
+
+    let newP = new Process({
+        processor : req.body.processor, protocol: req.body.protocol,   bascet: req.body.bascet, casette:req.body.casette, hours:req.body.hours,
+        minutes : req.body.minutes,    status: req.body.status,  poshours:req.body.poshours,posminutes:req.body.posminutes,
+        posday: req.body.posday,  posmonth:req.body.posmonth,posyear:req.body.posyear})
+
+        Processor.findOne({
+            name: req.body.processor
+           
+        }).then((user) => {
+            if(user==null){   res.send({ message: 'nema' });}
+
+            let nova=user.free;
+            nova=nova-1;
+            Processor.updateOne({'name' :req.body.processor}, {$set: {'free' : nova}});
+            newP.save().then((us2) => {
+                
+
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+}).catch((e) => {
+    res.send({ message: 'error' });
+});
+
+})
+
 app.post('/acssecond/guest/addSampleBlock', (req, res) => {    
 
     let newP = new Sample({
@@ -505,10 +537,8 @@ app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid'
         }else{
             console.log("evoooo")
             for (let index = 0; index < user.length; index++) {
-                Sample.updateOne({ 'id': user[index].id, 'caseid': req.body.caseid }, {
-                    $set: {'id': index}
-                })     
-                           
+                Sample.updateOne({ 'id': user[index].id, 'caseid': req.body.caseid }, {$set: {'id': index}})     
+              
             }
            
             res.send({ message: 'user' });
@@ -612,6 +642,7 @@ app.post('/dashfour/guest/updateProcessor', (req, res) => {
     });
 
 })
+
 
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>

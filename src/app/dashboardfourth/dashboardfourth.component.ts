@@ -144,7 +144,18 @@ export class DashboardfourthComponent implements OnInit {
       if(resp['message']=='user')
       { this.UserService.updateProcessor(processor).subscribe((resp)=>{
         if(resp['message']=='user'){
-        window.location.reload();
+          this.unfProcess=[];
+          this.UserService.getAllProcess().subscribe((data: Process[])=>{
+            this.allProcess=data;
+            
+            for (let index = 0; index < this.allProcess.length; index++) {
+              if(this.allProcess[index].status==0)
+              {
+                this.unfProcess.push(this.allProcess[index]);
+              }
+              
+            }
+          })
       }});
       }
       else{ 

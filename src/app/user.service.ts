@@ -218,7 +218,7 @@ export class UserService {
       posyear:posyear
     }
 
-    return this.http.post('http://localhost:4000/guest/addprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfourproc/guest/addprocess', data)
 
   }
   addProcessStaining(stainer,protocol,bascet,casette,hours,minutes,status,poshours,posminutes,posday,posmonth,posyear){
@@ -432,12 +432,14 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallprocessors') ||  
     this.http.get('https://sps23.herokuapp.com/addprotocol/guest/getallprocessors') ||
-    this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocessors')
+    this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocessors') ||
+    this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprocessors')
   }
   
   getAllProtocols()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols')||
+    this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprotocols')
   }
   getAllProtocols2()
   {
