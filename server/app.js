@@ -490,16 +490,16 @@ app.post('/acssecond/guest/deleteSample', (req, res) => {
     });
 
 })
-app.post('/acssecond/guest/changeid' || 'acssecond/guest/deleteSample/changeid', (req, res) => {    
+app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid', (req, res) => {    
     let sniz=['A','B','C','D','E','F','G','H','I',
     'J','K','L','M','N','O','P','Q','R','S','T',
-    'U','V','W','X','Y','Z'];
+    'U','V','W','X','Y','Z']; console.log("evoooo2")
     Sample.find({
          caseid: req.body.caseid
        
     }).then((user) => {
         if(user==null)
-        {        
+        {         console.log("evooooc")
                 res.send({ message: 'nema' }); 
 
         }else{
