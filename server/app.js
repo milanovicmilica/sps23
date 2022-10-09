@@ -504,7 +504,7 @@ app.post('/acssecond/guest/changeid', (req, res) => {
         }else{
 
             for (let index = 0; index < user.length; index++) {
-                List.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
+                Sample.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
                     $set: {id: index}
                 })     
                            
@@ -534,7 +534,7 @@ app.post('/acssecond/guest/changeslovo', (req, res) => {
         }else{
 
             for (let index = 0; index < user.length; index++) {
-                List.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
+                Sample.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
                     $set: {slovo: sniz[index]}
                 })     
                            
