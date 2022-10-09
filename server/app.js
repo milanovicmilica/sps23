@@ -161,7 +161,7 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors', (req
         res.send(e);
     });
 })
-app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples', (req, res) => {
+app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples', (req, res) => {
     
     Sample.find({
        
@@ -191,7 +191,8 @@ app.get('/guest/getallcases', (req, res) => {
         res.send(e);
     });
 })
-app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases', (req, res) => {
+app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
+|| '/clacs/guest/getallcases', (req, res) => {
     
     Case.find({
        
@@ -489,7 +490,7 @@ app.post('/acssecond/guest/deleteSample', (req, res) => {
     });
 
 })
-app.post('/acssecond/guest/changeid', (req, res) => {    
+app.post('/acssecond/guest/changeid' || 'acssecond/guest/deleteSample/changeid', (req, res) => {    
     let sniz=['A','B','C','D','E','F','G','H','I',
     'J','K','L','M','N','O','P','Q','R','S','T',
     'U','V','W','X','Y','Z'];

@@ -306,7 +306,7 @@ export class UserService {
      
       caseid:caseid
     }
-    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeid', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/deleteSample/changeid', data)
   }
   changeslovo(caseid)
   {
@@ -417,7 +417,8 @@ export class UserService {
   }
   getAllCases(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') 
-    || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallcases')
+    || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallcases') ||
+    this.http.get('https://sps23.herokuapp.com/clacs/guest/getallcases')
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
@@ -425,6 +426,7 @@ export class UserService {
   getAllSamples()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallsamples')
+    || this.http.get('https://sps23.herokuapp.com/clacs/guest/getallsamples')
   }
   getAllProcessors()
   {
