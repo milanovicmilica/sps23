@@ -682,7 +682,7 @@ app.post('/dashsix/guest/endsprocess', (req, res) => {
 app.post('/dashsix/guest/updateStainer', (req, res) => {    
     
     Stainer.findOne({
-        name: req.body.processor
+        name: req.body.stainer
        
     }).then((user) => {
         if(user==null)
@@ -692,7 +692,7 @@ app.post('/dashsix/guest/updateStainer', (req, res) => {
         }else{
             let nova=user.free;
             let s=nova+1;
-            Stainer.collection.updateOne({'name' :req.body.processor}, { $set: {'free': s}});
+            Stainer.collection.updateOne({'name' :req.body.stainer}, { $set: {'free': s}});
         
             res.send({ message: 'user' });
         }
