@@ -58,7 +58,7 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallusers', (req, res) => {
+app.get('/guest/getallusers' || '/grossfirst/guest/getallusers', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     console.log('caoo')
     User.find({
@@ -173,7 +173,8 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
     });
 })
 app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples'
-|| '/dashfive/guest/getallsamples' || '/dashseven/guest/getallsamples', (req, res) => {
+|| '/dashfive/guest/getallsamples' || '/dashseven/guest/getallsamples' || '/grossfirst/guest/getallsamples' ||
+'/grossnext/guest/getallsamples', (req, res) => {
     
     Sample.find({
        
@@ -204,7 +205,8 @@ app.get('/guest/getallcases', (req, res) => {
     });
 })
 app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
-|| '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases', (req, res) => {
+|| '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases' || 
+'/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases', (req, res) => {
     
     Case.find({
        
@@ -763,9 +765,43 @@ app.post('/dashseven/guest/updateSectioning', (req, res) => {
         }
     })
 })
+app.post('/grossnext/guest/addprcs', (req, res) => {    
 
+    let user1=new CS({caseid:req.body.caseid,
+        podslovo:req.body.podslovo, slovo:req.body.slovo, print:req.body.print ,code:req.body.code ,path:req.body.path,
+        asistent:req.body.asistent});
+          
+    CS.findOne({'caseid':req.body.caseid, 'podslovo' :req.body.podslovo}, (err,user)=>{
+    
+        if(user==null)  {  user1.save().then(user2=>{
+            res.send({ message: 'user added' });
+        }).catch(err=>{
+            res.send({ message: 'error' });
+        })}
+        else{
+          
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'print' : req.body.print}});
+            res.send({ message: 'zauzeto' });
+        }
+    })
+})
+app.post('/grossnext/guest/addCS', (req, res) => {    
 
-
+    CS.findOne({'caseid':req.body.caseid, 'podslovo' :req.body.podslovo}, (err,user)=>{
+            
+        if(user==null)  {  }
+        else{
+          
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'specstain' : req.body.specstain}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'ihc' : req.body.ihc}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'plocice' : req.body.plocice}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'comm' : req.body.comm}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'niz1' : req.body.niz1}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'niz2' : req.body.niz2}});
+            res.send({ message: 'user added' });
+        }
+    })
+})
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
