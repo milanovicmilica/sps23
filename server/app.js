@@ -479,7 +479,7 @@ app.post('/dashfourproc/guest/addprocess', (req, res) => {
 
             let nova=user.free;
             nova=nova-1;
-            Processor.updateOne({'name' :req.body.processor}, {$set: {'free' : nova}});
+            Processor.collection.updateOne({'name' :req.body.processor}, {$set: {'free' : nova}});
             newP.save().then((us2) => {
                 
 
