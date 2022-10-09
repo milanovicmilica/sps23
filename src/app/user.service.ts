@@ -19,7 +19,8 @@ export class UserService {
      }
       return this.http.post('https://sps23.herokuapp.com/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/logine/guest/login', data) ||
-      this.http.post('https://sps23.herokuapp.com/loginshe/guest/login', data) ;
+      this.http.post('https://sps23.herokuapp.com/loginshe/guest/login', data) ||
+      this.http.post('https://sps23.herokuapp.com/loginse/guest/login', data);
    }
    loginProvera(username, password){
     const data={
@@ -29,7 +30,8 @@ export class UserService {
     }
      return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/logine/guest/loginprovera', data) ||
-     this.http.post('https://sps23.herokuapp.com/loginshe/guest/loginprovera', data);
+     this.http.post('https://sps23.herokuapp.com/loginshe/guest/loginprovera', data) ||
+     this.http.post('https://sps23.herokuapp.com/loginse/guest/loginprovera', data);
   }
  
   addUser(username,password, brTipa, firstname,lastname){
@@ -373,7 +375,7 @@ export class UserService {
       nizprint:nizprint
     }
 
-    return this.http.post('http://localhost:4000/guest/addSectioning', data)
+    return this.http.post('https://sps23.herokuapp.com/dashseven/guest/addSectioning', data)
   }
   updateSectioning(cassette)
   {
@@ -384,7 +386,7 @@ export class UserService {
      
     }
 
-    return this.http.post('http://localhost:4000/guest/updateSectioning', data)
+    return this.http.post('https://sps23.herokuapp.com/dashseven/guest/updateSectioning', data)
   }
   addCase(sender,hospitalid,contact,address,firstname,lastname,
     pid,date,lbo,hnum,num,diagnosis,pathologist,adcomments,format,cn, gen){
@@ -418,7 +420,8 @@ export class UserService {
   }
   getAllCs(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcs') ||
-    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcs');
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcs') || 
+    this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallcs');
   }
   getAllCases(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 
@@ -426,7 +429,8 @@ export class UserService {
     || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases') ||
      this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallcases') ||
     this.http.get('https://sps23.herokuapp.com/clacs/guest/getallcases') ||
-    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcases') ;
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcases') ||
+    this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallcases');
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
@@ -436,7 +440,8 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || 
     this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallsamples')
     || this.http.get('https://sps23.herokuapp.com/clacs/guest/getallsamples') ||
-    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallsamples'); 
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallsamples') ||
+    this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallsamples'); 
   }
   getAllProcessors()
   {
@@ -463,7 +468,8 @@ export class UserService {
   getAllEmb()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallemb') ||
-    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallemb');
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallemb') || 
+    this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallemb');
   }
   getAllStainers()
   {
@@ -486,7 +492,8 @@ export class UserService {
   }
   getAllSectioning()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallsectioning')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallsectioning') || 
+    this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallsectioning');
   }
   dodajKupcaPoc(ime, prezime, korime, lozinka, grad, datum, telefon, mejl, slika){
     let t=0;

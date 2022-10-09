@@ -69,7 +69,7 @@ app.get('/guest/getallusers', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallsectioning', (req, res) => {
+app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     //console.log('caoo')
     Sectioning.find({
@@ -111,7 +111,7 @@ app.get('/addstprotocol/guest/getallstainers', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallemb' || '/dashfive/guest/getallemb', (req, res) => {
+app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/getallemb', (req, res) => {
     
     Embedding.find({
        
@@ -173,7 +173,7 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
     });
 })
 app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples'
-|| '/dashfive/guest/getallsamples', (req, res) => {
+|| '/dashfive/guest/getallsamples' || '/dashseven/guest/getallsamples', (req, res) => {
     
     Sample.find({
        
@@ -204,7 +204,7 @@ app.get('/guest/getallcases', (req, res) => {
     });
 })
 app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
-|| '/clacs/guest/getallcases' || '/dashfive/guest/getallcases', (req, res) => {
+|| '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases', (req, res) => {
     
     Case.find({
        
@@ -214,7 +214,7 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
         res.send(e);
     });
 })
-app.get('/guest/getallcs' || '/dashfive/guest/getallcs', (req, res) => {
+app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs', (req, res) => {
     
     CS.find({
        
@@ -238,7 +238,7 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
 
 
 
-app.post('/guest/loginprovera' || '/logine/guest/loginprovera' || '/loginshe/guest/loginprovera', (req, res) => {
+app.post('/guest/loginprovera' || '/logine/guest/loginprovera' || '/loginshe/guest/loginprovera' || '/loginse/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -259,7 +259,7 @@ app.post('/guest/loginprovera' || '/logine/guest/loginprovera' || '/loginshe/gue
     });
 })
 
-app.post('/guest/login' || '/logine/guest/login' || '/loginshe/guest/login', (req, res) => {
+app.post('/guest/login' || '/logine/guest/login' || '/loginshe/guest/login' || '/loginse/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username,
@@ -725,6 +725,46 @@ posmonth:req.body.posmonth, posyear:req.body.posyear })
         }
     })
 })
+app.post('/dashseven/guest/addSectioning', (req, res) => {    
+
+    let user1=new Sectioning({cassette:req.body.cassette, day:req.body.dan, month:req.body.mesec,
+        year:req.body.godina, nizprint:req.body.nizprint, nizQr:req.body.nizQr, done:0,
+    })
+              
+    Sectioning.findOne({cassette :req.body.cassette}, (err,user)=>{
+                
+                if(user==null)  {   user1.save().then(user2=>{
+                    res.send({ message: 'user' });
+                }).catch(err=>{
+                    res.send({ message: 'error' });
+                })
+               }
+                else{
+                   
+                    Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'nizQr' : req.body.nizQr}});
+                    Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'nizprint' : req.body.nizprint}});
+                    res.send({ message: 'user' });
+                }
+            })
+})
+app.post('/dashseven/guest/updateSectioning', (req, res) => {    
+
+    Sectioning.findOne({cassette:req.body.cassette}, (err,user)=>{
+                    
+        if(user==null)  {   
+            res.send({ message: 'error' });
+        
+       }
+        else{
+           
+            Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'done' : 1}});
+          
+            res.send({ message: 'user' });
+        }
+    })
+})
+
+
 
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>
@@ -736,6 +776,10 @@ app.get('/logine', (req, res) =>
     
 );
 app.get('/loginshe', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/loginse', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
