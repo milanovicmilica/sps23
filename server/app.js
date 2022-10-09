@@ -505,8 +505,8 @@ app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid'
         }else{
             console.log("evoooo")
             for (let index = 0; index < user.length; index++) {
-                Sample.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
-                    $set: {id: index}
+                Sample.findOneAndUpdate({ 'id': user[index].id, 'caseid': req.body.caseid }, {
+                    $set: {'id': index}
                 })     
                            
             }
@@ -535,8 +535,8 @@ app.post('/acssecond/guest/changeslovo', (req, res) => {
         }else{
 
             for (let index = 0; index < user.length; index++) {
-                Sample.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
-                    $set: {slovo: sniz[index]}
+                Sample.findOneAndUpdate({ 'id': user[index].id, 'caseid': req.body.caseid }, {
+                    $set: {'slovo': sniz[index]}
                 })     
                            
             }
@@ -550,8 +550,68 @@ app.post('/acssecond/guest/changeslovo', (req, res) => {
     });
 
 })
+app.post('/dashfour/guest/endprocess', (req, res) => {    
+    
+    Process.findOne({
+        bascet: req.body.bascet
+       
+    }).then((user) => {
+        if(user==null)
+        {        
+                res.send({ message: 'nema' }); 
+
+        }else{
+            let s=1;
+            
+            Process.findOneAndUpdate({  'bascet': req.body.bascet }, {
+                    $set: {'status': s}
+                })     
+                Process.findOneAndUpdate({  'bascet': req.body.bascet }, {
+                    $set: {'endhours': req.body.endhours}
+                })    
+                Process.findOneAndUpdate({  'bascet': req.body.bascet }, {
+                    $set: {'endminutes': req.body.endminutes}
+                })         
+            
+           
+            res.send({ message: 'user' });
+        }
 
 
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+
+})
+app.post('/dashfour/guest/updateProcessor', (req, res) => {    
+    
+    Processor.findOne({
+        name: req.body.processor
+       
+    }).then((user) => {
+        if(user==null)
+        {        
+                res.send({ message: 'nema' }); 
+
+        }else{
+            let nova=user.free;
+            let s=nova+1;
+            
+            Processor.findOneAndUpdate({  'name': req.body.processor }, {
+                    $set: {'free': s}
+                })     
+                  
+            
+           
+            res.send({ message: 'user' });
+        }
+
+
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+
+})
 
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>

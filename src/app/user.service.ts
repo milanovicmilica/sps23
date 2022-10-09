@@ -256,7 +256,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/guest/endprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfour/guest/endprocess', data)
   }
   endSProcess(bascet, endhours,endminutes)
   {
@@ -283,7 +283,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/guest/updateProcessor', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfour/guest/updateProcessor', data)
   }
   updateStainer(stainer)
   {
