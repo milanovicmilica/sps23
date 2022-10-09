@@ -131,6 +131,16 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess', (req, res) =>
         res.send(e);
     });
 })
+app.get('/dashfour/guest/getallprocess', (req, res) => {
+    
+    Process.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
 app.get('/guest/getallprotocols2', (req, res) => {
     
     Protocol2.find({

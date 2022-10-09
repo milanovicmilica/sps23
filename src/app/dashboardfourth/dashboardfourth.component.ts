@@ -20,6 +20,7 @@ export class DashboardfourthComponent implements OnInit {
     this.UserService.getAllProcess().subscribe((data: Process[])=>{
       this.allProcess=data;
       
+      
       for (let index = 0; index < this.allProcess.length; index++) {
         if(this.allProcess[index].status==0)
         {
