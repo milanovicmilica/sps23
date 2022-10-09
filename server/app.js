@@ -563,13 +563,13 @@ app.post('/dashfour/guest/endprocess', (req, res) => {
         }else{
             let s=1;
             
-            Process.findOneAndUpdate({  'bascet': req.body.bascet }, {
+            Process.updateOne({  'bascet': req.body.bascet }, {
                     $set: {'status': s}
                 })     
-                Process.findOneAndUpdate({  'bascet': req.body.bascet }, {
+                Process.updateOne({  'bascet': req.body.bascet }, {
                     $set: {'endhours': req.body.endhours}
                 })    
-                Process.findOneAndUpdate({  'bascet': req.body.bascet }, {
+                Process.updateOne({  'bascet': req.body.bascet }, {
                     $set: {'endminutes': req.body.endminutes}
                 })         
             
@@ -597,7 +597,7 @@ app.post('/dashfour/guest/updateProcessor', (req, res) => {
             let nova=user.free;
             let s=nova+1;
             
-            Processor.findOneAndUpdate({  'name': req.body.processor }, {
+            Processor.updateOne({  'name': req.body.processor }, {
                     $set: {'free': s}
                 })     
                   
