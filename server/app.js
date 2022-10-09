@@ -80,7 +80,7 @@ app.get('/guest/getallsectioning', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallstainingprocess', (req, res) => {
+app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     //console.log('caoo')
     ProcessStaining.find({
@@ -91,7 +91,7 @@ app.get('/guest/getallstainingprocess', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallstainers', (req, res) => {
+app.get('/guest/getallstainers' || '/dashsix/guest/getallstainers' || '/staining/guest/getallstainers', (req, res) => {
 
     Stainer.find({
        
@@ -141,7 +141,7 @@ app.get('/dashfour/guest/getallprocess', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallprotocols2', (req, res) => {
+app.get('/guest/getallprotocols2' || '/staining/guest/getallprotocols2', (req, res) => {
     
     Protocol2.find({
        
@@ -238,7 +238,7 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
 
 
 
-app.post('/guest/loginprovera' || '/logine/guest/loginprovera', (req, res) => {
+app.post('/guest/loginprovera' || '/logine/guest/loginprovera' || '/loginshe/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -259,7 +259,7 @@ app.post('/guest/loginprovera' || '/logine/guest/loginprovera', (req, res) => {
     });
 })
 
-app.post('/guest/login' || '/logine/guest/login', (req, res) => {
+app.post('/guest/login' || '/logine/guest/login' || '/loginshe/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username,
@@ -653,12 +653,89 @@ app.post('/dashfive/guest/confirmEmb', (req, res) => {
 
 })
 
+app.post('/dashsix/guest/endsprocess', (req, res) => {    
+    
+    ProcessStaining.findOne({
+        bascet: req.body.bascet
+       
+    }).then((user) => {
+        if(user==null)
+        {        
+                res.send({ message: 'nema' }); 
+
+        }else{
+            let s=1;
+                     
+                ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'status': s}});
+                ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endhours': req.body.endhours}});
+                ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {    $set: {'endminutes': req.body.endminutes}});
+            res.send({ message: 'user' });
+        }
+
+
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+
+})
+
+app.post('/dashsix/guest/updateStainer', (req, res) => {    
+    
+    Stainer.findOne({
+        name: req.body.processor
+       
+    }).then((user) => {
+        if(user==null)
+        {        
+                res.send({ message: 'nema' }); 
+
+        }else{
+            let nova=user.free;
+            let s=nova+1;
+            Stainer.collection.updateOne({'name' :req.body.processor}, { $set: {'free': s}});
+        
+            res.send({ message: 'user' });
+        }
+
+
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+
+})
+app.post('/staining/guest/addstainingprocess', (req, res) => {   
+let user1=new ProcessStaining({stainer:req.body.stainer, protocol:req.body.protocol, 
+    bascet:req.body.bascet, casette:req.body.casette, hours:req.body.hours, minutes:req.body.minutes,
+status:req.body.status, poshours:req.body.poshours, posminutes:req.body.posminutes, posday:req.body.posday,
+posmonth:req.body.posmonth, posyear:req.body.posyear })
+      
+    Stainer.findOne({'name':req.body.stainer}, (err,user)=>{
+        
+        if(user==null)  {   res.send({ message: 'nema' });}
+        else{
+            let nova=user.free;
+            nova=nova-1;
+            Stainer.collection.updateOne({'name' :req.body.stainer}, {$set: {'free' : nova}});
+            user1.save().then(user2=>{
+                res.send({ message: 'user' });
+            }).catch(err=>{
+                res.send({ message: 'error' });
+            })
+           
+        }
+    })
+})
+
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
 app.get('/logine', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/loginshe', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

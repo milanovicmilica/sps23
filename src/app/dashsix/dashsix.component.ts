@@ -181,11 +181,26 @@ else{ this.popup=1;
         
         this.UserService.updateStainer(stainer).subscribe((resp)=>{
         if(resp['message']=='user'){
-          
+          this.unfProcess=[];
+          this.message1=[];
+          this.nizflags=[];
+          this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
+            this.allProcess=data;
+            
+            for (let index = 0; index < this.allProcess.length; index++) {
+              if(this.allProcess[index].status==0)
+              {
+                this.unfProcess.push(this.allProcess[index]);
+                this.nizflags.push(0);
+                this.message1.push("");
+              }
+              
+            }
+          })
        
       }
     });
-    window.location.reload();
+  
       }
       else{ 
         if (resp['message']=='zauzeto')

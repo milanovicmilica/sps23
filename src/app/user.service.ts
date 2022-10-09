@@ -18,7 +18,8 @@ export class UserService {
       password: password
      }
       return this.http.post('https://sps23.herokuapp.com/guest/login', data) || 
-      this.http.post('https://sps23.herokuapp.com/logine/guest/login', data);
+      this.http.post('https://sps23.herokuapp.com/logine/guest/login', data) ||
+      this.http.post('https://sps23.herokuapp.com/loginshe/guest/login', data) ;
    }
    loginProvera(username, password){
     const data={
@@ -27,7 +28,8 @@ export class UserService {
      password: password
     }
      return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
-     this.http.post('https://sps23.herokuapp.com/logine/guest/loginprovera', data);
+     this.http.post('https://sps23.herokuapp.com/logine/guest/loginprovera', data) ||
+     this.http.post('https://sps23.herokuapp.com/loginshe/guest/loginprovera', data);
   }
  
   addUser(username,password, brTipa, firstname,lastname){
@@ -243,7 +245,7 @@ export class UserService {
       posyear:posyear
     }
 
-    return this.http.post('http://localhost:4000/guest/addstainingprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/staining/guest/addstainingprocess', data)
 
   }
   endProcess(bascet, endhours,endminutes)
@@ -272,7 +274,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/guest/endsprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/dashsix/guest/endsprocess', data)
   }
   updateProcessor(processor)
   {
@@ -298,7 +300,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/guest/updateStainer', data)
+    return this.http.post('https://sps23.herokuapp.com/dashsix/guest/updateStainer', data)
   }
   changeID(caseid)
   {
@@ -451,7 +453,8 @@ export class UserService {
   }
   getAllProtocols2()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols2')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols2') ||
+    this.http.get('https://sps23.herokuapp.com/staining/guest/getallprotocols2');
   }
   getAllProcess()
   {
@@ -464,7 +467,9 @@ export class UserService {
   }
   getAllStainers()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallstainers')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallstainers') ||
+    this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainers') ||
+    this.http.get('https://sps23.herokuapp.com/staining/guest/getallstainers');
   }
   getAllStainersAdmin()
   {
@@ -476,7 +481,8 @@ export class UserService {
   }
   getAllStainingProcess()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess') || 
+    this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainingprocess')
   }
   getAllSectioning()
   {
