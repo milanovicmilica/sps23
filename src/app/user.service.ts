@@ -407,19 +407,19 @@ export class UserService {
 
     }
 
-    return this.http.post('http://localhost:4000/guest/addCase', data)
+    return this.http.post('https://sps23.herokuapp.com/acsfirst/guest/addCase', data)
   }
   getAllPath(){
-    return this.http.get('https://sps23.herokuapp.com/guest/getallpath')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallpath') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallpath') 
   }
   getAllCs(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcs')
   }
   getAllCases(){
-    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases')
   }
   getAllHospitals(){
-    return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
   }
   getAllSamples()
   {

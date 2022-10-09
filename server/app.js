@@ -171,7 +171,7 @@ app.get('/guest/getallsamples', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallhospitals', (req, res) => {
+app.get('/guest/getallhospitals' || '/acsfirst/guest/getallhospitals', (req, res) => {
     
     Hospital.find({
        
@@ -211,7 +211,7 @@ app.get('/guest/getallcs', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallpath', (req, res) => {
+app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
     
     User.find({
      type: 3  
@@ -407,7 +407,23 @@ app.post('/dashfirst/guest/addUser', (req, res) => {
         res.send({ message: 'error' });
     });
 })
+app.post('/acsfirst/guest/addCase', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+   
 
+    let newP = new Case({
+        sender : req.body.sender, hospitalid: req.body.hospitalid,   contact: req.body.contact, address:req.body.address, firstname:req.body.firstname,
+        lastname : req.body.lastname,    pid: req.body.pid,  date:req.body.date,lbo:req.body.lbo, hnum : req.body.hnum,bnum: req.body.bnum,
+        diagnosis: req.body.diagnosis,path:req.body.path, adcom:req.body.adcom, gen: req.body.gen, casenum:req.body.casenum,formatcn:req.body.formatcn,
+    });
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user added' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+})
 
 
 

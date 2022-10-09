@@ -18,7 +18,7 @@ const CaseSchema = new mongoose.Schema({
     },
     contact: {
         type: String,
-        required: true,
+       
       
     },
     address: {
@@ -51,7 +51,7 @@ const CaseSchema = new mongoose.Schema({
     },
     bnum: {
         type: Number,
-        required: true,
+     
         
     },
     diagnosis: {
@@ -68,7 +68,7 @@ const CaseSchema = new mongoose.Schema({
     },
     casenum: {
         type: Number,
-        required: true,
+       
         
     },
     formatcn: {
