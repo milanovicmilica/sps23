@@ -111,7 +111,7 @@ app.get('/addstprotocol/guest/getallstainers', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallemb', (req, res) => {
+app.get('/guest/getallemb' || '/dashfive/guest/getallemb', (req, res) => {
     
     Embedding.find({
        
@@ -172,7 +172,8 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
         res.send(e);
     });
 })
-app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples', (req, res) => {
+app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples'
+|| '/dashfive/guest/getallsamples', (req, res) => {
     
     Sample.find({
        
@@ -203,7 +204,7 @@ app.get('/guest/getallcases', (req, res) => {
     });
 })
 app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
-|| '/clacs/guest/getallcases', (req, res) => {
+|| '/clacs/guest/getallcases' || '/dashfive/guest/getallcases', (req, res) => {
     
     Case.find({
        
@@ -213,7 +214,7 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
         res.send(e);
     });
 })
-app.get('/guest/getallcs', (req, res) => {
+app.get('/guest/getallcs' || '/dashfive/guest/getallcs', (req, res) => {
     
     CS.find({
        
@@ -237,7 +238,7 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
 
 
 
-app.post('/guest/loginprovera', (req, res) => {
+app.post('/guest/loginprovera' || '/logine/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -258,7 +259,7 @@ app.post('/guest/loginprovera', (req, res) => {
     });
 })
 
-app.post('/guest/login', (req, res) => {
+app.post('/guest/login' || '/logine/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username,
@@ -628,10 +629,7 @@ app.post('/dashfour/guest/updateProcessor', (req, res) => {
             let nova=user.free;
             let s=nova+1;
             Processor.collection.updateOne({'name' :req.body.processor}, { $set: {'free': s}});
-              
-                  
-            
-           
+        
             res.send({ message: 'user' });
         }
 
@@ -641,7 +639,19 @@ app.post('/dashfour/guest/updateProcessor', (req, res) => {
     });
 
 })
+app.post('/dashfive/guest/confirmEmb', (req, res) => {    
+    
+    let newP = new Embedding({
+        cassette : req.body.cassette, caseid: req.body.caseid,   date: req.body.date, time:req.body.time, minute:req.body.minute,
+      })
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
 
+})
 
 app.use(express.static('.././dist/sps'));
 app.get('/', (req, res) =>

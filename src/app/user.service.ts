@@ -17,7 +17,8 @@ export class UserService {
       username: username,
       password: password
      }
-      return this.http.post('https://sps23.herokuapp.com/guest/login', data);
+      return this.http.post('https://sps23.herokuapp.com/guest/login', data) || 
+      this.http.post('https://sps23.herokuapp.com/logine/guest/login', data);
    }
    loginProvera(username, password){
     const data={
@@ -25,7 +26,8 @@ export class UserService {
      username: username,
      password: password
     }
-     return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data);
+     return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
+     this.http.post('https://sps23.herokuapp.com/logine/guest/loginprovera', data);
   }
  
   addUser(username,password, brTipa, firstname,lastname){
@@ -354,7 +356,7 @@ export class UserService {
       minute:minute,
     }
 
-    return this.http.post('http://localhost:4000/guest/confirmEmb', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfive/guest/confirmEmb', data)
   }
   addSectioning(cassette,dan,mesec,godina,nizQr,nizprint)
   {
@@ -413,20 +415,26 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallpath') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallpath') 
   }
   getAllCs(){
-    return this.http.get('https://sps23.herokuapp.com/guest/getallcs')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcs') ||
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcs');
   }
   getAllCases(){
-    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') 
-    || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallcases') ||
-    this.http.get('https://sps23.herokuapp.com/clacs/guest/getallcases')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 
+    this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') 
+    || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases') ||
+     this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallcases') ||
+    this.http.get('https://sps23.herokuapp.com/clacs/guest/getallcases') ||
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcases') ;
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
   }
   getAllSamples()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallsamples')
-    || this.http.get('https://sps23.herokuapp.com/clacs/guest/getallsamples')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || 
+    this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallsamples')
+    || this.http.get('https://sps23.herokuapp.com/clacs/guest/getallsamples') ||
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallsamples'); 
   }
   getAllProcessors()
   {
@@ -451,7 +459,8 @@ export class UserService {
   }
   getAllEmb()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallemb')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallemb') ||
+    this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallemb');
   }
   getAllStainers()
   {
