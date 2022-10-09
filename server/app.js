@@ -547,8 +547,8 @@ app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid'
         }else{
             console.log("evoooo")
             for (let index = 0; index < user.length; index++) {
-                Sample.updateOne({ 'id': user[index].id, 'caseid': req.body.caseid }, {$set: {'id': index}})     
-              
+                Sample.collection.updateOne({ 'id': user[index].id, 'caseid': req.body.caseid }, {$set: {'id': index}})     
+                
             }
            
             res.send({ message: 'user' });
@@ -575,10 +575,9 @@ app.post('/acssecond/guest/changeslovo', (req, res) => {
         }else{
 
             for (let index = 0; index < user.length; index++) {
-                Sample.updateOne({ 'id': user[index].id, 'caseid': req.body.caseid }, {
-                    $set: {'slovo': sniz[index]}
-                })     
-                           
+   
+                
+                Sample.collection.updateOne({'id': user[index].id, 'caseid': req.body.caseid }, {    $set: {'slovo': sniz[index]}});
             }
            
             res.send({ message: 'user' });
@@ -602,18 +601,10 @@ app.post('/dashfour/guest/endprocess', (req, res) => {
 
         }else{
             let s=1;
-            
-            Process.updateOne({  'bascet': req.body.bascet }, {
-                    $set: {'status': s}
-                })     
-                Process.updateOne({  'bascet': req.body.bascet }, {
-                    $set: {'endhours': req.body.endhours}
-                })    
-                Process.updateOne({  'bascet': req.body.bascet }, {
-                    $set: {'endminutes': req.body.endminutes}
-                })         
-            
-           
+                     
+                Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'status': s}});
+                Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endhours': req.body.endhours}});
+                Process.collection.updateOne({'bascet': req.body.bascet }, {    $set: {'endminutes': req.body.endminutes}});
             res.send({ message: 'user' });
         }
 
@@ -636,10 +627,8 @@ app.post('/dashfour/guest/updateProcessor', (req, res) => {
         }else{
             let nova=user.free;
             let s=nova+1;
-            
-            Processor.updateOne({  'name': req.body.processor }, {
-                    $set: {'free': s}
-                })     
+            Processor.collection.updateOne({'name' :req.body.processor}, { $set: {'free': s}});
+              
                   
             
            
