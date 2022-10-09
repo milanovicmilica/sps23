@@ -110,7 +110,7 @@ export class UserService {
       ihc:ihc
     }
 
-    return this.http.post('http://localhost:4000/guest/addSample', data)
+    return this.http.post('http://localhost:4000/guest/addSample', data) || this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSample', data)
 
   }
   addSampleSlide(caseid,sample,s2,brTipa,num,id,slovo, choice, firstch, spec, ihc, niz1,niz2, exbl){
@@ -134,7 +134,8 @@ export class UserService {
       exbl:exbl
     }
 
-    return this.http.post('http://localhost:4000/guest/addSampleSlide', data)
+    return this.http.post('http://localhost:4000/guest/addSampleSlide', data) ||
+     this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSampleSlide', data)
 
   }
   addSampleBlock(caseid,sample,s2,brTipa,num,id,slovo, exbl, spec,ihc, niz1,niz2){
@@ -156,7 +157,8 @@ export class UserService {
       niz2:niz2
     }
 
-    return this.http.post('http://localhost:4000/guest/addSampleBlock', data)
+    return this.http.post('http://localhost:4000/guest/addSampleBlock', data) ||
+    this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSampleBlock', data)
 
   }
   printCassette(caseid,slovo,podslovo,print,code,path, asistent)
@@ -306,7 +308,7 @@ export class UserService {
      
       caseid:caseid
     }
-    return this.http.post('http://localhost:4000/guest/changeid', data)
+    return this.http.post('http://localhost:4000/guest/changeid', data) || this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeid', data)
   }
   changeslovo(caseid)
   {
@@ -316,7 +318,8 @@ export class UserService {
      
       caseid:caseid
     }
-    return this.http.post('http://localhost:4000/guest/changeslovo', data)
+    return this.http.post('http://localhost:4000/guest/changeslovo', data) ||
+     this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeslovo', data)
   }
   deleteSample(id, caseid){
 
@@ -328,7 +331,8 @@ export class UserService {
       caseid:caseid
     }
 
-    return this.http.post('http://localhost:4000/guest/deleteSample', data)
+    return this.http.post('http://localhost:4000/guest/deleteSample', data) ||
+    this.http.post('https://sps23.herokuapp.com/acssecond/guest/deleteSample', data)
 
   }
   findCassette(cassette)
@@ -416,14 +420,15 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallcs')
   }
   getAllCases(){
-    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') 
+    || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases') || this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallcases')
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
   }
   getAllSamples()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallsamples')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallsamples')
   }
   getAllProcessors()
   {

@@ -161,7 +161,7 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors', (req
         res.send(e);
     });
 })
-app.get('/guest/getallsamples', (req, res) => {
+app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples', (req, res) => {
     
     Sample.find({
        
@@ -191,7 +191,7 @@ app.get('/guest/getallcases', (req, res) => {
         res.send(e);
     });
 })
-app.get('/grossfirst/guest/getallcases', (req, res) => {
+app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases', (req, res) => {
     
     Case.find({
        
@@ -424,12 +424,131 @@ app.post('/acsfirst/guest/addCase', (req, res) => {
             });
 
 })
+app.post('/acssecond/guest/addSample', (req, res) => {    
+
+    let newP = new Sample({
+        caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
+        id : req.body.id,    slovo: req.body.slovo,  spec:req.body.spec,ihc:req.body.ihc})
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+})
+app.post('/acssecond/guest/addSampleSlide', (req, res) => {    
+
+    let newP = new Sample({
+        caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
+        id : req.body.id,    slovo: req.body.slovo,  spec:req.body.spec,ihc:req.body.ihc,
+        choice: req.body.choice,  firstch:req.body.firstch,niz1:req.body.niz1,  niz2:req.body.niz2 , exbl:req.body.exbl})
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+})
+app.post('/acssecond/guest/addSampleBlock', (req, res) => {    
+
+    let newP = new Sample({
+        caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
+        id : req.body.id,    slovo: req.body.slovo,  spec:req.body.spec,ihc:req.body.ihc,
+         niz1:req.body.niz1,  niz2:req.body.niz2 , exbl:req.body.exbl})
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+})
+app.post('/acssecond/guest/deleteSample', (req, res) => {    
+    
+    Sample.findOneAndRemove({
+        id: req.body.id, caseid: req.body.caseid
+       
+    }).then((user) => {
+        if(user==null)
+        {
+            
+                
+                res.send({ message: 'nema' });
+          
+
+        }else{
+
+            res.send({ message: 'deleted' });
+        }
 
 
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+
+})
+app.post('/acssecond/guest/changeid', (req, res) => {    
+    let sniz=['A','B','C','D','E','F','G','H','I',
+    'J','K','L','M','N','O','P','Q','R','S','T',
+    'U','V','W','X','Y','Z'];
+    Sample.find({
+         caseid: req.body.caseid
+       
+    }).then((user) => {
+        if(user==null)
+        {        
+                res.send({ message: 'nema' }); 
+
+        }else{
+
+            for (let index = 0; index < user.length; index++) {
+                List.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
+                    $set: {id: index}
+                })     
+                           
+            }
+           
+            res.send({ message: 'user' });
+        }
 
 
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+
+})
+app.post('/acssecond/guest/changeslovo', (req, res) => {    
+    let sniz=['A','B','C','D','E','F','G','H','I',
+    'J','K','L','M','N','O','P','Q','R','S','T',
+    'U','V','W','X','Y','Z'];
+    Sample.find({
+         caseid: req.body.caseid
+       
+    }).then((user) => {
+        if(user==null)
+        {        
+                res.send({ message: 'nema' }); 
+
+        }else{
+
+            for (let index = 0; index < user.length; index++) {
+                List.findOneAndUpdate({ id: user[index].id, caseid: req.body.caseid }, {
+                    $set: {slovo: sniz[index]}
+                })     
+                           
+            }
+           
+            res.send({ message: 'user' });
+        }
 
 
+    }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+
+})
 
 
 
