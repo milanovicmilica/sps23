@@ -121,7 +121,7 @@ app.get('/guest/getallemb', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallprocess', (req, res) => {
+app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess', (req, res) => {
     
     Process.find({
        
@@ -151,7 +151,7 @@ app.get('/guest/getallprotocols', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors', (req, res) => {
+app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors', (req, res) => {
     
     Processor.find({
        

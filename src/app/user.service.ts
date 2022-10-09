@@ -306,7 +306,7 @@ export class UserService {
      
       caseid:caseid
     }
-    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/deleteSample/changeid', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeid', data)
   }
   changeslovo(caseid)
   {
@@ -430,7 +430,9 @@ export class UserService {
   }
   getAllProcessors()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallprocessors') ||  this.http.get('https://sps23.herokuapp.com/addprotocol/guest/getallprocessors')
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprocessors') ||  
+    this.http.get('https://sps23.herokuapp.com/addprotocol/guest/getallprocessors') ||
+    this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocessors')
   }
   
   getAllProtocols()
@@ -443,7 +445,7 @@ export class UserService {
   }
   getAllProcess()
   {
-    return this.http.get('https://sps23.herokuapp.com/guest/getallprocess')
+    return this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocess')
   }
   getAllEmb()
   {
