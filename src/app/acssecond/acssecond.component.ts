@@ -267,7 +267,21 @@ addsample(){
 
     if(resp['message']=='user')
     {this.message='User added'; 
-    window.location.reload();}
+    this.mySamples=[];
+
+    this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+      this.allSamples=data;
+    for (let index = 0; index < this.allSamples.length; index++) {
+     
+      if(this.caseid==this.allSamples[index].caseid)
+      {
+            
+        this.emptycase.pop();
+        this.mySamples.push(this.allSamples[index]);
+      }
+      
+    }})
+  }
     else{ 
       if (resp['message']=='zauzeto')
       {this.message2='Username is aleready used'; }
@@ -297,8 +311,21 @@ addsample(){
     this.ihcsend,this.niz1,this.niz2, this.Exbl).subscribe((resp)=>{
 
     if(resp['message']=='user')
-    {this.message='User added'; 
-    window.location.reload();}
+    {this.message='User added'; this.mySamples=[]
+    this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+      this.allSamples=data;
+    for (let index = 0; index < this.allSamples.length; index++) {
+     
+      if(this.caseid==this.allSamples[index].caseid)
+      {
+            
+        this.emptycase.pop();
+        this.mySamples.push(this.allSamples[index]);
+      }
+      
+    }})
+  
+  }
     else{ 
       if (resp['message']=='zauzeto')
       {this.message2='Username is aleready used'; }
@@ -330,8 +357,23 @@ else{
     this.UserService.addSampleBlock(this.caseid,this.sample,this.s2,this.brTipa,this.num,id,slovo, this.Exbl, this.spec, this.ihcsend,this.niz1,this.niz2).subscribe((resp)=>{
 
       if(resp['message']=='user')
-      {this.message='User added'; 
-      window.location.reload();}
+      {this.message='User added';
+      this.mySamples=[]; 
+      this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+        this.allSamples=data;
+      for (let index = 0; index < this.allSamples.length; index++) {
+       
+        if(this.caseid==this.allSamples[index].caseid)
+        {
+              
+          this.emptycase.pop();
+          this.mySamples.push(this.allSamples[index]);
+        }
+        
+      }})
+    
+    
+    }
       else{ 
         if (resp['message']=='zauzeto')
         {this.message2='Username is aleready used'; }
@@ -361,7 +403,19 @@ delete(b)
         
         if(resp['message']=='user'){
   
-        window.location.reload();}
+          this.mySamples=[]; 
+      this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+        this.allSamples=data;
+      for (let index = 0; index < this.allSamples.length; index++) {
+       
+        if(this.caseid==this.allSamples[index].caseid)
+        {
+              
+          this.emptycase.pop();
+          this.mySamples.push(this.allSamples[index]);
+        }
+        
+      }})}
       })
                                 }
      }
