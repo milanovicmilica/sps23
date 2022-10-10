@@ -92,6 +92,7 @@ export class DashfiveComponent implements OnInit {
             {
               this.firstname=this.allCases[index2].firstname;
               this.lastname=this.allCases[index2].lastname;
+              this.cassette="";
             }
             
           }
@@ -113,6 +114,7 @@ export class DashfiveComponent implements OnInit {
                {
                 this.firstname=this.allCases[index3].firstname;
                 this.lastname=this.allCases[index3].lastname;
+                this.cassette="";
                }
               }
             }
@@ -149,7 +151,7 @@ message:string;
         this.message="Done";
         this.UserService.getAllEmb().subscribe((data: Embedding[])=>{
           this.allEmb=data;
-        this.flag1=0;
+        this.flag1=0;this.cassette="";
         })
         }
       else{ 
