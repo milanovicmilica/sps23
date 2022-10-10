@@ -158,6 +158,13 @@ font-family: 'Raleway', sans-serif;
 
 
 }
+a{
+    color: white;
+    }
+    a:hover{
+        color: red;
+        text-decoration: none;
+    }
 .stavka3:hover{
     color: #f00000;
 }

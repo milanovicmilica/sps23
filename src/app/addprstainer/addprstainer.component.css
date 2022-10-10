@@ -25,6 +25,13 @@ justify-content: center;
 flex-direction: column;
 align-items: center;
 }
+a{
+    color: white;
+    }
+    a:hover{
+        color: red;
+        text-decoration: none;
+    }
 .ceodiv{
     background-color: rgba(255, 248, 220, 0.801);
     padding: 2%;
