@@ -143,7 +143,7 @@ addcase(){
       this.router.navigate(['/acssecond']);}
       else{ 
         if (resp['message']=='zauzeto')
-        {this.message2='Username is aleready used'; }
+        {this.message2='Username is already used'; }
         else{
        this.message='Case is not added'; }
       }
