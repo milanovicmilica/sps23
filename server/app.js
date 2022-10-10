@@ -833,4 +833,32 @@ app.get('/login-processing', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
+app.get('/grossfirst', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/dashsecond', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/dashfirst', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/dashfour', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/dashfive', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/dashsix', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/dashseven', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
 app.listen(process.env.PORT);
