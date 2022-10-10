@@ -59,7 +59,7 @@ export class DashboardthirdComponent implements OnInit {
 }
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/login-grossing']);
   }
   specU:User[]=[];
   allUsers:User[]=[];

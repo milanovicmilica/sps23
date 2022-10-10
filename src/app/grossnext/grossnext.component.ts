@@ -97,7 +97,7 @@ export class GrossnextComponent implements OnInit {
   niz1:number[]=[];
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/login-grossing']);
   }
   allCase:Case[];
   allSample:Sample[];
