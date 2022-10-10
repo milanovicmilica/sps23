@@ -18,6 +18,7 @@ import { GrossnextComponent } from './grossnext/grossnext.component';
 import { LoginaccessioningComponent } from './loginaccessioning/loginaccessioning.component';
 import { LoginembComponent } from './loginemb/loginemb.component';
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
+import { LoginprocessingComponent } from './loginprocessing/loginprocessing.component';
 import { LoginsectioningComponent } from './loginsectioning/loginsectioning.component';
 import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
@@ -45,10 +46,11 @@ const routes: Routes = [
 { path: 'staining', component:StainingComponent},
 { path: 'addstainer', component:AddstainerComponent},
 { path: 'addstprotocol', component:AddprstainerComponent},
-{ path: 'loginse', component:LoginsectioningComponent},
+{ path: 'login-sectioning', component:LoginsectioningComponent},
 { path: 'dashseven', component:DashsevenComponent},
 { path: 'login-grossing', component:LogingrossingComponent},
 { path: 'login-accessioning', component:LoginaccessioningComponent},
+{ path: 'login-processing', component:LoginprocessingComponent},
 ]  ;
 
 @NgModule({

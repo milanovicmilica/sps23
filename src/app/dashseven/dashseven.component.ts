@@ -397,7 +397,7 @@ print(i)
 
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/loginse']);
+    this.router.navigate(['/login-sectioning']);
   }
 
   donecase(){

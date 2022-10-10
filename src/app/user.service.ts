@@ -20,9 +20,10 @@ export class UserService {
       return this.http.post('https://sps23.herokuapp.com/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-embedding/guest/login', data) ||
       this.http.post('https://sps23.herokuapp.com/login-staininghe/guest/login', data) ||
-      this.http.post('https://sps23.herokuapp.com/loginse/guest/login', data) || 
+      this.http.post('https://sps23.herokuapp.com/login-sectioning/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-grossing/guest/login', data) || 
-      this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/login', data);
+      this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/login', data) || 
+      this.http.post('https://sps23.herokuapp.com/login-processing/guest/login', data);
    }
    loginProvera(username, password){
     const data={
@@ -33,9 +34,10 @@ export class UserService {
      return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/login-embedding/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/login-staininghe/guest/loginprovera', data) ||
-     this.http.post('https://sps23.herokuapp.com/loginse/guest/loginprovera', data) || 
+     this.http.post('https://sps23.herokuapp.com/login-sectioning/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-grossing/guest/loginprovera', data) || 
-     this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/loginprovera', data);
+     this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/loginprovera', data) || 
+     this.http.post('https://sps23.herokuapp.com/login-processing/guest/loginprovera', data);
   }
  
   addUser(username,password, brTipa, firstname,lastname){

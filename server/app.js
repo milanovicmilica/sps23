@@ -240,8 +240,8 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
 
 
 
-app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/login-staininghe/guest/loginprovera' || '/loginse/guest/loginprovera'
-|| '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera', (req, res) => {
+app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/login-staininghe/guest/loginprovera' || '/login-sectioning/guest/loginprovera'
+|| '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera' || '/login-processing/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -262,8 +262,8 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
     });
 })
 
-app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/guest/login' || '/loginse/guest/login' || '/login-grossing/guest/login'
-|| '/login-accessioning/guest/login', (req, res) => {
+app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/guest/login' || '/login-sectioning/guest/login' || '/login-grossing/guest/login'
+|| '/login-accessioning/guest/login' || '/login-processing/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username,
@@ -817,7 +817,7 @@ app.get('/login-staininghe', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
-app.get('/loginse', (req, res) =>
+app.get('/login-sectioning', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
@@ -826,6 +826,10 @@ app.get('/login-grossing', (req, res) =>
     
 );
 app.get('/login-accessioning', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/login-processing', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

@@ -64,7 +64,7 @@ export class ProcessingComponent implements OnInit {
   qrResult: Result;
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/login-processing']);
   }
   procpoc(){
     this.router.navigate(['/dashfour']);
