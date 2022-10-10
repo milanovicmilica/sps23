@@ -424,14 +424,15 @@ app.post('/dashfirst/guest/addUser', (req, res) => {
         res.send({ message: 'error' });
     });
 })
-app.post('/acsfirst/guest/addCase', (req, res) => {
+app.post('/acsfirst/guest/addCase' || '${process.env.PORT}/guest/addCase' || '${process.env.PORT}/acsfirst/guest/addCase', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
    
     console.log('evoo u app1')
     let newP = new Case({
         sender : req.body.sender, hospitalid: req.body.hospitalid,   contact: req.body.contact, address:req.body.address, firstname:req.body.firstname,
-        lastname : req.body.lastname,    pid: req.body.pid,  date:req.body.date,lbo:req.body.lbo, hnum : req.body.hnum,bnum: req.body.bnum,
-        diagnosis: req.body.diagnosis,path:req.body.path, adcom:req.body.adcom, gen: req.body.gen, casenum:req.body.casenum,formatcn:req.body.formatcn,
+        lastname : req.body.lastname,    pid: req.body.pid,  date:req.body.date, lbo:req.body.lbo, hnum : req.body.hnum,bnum: req.body.bnum,
+        diagnosis: req.body.diagnosis, path:req.body.path, adcom:req.body.adcom, gen: req.body.gen, casenum:req.body.casenum,
+         formatcn:req.body.formatcn
     });
             newP.save().then((us2) => {
                 console.log('evoo u app')
