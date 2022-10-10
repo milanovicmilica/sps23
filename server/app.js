@@ -437,7 +437,9 @@ app.post('/acsfirst/guest/addCase' || '${process.env.PORT}/guest/addCase' || '${
             newP.save().then((us2) => {
                 console.log('evoo u app')
                 res.send({ message: 'user added' });
-            })
+            }).catch((e) => {console.log('evoo u error')
+                res.send({ message: 'error' });
+            });
 
 })
 app.post('/acssecond/guest/addSample', (req, res) => {    
