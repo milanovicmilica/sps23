@@ -11,10 +11,7 @@ const jwtSecret = "51778657246321226641fsdklafjasdkljfsklfjd7148924065";
 const CaseSchema = new mongoose.Schema({
     sender: {
         type: String,
-        required: true,
-        minlength: 1,
-        trim: true,
-        unique: true
+        
     },
     contact: {
         type: String,
