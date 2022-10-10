@@ -862,8 +862,8 @@ app.get('/dashseven', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
-/*app.get('/clacs', (req, res) =>
+app.get('/clacs', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
-);*/
+);
 app.listen(process.env.PORT);
