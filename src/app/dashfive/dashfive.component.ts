@@ -52,7 +52,7 @@ export class DashfiveComponent implements OnInit {
   message1:string;
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/logine']);
+    this.router.navigate(['/login-embedding']);
   }
   search(){
     this.message=""

@@ -240,7 +240,7 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
 
 
 
-app.post('/guest/loginprovera' || '/logine/guest/loginprovera' || '/loginshe/guest/loginprovera' || '/loginse/guest/loginprovera'
+app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/loginshe/guest/loginprovera' || '/loginse/guest/loginprovera'
 || '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
@@ -262,7 +262,7 @@ app.post('/guest/loginprovera' || '/logine/guest/loginprovera' || '/loginshe/gue
     });
 })
 
-app.post('/guest/login' || '/logine/guest/login' || '/loginshe/guest/login' || '/loginse/guest/login' || '/login-grossing/guest/login'
+app.post('/guest/login' || '/login-embedding/guest/login' || '/loginshe/guest/login' || '/loginse/guest/login' || '/login-grossing/guest/login'
 || '/login-accessioning/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
@@ -809,7 +809,7 @@ app.get('/', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
-app.get('/logine', (req, res) =>
+app.get('/login-embedding', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

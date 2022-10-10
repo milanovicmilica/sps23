@@ -38,7 +38,7 @@ const routes: Routes = [
 {path: 'dashfourproc', component:ProcessingComponent},
 {path: 'addprocessor', component:AddprocessorComponent},
 {path: 'addprotocol', component:AddprotocolComponent},
-{ path:'logine', component:LoginembComponent},
+{ path:'login-embedding', component:LoginembComponent},
 { path: 'dashfive', component:DashfiveComponent},
 { path: 'loginshe', component:LoginsheComponent},
 { path: 'dashsix', component:DashsixComponent},

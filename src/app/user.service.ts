@@ -18,7 +18,7 @@ export class UserService {
       password: password
      }
       return this.http.post('https://sps23.herokuapp.com/guest/login', data) || 
-      this.http.post('https://sps23.herokuapp.com/logine/guest/login', data) ||
+      this.http.post('https://sps23.herokuapp.com/login-embedding/guest/login', data) ||
       this.http.post('https://sps23.herokuapp.com/loginshe/guest/login', data) ||
       this.http.post('https://sps23.herokuapp.com/loginse/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-grossing/guest/login', data) || 
@@ -31,7 +31,7 @@ export class UserService {
      password: password
     }
      return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
-     this.http.post('https://sps23.herokuapp.com/logine/guest/loginprovera', data) ||
+     this.http.post('https://sps23.herokuapp.com/login-embedding/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/loginshe/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/loginse/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-grossing/guest/loginprovera', data) || 
