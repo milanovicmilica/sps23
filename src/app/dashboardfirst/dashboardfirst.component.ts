@@ -81,7 +81,11 @@ export class DashboardfirstComponent implements OnInit {
     this.UserService.addUser(this.username,this.password,this.brTipa, this.firstname,this.lastname).subscribe((resp)=>{
 
       if(resp['message']=='user added')
-      {this.message='User added'; }
+      {this.message='User added'; 
+    this.username=""; this.firstname="";
+    this.lastname=""; this.password="";
+    this.brTipa=null;
+    }
       else{ 
         if (resp['message']=='zauzeto')
         {this.message='Username is aleready used'; }

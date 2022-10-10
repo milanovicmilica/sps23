@@ -61,12 +61,20 @@ export class AddprocessorComponent implements OnInit {
        this.UserService.addProcessor(this.name,this.num,free).subscribe((resp)=>{
 
         if(resp['message']=='user added')
-        {this.message='Processor added'; }
+        {this.message='Processor added'; 
+      this.name="";
+      this.num=null;
+      }
         else{ 
           if (resp['message']=='zauzeto')
-          {this.message='Processor is already added'; }
+          {this.message='Processor is already added'; 
+          this.name="";
+          this.num=null;
+        }
           else{
-         this.message='Processor is not added'; }
+         this.message='Processor is not added'; 
+         this.name="";
+         this.num=null;}
         }
   
       })
