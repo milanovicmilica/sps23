@@ -427,6 +427,7 @@ print(i)
               this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
                 this.allSectionings=data;
               this.flag1=0;
+              this.cassette="";
               });
             
         
