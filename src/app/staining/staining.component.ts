@@ -50,7 +50,7 @@ export class StainingComponent implements OnInit {
 
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/loginshe']);
+    this.router.navigate(['/login-staininghe']);
   }
   bascet:string;
   casette:string;

@@ -19,7 +19,7 @@ export class UserService {
      }
       return this.http.post('https://sps23.herokuapp.com/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-embedding/guest/login', data) ||
-      this.http.post('https://sps23.herokuapp.com/loginshe/guest/login', data) ||
+      this.http.post('https://sps23.herokuapp.com/login-staininghe/guest/login', data) ||
       this.http.post('https://sps23.herokuapp.com/loginse/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-grossing/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/login', data);
@@ -32,7 +32,7 @@ export class UserService {
     }
      return this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/login-embedding/guest/loginprovera', data) ||
-     this.http.post('https://sps23.herokuapp.com/loginshe/guest/loginprovera', data) ||
+     this.http.post('https://sps23.herokuapp.com/login-staininghe/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/loginse/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-grossing/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/loginprovera', data);

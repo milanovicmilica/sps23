@@ -40,7 +40,7 @@ const routes: Routes = [
 {path: 'addprotocol', component:AddprotocolComponent},
 { path:'login-embedding', component:LoginembComponent},
 { path: 'dashfive', component:DashfiveComponent},
-{ path: 'loginshe', component:LoginsheComponent},
+{ path: 'login-staininghe', component:LoginsheComponent},
 { path: 'dashsix', component:DashsixComponent},
 { path: 'staining', component:StainingComponent},
 { path: 'addstainer', component:AddstainerComponent},

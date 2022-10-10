@@ -43,7 +43,7 @@ export class DashsixComponent implements OnInit {
 
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/loginshe']);
+    this.router.navigate(['/login-staininghe']);
   }
   me:User;
   allStainers:Stainer[];
