@@ -54,7 +54,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <tr *ngFor="let a of unfProcess;let i=index" class="rowt">
                         <td  class="label1" *ngIf="a.status==0">{{(i+1)}}.<label class="lab1bold"> Processor: </label>
                             {{a.processor}}, <label  class="lab1bold"> Protocol:</label> {{a.protocol}}, 
-                            <label  class="lab1bold">Start time:</label> {{a.hours}}h{{a.minutes}}min </td>
+                            <label  class="lab1bold">End time:</label> {{a.poshours}}h{{a.posminutes}}min </td>
                         <td *ngIf="a.status==0"><button class="button2" (click)="doneprocessing(a,i)">DONE PROCESSING</button>
                             <div class="popup" *ngIf="popup==1">
                                 <div class="zaglavlje">
