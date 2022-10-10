@@ -64,7 +64,7 @@ export class AddprocessorComponent implements OnInit {
         {this.message='Processor added'; }
         else{ 
           if (resp['message']=='zauzeto')
-          {this.message='Processor is aleready added'; }
+          {this.message='Processor is already added'; }
           else{
          this.message='Processor is not added'; }
         }

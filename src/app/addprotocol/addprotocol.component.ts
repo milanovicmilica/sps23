@@ -68,7 +68,7 @@ export class AddprotocolComponent implements OnInit {
         {this.message='Protocol added'; }
         else{ 
           if (resp['message']=='zauzeto')
-          {this.message='Protocol is aleready added'; }
+          {this.message='Protocol is already added'; }
           else{
          this.message='Protocol is not added'; }
         }

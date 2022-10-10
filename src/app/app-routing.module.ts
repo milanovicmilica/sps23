@@ -16,6 +16,7 @@ import { DashsevenComponent } from './dashseven/dashseven.component';
 import { DashsixComponent } from './dashsix/dashsix.component';
 import { GrossnextComponent } from './grossnext/grossnext.component';
 import { LoginembComponent } from './loginemb/loginemb.component';
+import { LogingrossingComponent } from './logingrossing/logingrossing.component';
 import { LoginsectioningComponent } from './loginsectioning/loginsectioning.component';
 import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
@@ -45,6 +46,7 @@ const routes: Routes = [
 { path: 'addstprotocol', component:AddprstainerComponent},
 { path: 'loginse', component:LoginsectioningComponent},
 { path: 'dashseven', component:DashsevenComponent},
+{ path: 'login-grossing', component:LogingrossingComponent},
 ]  ;
 
 @NgModule({

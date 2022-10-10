@@ -64,7 +64,7 @@ export class AddstainerComponent implements OnInit {
         {this.message='Stainer added'; }
         else{ 
           if (resp['message']=='zauzeto')
-          {this.message='Stainer is aleready added'; }
+          {this.message='Stainer is already added'; }
           else{
          this.message='Stainer is not added'; }
         }
