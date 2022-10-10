@@ -65,12 +65,24 @@ export class AddprotocolComponent implements OnInit {
       this.UserService.addProtocol(this.name,this.hours,this.minutes, this.processor).subscribe((resp)=>{
 
         if(resp['message']=='user added')
-        {this.message='Protocol added'; }
+        {this.message='Protocol added'; 
+      this.name="";
+      this.hours=null;
+      this.minutes=null;
+      this.processor="";
+      }
         else{ 
           if (resp['message']=='zauzeto')
-          {this.message='Protocol is already added'; }
+          {this.message='Protocol is already added'; 
+          this.name="";
+          this.hours=null;
+          this.minutes=null;
+          this.processor="";}
           else{
-         this.message='Protocol is not added'; }
+         this.message='Protocol is not added';     this.name="";
+         this.hours=null;
+         this.minutes=null;
+         this.processor="";}
         }
   
       })

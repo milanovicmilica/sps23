@@ -65,12 +65,25 @@ export class AddprstainerComponent implements OnInit {
       this.UserService.addSTProtocol(this.name,this.hours,this.minutes, this.stainer).subscribe((resp)=>{
 
         if(resp['message']=='user added')
-        {this.message='Protocol added'; }
+        {this.message='Protocol added'; 
+      this.stainer="";
+    this.name="";
+    this.minutes=null;
+    this.hours=null;
+  }
         else{ 
           if (resp['message']=='zauzeto')
-          {this.message='Protocol is already added'; }
+          {this.message='Protocol is already added';
+          this.stainer="";
+          this.name="";
+          this.minutes=null;
+          this.hours=null; }
           else{
-         this.message='Protocol is not added'; }
+         this.message='Protocol is not added'; 
+         this.stainer="";
+         this.name="";
+         this.minutes=null;
+         this.hours=null;}
         }
   
       })

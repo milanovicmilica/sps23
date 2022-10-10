@@ -88,7 +88,7 @@ export class DashboardfirstComponent implements OnInit {
     }
       else{ 
         if (resp['message']=='zauzeto')
-        {this.message='Username is aleready used'; }
+        {this.message='Username is already used'; }
         else{
        this.message='User is not added'; }
       }
