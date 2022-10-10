@@ -28,6 +28,7 @@ import { AddstainerComponent } from './addstainer/addstainer.component';
 import { AddprstainerComponent } from './addprstainer/addprstainer.component';
 import { LoginsectioningComponent } from './loginsectioning/loginsectioning.component';
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
+import { LoginaccessioningComponent } from './loginaccessioning/loginaccessioning.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { LogingrossingComponent } from './logingrossing/logingrossing.component'
     AddprstainerComponent,
     LoginsectioningComponent,
     LogingrossingComponent,
+    LoginaccessioningComponent,
 
   ],
   imports: [

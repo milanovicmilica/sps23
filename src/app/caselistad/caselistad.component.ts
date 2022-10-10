@@ -49,7 +49,7 @@ export class CaselistadComponent implements OnInit {
 }
 logout(){
   sessionStorage.clear();
-  this.router.navigate(['']);
+  this.router.navigate(['/login-accessioning']);
 }
 allS:Sample[]=[];
 numofSpec:number[]=[];

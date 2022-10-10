@@ -96,7 +96,7 @@ export class AcssecondComponent implements OnInit {
   }
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/login-accessioning']);
   }
 c12:string;c13:string; c15:string;
   exb(){

@@ -29,7 +29,7 @@ export class AcsfirstComponent implements OnInit {
   }
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/login-accessioning']);
   }
   sender:string;
   num:number;

@@ -15,6 +15,7 @@ import { DashfiveComponent } from './dashfive/dashfive.component';
 import { DashsevenComponent } from './dashseven/dashseven.component';
 import { DashsixComponent } from './dashsix/dashsix.component';
 import { GrossnextComponent } from './grossnext/grossnext.component';
+import { LoginaccessioningComponent } from './loginaccessioning/loginaccessioning.component';
 import { LoginembComponent } from './loginemb/loginemb.component';
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
 import { LoginsectioningComponent } from './loginsectioning/loginsectioning.component';
@@ -47,6 +48,7 @@ const routes: Routes = [
 { path: 'loginse', component:LoginsectioningComponent},
 { path: 'dashseven', component:DashsevenComponent},
 { path: 'login-grossing', component:LogingrossingComponent},
+{ path: 'login-accessioning', component:LoginaccessioningComponent},
 ]  ;
 
 @NgModule({

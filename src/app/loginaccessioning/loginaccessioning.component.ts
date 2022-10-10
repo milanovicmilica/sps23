@@ -3,18 +3,15 @@ import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../models/user';
 @Component({
-  selector: 'app-loginstart',
-  templateUrl: './loginstart.component.html',
-  styleUrls: ['./loginstart.component.css']
+  selector: 'app-loginaccessioning',
+  templateUrl: './loginaccessioning.component.html',
+  styleUrls: ['./loginaccessioning.component.css']
 })
-export class LoginstartComponent implements OnInit {
+export class LoginaccessioningComponent implements OnInit {
 
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    this.UserService.getAllUsers().subscribe((data: User[])=>{
-      this.allUse=data;});
-
   }
 
   username:string;
@@ -23,7 +20,7 @@ export class LoginstartComponent implements OnInit {
   message2:string;
   message0:string;
   message1:string;
-allUse:User[]=[];
+
   login(){
     if(this.username==null){this.message0="Required*"}else{this.message0="";}
     if(this.password==null){this.message1="Required*"}
@@ -50,30 +47,30 @@ allUse:User[]=[];
           if(user){
             
             if (user.type==0 )//za admina
-            {  sessionStorage.setItem("first", JSON.stringify(user));
-                this.router.navigate(['/dashfirst']);
+            {  /*sessionStorage.setItem("first", JSON.stringify(user));
+                this.router.navigate(['/dashfirst']);*/
             }
             else{
               if(user.type==1)
               {
-              //  sessionStorage.setItem("laborant", JSON.stringify(user));
-                //this.router.navigate(['/dashfour']);
+                sessionStorage.setItem("laborant", JSON.stringify(user));
+                this.router.navigate(['/dashfive']);
               }
               else{
                 if(user.type==2 )
                 {
                   
-              //    sessionStorage.setItem("administrator", JSON.stringify(user));
+                 // sessionStorage.setItem("administrator", JSON.stringify(user));
                   
-                //  this.router.navigate(['/dashsecond']);
+                  //this.router.navigate(['/dashsecond']);
                 }
                 else{
                   if(user.type==3 )
                 {
                   
-              //    sessionStorage.setItem("patolog", JSON.stringify(user));
+                //  sessionStorage.setItem("patolog", JSON.stringify(user));
                   
-                //  this.router.navigate(['/grossfirst']);
+                  //this.router.navigate(['/grossfirst']);
                 }
                 }
                 
@@ -91,4 +88,7 @@ allUse:User[]=[];
     
    
   }
+
+
 }
+

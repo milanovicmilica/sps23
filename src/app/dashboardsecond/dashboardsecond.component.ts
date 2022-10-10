@@ -14,7 +14,7 @@ export class DashboardsecondComponent implements OnInit {
   }
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['']);
+    this.router.navigate(['/login-accessioning']);
   }
   acspage(){
     this.router.navigate(['/acsfirst']);
