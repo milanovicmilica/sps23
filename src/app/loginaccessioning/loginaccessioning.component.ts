@@ -53,16 +53,16 @@ export class LoginaccessioningComponent implements OnInit {
             else{
               if(user.type==1)
               {
-                sessionStorage.setItem("laborant", JSON.stringify(user));
-                this.router.navigate(['/dashfive']);
+                //sessionStorage.setItem("laborant", JSON.stringify(user));
+             //   this.router.navigate(['/dashfive']);
               }
               else{
                 if(user.type==2 )
                 {
                   
-                 // sessionStorage.setItem("administrator", JSON.stringify(user));
+                  sessionStorage.setItem("administrator", JSON.stringify(user));
                   
-                  //this.router.navigate(['/dashsecond']);
+                  this.router.navigate(['/dashsecond']);
                 }
                 else{
                   if(user.type==3 )
