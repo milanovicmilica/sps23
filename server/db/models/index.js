@@ -13,6 +13,8 @@ const { Protocol2 } = require('./protocol2');
 const { Sample } = require('./sample');
 const { Sectioning } = require('./sectioning');
 const { Stainer } = require('./stainer.model');
+const { Coverslipping } = require('./coverslipping');
+const { Rack } = require('./rack');
 module.exports = {
     List,
     Task,
@@ -28,7 +30,9 @@ module.exports = {
     Protocol2,
     Sample,
     Sectioning,
-    Stainer
+    Stainer,
+    Coverslipping,
+    Rack
 
 
 }

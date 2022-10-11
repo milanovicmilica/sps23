@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
-    Protocol2, Sample, Sectioning, Stainer } = require('./db/models');
+    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack} = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
@@ -111,6 +111,16 @@ app.get('/addstprotocol/guest/getallstainers', (req, res) => {
         res.send(e);
     });
 })
+app.get('/dasheight/guest/getallrack', (req, res) => {
+
+    Rack.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
 app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/getallemb', (req, res) => {
     
     Embedding.find({
@@ -204,6 +214,16 @@ app.get('/guest/getallcases', (req, res) => {
         res.send(e);
     });
 })
+app.get('/dasheight/guest/getallcover', (req, res) => {
+    
+    Coverslipping.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
 app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
 || '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases' || 
 '/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases', (req, res) => {
@@ -241,7 +261,8 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
 
 
 app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/login-staininghe/guest/loginprovera' || '/login-sectioning/guest/loginprovera'
-|| '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera' || '/login-processing/guest/loginprovera', (req, res) => {
+|| '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera' || '/login-processing/guest/loginprovera'
+|| '/login-coverslipping/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -263,7 +284,7 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
 })
 
 app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/guest/login' || '/login-sectioning/guest/login' || '/login-grossing/guest/login'
-|| '/login-accessioning/guest/login' || '/login-processing/guest/login', (req, res) => {
+|| '/login-accessioning/guest/login' || '/login-processing/guest/login' || '/login-coverslipping/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username,
@@ -657,7 +678,20 @@ app.post('/dashfive/guest/confirmEmb', (req, res) => {
             });
 
 })
+app.post('/dasheight/guest/confirmCoverslipping', (req, res) => {    
+    
+    let newP = new Coverslipping({
+        rack : req.body.rack, caseid: req.body.caseid,   day: req.body.day, time:req.body.time, minute:req.body.minute,
+        month: req.body.month, year:req.body.year
+      })
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
 
+})
 app.post('/dashsix/guest/endsprocess', (req, res) => {    
     
     ProcessStaining.findOne({

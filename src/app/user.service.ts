@@ -23,7 +23,8 @@ export class UserService {
       this.http.post('https://sps23.herokuapp.com/login-sectioning/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-grossing/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/login', data) || 
-      this.http.post('https://sps23.herokuapp.com/login-processing/guest/login', data);
+      this.http.post('https://sps23.herokuapp.com/login-processing/guest/login', data) ||
+      this.http.post('https://sps23.herokuapp.com/login-coverslipping/guest/login', data);
    }
    loginProvera(username, password){
     const data={
@@ -37,7 +38,8 @@ export class UserService {
      this.http.post('https://sps23.herokuapp.com/login-sectioning/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-grossing/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/loginprovera', data) || 
-     this.http.post('https://sps23.herokuapp.com/login-processing/guest/loginprovera', data);
+     this.http.post('https://sps23.herokuapp.com/login-processing/guest/loginprovera', data) || 
+     this.http.post('https://sps23.herokuapp.com/login-coverslipping/guest/loginprovera', data);
   }
  
   addUser(username,password, brTipa, firstname,lastname){
@@ -383,6 +385,22 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashseven/guest/addSectioning', data)
   }
+  confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute){
+
+    const data={
+      
+    
+      caseid:caseid,
+      rack:rack,
+      day:dan,
+      month:mesec,
+      year:godina,
+      time:time,
+      minute:minute
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/dasheight/guest/confirmCoverslipping', data)
+  }
   updateSectioning(cassette)
   {
     const data={
@@ -490,6 +508,14 @@ export class UserService {
   getAllStainersAdmin()
   {
     return this.http.get('https://sps23.herokuapp.com/addstprotocol/guest/getallstainers')
+  }
+  getAllRack()
+  {
+    return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallrack')
+  }
+  getAllCover()
+  {
+    return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallcover')
   }
   getAllUsers()
   {

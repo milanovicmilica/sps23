@@ -54,7 +54,7 @@ export class LogincoverComponent implements OnInit {
               if(user.type==1)
               {
                 sessionStorage.setItem("laborant", JSON.stringify(user));
-                this.router.navigate(['/dashfive']);
+                this.router.navigate(['/dasheight']);
               }
               else{
                 if(user.type==2 )
