@@ -17,6 +17,7 @@ import { DashsevenComponent } from './dashseven/dashseven.component';
 import { DashsixComponent } from './dashsix/dashsix.component';
 import { GrossnextComponent } from './grossnext/grossnext.component';
 import { LoginaccessioningComponent } from './loginaccessioning/loginaccessioning.component';
+import { LogincoverComponent } from './logincover/logincover.component';
 import { LoginembComponent } from './loginemb/loginemb.component';
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
 import { LoginprocessingComponent } from './loginprocessing/loginprocessing.component';
@@ -52,7 +53,7 @@ const routes: Routes = [
 { path: 'login-grossing', component:LogingrossingComponent},
 { path: 'login-accessioning', component:LoginaccessioningComponent},
 { path: 'login-processing', component:LoginprocessingComponent},
-{ path: 'login-coverslipping', component:LoginprocessingComponent},
+{ path: 'login-coverslipping', component:LogincoverComponent},
 { path: 'dasheight', component:DasheightComponent},
 ]  ;
 
