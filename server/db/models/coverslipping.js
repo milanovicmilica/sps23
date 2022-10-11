@@ -38,7 +38,11 @@ const CslippingSchema = new mongoose.Schema({
         type: Number,
         
         
-    }
+    },
+    laborant: {
+        type: String,
+      
+    },
 
 });
 

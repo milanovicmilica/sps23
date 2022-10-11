@@ -682,7 +682,7 @@ app.post('/dasheight/guest/confirmCoverslipping', (req, res) => {
     
     let newP = new Coverslipping({
         rack : req.body.rack, caseid: req.body.caseid,   day: req.body.day, time:req.body.time, minute:req.body.minute,
-        month: req.body.month, year:req.body.year
+        month: req.body.month, year:req.body.year, laborant:req.body.laborant
       })
             newP.save().then((us2) => {
                 

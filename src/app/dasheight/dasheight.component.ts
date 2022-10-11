@@ -118,7 +118,8 @@ message:string;
     let dan=new Date().getDate();
 let mesec=new Date().getMonth()+1;
 let godina=new Date().getFullYear();
-    this.UserService.confirmCoverslipping(this.caseid, this.rack, dan, mesec, godina, time, minute).subscribe((resp)=>{
+let lab=this.me.username;
+    this.UserService.confirmCoverslipping(this.caseid, this.rack, dan, mesec, godina, time, minute, lab).subscribe((resp)=>{
 
       if(resp['message']=='user')
       {

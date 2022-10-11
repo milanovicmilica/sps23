@@ -6,4 +6,5 @@ export class Coverslipping{
     year:number;
     time:number;
     minute:number;
+    laborant:string;
     }

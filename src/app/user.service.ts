@@ -385,7 +385,7 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashseven/guest/addSectioning', data)
   }
-  confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute){
+  confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute, lab){
 
     const data={
       
@@ -396,7 +396,8 @@ export class UserService {
       month:mesec,
       year:godina,
       time:time,
-      minute:minute
+      minute:minute,
+      laborant:lab
     }
 
     return this.http.post('https://sps23.herokuapp.com/dasheight/guest/confirmCoverslipping', data)
