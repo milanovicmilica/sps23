@@ -91,6 +91,7 @@ export class DasheightComponent implements OnInit {
       if(f0==0)
       {
         this.message1="This rack don't exist"
+        this.flag1=0;
       }
 
       }}
@@ -110,7 +111,7 @@ message:string;
       if(done==1)
       {
        // this.flag1=0;
-        this.message="Done Embedding"
+        this.message="Done Coverslipping"
       }else{
     let date=new Date();
     let time=date.getHours();
