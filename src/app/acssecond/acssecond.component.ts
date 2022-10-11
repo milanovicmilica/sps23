@@ -133,7 +133,7 @@ for (let index = 0; index < this.niz2.length; index++) {
   }
   exs(){
     this.brTipa='External slide'
-    this.exflag=0;this.Exbl=1;
+    this.exflag=0;this.Exbl=0;
     for (let index = 0; index < this.niz1.length; index++) {
       this.niz1[index]=0;
       
@@ -484,9 +484,18 @@ Addpl(){
   this.Exbl=this.Exbl+1;
 }
 Subpl(){
+  if(this.brTipa=='External block'){
   if(this.Exbl-1>=1)
   {
     this.Exbl=this.Exbl-1;
   }
+}
+if(this.brTipa=='External slide')
+{
+  if(this.Exbl-1>=0)
+  {
+    this.Exbl=this.Exbl-1;
+  }
+}
 }
 }
