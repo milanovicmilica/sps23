@@ -315,7 +315,8 @@ addsample(){
 
     if(resp['message']=='user')
     {this.message='User added'; this.mySamples=[]; this.sample="";
-    this.s2=""; this.brTipa="";
+    this.s2=""; this.brTipa="";this.spec=[];
+    this.ihcsend=[];
     this.exflag=2; this.expanded = false; this.expanded2=false;
     this.UserService.getAllSamples().subscribe((data: Sample[])=>{
       this.allSamples=data;
@@ -365,6 +366,9 @@ else{
       {this.message='User added';
       this.mySamples=[];  this.sample="";
       this.s2=""; this.brTipa="";  this.expanded = false; this.expanded2=false;
+      this.spec=[];
+      this.ihcsend=[];
+      
       this.exflag=2;
       this.UserService.getAllSamples().subscribe((data: Sample[])=>{
         this.allSamples=data;
