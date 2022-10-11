@@ -11,6 +11,7 @@ import { DashboardfirstComponent } from './dashboardfirst/dashboardfirst.compone
 import { DashboardfourthComponent } from './dashboardfourth/dashboardfourth.component';
 import { DashboardsecondComponent } from './dashboardsecond/dashboardsecond.component';
 import { DashboardthirdComponent } from './dashboardthird/dashboardthird.component';
+import { DasheightComponent } from './dasheight/dasheight.component';
 import { DashfiveComponent } from './dashfive/dashfive.component';
 import { DashsevenComponent } from './dashseven/dashseven.component';
 import { DashsixComponent } from './dashsix/dashsix.component';
@@ -51,6 +52,8 @@ const routes: Routes = [
 { path: 'login-grossing', component:LogingrossingComponent},
 { path: 'login-accessioning', component:LoginaccessioningComponent},
 { path: 'login-processing', component:LoginprocessingComponent},
+{ path: 'login-coverslipping', component:LoginprocessingComponent},
+{ path: 'dasheight', component:DasheightComponent},
 ]  ;
 
 @NgModule({

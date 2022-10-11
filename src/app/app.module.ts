@@ -30,6 +30,8 @@ import { LoginsectioningComponent } from './loginsectioning/loginsectioning.comp
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
 import { LoginaccessioningComponent } from './loginaccessioning/loginaccessioning.component';
 import { LoginprocessingComponent } from './loginprocessing/loginprocessing.component';
+import { LogincoverComponent } from './logincover/logincover.component';
+import { DasheightComponent } from './dasheight/dasheight.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { LoginprocessingComponent } from './loginprocessing/loginprocessing.comp
     LogingrossingComponent,
     LoginaccessioningComponent,
     LoginprocessingComponent,
+    LogincoverComponent,
+    DasheightComponent,
 
   ],
   imports: [

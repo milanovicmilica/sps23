@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar" style="width: 100;">
+        <div style="text-align: left; width:20%">
+        
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </div>
+            <div style="align-items: center; align-self: center; align-content: center;
+            text-align: left; justify-content: center; justify-items: center; width: 52%;">
+                <label  class="stavka"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">LOGIN</label> 
+            </div>  
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+        <div class="naslovpoc">
+            <hr class="lin">
+            <label class="naslovpocLabela">LOGIN</label>
+            <hr class="lin">
+        </div>
+        <div class="polja">
+            <label class="username" >Username:</label>
+            <input type="text" class="poljazaUnos" name='username' [(ngModel)]='username'>
+            <span class='error'>{{message0}}</span>
+            <label class="username">Password:</label>
+            <input type="password" class="poljazaUnos" name='password' [(ngModel)]='password'>
+            <span class='error'>{{message1}}</span>
+            <button class="signupDugme" (click)='login()' >LOGIN</button>
+            <span class='error'>{{message}}</span>
+        </div>
+       
+
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>

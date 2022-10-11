@@ -451,4 +451,15 @@ print(i)
 
 
   }
+  printall(){
+    
+    for (let index = 0; index < this.he.length; index++) {
+      this.print(index);
+      
+    }
+for (let index = 0; index < this.ssihc.length; index++) {
+ this.print(index+this.he.length);
+  
+}
+  }
 }
