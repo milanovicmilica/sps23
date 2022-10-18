@@ -14,4 +14,5 @@ export class ProcessStaining{
     posday:number;
     posmonth:number;
     posyear:number;
+    possec:number;
 }

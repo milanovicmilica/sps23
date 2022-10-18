@@ -235,7 +235,7 @@ export class UserService {
     return this.http.post('https://sps23.herokuapp.com/dashfourproc/guest/addprocess', data)
 
   }
-  addProcessStaining(stainer,protocol,bascet,casette,hours,minutes,status,poshours,posminutes,posday,posmonth,posyear){
+  addProcessStaining(stainer,protocol,bascet,casette,hours,minutes,status,poshours,posminutes,posday,posmonth,posyear,possec){
 
 
     const data={
@@ -252,7 +252,8 @@ export class UserService {
       posminutes:posminutes,
       posday:posday,
       posmonth:posmonth,
-      posyear:posyear
+      posyear:posyear,
+      possec:possec
     }
 
     return this.http.post('https://sps23.herokuapp.com/staining/guest/addstainingprocess', data)

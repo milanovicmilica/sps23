@@ -48,7 +48,7 @@ export class DashsixComponent implements OnInit {
               {
                 let x=zbir2-zbirmin
                 this.nizmin.push(x);
-                this.nizsek.push(0)
+                this.nizsek.push(this.allProcess[index].possec)
               }
               else{
                 this.nizsek.push(0)
@@ -67,7 +67,7 @@ export class DashsixComponent implements OnInit {
                   let x=60-minuti;
                   let y=this.allProcess[index].posminutes+x;
                   this.nizmin.push(y);
-                  this.nizsek.push(0);
+                  this.nizsek.push(this.allProcess[index].possec);
                 }
               }
             }

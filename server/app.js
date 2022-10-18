@@ -746,7 +746,7 @@ app.post('/staining/guest/addstainingprocess', (req, res) => {
 let user1=new ProcessStaining({stainer:req.body.stainer, protocol:req.body.protocol, 
     bascet:req.body.bascet, casette:req.body.casette, hours:req.body.hours, minutes:req.body.minutes,
 status:req.body.status, poshours:req.body.poshours, posminutes:req.body.posminutes, posday:req.body.posday,
-posmonth:req.body.posmonth, posyear:req.body.posyear })
+posmonth:req.body.posmonth, posyear:req.body.posyear, possec:req.body.possec })
       
     Stainer.findOne({'name':req.body.stainer}, (err,user)=>{
         

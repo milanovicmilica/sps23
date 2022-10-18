@@ -125,7 +125,8 @@ export class StainingComponent implements OnInit {
       }
 
       let status=0;
-      this.UserService.addProcessStaining(this.stainer,this.protocol,this.bascet,this.casette,vreme,minuti,status, posh2,posm, dan,mesec,year).subscribe((resp)=>{
+      let possec=new Date().getSeconds();;
+      this.UserService.addProcessStaining(this.stainer,this.protocol,this.bascet,this.casette,vreme,minuti,status, posh2,posm, dan,mesec,year,possec).subscribe((resp)=>{
     
         if(resp['message']=='user')
         {

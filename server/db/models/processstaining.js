@@ -51,6 +51,9 @@ const ProcessSSchema = new mongoose.Schema({
     posyear: {
         type: Number,
     },
+    possec: {
+        type: Number,
+    },
 });
 
 
