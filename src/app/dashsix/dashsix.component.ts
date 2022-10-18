@@ -78,15 +78,28 @@ export class DashsixComponent implements OnInit {
         }
         
       }
+      this.pr=80;
       for (let index = 0; index < this.unfProcess.length; index++) {
         
        // this.nizt.push( new Timer(index, this.nizsek[index], this.nizmin[index]));
        this.st2(this.nizsek[index], this.nizmin[index])
       }
-      
+      let intervalId = setInterval(() => {
+        this.pr--;
+            if(this.pr==0)
+            {
+              clearInterval(intervalId)
+            }
+          
+        
+       
+    
+        
+    }, 1000)
     })
   }
 nizt:Timer[]=[];
+pr:number;
 st2(sec, min){
   let intervalId = setInterval(() => {
     if(min>0 && sec==0)
