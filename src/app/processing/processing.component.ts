@@ -119,6 +119,7 @@ export class ProcessingComponent implements OnInit {
         if(posm>60)
         {
           posm=posm%60;
+          posh2=posh2+1;
         }
       }}
       }

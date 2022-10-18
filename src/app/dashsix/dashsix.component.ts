@@ -301,7 +301,7 @@ class Timer {
               this.sec--;
             }
             else{
-              if(this.min==0 && this.sec==0)
+              if(this.min===0 && this.sec===0)
               {
                 clearInterval(intervalId)
               }
