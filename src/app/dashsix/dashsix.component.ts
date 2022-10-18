@@ -5,7 +5,7 @@ import { Processor } from '../models/processors';
 import { Protocol } from '../models/protocol';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
-import { timer } from 'rxjs';
+import { Stopwatch } from "ts-stopwatch";
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
@@ -33,21 +33,59 @@ export class DashsixComponent implements OnInit {
         {
           this.unfProcess.push(this.allProcess[index]);
           this.nizflags.push(0);
+          let minuti=new Date().getMinutes();
+          let sati=new Date().getHours();
+          let zbirmin=minuti+sati*60;
+          let dan=new Date().getDate();
+          let mesec=new Date().getMonth()+1;
+          let godina=new Date().getFullYear();
+          if(this.allProcess[index].posmonth==mesec)
+          {
+            if(this.allProcess[index].posday==dan)
+            {
+              let zbir2=this.allProcess[index].poshours*60+this.allProcess[index].posminutes
+              if(zbir2>zbirmin)
+              {
+                let x=zbir2-zbirmin
+                this.nizmin.push(x);
+                this.nizsek.push(0)
+              }
+              else{
+                this.nizsek.push(0)
+                this.nizmin.push(0)
+              }
+            }
+            else{
+              if(dan>this.allProcess[index].posday)
+              {
+                this.nizsek.push(0)
+                this.nizmin.push(0)
+              }
+              else{
+                if(dan<this.allProcess[index].posday)
+                {
+                  let x=60-minuti;
+                  let y=this.allProcess[index].posminutes+x;
+                  this.nizmin.push(y);
+                  this.nizsek.push(0);
+                }
+              }
+            }
+          }
+         
           this.message1.push("");
-          this.nizmin.push(this.allProcess[index].posminutes);
-          this.nizsek.push(0);
+       
         }
         
       }
-      if(this.unfProcess.length>0){
-      while(1){
-        timer(1000).subscribe(x => { this.stopwatch(); })
-      
+      for (let index = 0; index < this.unfProcess.length; index++) {
+        
+        new Timer(index, this.nizsek[index], this.nizmin[index]);
       }
-    }
+      
     })
   }
- 
+
 stopwatch()
 {
   let dan=new Date().getDate();
@@ -246,5 +284,32 @@ else{ this.popup=1;
       }
   
     })
+  }
+}
+class Timer {
+  constructor(public id,public sec,public min) {
+
+      let intervalId = setInterval(() => {
+          if(this.min>0 && this.sec==0)
+          {
+            this.min--;
+            this.sec=59;
+          }else
+          {
+            if(this.min>=0 && this.sec>0)
+            {
+              this.sec--;
+            }
+            else{
+              if(this.min==0 && this.sec==0)
+              {
+                clearInterval(intervalId)
+              }
+            }
+          }
+         
+      
+          
+      }, 1000)
   }
 }
