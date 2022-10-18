@@ -81,7 +81,7 @@ export class DashsixComponent implements OnInit {
       this.pr=80;
       for (let index = 0; index < this.unfProcess.length; index++) {
         
-       // this.nizt.push( new Timer(index, this.nizsek[index], this.nizmin[index]));
+     
        this.st2(index);
       }
       let intervalId = setInterval(() => {
@@ -98,7 +98,7 @@ export class DashsixComponent implements OnInit {
     }, 1000)
     })
   }
-nizt:Timer[]=[];
+
 pr:number;
 st2(index){
   let intervalId = setInterval(() => {
@@ -122,36 +122,9 @@ st2(index){
    
 
     
-}, 100)
+}, 1000)
 }
-stopwatch()
-{
-  let dan=new Date().getDate();
-  let mesec=new Date().getMonth()+1;
-  let godina=new Date().getFullYear();
-  for (let index = 0; index < this.unfProcess.length; index++) {
 
-    let sati=new Date().getHours();
-    let minuti=new Date().getMinutes();
-    if(this.nizmin[index]==0 && this.nizsek[index]==0 )
-      {
-       
-      }
-      else{
-        
-        if(this.nizsek[index]>0)
-        {
-          this.nizsek[index]--;
-        }
-        else{
-          this.nizmin[index]--;
-          this.nizsek[index]=59;
-        }
-        
-      }
-    
-  }
-}
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-staininghe']);
@@ -322,32 +295,5 @@ else{ this.popup=1;
       }
   
     })
-  }
-}
-class Timer {
-  constructor(public id,public sec,public min) {
-
-      let intervalId = setInterval(() => {
-          if(this.min>0 && this.sec==0)
-          {
-            this.min--;
-            this.sec=59;
-          }else
-          {
-            if(this.min>=0 && this.sec>0)
-            {
-              this.sec--;
-            }
-            else{
-              if(this.min==0 && this.sec==0)
-              {
-                clearInterval(intervalId)
-              }
-            }
-          }
-         
-      
-          
-      }, 100)
   }
 }
