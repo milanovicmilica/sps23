@@ -5,7 +5,7 @@ import { Processor } from '../models/processors';
 import { Protocol } from '../models/protocol';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
-
+import { timer } from 'rxjs';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
@@ -34,13 +34,47 @@ export class DashsixComponent implements OnInit {
           this.unfProcess.push(this.allProcess[index]);
           this.nizflags.push(0);
           this.message1.push("");
+          this.nizmin.push(this.allProcess[index].posminutes);
+          this.nizsek.push(0);
         }
         
       }
+      while(1){
+        timer(1000).subscribe(x => { this.stopwatch(); })
+      
+      }
+
     })
   }
  
+stopwatch()
+{
+  let dan=new Date().getDate();
+  let mesec=new Date().getMonth()+1;
+  let godina=new Date().getFullYear();
+  for (let index = 0; index < this.unfProcess.length; index++) {
 
+    let sati=new Date().getHours();
+    let minuti=new Date().getMinutes();
+    if(this.nizmin[index]==0 && this.nizsek[index]==0 )
+      {
+       
+      }
+      else{
+        
+        if(this.nizsek[index]>0)
+        {
+          this.nizsek[index]--;
+        }
+        else{
+          this.nizmin[index]--;
+          this.nizsek[index]=59;
+        }
+        
+      }
+    
+  }
+}
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-staininghe']);
@@ -52,7 +86,8 @@ export class DashsixComponent implements OnInit {
   allProcess:ProcessStaining[];
   unfProcess:ProcessStaining[]=[];
   message1:string[]=[];
-  
+  nizmin:number[]=[];
+  nizsek:number[]=[];
 
 
   addnewp(){
