@@ -39,11 +39,12 @@ export class DashsixComponent implements OnInit {
         }
         
       }
+      if(this.unfProcess.length>0){
       while(1){
         timer(1000).subscribe(x => { this.stopwatch(); })
       
       }
-
+    }
     })
   }
  
