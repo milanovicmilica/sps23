@@ -80,12 +80,37 @@ export class DashsixComponent implements OnInit {
       }
       for (let index = 0; index < this.unfProcess.length; index++) {
         
-        new Timer(index, this.nizsek[index], this.nizmin[index]);
+       // this.nizt.push( new Timer(index, this.nizsek[index], this.nizmin[index]));
+       this.st2(this.nizsek[index], this.nizmin[index])
       }
       
     })
   }
+nizt:Timer[]=[];
+st2(sec, min){
+  let intervalId = setInterval(() => {
+    if(min>0 && sec==0)
+    {
+      min--;
+      sec=59;
+    }else
+    {
+      if(min>=0 && sec>0)
+      {
+       sec--;
+      }
+      else{
+        if(min==0 && sec==0)
+        {
+          clearInterval(intervalId)
+        }
+      }
+    }
+   
 
+    
+}, 100)
+}
 stopwatch()
 {
   let dan=new Date().getDate();
@@ -301,7 +326,7 @@ class Timer {
               this.sec--;
             }
             else{
-              if(this.min===0 && this.sec===0)
+              if(this.min==0 && this.sec==0)
               {
                 clearInterval(intervalId)
               }
@@ -310,6 +335,6 @@ class Timer {
          
       
           
-      }, 1000)
+      }, 100)
   }
 }
