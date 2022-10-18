@@ -63,7 +63,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <tr *ngFor="let a of unfProcess;let i=index" class="rowt">
                         <td  class="label1" *ngIf="a.status==0">{{(i+1)}}. <label class="lab1bold"> Stainer: </label>
                             {{a.stainer}}, <label  class="lab1bold"> Protocol:</label> {{a.protocol}}, 
-                            <label  class="lab1bold">End time:</label> {{nizmin[i]}}min {{nizsek[i]}}s </td>
+                            <label  class="lab1bold">Ends in:</label> {{nizmin[i]}}min {{nizsek[i]}}s </td>
                         <td *ngIf="a.status==0"><button class="button2" (click)="doneprocessing(a,i)">DONE STAINING</button>
                         <div class="popup" *ngIf="popup==1">
                             <div class="zaglavlje">
