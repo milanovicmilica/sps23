@@ -82,7 +82,7 @@ export class DashsixComponent implements OnInit {
       for (let index = 0; index < this.unfProcess.length; index++) {
         
        // this.nizt.push( new Timer(index, this.nizsek[index], this.nizmin[index]));
-       this.st2(this.nizsek[index], this.nizmin[index])
+       this.st2(index);
       }
       let intervalId = setInterval(() => {
         this.pr--;
@@ -100,20 +100,20 @@ export class DashsixComponent implements OnInit {
   }
 nizt:Timer[]=[];
 pr:number;
-st2(sec, min){
+st2(index){
   let intervalId = setInterval(() => {
-    if(min>0 && sec==0)
+    if( this.nizmin[index]>0 && this.nizsek[index]==0)
     {
-      min--;
-      sec=59;
+      this.nizmin[index]--;
+      this.nizsek[index]=59;
     }else
     {
-      if(min>=0 && sec>0)
+      if( this.nizmin[index]>=0 && this.nizsek[index]>0)
       {
-       sec--;
+        this.nizsek[index]--;
       }
       else{
-        if(min==0 && sec==0)
+        if( this.nizmin[index]==0 && this.nizsek[index]==0)
         {
           clearInterval(intervalId)
         }
