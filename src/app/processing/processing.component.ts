@@ -9,6 +9,7 @@ import { Component, VERSION, OnInit, ViewChild, HostListener } from '@angular/co
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
+import { isThisTypeNode } from 'typescript';
 @Component({
   selector: 'app-processing',
   templateUrl: './processing.component.html',
@@ -173,6 +174,10 @@ word:string;
   }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
+    if(this.word=='undefined')
+      this.word='';
+      if(this.word==this.bascet)
+      this.word='';
     if (event.key == ']') {
       let flag=0;
      for (let index = 0; index < this.cassettearray.length; index++) {
@@ -183,6 +188,7 @@ word:string;
       if(flag==0){
         this.word+="]"
         this.cassettearray.push(this.word)
+        this.word="";
       }
    
     } else {
