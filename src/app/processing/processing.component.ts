@@ -173,7 +173,7 @@ word:string;
   }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
-    if (event.key === ']') {
+    if (event.key == ']') {
      
       this.cassettearray.push(this.word)
       // The QR/Bar code is ready here
