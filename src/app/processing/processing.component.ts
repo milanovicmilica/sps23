@@ -208,7 +208,7 @@ word:string;
     }
       else{
         let fl2=0
-        if(this.bascet!=""){
+        if(this.bascet.length>1){
           for (let index = 0; index < this.bascet.length; index++) {
            if(index>0)
            {
