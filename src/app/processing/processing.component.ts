@@ -187,6 +187,8 @@ word:string;
    
     } else {
       this.word+=event.key;
+      if(this.word=='undefined')
+      this.word='';
    
     }
   }

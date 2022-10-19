@@ -137,7 +137,7 @@ export class GrossnextComponent implements OnInit {
         'Cassette':r
        
       }]*/
-      let item ="[ CaseID: "+this.c1+", Sample: "+this.c1+' '+this.mySamples[i].slovo+", Cassette: "+r+"]"
+      let item ="[ CaseID: "+this.c1+", Sample: "+this.c1+' '+this.uz+", Cassette: "+r+"]"
       let qrInfo = JSON.stringify(item);
       this.code=qrInfo;
       this.qri=qrInfo;
