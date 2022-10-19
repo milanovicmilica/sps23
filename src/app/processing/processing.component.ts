@@ -181,6 +181,7 @@ word:string;
         flag=1;
       }}
       if(flag==0){
+        this.word+="]"
         this.cassettearray.push(this.word)
       }
    

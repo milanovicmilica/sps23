@@ -130,14 +130,14 @@ export class GrossnextComponent implements OnInit {
 
     {this.printano[i]++;
      // Math.floor(Math.random() * 1000000);
-      this.code=(Math.floor(Math.random() * 1000000)).toString();
-      let item = [{
+     // this.code=(Math.floor(Math.random() * 1000000)).toString();
+      /*let item = [{
         'Case ID': this.c1,
         'Sample': this.c1+' '+this.mySamples[i].slovo,
         'Cassette':r
        
-      }]
-    
+      }]*/
+      let item ="[ CaseID: "+this.c1+", Sample: "+this.c1+' '+this.mySamples[i].slovo+", Cassette: "+r+"]"
       let qrInfo = JSON.stringify(item);
       this.code=qrInfo;
       this.qri=qrInfo;

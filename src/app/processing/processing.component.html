@@ -73,7 +73,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <input type="text" id='basc' class="input1" [(ngModel)]="bascet" *ngIf="g1==0">   
                     <input type="text" id="basc" class="input1g" [(ngModel)]="bascet" *ngIf="g1==1">
                     <label class="label1">Scan casette:</label>
-                    <input *ngFor="let s of cassettearray" type="text" class="input1"  [value]="s">
+                    <input *ngFor="let s of cassettearray" type="text" class="input1prim"  [value]="s">
                     <label id="lab"></label>
                     <button class="button1" (click)="startprocess()">START PROCESS</button>
                 </div>
