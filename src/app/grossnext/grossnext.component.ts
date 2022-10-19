@@ -133,8 +133,8 @@ export class GrossnextComponent implements OnInit {
       this.code=(Math.floor(Math.random() * 1000000)).toString();
       let item = [{
         'Case ID': this.c1,
-        'Sample': this.c1+' '+this.c7,
-        'Cassette': this.c7+this.c6
+        'Sample': this.c1+' '+this.mySamples[i].slovo,
+        'Cassette':r
        
       }]
     
