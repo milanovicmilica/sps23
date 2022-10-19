@@ -125,12 +125,22 @@ export class GrossnextComponent implements OnInit {
   printano:number[]=[];
   code:string;
   brk2:number=1;
+  qri;
   print(i,r){
 
     {this.printano[i]++;
      // Math.floor(Math.random() * 1000000);
       this.code=(Math.floor(Math.random() * 1000000)).toString();
-      console.log(i)
+      let item = [{
+        'Case ID': this.c1,
+        'Sample': this.c1+' '+this.c7,
+        'Cassette': this.c7+this.c6
+       
+      }]
+    
+      let qrInfo = JSON.stringify(item);
+      this.code=qrInfo;
+      this.qri=qrInfo;
       console.log(this.uz,this.kasetice[i],this.printano[i],this.code,  this.me.username, this.asistent )
     this.UserService.printCassette(this.myCase.formatcn,
       this.uz,this.kasetice[i],this.printano[i],this.code,  this.me.username, this.asistent).subscribe((resp)=>{

@@ -32,7 +32,7 @@ import { LoginaccessioningComponent } from './loginaccessioning/loginaccessionin
 import { LoginprocessingComponent } from './loginprocessing/loginprocessing.component';
 import { LogincoverComponent } from './logincover/logincover.component';
 import { DasheightComponent } from './dasheight/dasheight.component';
-
+import { QRCodeModule } from 'angular2-qrcode';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +72,7 @@ import { DasheightComponent } from './dasheight/dasheight.component';
     FormsModule,
     ReactiveFormsModule,
     ZXingScannerModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
