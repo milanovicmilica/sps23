@@ -174,13 +174,19 @@ word:string;
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
     if (event.key == ']') {
-     
-      this.cassettearray.push(this.word)
-      // The QR/Bar code is ready here
-      // Do something here with the scanned code
+      let flag=0;
+     for (let index = 0; index < this.cassettearray.length; index++) {
+      if(this.cassettearray[index]==this.word)
+      {
+        flag=1;
+      }}
+      if(flag==0){
+        this.cassettearray.push(this.word)
+      }
+   
     } else {
       this.word+=event.key;
-      //this.code += event.key;
+   
     }
   }
 }
