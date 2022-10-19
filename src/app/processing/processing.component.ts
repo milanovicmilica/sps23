@@ -5,7 +5,7 @@ import { Processor } from '../models/processors';
 import { Protocol } from '../models/protocol';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
-import { Component, VERSION, OnInit, ViewChild } from '@angular/core';
+import { Component, VERSION, OnInit, ViewChild, HostListener } from '@angular/core';
 import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
@@ -40,6 +40,7 @@ export class ProcessingComponent implements OnInit {
           }
           
         }
+       // this.cassettearray.push("");
         //this.casette.push("");
        // this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
   
@@ -57,7 +58,7 @@ export class ProcessingComponent implements OnInit {
   freeProcessors:string[]=[];
   allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
   trenProtocols:Protocol[];
-
+  cassettearray:string[]=[];
   @ViewChild('scanner')
   scanner: ZXingScannerComponent;
   qrResultString: string;
@@ -170,5 +171,16 @@ export class ProcessingComponent implements OnInit {
         
       }
   }
-  
+  @HostListener('window:keypress', ['$event'])
+  keyEvent(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+     
+      this.cassettearray.push(event.key)
+      // The QR/Bar code is ready here
+      // Do something here with the scanned code
+    } else {
+      this.cassettearray.push(event.key)
+      //this.code += event.key;
+    }
+  }
 }
