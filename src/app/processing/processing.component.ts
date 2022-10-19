@@ -174,10 +174,9 @@ word:string;
   }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
-    if(this.word=='undefined')
+    if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet)
       this.word='';
-      if(this.word==this.bascet)
-      this.word='';
+     
     if (event.key == ']') {
       let flag=0;
      for (let index = 0; index < this.cassettearray.length; index++) {
@@ -187,14 +186,18 @@ word:string;
       }}
       if(flag==0){
         this.word+="]"
+        this.word+='"';
+        this.word+='"';
         this.cassettearray.push(this.word)
         this.word="";
       }
    
     } else {
-      this.word+=event.key;
-      if(this.word=='undefined')
+      if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet)
       this.word='';
+      else{
+      this.word+=event.key;
+      }
    
     }
   }
