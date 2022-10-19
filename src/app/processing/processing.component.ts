@@ -217,6 +217,7 @@ word:string;
             
           }
           console.log(x);
+          console.log(this.word)
           if(this.word==x)
           {this.word="";
           fl2=1;}
