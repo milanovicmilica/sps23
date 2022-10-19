@@ -211,7 +211,7 @@ word:string;
         if(this.bascet!=null){
           for (let index = 0; index < this.bascet.length; index++) {
            if(index>0)
-           {
+           {if(this.bascet.charAt(index)!='undefined')
             x=x+this.bascet.charAt(index)
            }
             
