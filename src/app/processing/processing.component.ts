@@ -178,7 +178,7 @@ word:string;
     for (let index = 0; index < this.bascet.length; index++) {
      if(index>0)
      {
-      x=x+this.bascet.at(index);
+      x=x+this.bascet.charAt(index);
      }
       
     }
