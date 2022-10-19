@@ -158,7 +158,7 @@ export class ProcessingComponent implements OnInit {
     }
   }
   processor:string;
-
+word:string;
   getProtocols(processor){
 
       this.trenProtocols=[];
@@ -175,11 +175,11 @@ export class ProcessingComponent implements OnInit {
   keyEvent(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
      
-      this.cassettearray.push(event.key)
+      this.cassettearray.push(this.word)
       // The QR/Bar code is ready here
       // Do something here with the scanned code
     } else {
-      this.cassettearray.push(event.key)
+      this.word+=event.key;
       //this.code += event.key;
     }
   }
