@@ -178,7 +178,7 @@ word:string;
     if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
       {this.word='';
     
-      if(this.bascet!="")
+      if(this.bascet!=null)
       {
     this.word=""}
     }
@@ -202,13 +202,13 @@ word:string;
       if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
       {this.word='';
     
-      if(this.bascet!="")
+      if(this.bascet!=null)
       {
     this.word=""}
     }
       else{
         let fl2=0
-        if(this.bascet.length>1){
+        if(this.bascet!=null){
           for (let index = 0; index < this.bascet.length; index++) {
            if(index>0)
            {
