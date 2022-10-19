@@ -174,7 +174,7 @@ word:string;
   }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
-    
+    let x;
     if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
       {this.word='';
     
@@ -207,6 +207,20 @@ word:string;
     this.word=""}
     }
       else{
+        let fl2=0
+        if(this.bascet!=""){
+          for (let index = 0; index < this.bascet.length; index++) {
+           if(index>0)
+           {
+            x=x+this.bascet.charAt(index)
+           }
+            
+          }
+          console.log(x);
+          if(this.word==x)
+          {this.word="";
+          fl2=1;}
+        }
       this.word+=event.key;
       }
    
