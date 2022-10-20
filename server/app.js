@@ -547,7 +547,7 @@ app.post('/acssecond/guest/addSampleBlock', (req, res) => {
 
 })
 app.post('/addbasket/guest/addBasket', (req, res) => {    
-    Bascet.find({
+    Bascet.findOne({
         name: req.body.name
       
    }).then((user) => {
