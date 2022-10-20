@@ -445,6 +445,7 @@ table {
     width: 15%;
     overflow-y:scroll;
     max-height: 100%;
+    margin-right: 2%;
   }
   .cards{
     display: flex;
