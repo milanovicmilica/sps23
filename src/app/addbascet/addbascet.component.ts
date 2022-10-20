@@ -52,7 +52,7 @@ export class AddbascetComponent implements OnInit {
 
        this.UserService.addBasket(this.name,free).subscribe((resp)=>{
 
-        if(resp['message']=='user added')
+        if(resp['message']=='user')
         {this.message='Basket added'; 
       this.name="";
       this.num=null;
