@@ -387,7 +387,7 @@ letter-spacing: 2px;
     height: 50%;
     padding: 2%;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
-    margin-bottom: 2%;
+    
 }
 .label1{
     margin-top: 3%;
@@ -446,7 +446,7 @@ letter-spacing: 2px;
     letter-spacing: 2px;
     width: 20%;
     padding: 10px;
-    padding-bottom: 5px;
+    
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     align-self: center;
     margin-left: 2%;
