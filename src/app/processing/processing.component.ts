@@ -270,10 +270,12 @@ word:string;
     this.word="";
     this.cassettearray.push("")
     if(this.cassettearray.length>1)
-    this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length-1];
+    this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length];
     else{
-      if(this.cassettearray.length==1)
-      this.cassettearray[0]=this.prom[this.prom.length-1];
+      if(this.cassettearray.length==1){
+        console.log(this.prom.length);
+      this.cassettearray[0]=this.prom[this.prom.length-1];}
+
     }
     this.addf=1;
   }
