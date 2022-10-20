@@ -294,7 +294,7 @@ padding: 10px;
     display: flex;
     flex-direction: column;
     margin-top: 15%;
-    width: 50%;
+    width: 70%;
     align-self: center;
     height: 100%;
 }
@@ -450,4 +450,7 @@ letter-spacing: 2px;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     align-self: center;
     margin-left: 2%;
+  }
+  .minidelete:hover{
+    background-color: #3d91f1d1;
   }
