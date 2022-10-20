@@ -273,7 +273,7 @@ word:string;
     this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length-1];
     else{
       if(this.cassettearray.length==1)
-      this.cassettearray[0]=this.prom[0];
+      this.cassettearray[0]=this.prom[this.prom.length-1];
     }
     this.addf=1;
   }
