@@ -227,6 +227,8 @@ word:string;
           fl2=1;}
         }
       this.word+=event.key;
+      if(this.word=='undefined')
+      this.word=""
       }
    
     }
