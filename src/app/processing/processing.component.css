@@ -407,6 +407,7 @@ letter-spacing: 2px;
 }
 .div1{
     display: flex;
+    height: 40%;
     flex-direction: column;
     overflow-y:scroll;
     max-height: 50%;
