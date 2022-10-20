@@ -80,7 +80,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     </select>
                     <label class="label1">Scan casette:</label>
                     <div class="div1">
+                    <div class="div1prim">
                     <input *ngFor="let s of cassettearray" type="text" class="input1prim"  [value]="s">
+                    <button class="minidelete">DELETE</button>
+                    </div>
                     <label id="lab"></label>
                     </div>
                     <button class="button1" (click)="startprocess()">START PROCESS</button>
