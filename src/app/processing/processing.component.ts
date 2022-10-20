@@ -203,10 +203,9 @@ word:string;
       }}
       if(flag==0){
         this.word+="]"
-        this.word+='"';
-        this.word+='"';
+       
         this.cassettearray.push(this.word)
-        for (let index = 0; index < this.cassettearray.length; index++) {
+        /*for (let index = 0; index < this.cassettearray.length; index++) {
           for (let index2 = 0; index2 < this.cassettearray.length; index2++) {
         if(this.cassettearray[index].search(this.cassettearray[index2])!=-1 && index!=index2)
         {
@@ -221,12 +220,9 @@ word:string;
          }
          this.cassettearray[index]=y;
          console.log(y)
+
+        }*/
          
-        }
-            
-          }
-          
-        }
         this.word="";
       }
    
