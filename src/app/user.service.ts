@@ -95,6 +95,19 @@ export class UserService {
 
   return this.http.post('https://sps23.herokuapp.com/addprocessor/guest/addProcessor', data)
   }
+  addBasket(name, free){
+    let t=0;
+  
+    const data={
+      
+      name: name,
+     
+      free:free,
+     
+    }
+  
+    return this.http.post('https://sps23.herokuapp.com/addbasket/guest/addBasket', data)
+    }
   addStainer(name,num, free){
     let t=0;
   

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AcsfirstComponent } from './acsfirst/acsfirst.component';
 import { AcssecondComponent } from './acssecond/acssecond.component';
+import { AddbascetComponent } from './addbascet/addbascet.component';
 import { AddprocessorComponent } from './addprocessor/addprocessor.component';
 import { AddprotocolComponent } from './addprotocol/addprotocol.component';
 import { AddprstainerComponent } from './addprstainer/addprstainer.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
 { path: 'login-processing', component:LoginprocessingComponent},
 { path: 'login-coverslipping', component:LogincoverComponent},
 { path: 'dasheight', component:DasheightComponent},
+{ path: 'addbasket', component:AddbascetComponent},
 ]  ;
 
 @NgModule({

@@ -33,6 +33,7 @@ import { LoginprocessingComponent } from './loginprocessing/loginprocessing.comp
 import { LogincoverComponent } from './logincover/logincover.component';
 import { DasheightComponent } from './dasheight/dasheight.component';
 import { QRCodeModule } from 'angular2-qrcode';
+import { AddbascetComponent } from './addbascet/addbascet.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +64,7 @@ import { QRCodeModule } from 'angular2-qrcode';
     LoginprocessingComponent,
     LogincoverComponent,
     DasheightComponent,
+    AddbascetComponent,
 
   ],
   imports: [

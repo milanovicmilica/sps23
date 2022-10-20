@@ -546,6 +546,18 @@ app.post('/acssecond/guest/addSampleBlock', (req, res) => {
             });
 
 })
+app.post('/addbasket/guest/addBasket', (req, res) => {    
+
+    let newP = new Bascet({
+      name:body.req.name, free:body.req.free })
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+})
 app.post('/acssecond/guest/deleteSample', (req, res) => {    
     
     Sample.findOneAndRemove({
