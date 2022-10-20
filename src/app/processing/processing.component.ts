@@ -99,6 +99,10 @@ export class ProcessingComponent implements OnInit {
       let posm;
       let posh2;
       let d=0;
+      if(this.addf==1)
+      {
+        this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length-1];
+      }
       for (let index = 0; index < this.allProtocols.length; index++) {
        if(this.allProtocols[index].name==this.protocol && this.allProtocols[index].processor==this.processor)
        {
@@ -270,12 +274,8 @@ word:string;
     this.word="";
     this.cassettearray.push("")
     if(this.cassettearray.length>1)
-    this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length];
+    this.cassettearray[this.cassettearray.length-2]=this.prom[this.prom.length-1];
     else{
-      if(this.cassettearray.length==1){
-        console.log(this.prom.length);
-      this.cassettearray[0]=this.prom[this.prom.length-1];}
-
     }
     this.addf=1;
   }
