@@ -212,6 +212,7 @@ word:string;
         {
           let x=this.cassettearray[index2]
           let y=""
+          console.log('ima')
          for (let index3 = 0; index3 < this.cassettearray[index].length; index3++) {
           
           if(index3>=x.length)
