@@ -3,7 +3,7 @@ export class Process{
     protocol:string;
 
     bascet:string;
-    casette:string;
+    casette:string[];
     hours:number;
     minutes:number;
     status:number;

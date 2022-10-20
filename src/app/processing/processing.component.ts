@@ -149,7 +149,7 @@ export class ProcessingComponent implements OnInit {
       }
 
    
-      this.UserService.addProcess(this.processor,this.protocol,this.bascet,this.casette,vreme,minuti,status,posh2,posm, dan,mesec,year).subscribe((resp)=>{
+      this.UserService.addProcess(this.processor,this.protocol,this.bascet,this.cassettearray,vreme,minuti,status,posh2,posm, dan,mesec,year).subscribe((resp)=>{
     
         if(resp['message']=='user')
         {
@@ -227,8 +227,7 @@ word:string;
            }
             
           }
-          console.log(x);
-          console.log(this.word)
+         
           if(this.word==x)
           {this.word="";
           fl2=1;}
