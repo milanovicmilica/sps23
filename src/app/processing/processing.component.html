@@ -69,13 +69,13 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                  
 
                  
-                    <label class="label1">Select bascet:</label>
+                    <label class="label1">Select basket:</label>
                     <select class="select1" [(ngModel)]='bascet' *ngIf="redSelect==0">
-                        <option hidden selected>Select bascet</option>
+                        <option hidden selected>Select basket</option>
                     <option *ngFor="let a of allBascets">{{a.name}}</option>
                     </select>
                     <select class="select1g" [(ngModel)]='bascet' *ngIf="redSelect==1">
-                        <option hidden selected>Select bascet</option>
+                        <option hidden selected>Select basket</option>
                     <option *ngFor="let a of allBascets">{{a.name}}</option>
                     </select>
                     <label class="label1">Scan casette:</label>

@@ -137,7 +137,7 @@ export class GrossnextComponent implements OnInit {
         'Cassette':r
        
       }]*/
-      let item ="[ CaseID: "+this.c1+", Cassette: "+r+"]"
+      let item ="[ spspIPMF"+this.c1+", "+r+"-"+this.myCase.firstname+" "+this.myCase.lastname+"]"
       let qrInfo =item;
       this.code=qrInfo;
       this.qri=qrInfo;

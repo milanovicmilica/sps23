@@ -237,6 +237,7 @@ word:string;
     }
       else{
         let fl2=0
+        if(this.addf==0){
         if(this.bascet!=null){
           for (let index = 0; index < this.bascet.length; index++) {
            if(index>0)
@@ -253,7 +254,9 @@ word:string;
       this.word+=event.key;
       if(this.word.search('undefined')!=-1)
       this.word=""
-      }
+      }else{
+        this.word+=event.key;
+      }}
    
     }
   }}
