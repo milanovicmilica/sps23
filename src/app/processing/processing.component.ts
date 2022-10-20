@@ -88,7 +88,7 @@ export class ProcessingComponent implements OnInit {
     else this.g1=0;
     if(this.casette==null)
     this.g2=1; else this.g2=0;
-    if(this.protocol!=null  && this.bascet!=null && this.casette!=null && this.processor!=null)
+    if(this.protocol!=null  && this.bascet!=null && this.cassettearray.length>0 && this.processor!=null)
     {
      
       let status=0;
@@ -243,7 +243,8 @@ word:string;
     this.cassettearray.splice(i,1);
   }
   addcass()
-  {
+  { 
+    this.word="";
     this.cassettearray.push("")
   }
 }
