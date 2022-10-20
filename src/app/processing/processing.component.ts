@@ -220,6 +220,8 @@ word:string;
 
          }
          this.cassettearray[index]=y;
+         console.log(y)
+         
         }
             
           }
