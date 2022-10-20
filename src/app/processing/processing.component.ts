@@ -264,13 +264,13 @@ word:string;
   deletecass(i){
     this.cassettearray.splice(i,1);
   }
-  prom:string=""
+  prom:string[]=[]
   addcass()
   { 
     this.word="";
     this.cassettearray.push("")
     if(this.cassettearray.length>1)
-    this.cassettearray[this.cassettearray.length-1]=this.prom;
+    this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length-1];
     this.addf=1;
   }
   res(){
