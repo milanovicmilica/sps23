@@ -410,7 +410,7 @@ letter-spacing: 2px;
     height: 40%;
     flex-direction: column;
     overflow-y:scroll;
-    max-height: 50%;
+    max-height: 50vh;
 }
 ::-webkit-scrollbar {
     width: 10px;
