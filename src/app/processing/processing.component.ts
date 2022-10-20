@@ -43,7 +43,8 @@ export class ProcessingComponent implements OnInit {
           
         }
         this.UserService.getAllBascets().subscribe((data: Bascet[])=>{
-          this.allBascets=data;})
+          this.allBascets=data;
+        this.redSelect=0;})
        // this.cassettearray.push("");
         //this.casette.push("");
        // this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
@@ -68,6 +69,7 @@ export class ProcessingComponent implements OnInit {
   scanner: ZXingScannerComponent;
   qrResultString: string;
   qrResult: Result;
+  redSelect:number;
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-processing']);
@@ -178,6 +180,11 @@ word:string;
   }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
+    if(this.bascet==null)
+    {
+      this.redSelect=1;
+    }else{
+      this.redSelect=0;
     let x;
     if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
       {this.word='';
@@ -232,5 +239,5 @@ word:string;
       }
    
     }
-  }
+  }}
 }

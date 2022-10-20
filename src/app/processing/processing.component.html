@@ -70,13 +70,19 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
                  
                     <label class="label1">Select bascet:</label>
-                    <select class="select1" [(ngModel)]='bascet' >
+                    <select class="select1" [(ngModel)]='bascet' *ngIf="redSelect==0">
+                        <option hidden selected>Select bascet</option>
+                    <option *ngFor="let a of allBascets">{{a.name}}</option>
+                    </select>
+                    <select class="select1g" [(ngModel)]='bascet' *ngIf="redSelect==1">
                         <option hidden selected>Select bascet</option>
                     <option *ngFor="let a of allBascets">{{a.name}}</option>
                     </select>
                     <label class="label1">Scan casette:</label>
+                    <div class="div1">
                     <input *ngFor="let s of cassettearray" type="text" class="input1prim"  [value]="s">
                     <label id="lab"></label>
+                    </div>
                     <button class="button1" (click)="startprocess()">START PROCESS</button>
                 </div>
             </div>
