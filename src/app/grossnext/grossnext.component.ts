@@ -137,11 +137,11 @@ export class GrossnextComponent implements OnInit {
         'Cassette':r
        
       }]*/
-      let item ="[ CaseID: "+this.c1+", Sample: "+this.c1+' '+this.uz+", Cassette: "+r+"]"
-      let qrInfo = JSON.stringify(item);
+      let item ="[ CaseID: "+this.c1+", Cassette: "+r+"]"
+      let qrInfo =item;
       this.code=qrInfo;
       this.qri=qrInfo;
-      console.log(this.uz,this.kasetice[i],this.printano[i],this.code,  this.me.username, this.asistent )
+      
     this.UserService.printCassette(this.myCase.formatcn,
       this.uz,this.kasetice[i],this.printano[i],this.code,  this.me.username, this.asistent).subscribe((resp)=>{
 
