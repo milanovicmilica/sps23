@@ -240,4 +240,7 @@ word:string;
    
     }
   }}
+  deletecass(i){
+    this.cassettearray.splice(i,1);
+  }
 }

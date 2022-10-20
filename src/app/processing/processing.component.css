@@ -434,5 +434,20 @@ letter-spacing: 2px;
   .div1prim{
     display: flex;
     flex-direction: row;
-    
+    width: 100%;
+  }
+  .minidelete{
+    background-color: #2787F2;
+    color: white;
+    border-radius: 5px;
+    border-color: transparent;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 10%;
+    padding: 10px;
+    padding-bottom: 5px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    align-self: center;
+    margin-left: 2%;
   }
