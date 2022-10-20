@@ -69,9 +69,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                  
 
                  
-                    <label class="label1">Scan bascet:</label>
-                    <input type="text" id='basc' class="input1" [(ngModel)]="bascet" *ngIf="g1==0">   
-                    <input type="text" id="basc" class="input1g" [(ngModel)]="bascet" *ngIf="g1==1">
+                    <label class="label1">Select bascet:</label>
+                    <select class="select1" [(ngModel)]='bascet' >
+                        <option hidden selected>Select bascet</option>
+                    <option *ngFor="let a of allBascets">{{a.name}}</option>
+                    </select>
                     <label class="label1">Scan casette:</label>
                     <input *ngFor="let s of cassettearray" type="text" class="input1prim"  [value]="s">
                     <label id="lab"></label>

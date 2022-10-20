@@ -10,6 +10,7 @@ import { ZXingScannerComponent } from '@zxing/ngx-scanner';
 import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
 import { isThisTypeNode } from 'typescript';
+import { Bascet } from '../models/bascet';
 @Component({
   selector: 'app-processing',
   templateUrl: './processing.component.html',
@@ -41,6 +42,8 @@ export class ProcessingComponent implements OnInit {
           }
           
         }
+        this.UserService.getAllBascets().subscribe((data: Bascet[])=>{
+          this.allBascets=data;})
        // this.cassettearray.push("");
         //this.casette.push("");
        // this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
@@ -50,6 +53,7 @@ export class ProcessingComponent implements OnInit {
     })
   }
   me:User;
+  allBascets:Bascet[];
   allProcessors:Processor[];
   allProtocols:Protocol[];
   protocol:string;

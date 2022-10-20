@@ -15,6 +15,7 @@ const { Sectioning } = require('./sectioning');
 const { Stainer } = require('./stainer.model');
 const { Coverslipping } = require('./coverslipping');
 const { Rack } = require('./rack');
+const { Bascet } = require('./bascet');
 module.exports = {
     List,
     Task,
@@ -32,7 +33,8 @@ module.exports = {
     Sectioning,
     Stainer,
     Coverslipping,
-    Rack
+    Rack,
+    Bascet
 
 
 }

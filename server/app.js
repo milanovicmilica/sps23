@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
-    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack} = require('./db/models');
+    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet} = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
@@ -135,6 +135,16 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess', (req, res) =>
     
     Process.find({
        
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/dashfourproc/guest/getallbascets', (req, res) => {
+    
+    Bascet.find({
+       free:1
     }).then((lists) => {
         res.send(lists);
     }).catch((e) => {

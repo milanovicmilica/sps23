@@ -515,6 +515,10 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallrack')
   }
+  getAllBascets()
+  {
+    return this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallbascets')
+  }
   getAllCover()
   {
     return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallcover')
