@@ -243,4 +243,8 @@ word:string;
   deletecass(i){
     this.cassettearray.splice(i,1);
   }
+  addcass()
+  {
+    this.cassettearray.push("")
+  }
 }
