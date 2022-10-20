@@ -82,7 +82,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <div class="div1">
                     <div class="div1prim" *ngFor="let s of cassettearray; let i=index">
                     <input  type="text" class="input1prim"  [value]="s"   *ngIf="addf==0" [(ngModel)]="cassettearray[i]">
-                    <input  type="text" class="input1prim"  *ngIf="addf==1" >
+                    <input  type="text" class="input1prim"  *ngIf="addf==1" [(ngModel)]="prom">
                     <button class="minidelete" (click)="deletecass(i)" >DELETE</button>
                     </div>
                     <label id="lab"></label>
