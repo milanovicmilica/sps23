@@ -208,7 +208,7 @@ word:string;
         this.cassettearray.push(this.word)
         for (let index = 0; index < this.cassettearray.length; index++) {
           for (let index2 = 0; index2 < this.cassettearray.length; index2++) {
-        if(this.cassettearray[index].search(this.cassettearray[index2]) && index!=index2)
+        if(this.cassettearray[index].search(this.cassettearray[index2])!=-1 && index!=index2)
         {
           let x=this.cassettearray[index2]
           let y=""
