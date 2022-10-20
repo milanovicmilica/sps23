@@ -206,6 +206,24 @@ word:string;
         this.word+='"';
         this.word+='"';
         this.cassettearray.push(this.word)
+        for (let index = 0; index < this.cassettearray.length; index++) {
+          for (let index2 = 0; index2 < this.cassettearray.length; index2++) {
+        if(this.cassettearray[index].search(this.cassettearray[index2]) && index!=index2)
+        {
+          let x=this.cassettearray[index2]
+          let y=""
+         for (let index3 = 0; index3 < this.cassettearray[index].length; index3++) {
+          
+          if(index3>=x.length)
+          {y=y+this.cassettearray[index].charAt(index3)}
+
+         }
+         this.cassettearray[index]=y;
+        }
+            
+          }
+          
+        }
         this.word="";
       }
    
@@ -246,5 +264,8 @@ word:string;
   { 
     this.word="";
     this.cassettearray.push("")
+  }
+  res(){
+    this.word=""
   }
 }
