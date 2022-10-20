@@ -44,6 +44,7 @@ export class ProcessingComponent implements OnInit {
         }
         this.UserService.getAllBascets().subscribe((data: Bascet[])=>{
           this.allBascets=data;
+          this.addf=0;
         this.redSelect=0;})
        // this.cassettearray.push("");
         //this.casette.push("");
@@ -203,7 +204,7 @@ word:string;
       }}
       if(flag==0){
         this.word+="]"
-       
+       if(this.addf==0)
         this.cassettearray.push(this.word)
         /*for (let index = 0; index < this.cassettearray.length; index++) {
           for (let index2 = 0; index2 < this.cassettearray.length; index2++) {
@@ -256,6 +257,7 @@ word:string;
    
     }
   }}
+  addf:number;
   deletecass(i){
     this.cassettearray.splice(i,1);
   }
@@ -263,6 +265,7 @@ word:string;
   { 
     this.word="";
     this.cassettearray.push("")
+    this.addf=1;
   }
   res(){
     this.word=""
