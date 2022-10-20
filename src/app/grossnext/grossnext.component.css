@@ -443,6 +443,8 @@ table {
     flex-direction: column;
     height: 100%;
     width: 15%;
+    overflow-y:scroll;
+    max-height: 100%;
   }
   .cards{
     display: flex;
@@ -593,6 +595,9 @@ table {
   }
   .xplocica{
     margin-top: 20%;
+  }
+  .ssdiv{
+    margin-top: 3%;
   }
   .plocice1{
     display: flex;
