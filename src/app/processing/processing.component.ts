@@ -227,7 +227,7 @@ word:string;
           fl2=1;}
         }
       this.word+=event.key;
-      if(this.word=='undefined')
+      if(this.word.search('undefined')!=-1)
       this.word=""
       }
    
