@@ -347,7 +347,7 @@ this.ind3=i;
 this.ind4=i2;
 }
 popupdone:number;
-print(i)
+print(i,podslovo,bb1,bb2)
 {
   let dan=new Date().getDate();
   let mesec=new Date().getMonth()+1;
@@ -373,7 +373,7 @@ print(i)
       
     }
     this.nizprint[i]++;
-    let a=(Math.floor(Math.random() * 10000000)).toString();
+    let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+this.lastname+"]"
     this.nizQr[i]=a;
   }
   this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint).subscribe((resp)=>{
@@ -454,11 +454,11 @@ print(i)
   printall(){
     
     for (let index = 0; index < this.he.length; index++) {
-      this.print(index);
+      this.print(index,this.podslovo,index+1,this.he[index]);
       
     }
 for (let index = 0; index < this.ssihc.length; index++) {
- this.print(index+this.he.length);
+ this.print(index+this.he.length,this.podslovo,this.he.length+index+1,this.ssihc[index]);
   
 }
   }
