@@ -172,7 +172,7 @@ message:string;
     if(event.key=="]")
   {
     this.word+="]";
-   
+   console.log(this.word)
     this.cassette=this.word
     this.word=""
   }
@@ -185,6 +185,6 @@ message:string;
     if(event.key=="Backspace")
     {
       this.word=this.word.slice(0,this.word.length-1);
-      console.log(this.word)
+      
     }
 }}
