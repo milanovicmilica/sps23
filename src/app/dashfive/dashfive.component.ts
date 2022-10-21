@@ -168,11 +168,7 @@ message:string;
   word:string=""
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
-    if(event.key=="Backspace")
-    {
-      this.word=this.word.slice(0,this.word.length-1);
-      console.log(this.word)
-    }else{
+   
     if(event.key=="]")
   {
     this.word+=']'
@@ -182,5 +178,12 @@ message:string;
   else{
     this.word+=event.key;
   }
-  }}
-}
+  }
+  @HostListener('window:keydown', ['$event'])
+  keyEvent2(event: KeyboardEvent): void {
+    if(event.key=="Backspace")
+    {
+      this.word=this.word.slice(0,this.word.length-1);
+      console.log(this.word)
+    }
+}}
