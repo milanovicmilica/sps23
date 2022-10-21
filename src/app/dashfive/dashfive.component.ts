@@ -168,7 +168,10 @@ message:string;
   word:string=""
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
-    
+    if(event.key=="Backspace")
+    {
+      this.word.slice(0,-1);
+    }else{
     if(event.key=="]")
   {
     this.word+=']'
@@ -178,5 +181,5 @@ message:string;
   else{
     this.word+=event.key;
   }
-  }
+  }}
 }
