@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { Process } from '../models/process';
@@ -165,4 +165,18 @@ message:string;
     })
   
   }}
+  word:string=""
+  @HostListener('window:keypress', ['$event'])
+  keyEvent(event: KeyboardEvent): void {
+    
+    if(event.key=="]")
+  {
+    this.word+=']'
+    this.cassette=this.word
+    this.word=""
+  }
+  else{
+    this.word+=event.key;
+  }
+  }
 }
