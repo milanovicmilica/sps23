@@ -358,7 +358,7 @@ print(i,podslovo,bb1,bb2)
     if(this.allSectionings[index].cassette==this.cassette)
     {
       this.allSectionings[index].nizprint[i]++;
-      let a=(Math.floor(Math.random() * 10000000)).toString();
+      let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+this.lastname+"]"
       this.allSectionings[index].nizQr[i]=a;
       this.nizprint= this.allSectionings[index].nizprint;
       this.nizQr= this.allSectionings[index].nizQr;
