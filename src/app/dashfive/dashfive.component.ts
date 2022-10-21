@@ -170,7 +170,7 @@ message:string;
   keyEvent(event: KeyboardEvent): void {
     if(event.key=="Backspace")
     {
-      this.word=this.word.slice(0,-1);
+      this.word=this.word.slice(0,this.word.length-1);
     }else{
     if(event.key=="]")
   {
