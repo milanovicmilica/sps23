@@ -444,7 +444,7 @@ table {
     height: 100%;
     width: 15%;
     overflow-y:scroll;
-    max-height: 50%;
+    max-height: 50vh;
     margin-right: 2%;
   }
   .cards{
