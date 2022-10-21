@@ -358,7 +358,7 @@ print(i,podslovo,bb1,bb2)
     if(this.allSectionings[index].cassette==this.cassette)
     {
       this.allSectionings[index].nizprint[i]++;
-      let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+this.lastname+"]"
+      let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
       this.allSectionings[index].nizQr[i]=a;
       this.nizprint= this.allSectionings[index].nizprint;
       this.nizQr= this.allSectionings[index].nizQr;
@@ -373,7 +373,7 @@ print(i,podslovo,bb1,bb2)
       
     }
     this.nizprint[i]++;
-    let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+this.lastname+"]"
+    let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
     this.nizQr[i]=a;
   }
   this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint).subscribe((resp)=>{
