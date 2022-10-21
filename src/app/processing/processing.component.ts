@@ -255,9 +255,11 @@ word:string;
           {this.word="";
           fl2=1;}
         }
+        if(event.key=='"')
+        {}else{
       this.word+=event.key;
       if(this.word.search('undefined')!=-1)
-      this.word=""
+      this.word=""}
       }else{
         this.word+=event.key;
       }}
