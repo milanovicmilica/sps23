@@ -171,7 +171,7 @@ message:string;
    
     if(event.key=="]")
   {
-    this.word+=']'
+    this.word+=event.key;
     this.cassette=this.word
     this.word=""
   }
