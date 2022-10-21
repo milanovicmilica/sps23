@@ -173,7 +173,7 @@ message:string;
   {
     this.word+=event.key;
     if(this.word.charAt(this.word.length-2)=="]")
-    this.word=this.word.slice(0,-1);
+    this.word=this.word.slice(0,this.word.length-1);
     this.cassette=this.word
     this.word=""
   }
