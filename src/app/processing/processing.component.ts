@@ -256,7 +256,7 @@ word:string;
           fl2=1;}
         }
         if(event.key=='"')
-        {}else{
+        {this.word+="["}else{
       this.word+=event.key;
       if(this.word.search('undefined')!=-1)
       this.word=""}
