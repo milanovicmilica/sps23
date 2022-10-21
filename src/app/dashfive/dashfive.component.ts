@@ -171,6 +171,7 @@ message:string;
     if(event.key=="Backspace")
     {
       this.word=this.word.slice(0,this.word.length-1);
+      console.log(this.word)
     }else{
     if(event.key=="]")
   {
