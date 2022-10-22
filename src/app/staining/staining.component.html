@@ -69,9 +69,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                  
 
                  
-                    <label class="label1">Scan rack:</label>
-                    <input type="text" id='basc' class="input1" [(ngModel)]="bascet" *ngIf="g1==0">   
-                    <input type="text" id="basc" class="input1g" [(ngModel)]="bascet" *ngIf="g1==1">
+                    <label class="label1">Choose rack:</label>
+                    <select class="select1" [(ngModel)]='bascet' >
+                        <option hidden selected>Select rack</option>
+                    <option *ngFor="let a of allrack">{{a.name}}</option>
+                    </select>
                     <label class="label1">Scan slide:</label>
                     <input type="text" class="input1"  [(ngModel)]="casette">
                     <label id="lab"></label>

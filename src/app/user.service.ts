@@ -549,6 +549,10 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallcover')
   }
+  getAllFreeRack()
+  {
+    return this.http.get('https://sps23.herokuapp.com/staining/guest/getallfreerack')
+  }
   getAllUsers()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallusers') || 

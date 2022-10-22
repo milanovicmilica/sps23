@@ -13,6 +13,7 @@ import { Protocol2 } from '../models/protocol2';
 import { Stainer } from '../models/stainer';
 import { Process } from '../models/process';
 import { ProcessStaining } from '../models/processstaining';
+import { Rack } from '../models/rack';
 @Component({
   selector: 'app-dashsix',
   templateUrl: './dashsix.component.html',
@@ -27,7 +28,7 @@ export class DashsixComponent implements OnInit {
     this.me=user1;
     this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
       this.allProcess=data;
-      
+   
       for (let index = 0; index < this.allProcess.length; index++) {
         if(this.allProcess[index].status==0)
         {
@@ -76,7 +77,7 @@ export class DashsixComponent implements OnInit {
           this.message1.push("");
        
         }
-        
+      
       }
       this.pr=80;
       for (let index = 0; index < this.unfProcess.length; index++) {
@@ -138,7 +139,7 @@ st2(index){
   message1:string[]=[];
   nizmin:number[]=[];
   nizsek:number[]=[];
-
+  allRack:Rack[];
 
   addnewp(){
 

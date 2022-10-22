@@ -10,6 +10,7 @@ import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
 import { Protocol2 } from '../models/protocol2';
 import { Stainer } from '../models/stainer';
+import { Rack } from '../models/rack';
 @Component({
   selector: 'app-staining',
   templateUrl: './staining.component.html',
@@ -24,7 +25,8 @@ export class StainingComponent implements OnInit {
     this.me=user1;
     this.UserService.getAllStainers().subscribe((data: Stainer[])=>{
       this.allStainers=data;
-
+      this.UserService.getAllFreeRack().subscribe((data: Rack[])=>{
+        this.allrack=data;
    this.g1=0;
    this.g2=0;
       this.UserService.getAllProtocols2().subscribe((data: Protocol2[])=>{
@@ -41,7 +43,7 @@ export class StainingComponent implements OnInit {
        // this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
   
       })
-    
+      })
     })
   }
 
@@ -58,7 +60,7 @@ export class StainingComponent implements OnInit {
   stainer:string;
   g1:number;
   g2:number;
-  
+  allrack:Rack[];
   startprocess(){
 
     if(this.bascet==null)
