@@ -19,7 +19,7 @@ const ProcessSSchema = new mongoose.Schema({
         type: String,
     },
     casette: {
-        type: String,
+        type: [String],
     },
     hours: {
         type: Number,

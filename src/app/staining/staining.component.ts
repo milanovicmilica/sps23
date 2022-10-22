@@ -69,13 +69,12 @@ export class StainingComponent implements OnInit {
     if(this.bascet==null)
     this.g1=1;
     else this.g1=0;
-    if(this.casette==null)
-    this.g2=1; else this.g2=0;
+    
     if(this.addf==1)
     {
       this.slidearray[this.slidearray.length-1]=this.prom[this.prom.length-1];
     }
-    if(this.protocol!=null  && this.bascet!=null && this.casette!=null && this.stainer!=null)
+    if(this.protocol!=null  && this.bascet!=null && this.slidearray.length>0 && this.stainer!=null)
     {
       let vreme=new Date().getHours();
       let minuti=new Date().getMinutes();
@@ -135,7 +134,7 @@ export class StainingComponent implements OnInit {
 
       let status=0;
       let possec=new Date().getSeconds();;
-      this.UserService.addProcessStaining(this.stainer,this.protocol,this.bascet,this.casette,vreme,minuti,status, posh2,posm, dan,mesec,year,possec).subscribe((resp)=>{
+      this.UserService.addProcessStaining(this.stainer,this.protocol,this.bascet,this.slidearray,vreme,minuti,status, posh2,posm, dan,mesec,year,possec).subscribe((resp)=>{
     
         if(resp['message']=='user')
         {
