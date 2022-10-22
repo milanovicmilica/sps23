@@ -266,7 +266,7 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
         res.send(e);
     });
 })
-app.get('/staining/guest/getallfreerack', (req, res) => {
+app.get('/staining/guest/getallfreerack' || '/dasheight/guest/getallfreerack', (req, res) => {
     
     Rack.find({
      free: 1 

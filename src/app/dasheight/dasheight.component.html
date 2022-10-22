@@ -42,10 +42,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       
         <div class="polja">
            <div class="leftside">
-                <label class="label1"> Scan rack:</label>
+                <label class="label1"> Choose rack:</label>
                 <div class="lsrow">
-                    <input type="text" class="poljazaUnos" [(ngModel)]="rack" *ngIf="g==0">
-                    <input type="text" class="poljazaUnos2" [(ngModel)]="rack" *ngIf="g==1">
+                    <select class="select1" [(ngModel)]='rack' >
+                        <option hidden selected>Select rack</option>
+                    <option *ngFor="let a of allRack">{{a.name}}</option>
+                    </select>
                     <button class="searchButton" (click)="search()">SEARCH</button>
                   
                     </div>

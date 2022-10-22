@@ -24,7 +24,7 @@ export class DasheightComponent implements OnInit {
   this.me=user1;
   this.g=0;
   this.flag1=0;
-  this.UserService.getAllRack().subscribe((data: Rack[])=>{
+  this.UserService.getAllFreeRack().subscribe((data: Rack[])=>{
     this.allRack=data;
     this.UserService.getAllCover().subscribe((data: Coverslipping[])=>{
       this.allCsl=data;
