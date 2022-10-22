@@ -568,6 +568,28 @@ app.post('/addbasket/guest/addBasket', (req, res) => {
        }})
 
 })
+app.post('/addrack/guest/addRack', (req, res) => {    
+    Rack.findOne({
+        name: req.body.name
+      
+   }).then((user) => {
+       if(user==null)
+       {       let newP = new Rack({
+        name:req.body.name, free:req.body.free })
+              newP.save().then((us2) => {
+                  
+                  res.send({ message: 'user' });
+              }).catch((e) => {
+                  res.send({ message: 'error' });
+              });
+  
+       }else{
+   
+                
+                res.send({ message: 'zauzeto' });
+       }})
+
+})
 app.post('/acssecond/guest/deleteSample', (req, res) => {    
     
     Sample.findOneAndRemove({

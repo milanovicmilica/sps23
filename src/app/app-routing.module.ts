@@ -6,6 +6,7 @@ import { AddbascetComponent } from './addbascet/addbascet.component';
 import { AddprocessorComponent } from './addprocessor/addprocessor.component';
 import { AddprotocolComponent } from './addprotocol/addprotocol.component';
 import { AddprstainerComponent } from './addprstainer/addprstainer.component';
+import { AddrackComponent } from './addrack/addrack.component';
 import { AddstainerComponent } from './addstainer/addstainer.component';
 import { CaselistadComponent } from './caselistad/caselistad.component';
 import { DashboardfirstComponent } from './dashboardfirst/dashboardfirst.component';
@@ -57,6 +58,7 @@ const routes: Routes = [
 { path: 'login-coverslipping', component:LogincoverComponent},
 { path: 'dasheight', component:DasheightComponent},
 { path: 'addbasket', component:AddbascetComponent},
+{ path: 'addrack', component:AddrackComponent},
 ]  ;
 
 @NgModule({

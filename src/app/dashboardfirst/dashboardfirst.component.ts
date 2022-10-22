@@ -95,6 +95,9 @@ export class DashboardfirstComponent implements OnInit {
 
     })
   }}
+  rack(){
+    this.router.navigate(['/addrack']);
+  }
   addbasket(){
     this.router.navigate(['/addbasket']);
   }

@@ -17,6 +17,14 @@ const RackSchema = new mongoose.Schema({
         type: [String],
       
     },
+    name: {
+        type: String,
+      
+    },
+    free: {
+        type: Number,
+      
+    },
 });
 
 
