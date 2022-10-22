@@ -81,7 +81,7 @@ export class DasheightComponent implements OnInit {
       let f0=0;
       this.message1=""
       for (let index = 0; index < this.allRack.length; index++) {
-        if(this.rack==this.allRack[index].qr)
+        if(this.rack==this.allRack[index].name)
         {
           f0=1;
           
