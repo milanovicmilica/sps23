@@ -820,6 +820,7 @@ posmonth:req.body.posmonth, posyear:req.body.posyear, possec:req.body.possec })
             let nova=user.free;
             nova=nova-1;
             Stainer.collection.updateOne({'name' :req.body.stainer}, {$set: {'free' : nova}});
+            Rack.collection.updateOne({'name' :req.body.bascet}, {$set: {'free' : 0}});
             user1.save().then(user2=>{
                 res.send({ message: 'user' });
             }).catch(err=>{
