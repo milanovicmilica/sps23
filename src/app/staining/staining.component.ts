@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { timestamp } from 'rxjs';
 import { Processor } from '../models/processors';
 import { Protocol } from '../models/protocol';
@@ -29,6 +29,8 @@ export class StainingComponent implements OnInit {
         this.allrack=data;
    this.g1=0;
    this.g2=0;
+   this.addf=0;
+   this.redSelect=0;
       this.UserService.getAllProtocols2().subscribe((data: Protocol2[])=>{
         this.allProtocols=data;
         for (let index = 0; index < this.allStainers.length; index++) {
@@ -49,13 +51,14 @@ export class StainingComponent implements OnInit {
 
 
   me:User;
-
+  redSelect:number;
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-staininghe']);
   }
   bascet:string;
   casette:string;
+  slidearray:string[]=[];
   protocol:string;
   stainer:string;
   g1:number;
@@ -68,6 +71,10 @@ export class StainingComponent implements OnInit {
     else this.g1=0;
     if(this.casette==null)
     this.g2=1; else this.g2=0;
+    if(this.addf==1)
+    {
+      this.slidearray[this.slidearray.length-1]=this.prom[this.prom.length-1];
+    }
     if(this.protocol!=null  && this.bascet!=null && this.casette!=null && this.stainer!=null)
     {
       let vreme=new Date().getHours();
@@ -166,5 +173,87 @@ freeStainers:string[]=[];
         
       }
   }
-
+  addf:number;
+  deletecass(i){
+    this.slidearray.splice(i,1);
+  }
+  prom:string[]=[]
+  word:string;
+  addcass()
+  { 
+    this.word="";
+    this.slidearray.push("")
+    if(this.slidearray.length>1)
+    this.slidearray[this.slidearray.length-2]=this.prom[this.prom.length-1];
+    else{
+    }
+    this.addf=1;
+  }
+  @HostListener('window:keypress', ['$event'])
+  keyEvent(event: KeyboardEvent): void {
+    if(this.bascet==null)
+    {
+      this.redSelect=1;
+    }else{
+      this.redSelect=0;
+    let x;
+    if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
+      {this.word='';
+    
+      if(this.bascet!=null)
+      {
+    this.word=""}
+    }
+     
+    if (event.key == ']') {
+      let flag=0;
+     for (let index = 0; index < this.slidearray.length; index++) {
+      if(this.slidearray[index]==this.word)
+      {
+        flag=1;
+      }}
+      if(flag==0){
+        this.word+="]"
+       if(this.addf==0)
+        this.slidearray.push(this.word)
+       
+         
+        this.word="";
+      }
+   
+    } else {
+      if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
+      {this.word='';
+    
+      if(this.bascet!=null)
+      {
+    this.word=""}
+    }
+      else{
+        let fl2=0
+        if(this.addf==0){
+        if(this.bascet!=null){
+          for (let index = 0; index < this.bascet.length; index++) {
+           if(index>0)
+           {if(this.bascet.charAt(index)!='undefined')
+            x=x+this.bascet.charAt(index)
+           }
+            
+          }
+         
+          if(this.word==x)
+          {this.word="";
+          fl2=1;}
+        }
+        if(event.key=='"')
+        {this.word+="["}else{
+      this.word+=event.key;
+      if(this.word.search('undefined')!=-1)
+      this.word=""}
+      }else{
+        this.word+=event.key;
+      }}
+   
+    }
+  }}
 }

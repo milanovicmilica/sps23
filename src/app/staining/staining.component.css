@@ -288,13 +288,15 @@ padding: 10px;
     display: flex;
     flex-direction: column;
     width: 50%;
+    height: 70%;
 }
 .rspt1{
     display: flex;
     flex-direction: column;
-    margin-top: 30%;
-    width: 50%;
+    margin-top: 15%;
+    width: 70%;
     align-self: center;
+    height: 100%;
 }
 .title2{
     font-family: 'Roboto Condensed', sans-serif;
@@ -313,7 +315,7 @@ font-weight: bold;
 letter-spacing: 2px;
 width: 50%;
 padding: 20px;
-padding-bottom: 10px;
+
 box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 align-self: center;
 }
@@ -384,3 +386,86 @@ letter-spacing: 2px;
     padding: 2%;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 }
+.input1g{
+    border-radius: 5px;
+    border-color: red;
+    width: 100%;
+    align-self: center;
+    height: 50%;
+    padding: 2%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+}
+.div1{
+    display: flex;
+    height: 40%;
+    flex-direction: column;
+    overflow-y:scroll;
+    max-height: 35vh;
+    width: 100%;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .div1prim{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 2%;
+  }
+  .minidelete{
+    background-color: #2787F2;
+    color: white;
+    border-radius: 5px;
+    border-color: transparent;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 20%;
+    padding: 10px;
+    
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    align-self: center;
+    margin-left: 2%;
+  }
+  .minidelete:hover{
+    background-color: #3d91f1d1;
+  }
+  .div2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+  }
+  .addfield{
+    background-color: #2787F2;
+    color: white;
+    border-radius: 5px;
+    border-color: transparent;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 30%;
+    padding: 20px;
+    
+    
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    align-self: center;
+    margin-right: 2%;
+  }
+  .addfield:hover{
+    background-color: #3d8fedd2;
+  }
