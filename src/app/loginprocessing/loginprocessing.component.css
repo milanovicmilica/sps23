@@ -136,6 +136,10 @@ font-weight: bolder;
 font-style: italic;
 
 }
+.divzaloz{
+    display: flex;
+    flex-direction: column;
+  }
 .dugme2{
     border-color: rgba(255, 127, 80, 0.877);
     background-color: rgb(255, 255, 255);

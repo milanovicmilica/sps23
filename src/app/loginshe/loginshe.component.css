@@ -17,6 +17,10 @@ z-index: -1;
 width: 100%;
 
 }
+.divzaloz{
+    display: flex;
+    flex-direction: column;
+  }
 .pozadina{
     width: 100%;
 height:100%;
