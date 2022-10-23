@@ -217,6 +217,10 @@ width: 30%;
 width: 25%;
 
   }
+  .divzaloz{
+    display: flex;
+    flex-direction: column;
+  }
   .username{
     color: black;
     text-align: left;
