@@ -88,7 +88,13 @@ export class LoginaccessioningComponent implements OnInit {
     
    
   }
+  visible:boolean=true;
+  changetype:boolean=true;
 
+  viewpass(){
+this.visible=!this.visible;
+this.changetype=!this.changetype;
+  }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
     if(event.key=="Enter")
