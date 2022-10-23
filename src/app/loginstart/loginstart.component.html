@@ -41,8 +41,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <input type="text" class="poljazaUnos" name='username' [(ngModel)]='username'>
             <span class='error'>{{message0}}</span>
             <label class="username">Password:</label>
-            <input type="password" class="poljazaUnos" name='password' [(ngModel)]='password' id="id_password">
-            <i class="far fa-eye" id="togglePassword" style="margin-left: 30px; margin-bottom:10px ;cursor: pointer;"></i>
+            <input [type]="changetype?'password':'text'" class="poljazaUnos" name='password' [(ngModel)]='password' id="id_password">
+            <span class="eyeicon" style="position:absolute; right:-15px; top:10px;" (click)="viewpass()"><i class="fa fa-eye" [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
             <span class='error'>{{message1}}</span>
             <button class="signupDugme" (click)='login()' >LOGIN</button>
             <span class='error'>{{message}}</span>
@@ -55,15 +55,4 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       </div>
 </div>
 </div>
-<script>
-    const togglePassword = document.querySelector('#togglePassword');
-  const password = document.querySelector('#id_password');
-
-  togglePassword.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    // toggle the eye slash icon
-    this.classList.toggle('fa-eye-slash');
-});
-</script>
+\
