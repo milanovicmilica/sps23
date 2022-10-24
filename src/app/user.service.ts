@@ -440,6 +440,18 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashseven/guest/updateSectioning', data)
   }
+  updateSampleCode(caseid,slovo,s){
+    const data={
+      
+    
+      caseid:caseid,
+      slovo:slovo,
+      s:s
+     
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateSampleCode', data)
+  }
   addCase(sender,hospitalid,contact,address,firstname,lastname,
     pid,date,lbo,hnum,num,diagnosis,pathologist,adcomments,format,cn, gen){
     const data={

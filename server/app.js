@@ -511,6 +511,23 @@ app.post('/acssecond/guest/addSampleSlide', (req, res) => {
 
 })
 
+app.post('/acssecond/guest/updateSampleCode', (req, res) => {   
+
+    Sample.findOne({
+        caseid: req.body.caseid,
+        slovo:req.body.slovo
+       
+    }).then((user) => {
+        if(user==null){   res.send({ message: 'nema' });}
+
+        Sample.collection.updateOne({'caseid' : req.body.caseid, 'slovo':req.body.slovo}, {$set: {'code' : req.body.s}});
+        res.send({ message: 'user' });
+      
+
+}).catch((e) => {
+res.send({ message: 'error' });
+});
+})
 app.post('/dashfourproc/guest/addprocess', (req, res) => {    
 
     let newP = new Process({

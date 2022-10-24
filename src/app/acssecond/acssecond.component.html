@@ -343,10 +343,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                
             </div></div>
             <div *ngIf="b.acs!='External slide' && b.acs!='External block' && b.casetype!='Cytology'" class="trecipl" >
-              <button class="signupDugme42"  >PRINT LABEL</button></div>
+              <button class="signupDugme42" (click)="print(b)" >PRINT LABEL</button></div>
               
                <div *ngIf="b.acs=='External slide' || b.acs=='External block' || b.casetype=='Cytology'" class="trecipl" >
-                    <button class="signupDugme42"  >PRINT LABEL</button></div>
+                    <button class="signupDugme42"  (click)="print(b)">PRINT LABEL</button></div>
                     <div class="cetvrtipl"  *ngIf="b.acs!='External slide' && b.acs!='External block' && b.casetype!='Cytology'">
                         <img class="slikaKanta" src="../../assets/d.png" (click)="delete(b)">
                     </div>

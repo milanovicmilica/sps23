@@ -250,6 +250,21 @@ let s=0;
     } 
     }
     choice:string;
+
+print(b){
+
+  let s="[spspIPMF"+b.caseid+", "+b.slovo+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+
+  this.UserService.updateSampleCode(this.caseid,b.slovo,s).subscribe((resp)=>{
+
+    if(resp['message']=='user')
+    {
+      this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+        this.allSamples=data;})
+    }
+  });
+
+}
 addsample(){
 
   let id=this.mySamples.length;
