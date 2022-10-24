@@ -329,6 +329,7 @@ letter-spacing: 2px;
 .midcol{
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 .thirdcol{
     display: flex;
