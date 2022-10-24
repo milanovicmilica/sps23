@@ -39,7 +39,7 @@ export class AcsfirstComponent implements OnInit {
   lastname:string;
   pid:string;
   lbo:string;
-  date:string;
+  date:Date;
   hnum:string;
   diagnosis:string;
   pathologist:string;

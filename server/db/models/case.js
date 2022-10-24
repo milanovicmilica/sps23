@@ -35,7 +35,7 @@ const CaseSchema = new mongoose.Schema({
         
     },
     date: {
-        type: String,
+        type: Date,
         
     },
     lbo: {
