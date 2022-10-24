@@ -96,8 +96,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </div>
                 <div class="midcol">
                     <label  class="labblue">Date of birth*</label>
-                    <input *ngIf="g5==0" type="date" class="in2" [(ngModel)]="date">
-                    <input *ngIf="g5==1" type="date" class="in2g" [(ngModel)]="date">
+                    <input *ngIf="g5==0" type="date" class="in2" data-date-format="DD MM YYYY" [(ngModel)]="date">
+                    <input *ngIf="g5==1" type="date" class="in2g" data-date-format="DD MM YYYY" [(ngModel)]="date">
                 </div>
             </div>
             <div class="midf">
