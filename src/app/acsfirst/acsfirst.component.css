@@ -316,16 +316,20 @@ letter-spacing: 2px;
 }
 .mid{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     width: 100%;
     text-align: center;
 }
 .midf,.mids{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
 }  
+.midcol{
+    display: flex;
+    flex-direction: column;
+}
 .thirdcol{
     display: flex;
     flex-direction: column;

@@ -77,26 +77,46 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         </div>
         <div class="mid">
             <div class="midf">
+                <div class="midcol">
                 <label  class="labblue">First name*</label>
                 <input *ngIf="g2==0" type="text" class="in2" [(ngModel)]="firstname">
                 <input *ngIf="g2==1"type="text" class="in2g" [(ngModel)]="firstname">
-                <label  class="labblue">Personal ID*</label>
-                <input *ngIf="g4==0"type="text" class="in2" [(ngModel)]="pid">
-                <input *ngIf="g4==1"type="text" class="in2g" [(ngModel)]="pid">
-                <label  class="labblue">LBO*</label>
-                <input *ngIf="g6==0" type="text" class="in2" [(ngModel)]="lbo">
-                <input  *ngIf="g6==1" type="text" class="in2g" [(ngModel)]="lbo">
             </div>
-            <div class="mids">
+            <div class="midcol">
                 <label  class="labblue">Last name*</label>
                 <input *ngIf="g3==0" type="text" class="in2" [(ngModel)]="lastname"> 
                 <input *ngIf="g3==1" type="text" class="in2g" [(ngModel)]="lastname"> 
-                <label  class="labblue">Date of birth*</label>
-                <input *ngIf="g5==0" type="date" class="in2" [(ngModel)]="date">
-                <input *ngIf="g5==1" type="date" class="in2g" [(ngModel)]="date">
+            </div>
+            </div>
+            <div class="midf">
+                <div class="midcol">
+                    <label  class="labblue">Personal ID*</label>
+                    <input *ngIf="g4==0"type="text" class="in2" [(ngModel)]="pid">
+                    <input *ngIf="g4==1"type="text" class="in2g" [(ngModel)]="pid">
+                </div>
+                <div class="midcol">
+                    <label  class="labblue">Date of birth*</label>
+                    <input *ngIf="g5==0" type="date" class="in2" [(ngModel)]="date">
+                    <input *ngIf="g5==1" type="date" class="in2g" [(ngModel)]="date">
+                </div>
+            </div>
+            <div class="midf">
+                <div class="midcol">
+                    <label  class="labblue">LBO*</label>
+                    <input *ngIf="g6==0" type="text" class="in2" [(ngModel)]="lbo">
+                    <input  *ngIf="g6==1" type="text" class="in2g" [(ngModel)]="lbo">
+                </div>
+                <div class="midcol">
+                    
                 <label  class="labblue">Health number</label>
                 <input type="text" class="in2" [(ngModel)]="hnum">
+                </div>
+
             </div>
+               
+                
+            
+           
         </div>
         <div class="numb">
          
