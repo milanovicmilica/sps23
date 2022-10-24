@@ -459,6 +459,11 @@ delete(b)
   })
 }
 poc(){
+
+  for (let index = 0; index < this.mySamples.length; index++) {
+    
+    this.print(this.mySamples[index]);
+  }
   this.router.navigate(['/dashsecond']);
 }
 cl(){
