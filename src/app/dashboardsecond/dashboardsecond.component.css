@@ -276,6 +276,10 @@ font-weight: bold;
 letter-spacing: 2px;
 width: 100%;
 padding: 10px;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+}
+.signupDugme:hover{
+    background-color: #2786f2d7;
 }
 .createnewcaseDugme{
     margin-top: 25%;
@@ -289,6 +293,10 @@ letter-spacing: 2px;
 width: 100%;
 padding: 20px;
 padding-bottom: 10px;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+}
+.createnewcaseDugme:hover{
+    background-color: #f3ededde;
 }
 .plus{
     background-color: #121637;
