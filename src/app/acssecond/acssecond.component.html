@@ -67,15 +67,22 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <div class="f1">
     <div class="titlefr">
         <label>ADD NEW SAMPLE</label></div>
-        <select class='sel1'  [(ngModel)]="sample">
+        <select class='sel1'  [(ngModel)]="sample" *ngIf="flags1==0">
             <option value="0" selected >Please Select sample type</option>
             <option *ngFor='let a of allct' [value]="a.ime" >{{a.ime}}</option>
         </select>
-        <select class='sel1' *ngIf="sample!=null" [(ngModel)]="s2">
+        <select class='sel1g'  [(ngModel)]="sample" *ngIf="flags1==1">
+          <option value="0" selected >Please Select sample type</option>
+          <option *ngFor='let a of allct' [value]="a.ime" >{{a.ime}}</option>
+      </select>
+        <select class='sel1' *ngIf="sample!=null" [(ngModel)]="s2" *ngIf="flags2==0">
             <option value="0"  selected>Please Select subject type</option>
             <option *ngFor='let c of histo' [value]="c.i" >{{c.i}}</option>
         </select>
-      
+        <select class='sel1g' *ngIf="sample!=null" [(ngModel)]="s2" *ngIf="flags2==1">
+          <option value="0"  selected>Please Select subject type</option>
+          <option *ngFor='let c of histo' [value]="c.i" >{{c.i}}</option>
+      </select>
         <div class="acs">
             <div class="acs2" *ngIf="sample=='Histology' && s2=='Skin'" >
             <div class="divb"  *ngFor="let d of hskin" > <input type="radio" name="rad" class="radiob"  [(ngModel)]='brTipa' [value]="d">{{d}} </div></div>

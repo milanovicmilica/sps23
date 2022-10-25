@@ -53,6 +53,8 @@ export class AcssecondComponent implements OnInit {
         },
       
       ]
+      this.flags1=0;
+      this.flags2=0;
       this.UserService.getAllSamples().subscribe((data: Sample[])=>{
         this.allSamples=data;
       for (let index = 0; index < this.allSamples.length; index++) {
@@ -143,6 +145,8 @@ for (let index = 0; index < this.niz2.length; index++) {
       
     }
   }
+  flags1:number;
+  flags2:number;
   c14:number;
   c1:string;  c2:string;  c3:string;  c4:string; c5:number; c6:number;
 c7:string;c10:string[];c11:string[];
@@ -267,6 +271,14 @@ print(b){
 }
 addsample(){
 
+  if(this.sample==null)
+  {
+    this.flags1=1
+  }
+  else{this.flags1=0;}
+  if(this.s2==null)
+  {this.flags2=1}else{this.flags2=0}
+  if(this.flags1==0 && this.flags2==0){
   let id=this.mySamples.length;
   let slovo=this.slovo[id];
   if (this.firstch=="HE")
@@ -413,7 +425,7 @@ else{
   }
 }
 
-}
+}}
 }
 delete(b)
 { let c=b.caseid;
