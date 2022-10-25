@@ -22,6 +22,9 @@ export class CaselistadComponent implements OnInit {
         
         this.n1.push(k);
         k=k+1
+        this.day.push(this.allCase[index].date.getDate());
+        this.month.push(this.allCase[index].date.getMonth());
+        this.year.push(this.allCase[index].date.getFullYear());
       }
       this.me=user1;
       for (let index = 0; index < this.allCase.length; index++) {
@@ -51,6 +54,9 @@ logout(){
   sessionStorage.clear();
   this.router.navigate(['/login-accessioning']);
 }
+day:number[]=[];
+month:number[]=[];
+year:number[]=[];
 allS:Sample[]=[];
 numofSpec:number[]=[];
 me:User;
