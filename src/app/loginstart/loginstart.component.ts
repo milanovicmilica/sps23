@@ -33,7 +33,7 @@ allUse:User[]=[];
       this.message1='';
     let flag=0;
     this.UserService.loginProvera(this.username,this.password).subscribe((message: String)=>{
-
+      console.log(message)
       if(message=='ne')
       {
         this.message='Wrong password';
