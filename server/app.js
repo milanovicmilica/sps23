@@ -311,9 +311,13 @@ app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/
         username: req.body.username,
         password: req.body.password
     }).then((user) => {
-        res.send(user);
+        if(user!=null){
+        res.send(user);}
+       
+        
     }).catch((e) => {
-        res.send("nema");
+        res.send({ poruka: 'nema' })
+   
     });
 })
 app.post('/addstprotocol/guest/addSTProtocol', (req, res) => {
