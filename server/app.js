@@ -293,10 +293,10 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
         if(a.password == req.body.password)
         res.send({ poruka: 'ok' })
         else
-        res.send({ poruka: 'ne' })}
+        res.send('ne')}
         else{
            
-            res.send({ poruka: 'nema' })
+            res.send('nema')
         }
     }).catch((e) => {
         res.send({ poruka: 'nema' })
