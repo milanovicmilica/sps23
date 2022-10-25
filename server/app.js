@@ -291,15 +291,15 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
         let a=user.toObject();
         console.log("evo u proveri")
         if(a.password == req.body.password)
-        res.send({ message: 'ok' })
+        res.send({ poruka: 'ok' })
         else
-        res.send({ message: 'ne' })}
+        res.send({ poruka: 'ne' })}
         else{
            
-            res.send({ message: 'nema' })
+            res.send({ poruka: 'nema' })
         }
     }).catch((e) => {
-        res.send({ message: 'nema' })
+        res.send({ poruka: 'nema' })
    
     });
 })
