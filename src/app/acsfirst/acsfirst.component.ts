@@ -131,9 +131,11 @@ addcase(){
       this.newcn=novi+1;
     }
     this.format=this.newcn+'/'+(year.getFullYear()%100);
-    let day=this.date.getDate();
-    let mon=this.date.getMonth();
-    let ye=this.date.getFullYear();
+    let novi=new Date(this.date);
+    let day=novi.getDate();
+    let mon=novi.getMonth();
+    let ye=novi.getFullYear();
+
     let dat=day+"."+mon+"."+ye+"."
     if((this.sender=="Personal" && this.contact!=null && this.firstname!=null && this.lastname!=null && 
     this.pid!=null && this.date!=null && this.lbo!=null && this.diagnosis!=null && this.gen!=null)||(this.sender=="Hospital" && this.hospitalid!=null
