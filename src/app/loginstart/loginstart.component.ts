@@ -38,12 +38,13 @@ allUse:User[]=[];
       {
         this.message='Wrong password';
         flag=1;
-      }
+        console.log('sds')
+      }else{
       if(poruka=='nema')
       {
         this.message='This user do not exist';
         flag=1;
-      }
+      }else{
       if(flag==0)
       {
         this.UserService.login(this.username,this.password).subscribe((user: User)=>{
@@ -84,8 +85,8 @@ allUse:User[]=[];
         
            this.message='This user do not exist';
         })
-      }
-
+      }}
+    }
 
     })}
     
