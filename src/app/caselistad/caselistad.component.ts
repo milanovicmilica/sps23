@@ -22,7 +22,7 @@ export class CaselistadComponent implements OnInit {
         
         this.n1.push(k);
         k=k+1
-        let a=this.allCase[index].date.getDate();
+        let a=this.allCase[index].date;
         console.log(a);
      
       }
