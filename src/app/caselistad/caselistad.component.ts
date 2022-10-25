@@ -22,9 +22,12 @@ export class CaselistadComponent implements OnInit {
         
         this.n1.push(k);
         k=k+1
-        this.day.push(this.allCase[index].date.getDate());
-        this.month.push(this.allCase[index].date.getMonth());
-        this.year.push(this.allCase[index].date.getFullYear());
+        let a=this.allCase[index].date.getDate();
+        let b=this.allCase[index].date.getMonth()
+        let c=this.allCase[index].date.getFullYear()
+        this.day.push(a);
+        this.month.push(b);
+        this.year.push(c);
       }
       this.me=user1;
       for (let index = 0; index < this.allCase.length; index++) {
