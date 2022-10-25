@@ -271,12 +271,12 @@ print(b){
 }
 addsample(){
 
-  if(this.sample==null)
+  if(this.sample==null || this.sample=="")
   {
     this.flags1=1
   }
   else{this.flags1=0;}
-  if(this.s2==null)
+  if(this.s2==null || this.s2=="")
   {this.flags2=1}else{this.flags2=0}
   if(this.flags1==0 && this.flags2==0){
   let id=this.mySamples.length;
