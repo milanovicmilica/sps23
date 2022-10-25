@@ -291,15 +291,15 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
         let a=user.toObject();
         console.log("evo u proveri")
         if(a.password == req.body.password)
-        res.send({ poruka: 'ok' })
+        res.send({ message: 'ok' })
         else
-        res.send({ poruka: 'ne' })}
+        res.send({ message: 'ne' })}
         else{
            
-            res.send({ poruka: 'nema' })
+            res.send({ message: 'nema' })
         }
     }).catch((e) => {
-        res.send({ poruka: 'nema' })
+        res.send({ message: 'nema' })
    
     });
 })
@@ -316,7 +316,7 @@ app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/
        
         
     }).catch((e) => {
-        res.send({ poruka: 'nema' })
+        res.send({ message: 'nema' })
    
     });
 })
