@@ -75,11 +75,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
           <option value="0" selected >Please Select sample type</option>
           <option *ngFor='let a of allct' [value]="a.ime" >{{a.ime}}</option>
       </select>
-        <select class='sel1' *ngIf="sample!=null" [(ngModel)]="s2" *ngIf="flags2==0">
+        <select class='sel1' *ngIf="sample!=null && flags2==0" [(ngModel)]="s2" >
             <option value="0"  selected>Please Select subject type</option>
             <option *ngFor='let c of histo' [value]="c.i" >{{c.i}}</option>
         </select>
-        <select class='sel1g' *ngIf="sample!=null" [(ngModel)]="s2" *ngIf="flags2==1">
+        <select class='sel1g' *ngIf="sample!=null && flags2==1 " [(ngModel)]="s2" >
           <option value="0"  selected>Please Select subject type</option>
           <option *ngFor='let c of histo' [value]="c.i" >{{c.i}}</option>
       </select>
