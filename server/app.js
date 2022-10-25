@@ -289,13 +289,13 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
     }).then((user) => {
         if(user!=null){
         let a=user.toObject();
-      
+        console.log("evo u proveri")
         if(a.password == req.body.password)
         res.send({ message: 'ok' })
         else
         res.send({ message: 'ne' })}
         else{
-            console.log("ucccc")
+           
             res.send({ message: 'nema' })
         }
     }).catch((e) => {

@@ -32,14 +32,14 @@ allUse:User[]=[];
       this.message0='';
       this.message1='';
     let flag=0;
-    this.UserService.loginProvera(this.username,this.password).subscribe((poruka: String)=>{
+    this.UserService.loginProvera(this.username,this.password).subscribe((message: String)=>{
 
-      if(poruka=='ne')
+      if(message=='ne')
       {
         this.message='Wrong password';
         flag=1;
       }
-      if(poruka=='nema')
+      if(message=='nema')
       {
         this.message='This user do not exist';
         flag=1;
