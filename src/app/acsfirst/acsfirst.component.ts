@@ -131,12 +131,16 @@ addcase(){
       this.newcn=novi+1;
     }
     this.format=this.newcn+'/'+(year.getFullYear()%100);
+    let day=this.date.getDate();
+    let mon=this.date.getMonth();
+    let ye=this.date.getFullYear();
+    let dat=day+"."+mon+"."+ye+"."
     if((this.sender=="Personal" && this.contact!=null && this.firstname!=null && this.lastname!=null && 
     this.pid!=null && this.date!=null && this.lbo!=null && this.diagnosis!=null && this.gen!=null)||(this.sender=="Hospital" && this.hospitalid!=null
      && this.firstname!=null && this.lastname!=null && 
     this.pid!=null && this.date!=null && this.lbo!=null && this.diagnosis!=null))
     this.UserService.addCase(this.sender,this.hospitalid,this.contact,this.address,this.firstname,this.lastname,
-      this.pid,this.date,this.lbo,this.hnum,this.num,this.diagnosis,this.pathologist,this.adcomments,this.format, this.newcn,this.gen).subscribe((resp)=>{
+      this.pid,dat,this.lbo,this.hnum,this.num,this.diagnosis,this.pathologist,this.adcomments,this.format, this.newcn,this.gen).subscribe((resp)=>{
   
       if(resp['message']=='user added')
       {this.message='Case added'; 

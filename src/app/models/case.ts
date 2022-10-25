@@ -7,7 +7,7 @@ export class Case{
     firstname:string;
     lastname:string;
     pid:string;
-    date:Date;
+    date:string;
     lbo:string;
     hnum:string;
     bnum:number;
