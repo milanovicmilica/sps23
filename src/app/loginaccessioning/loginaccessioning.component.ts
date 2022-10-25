@@ -29,14 +29,14 @@ export class LoginaccessioningComponent implements OnInit {
       this.message0='';
       this.message1='';
     let flag=0;
-    this.UserService.loginProvera(this.username,this.password).subscribe((poruka: String)=>{
+    this.UserService.loginProvera(this.username,this.password).subscribe((resp: String)=>{
 
-      if(poruka=='ne')
+      if(resp['message']=='ne')
       {
         this.message='Wrong password';
         flag=1;
       }
-      if(poruka=='nema')
+      if(resp['message']=='nema')
       {
         this.message='This user do not exist';
         flag=1;
