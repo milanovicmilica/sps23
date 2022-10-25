@@ -22,8 +22,7 @@ export class CaselistadComponent implements OnInit {
         
         this.n1.push(k);
         k=k+1
-        let a=this.allCase[index].date.toDateString()
-        this.day.push(a);
+        
      
       }
       this.me=user1;
