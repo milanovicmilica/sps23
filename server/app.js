@@ -295,6 +295,7 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
         else
         res.send({ message: 'ne' })}
         else{
+            console.log("ucccc")
             res.send({ message: 'nema' })
         }
     }).catch((e) => {
