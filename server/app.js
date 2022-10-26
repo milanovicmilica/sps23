@@ -994,4 +994,8 @@ app.get('/login-coverslipping', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
+app.get('/login-sendout', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
 app.listen(process.env.PORT);
