@@ -299,7 +299,7 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashfour/guest/endprocess', data)
   }
-  endSProcess(bascet, endhours,endminutes)
+  endSProcess(bascet, endhours,endminutes,cassette)
   {
     const data={
       
@@ -308,7 +308,7 @@ export class UserService {
   
       endhours:endhours,
       endminutes:endminutes,
-      
+      cassette:cassette
     }
 
     return this.http.post('https://sps23.herokuapp.com/dashsix/guest/endsprocess', data)

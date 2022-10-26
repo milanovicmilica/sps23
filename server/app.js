@@ -782,8 +782,8 @@ app.post('/dasheight/guest/confirmCoverslipping', (req, res) => {
 app.post('/dashsix/guest/endsprocess', (req, res) => {    
     
     ProcessStaining.findOne({
-        bascet: req.body.bascet
-       
+        bascet: req.body.bascet,
+       casette:req.body.cassette
     }).then((user) => {
         if(user==null)
         {        
@@ -792,9 +792,9 @@ app.post('/dashsix/guest/endsprocess', (req, res) => {
         }else{
             let s=1;
                      
-                ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'status': s}});
-                ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endhours': req.body.endhours}});
-                ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {    $set: {'endminutes': req.body.endminutes}});
+                ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette}, {  $set: {'status': s}});
+                ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {  $set: {'endhours': req.body.endhours}});
+                ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {    $set: {'endminutes': req.body.endminutes}});
                 Rack.collection.updateOne({'name' :req.body.bascet}, {$set: {'free' : 1}});
             res.send({ message: 'user' });
         }
