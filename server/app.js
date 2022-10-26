@@ -819,7 +819,7 @@ app.post('/dashsix/guest/updateStainer', (req, res) => {
             let nova=user.free;
             let s=nova+1;
             Stainer.collection.updateOne({'name' :req.body.stainer}, { $set: {'free': s}});
-        
+            Rack.collection.updateOne({'name' :req.body.bascet}, {$set: {'free' : 1}});
             res.send({ message: 'user' });
         }
 
