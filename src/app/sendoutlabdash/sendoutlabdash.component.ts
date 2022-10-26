@@ -28,15 +28,15 @@ logout(){
   sessionStorage.clear();
   this.router.navigate(['/login-sendout']);
 }
-slide:string;
-word:string;
+slide:string="";
+word:string="";
 @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
   
     let x;
-    if(this.word=='undefined'  )
+    if(this.word=='undefined')
       {this.word='';}
-     
+     else{
     if (event.key == ']') {
       
         this.word+="]"
@@ -50,7 +50,7 @@ word:string;
       else{
         this.word+=event.key;
       }
-   
+    }
     }
     @HostListener('window:keydown', ['$event'])
     keyEvent2(event: KeyboardEvent): void {
