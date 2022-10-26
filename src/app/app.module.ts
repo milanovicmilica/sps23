@@ -35,6 +35,7 @@ import { DasheightComponent } from './dasheight/dasheight.component';
 import { QRCodeModule } from 'angular2-qrcode';
 import { AddbascetComponent } from './addbascet/addbascet.component';
 import { AddrackComponent } from './addrack/addrack.component';
+import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { AddrackComponent } from './addrack/addrack.component';
     DasheightComponent,
     AddbascetComponent,
     AddrackComponent,
+    LoginsendoutComponent,
 
   ],
   imports: [

@@ -24,6 +24,7 @@ import { LoginembComponent } from './loginemb/loginemb.component';
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
 import { LoginprocessingComponent } from './loginprocessing/loginprocessing.component';
 import { LoginsectioningComponent } from './loginsectioning/loginsectioning.component';
+import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
 import { ProcessingComponent } from './processing/processing.component';
@@ -59,6 +60,7 @@ const routes: Routes = [
 { path: 'dasheight', component:DasheightComponent},
 { path: 'addbasket', component:AddbascetComponent},
 { path: 'addrack', component:AddrackComponent},
+{ path: 'login-sendout', component:LoginsendoutComponent},
 ]  ;
 
 @NgModule({

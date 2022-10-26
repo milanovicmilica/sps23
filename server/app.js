@@ -282,7 +282,7 @@ app.get('/staining/guest/getallfreerack' || '/dasheight/guest/getallfreerack', (
 
 app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/login-staininghe/guest/loginprovera' || '/login-sectioning/guest/loginprovera'
 || '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera' || '/login-processing/guest/loginprovera'
-|| '/login-coverslipping/guest/loginprovera', (req, res) => {
+|| '/login-coverslipping/guest/loginprovera' || '/login-sendout/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -305,7 +305,8 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
 })
 
 app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/guest/login' || '/login-sectioning/guest/login' || '/login-grossing/guest/login'
-|| '/login-accessioning/guest/login' || '/login-processing/guest/login' || '/login-coverslipping/guest/login', (req, res) => {
+|| '/login-accessioning/guest/login' || '/login-processing/guest/login' || '/login-coverslipping/guest/login' ||
+'/login-sendout/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username,
