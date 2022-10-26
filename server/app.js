@@ -795,6 +795,7 @@ app.post('/dashsix/guest/endsprocess', (req, res) => {
                 ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'status': s}});
                 ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endhours': req.body.endhours}});
                 ProcessStaining.collection.updateOne({'bascet': req.body.bascet }, {    $set: {'endminutes': req.body.endminutes}});
+                Rack.collection.updateOne({'name' :req.body.bascet}, {$set: {'free' : 1}});
             res.send({ message: 'user' });
         }
 
@@ -819,7 +820,7 @@ app.post('/dashsix/guest/updateStainer', (req, res) => {
             let nova=user.free;
             let s=nova+1;
             Stainer.collection.updateOne({'name' :req.body.stainer}, { $set: {'free': s}});
-            Rack.collection.updateOne({'name' :req.body.bascet}, {$set: {'free' : 1}});
+          
             res.send({ message: 'user' });
         }
 
