@@ -36,6 +36,8 @@ import { QRCodeModule } from 'angular2-qrcode';
 import { AddbascetComponent } from './addbascet/addbascet.component';
 import { AddrackComponent } from './addrack/addrack.component';
 import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
+import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
+import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +71,8 @@ import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
     AddbascetComponent,
     AddrackComponent,
     LoginsendoutComponent,
+    SendoutlabdashComponent,
+    SendoutlabmainComponent,
 
   ],
   imports: [

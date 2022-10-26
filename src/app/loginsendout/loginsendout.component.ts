@@ -55,7 +55,7 @@ export class LoginsendoutComponent implements OnInit {
               if(user.type==1)
               {
                 sessionStorage.setItem("laborant", JSON.stringify(user));
-                this.router.navigate(['/dashseven']);
+                this.router.navigate(['/sendoutlabdash']);
               }
               else{
                 if(user.type==2 )

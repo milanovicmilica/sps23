@@ -28,6 +28,8 @@ import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
 import { ProcessingComponent } from './processing/processing.component';
+import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
+import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
 import { StainingComponent } from './staining/staining.component';
 import { StartpageComponent } from './startpage/startpage.component'
 const routes: Routes = [
@@ -61,6 +63,8 @@ const routes: Routes = [
 { path: 'addbasket', component:AddbascetComponent},
 { path: 'addrack', component:AddrackComponent},
 { path: 'login-sendout', component:LoginsendoutComponent},
+{ path: 'sendoutlabdash', component:SendoutlabdashComponent},
+{ path: 'sendoutlabmain', component:SendoutlabmainComponent},
 ]  ;
 
 @NgModule({
