@@ -89,9 +89,9 @@ export class StainingComponent implements OnInit {
         let minuti1=this.allProtocols[index].minutes;
         posh=sati1+vreme;
         
-        if(posh>24){
-        while(posh>24){
-        if(posh>24)
+        if(posh>=24){
+        while(posh>=24){
+        if(posh>=24)
         {
           let prom=posh;
           posh=(posh%24);
@@ -101,14 +101,14 @@ export class StainingComponent implements OnInit {
           posh=prom-24;
         }}
         posm=minuti1+minuti;
-        if(posm>60)
+        if(posm>=60)
         {
           posm=posm%60;
         }
 
        }        else{posh2=posh
         posm=minuti1+minuti;
-        if(posm>60)
+        if(posm>=60)
         {
           posm=posm%60;
           posh2=posh2+1;
