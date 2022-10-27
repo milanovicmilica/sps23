@@ -362,7 +362,7 @@ background-color: #3c90efd3;
     width: 100%;
     height: 100%;
     overflow-y:scroll;
-    max-height: 50vh;
+    max-height: 40vh;
     margin-top: 4%;
   }
   .oneblock{
@@ -427,8 +427,8 @@ background-color: #3c90efd3;
     margin-left: 15%;
   }
   .slika1{
-    width: 50%;
-    height: 50%;
+    width: 25%;
+    height: 25%;
   }
   .l1{
     text-align: center;
