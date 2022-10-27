@@ -452,7 +452,10 @@ background-color: #3c90efd3;
   .slika4{
     width: 20%;
     height: 20%;
-    margin-left: 10%;
+    margin-left: 3%;
+  }
+  .divh{
+    width: 40%;
   }
   .l1{
     text-align: center;
