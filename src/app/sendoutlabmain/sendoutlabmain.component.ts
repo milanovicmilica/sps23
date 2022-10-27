@@ -42,21 +42,43 @@ export class SendoutlabmainComponent implements OnInit {
             {
               f1=1;
                cassette=this.allSectioning[index].cassette;
+               console.log(cassette)
+               let f2=0;
               for (let index3 = 0; index3 < this.allCS.length; index3++) {
                 
                 if(this.allCS[index3].code==cassette)
                 {
                   this.myinfo=this.allCS[index3]
+                  f2=1;
                   for (let index4 = 0; index4 < this.allCase.length; index4++) {
                    if(this.myinfo.caseid==this.allCase[index4].formatcn)
                    {
                     this.myCase=this.allCase[index4]
+                    console.log(this.myCase.formatcn)
                    }
                     
                   }
                 }
               }
-
+              if(f2==0)
+              {
+                for (let index3 = 0; index3 < this.allSample.length; index3++) {
+                  if(this.allSample[index3].code==cassette)
+                  {
+                    f2=1;
+                    let caseid=this.allSample[index3].caseid;
+                    for (let index4 = 0; index4 < this.allCase.length; index4++) {
+                      if(caseid==this.allCase[index4].formatcn)
+                      {
+                       this.myCase=this.allCase[index4]
+                       console.log(this.myCase.formatcn)
+                      }
+                       
+                     }
+                  }
+                  
+                }
+              }
             }
             
           }
