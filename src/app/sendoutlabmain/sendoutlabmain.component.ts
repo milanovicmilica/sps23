@@ -41,7 +41,7 @@ export class SendoutlabmainComponent implements OnInit {
            
             if(this.slide==this.allSectioning[index].nizQr[index2])//nadje slide
             {
-              f1=1;
+              f1=1;console.log('pred5')
                cassette=this.allSectioning[index].cassette;//izvuce kasetu
                console.log(cassette)
                let f2=0;
@@ -67,7 +67,7 @@ export class SendoutlabmainComponent implements OnInit {
                 for (let index3 = 0; index3 < this.allSample.length; index3++) {
                   if(this.allSample[index3].code==cassette)//nadje kasetu u samplu
                   {
-                    f2=1;
+                    f2=1;console.log('pred4')
                     let caseid=this.allSample[index3].caseid;
                     for (let index4 = 0; index4 < this.allCase.length; index4++) {
                       if(caseid==this.allCase[index4].formatcn)
@@ -94,7 +94,7 @@ export class SendoutlabmainComponent implements OnInit {
             {
               this.myinfo=this.allCS[index3]
              console.log(this.myinfo.caseid)
-             f1=1;
+             f1=1;console.log('pred3')
               for (let index4 = 0; index4 < this.allCase.length; index4++) {
                if(this.myinfo.caseid==this.allCase[index4].formatcn)
                {
@@ -114,6 +114,8 @@ export class SendoutlabmainComponent implements OnInit {
             cassette=this.slide;
             let caseid=this.allSample[index].caseid
             console.log(caseid)
+            console.log('pred2')
+            f1=1;
             for (let index2 = 0; index2 < this.allCase.length; index2++) {
               
               if(this.allCase[index2].formatcn==caseid)
@@ -122,6 +124,28 @@ export class SendoutlabmainComponent implements OnInit {
             }
            }
             
+          }
+          console.log('pred')
+          if(f1==0)
+          {
+            for (let index = 0; index < this.allSample.length; index++) {
+              for (let index3 = 0; index3 < this.allSample[index].nizQr.length; index3++) {
+              if(this.allSample[index].nizQr[index3]==this.slide)
+              {
+               //cassette=this.slide;
+               let caseid=this.allSample[index].caseid
+               console.log("evo gaa naso")
+               console.log(caseid)
+               f1=1;
+               for (let index2 = 0; index2 < this.allCase.length; index2++) {
+                 
+                 if(this.allCase[index2].formatcn==caseid)
+                 {this.myCase=this.allCase[index2];
+                 }
+               }
+              }
+               
+             }}
           }
         }
         for (let index = 0; index < this.allCS.length; index++) {
@@ -133,7 +157,7 @@ export class SendoutlabmainComponent implements OnInit {
           
         }
         for (let index = 0; index < this.allSample.length; index++) {
-          if(this.allSample[index].acs=='External block' && this.myinfo.caseid==this.allSample[index].caseid)
+          if(this.allSample[index].acs=='External block' && this.myCase.formatcn==this.allSample[index].caseid)
           {
             this.allexbl.push(this.allSample[index]);
             this.allexslide.push(this.allSample[index])
@@ -142,7 +166,7 @@ export class SendoutlabmainComponent implements OnInit {
           
         }
         for (let index = 0; index < this.allSample.length; index++) {
-          if(this.allSample[index].acs=='External slide' && this.myinfo.caseid==this.allSample[index].caseid)
+          if(this.allSample[index].acs=='External slide' && this.myCase.formatcn==this.allSample[index].caseid)
           {
             this.allexslide.push(this.allSample[index]);
           }
