@@ -28,7 +28,7 @@ export class SendoutpatdashComponent implements OnInit {
         this.n1.push(k);
         k=k+1
         let a=this.allCase[index].date;
-        console.log(a);
+    //    console.log(a);
      
       }
       this.me=user1;
@@ -40,7 +40,9 @@ for (let index = 0; index < this.allcs.length; index++) {
 if(this.allcs[index].path==this.me.username)
 {
   this.mycs.push(this.allcs[index]);
+
   let cn=this.allcs[index].caseid; let fl=0;
+
   for (let index2= 0; index2 < this.casenums.length; index2++) {
     if(this.casenums[index]==cn)
     fl=1
@@ -55,6 +57,7 @@ for (let index = 0; index < this.allCase.length; index++) {
     if(this.allCase[index].formatcn==this.casenums[index2])
     {
       this.myCases.push(this.allCase[index]);
+      console.log(this.allCase[index].formatcn)
     }
     
   }
@@ -83,6 +86,7 @@ for (let index = 0; index < this.myCases.length; index++) {
       }
     }
   }
+console.log('evo izbr sendour')
 
 
       this.UserService.getAllSamples().subscribe((data: Sample[])=>{
@@ -98,7 +102,10 @@ for (let index = 0; index < this.myCases.length; index++) {
         }
         
       }
-      
+      for (let index = 0; index < this.checkarray.length; index++) {
+      console.log(this.checkarray[index])
+        
+      }
       })
 
   })})})
