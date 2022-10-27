@@ -24,6 +24,7 @@ export class SendoutlabmainComponent implements OnInit {
     this.me=user1;
     let s=JSON.parse(sessionStorage.getItem("slide")) as String; 
     this.slide=s;
+    console.log(this.slide)
     let f1=0;
     this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
       this.allSectioning=data;
@@ -38,15 +39,15 @@ export class SendoutlabmainComponent implements OnInit {
           
           for (let index2 = 0; index2 < this.allSectioning[index].nizQr.length; index2++) {
            
-            if(this.slide==this.allSectioning[index].nizQr[index2])
+            if(this.slide==this.allSectioning[index].nizQr[index2])//nadje slide
             {
               f1=1;
-               cassette=this.allSectioning[index].cassette;
+               cassette=this.allSectioning[index].cassette;//izvuce kasetu
                console.log(cassette)
                let f2=0;
               for (let index3 = 0; index3 < this.allCS.length; index3++) {
                 
-                if(this.allCS[index3].code==cassette)
+                if(this.allCS[index3].code==cassette)//nadje kasetuu u csu
                 {
                   this.myinfo=this.allCS[index3]
                   f2=1;
@@ -60,10 +61,11 @@ export class SendoutlabmainComponent implements OnInit {
                   }
                 }
               }
+              console.log('proso f1')
               if(f2==0)
               {
                 for (let index3 = 0; index3 < this.allSample.length; index3++) {
-                  if(this.allSample[index3].code==cassette)
+                  if(this.allSample[index3].code==cassette)//nadje kasetu u samplu
                   {
                     f2=1;
                     let caseid=this.allSample[index3].caseid;
@@ -92,6 +94,7 @@ export class SendoutlabmainComponent implements OnInit {
             {
               this.myinfo=this.allCS[index3]
              console.log(this.myinfo.caseid)
+             f1=1;
               for (let index4 = 0; index4 < this.allCase.length; index4++) {
                if(this.myinfo.caseid==this.allCase[index4].formatcn)
                {
@@ -101,6 +104,24 @@ export class SendoutlabmainComponent implements OnInit {
                 
               }
             }
+          }
+        }
+        if(f1==0)
+        {
+          for (let index = 0; index < this.allSample.length; index++) {
+           if(this.allSample[index].code==this.slide)
+           {
+            cassette=this.slide;
+            let caseid=this.allSample[index].caseid
+            console.log(caseid)
+            for (let index2 = 0; index2 < this.allCase.length; index2++) {
+              
+              if(this.allCase[index2].formatcn==caseid)
+              {this.myCase=this.allCase[index2];
+              }
+            }
+           }
+            
           }
         }
         for (let index = 0; index < this.allCS.length; index++) {
