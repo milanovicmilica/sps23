@@ -457,7 +457,8 @@ background-color: #3c90efd3;
   .divh{
     width: 40%;
     text-align: left;
-    
+    align-self: center;
+    align-items: center;
   }
   .l1{
     text-align: center;
