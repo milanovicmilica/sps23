@@ -41,14 +41,17 @@ if(this.allcs[index].path==this.me.username)
 {
   this.mycs.push(this.allcs[index]);
 
-  let cn=this.allcs[index].caseid; let fl=0;
-  if(index==0)  this.casenums.push(cn);
+  let cn=this.allcs[index].caseid; 
+  let fl=0;
+  if(index==0)  {this.casenums.push(cn);}
+  else{
   for (let index2= 0; index2 < this.casenums.length; index2++) {
     if(this.casenums[index]==cn)
-    fl=1
+    {fl=1}
   }
   if(fl==0)
-  this.casenums.push(cn);
+  {this.casenums.push(cn);}
+  }
 }
   
 }
