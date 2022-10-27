@@ -857,7 +857,7 @@ posmonth:req.body.posmonth, posyear:req.body.posyear, possec:req.body.possec })
 app.post('/dashseven/guest/addSectioning', (req, res) => {    
 
     let user1=new Sectioning({cassette:req.body.cassette, day:req.body.dan, month:req.body.mesec,
-        year:req.body.godina, nizprint:req.body.nizprint, nizQr:req.body.nizQr, done:0,
+        year:req.body.godina, nizprint:req.body.nizprint, nizQr:req.body.nizQr, done:0, nizOznaka:req.body.nizOznaka
     })
               
     Sectioning.findOne({cassette :req.body.cassette}, (err,user)=>{
@@ -872,6 +872,7 @@ app.post('/dashseven/guest/addSectioning', (req, res) => {
                    
                     Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'nizQr' : req.body.nizQr}});
                     Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'nizprint' : req.body.nizprint}});
+                    Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'nizOznaka' : req.body.nizOznaka}});
                     res.send({ message: 'user' });
                 }
             })

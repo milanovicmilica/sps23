@@ -90,10 +90,26 @@ export class SendoutlabmainComponent implements OnInit {
           
         }
         for (let index = 0; index < this.allSample.length; index++) {
-          if(this.allSample[index].acs=='External block')
+          if(this.allSample[index].acs=='External block' && this.myinfo.caseid==this.allSample[index].caseid)
           {
             this.allexbl.push(this.allSample[index]);
           }
+          
+        }
+        for (let index = 0; index < this.allSample.length; index++) {
+          if(this.allSample[index].acs=='External slide' && this.myinfo.caseid==this.allSample[index].caseid)
+          {
+            this.allexslide.push(this.allSample[index]);
+          }
+          
+        }
+        for (let index = 0; index < this.allcass.length; index++) {
+          for (let index2 = 0; index2 < this.allSectioning.length; index2++) {
+           if(this.allcass[index].code==this.allSectioning[index2].cassette)
+            {
+              this.allslides.push(this.allSectioning[index2])//da pushuje ceo sectioning da moze da macuje oznaku i qr
+          
+          }}
           
         }
 
@@ -111,6 +127,8 @@ export class SendoutlabmainComponent implements OnInit {
   allcass:Cs[]=[];
   allexbl:Sample[]=[];
   allSample:Sample[];
+  allexslide:Sample[]=[];
+  allslides:Sectioning[]=[];
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-sendout']);

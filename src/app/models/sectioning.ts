@@ -6,4 +6,5 @@ export class Sectioning{
     day:number;
     month:number;
     year:number;
+    nizOznaka:string[];
     }

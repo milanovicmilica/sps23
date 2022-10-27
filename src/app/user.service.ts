@@ -399,7 +399,7 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashfive/guest/confirmEmb', data)
   }
-  addSectioning(cassette,dan,mesec,godina,nizQr,nizprint)
+  addSectioning(cassette,dan,mesec,godina,nizQr,nizprint, nizOznaka)
   {
     const data={
       
@@ -409,7 +409,8 @@ export class UserService {
       mesec:mesec,
       godina:godina,
       nizQr:nizQr,
-      nizprint:nizprint
+      nizprint:nizprint,
+      nizOznaka:nizOznaka
     }
 
     return this.http.post('https://sps23.herokuapp.com/dashseven/guest/addSectioning', data)

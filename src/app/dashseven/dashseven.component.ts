@@ -113,6 +113,7 @@ export class DashsevenComponent implements OnInit {
                     this.ssihc.push(this.ss[index]);
                     this.nizprint.push(0);
                     this.nizQr.push("")
+                    this.nizOznaka.push("")
                     s--;
                   }
                 }
@@ -127,6 +128,7 @@ export class DashsevenComponent implements OnInit {
                     this.ssihc.push(this.ihc[index]);
                     this.nizprint.push(0);
                     this.nizQr.push("")
+                    this.nizOznaka.push("")
                     s--;
                   }
                 }
@@ -136,6 +138,7 @@ export class DashsevenComponent implements OnInit {
                 this.he.push('H&E')
                 this.nizprint.push(0);
                 this.nizQr.push("")
+                this.nizOznaka.push("")
               }
           for (let index2 = 0; index2 < this.allCases.length; index2++) {
             if(this.caseid== this.allCases[index2].formatcn)
@@ -172,6 +175,7 @@ export class DashsevenComponent implements OnInit {
                     this.ssihc.push(this.ss[index]);
                     this.nizprint.push(0);
                     this.nizQr.push("")
+                    this.nizOznaka.push("")
                     s--;
                   }
                 }
@@ -186,6 +190,7 @@ export class DashsevenComponent implements OnInit {
                     this.ssihc.push(this.ihc[index]);
                     this.nizprint.push(0);
                     this.nizQr.push("")
+                    this.nizOznaka.push("")
                     s--;
                   }
                 }
@@ -194,6 +199,7 @@ export class DashsevenComponent implements OnInit {
                 this.he.push('H&E')
                 this.nizprint.push(0);
                 this.nizQr.push("")
+                this.nizOznaka.push("")
               }
               for (let index3 = 0; index3 < this.allCases.length; index3++) {
                if(this.allCases[index3].formatcn==this.caseid)
@@ -218,6 +224,7 @@ export class DashsevenComponent implements OnInit {
 popup:number;
 nizprint:number[]=[];
 nizQr:string[]=[];
+nizOznaka:string[]=[];
 popup2:number;
 popuph:number;
 popup2h:number;
@@ -250,11 +257,12 @@ YesDH(i, i2)
     else{
       this.nizprint.splice(this.ind3,1);
       this.nizQr.splice(this.ind3,1);
+      this.nizOznaka.splice(this.ind3,1)
       this.he.splice(this.ind4,1);
       let dan=new Date().getDate();
       let mesec=new Date().getMonth()+1;
       let godina=new Date().getFullYear();
-      this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint).subscribe((resp)=>{
+      this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint, this.nizOznaka).subscribe((resp)=>{
         
         if(resp['message']=='user')
         { 
@@ -282,6 +290,7 @@ YesDH(i, i2)
     this.popuph=0;
   this.nizprint.splice(this.ind3,1);
   this.nizQr.splice(this.ind3,1);
+  this.nizOznaka.splice(this.ind3,1);
   this.he.splice(this.ind4,1);
   }
 }
@@ -301,11 +310,12 @@ YesD()
     {
   this.nizprint.splice(this.ind1,1);
   this.nizQr.splice(this.ind1,1);
+  this.nizOznaka.splice(this.ind1,1);
   this.ssihc.splice(this.ind2,1);
   let dan=new Date().getDate();
   let mesec=new Date().getMonth()+1;
   let godina=new Date().getFullYear();
-  this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint).subscribe((resp)=>{
+  this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint,this.nizOznaka).subscribe((resp)=>{
     
     if(resp['message']=='user')
     { 
@@ -331,6 +341,7 @@ if(flagg==0)
 {this.popup=0;
   this.nizprint.splice(this.ind1,1);
   this.nizQr.splice(this.ind1,1);
+  this.nizOznaka.splice(this.ind1,1);
   this.ssihc.splice(this.ind2,1);
 }
 }
@@ -359,9 +370,12 @@ print(i,podslovo,bb1,bb2)
     {
       this.allSectionings[index].nizprint[i]++;
       let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
+      let oznaka=podslovo+"."+bb1+"."+ " "+bb2;
+      this.allSectionings[index].nizOznaka[i]=oznaka;
       this.allSectionings[index].nizQr[i]=a;
       this.nizprint= this.allSectionings[index].nizprint;
       this.nizQr= this.allSectionings[index].nizQr;
+      this.nizOznaka= this.allSectionings[index].nizOznaka;
       flag=1;
     }
     
@@ -375,8 +389,10 @@ print(i,podslovo,bb1,bb2)
     this.nizprint[i]++;
     let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
     this.nizQr[i]=a;
+    let oznaka=podslovo+"."+bb1+"."+ " "+bb2;
+    this.nizOznaka[i]=oznaka;
   }
-  this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint).subscribe((resp)=>{
+  this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint, this.nizOznaka).subscribe((resp)=>{
     
     if(resp['message']=='user')
     { 

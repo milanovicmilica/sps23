@@ -31,7 +31,9 @@ const SectioningSchema = new mongoose.Schema({
     year: {
         type: Number,
     },
-   
+   nizOznaka:{
+    type: [String],
+}
    
 });
 
