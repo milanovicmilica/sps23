@@ -69,6 +69,9 @@ export class DashsevenComponent implements OnInit {
     this.flag1=0;
     this.he=[];
     this.ssihc=[];
+    this.nizOznaka=[]
+    this.nizQr=[]
+    this.nizprint=[]
     let flagDone=0
     for (let index = 0; index < this.allSectionings.length; index++) {
       if(this.allSectionings[index].cassette==this.cassette)
