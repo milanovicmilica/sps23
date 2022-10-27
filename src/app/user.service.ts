@@ -533,6 +533,9 @@ export class UserService {
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
   }
+  getAllSendout(){
+    return this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsendout');
+  }
   getAllSamples()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || 

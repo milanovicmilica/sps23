@@ -30,6 +30,7 @@ import { LoginstartComponent } from './loginstart/loginstart.component';
 import { ProcessingComponent } from './processing/processing.component';
 import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
 import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
+import { SendoutpatdashComponent } from './sendoutpatdash/sendoutpatdash.component';
 import { StainingComponent } from './staining/staining.component';
 import { StartpageComponent } from './startpage/startpage.component'
 const routes: Routes = [
@@ -65,6 +66,7 @@ const routes: Routes = [
 { path: 'login-sendout', component:LoginsendoutComponent},
 { path: 'sendoutlabdash', component:SendoutlabdashComponent},
 { path: 'sendoutlabmain', component:SendoutlabmainComponent},
+{ path: 'sendoutpathdash', component:SendoutpatdashComponent},
 ]  ;
 
 @NgModule({

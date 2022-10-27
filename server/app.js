@@ -141,6 +141,16 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess', (req, res) =>
         res.send(e);
     });
 })
+app.get('/sendoutpathdash/guest/getallsendout' , (req, res) => {
+    
+    Sendout.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
 app.get('/dashfourproc/guest/getallbascets', (req, res) => {
     
     Bascet.find({

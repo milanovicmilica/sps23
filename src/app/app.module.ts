@@ -38,6 +38,7 @@ import { AddrackComponent } from './addrack/addrack.component';
 import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
 import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
+import { SendoutpatdashComponent } from './sendoutpatdash/sendoutpatdash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.compone
     LoginsendoutComponent,
     SendoutlabdashComponent,
     SendoutlabmainComponent,
+    SendoutpatdashComponent,
 
   ],
   imports: [

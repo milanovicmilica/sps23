@@ -69,9 +69,9 @@ export class LoginsendoutComponent implements OnInit {
                   if(user.type==3 )
                 {
                   
-                //  sessionStorage.setItem("patolog", JSON.stringify(user));
+                  sessionStorage.setItem("patolog", JSON.stringify(user));
                   
-                  //this.router.navigate(['/grossfirst']);
+                  this.router.navigate(['/sendoutpathdash']);
                 }
                 }
                 
