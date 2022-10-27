@@ -290,9 +290,11 @@ print(b){
       let k=1;
       while(br1>0)
       {
-        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+        console.log(b.ihc[index])
+        
+        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+this.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
-      let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+b.spec[index];
+      let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+this.spec[index];
       this.nizOznaka.push(o)
       k+=1;
       br1--;
@@ -303,10 +305,10 @@ print(b){
       let br1=this.niz2[index]
       let k=1;
       while(br1>0)
-      {
-        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+      {console.log(b.ihc[index])
+        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+this.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
-      let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+b.ihc[index];
+      let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+this.ihc[index];
       this.nizOznaka.push(o)
       k+=1;
       br1--;
@@ -344,9 +346,9 @@ print(b){
           let k=1;
           while(br1>0)
           {
-            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(this.nizQr.length+1)+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(this.nizQr.length+1)+" "+this.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
           this.nizQr.push(s);
-          let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+b.spec[index];
+          let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+this.spec[index];
           this.nizOznaka.push(o)
           k+=1;
           br1--;
@@ -358,9 +360,9 @@ print(b){
           let k=1;
           while(br1>0)
           {
-            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(this.nizQr.length+1)+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(this.nizQr.length+1)+" "+this.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
           this.nizQr.push(s);
-          let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+b.ihc[index];
+          let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+this.ihc[index];
           this.nizOznaka.push(o)
           k+=1;
           br1--;

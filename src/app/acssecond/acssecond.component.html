@@ -343,8 +343,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                  <div class="rtab3"> 
                     
                      <div class="exblScroll">
-                     <label class="ltab2"><label *ngIf="b.exbl>0">x{{b.exbl}} H&E, </label><label *ngFor="let k of b.spec;let i=index">x{{b.niz1[i]}} {{k}}, </label>
-                     <label *ngFor="let g of b.ihc;let i=index">x{{b.niz2[i]}} {{g}}, </label></label></div>
+                     <label class="ltab2"><label *ngIf="b.exbl>0">x{{b.exbl}} H&E, </label><label *ngFor="let k of b.niz1;let i=index"><label *ngIf="k>0">x{{k}} {{ss[i]}}, </label></label>
+                     <label *ngFor="let g of b.niz2;let i=index"><label *ngIf="g>0">{{g}} {{ihc[i]}},</label> </label></label></div>
                  </div>
                 
                
