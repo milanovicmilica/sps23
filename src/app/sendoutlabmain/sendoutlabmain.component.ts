@@ -93,6 +93,8 @@ export class SendoutlabmainComponent implements OnInit {
           if(this.allSample[index].acs=='External block' && this.myinfo.caseid==this.allSample[index].caseid)
           {
             this.allexbl.push(this.allSample[index]);
+            this.allexslide.push(this.allSample[index])
+            
           }
           
         }
