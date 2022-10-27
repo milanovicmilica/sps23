@@ -190,6 +190,7 @@ export class SendoutlabmainComponent implements OnInit {
           
         }
         for (let index = 0; index < this.allexslide.length; index++) {
+          this.semallexslide[index]=[];
          for (let index2 = 0; index2 < this.allexslide[index].nizQr.length; index2++) {
           
           this.semallexslide[index].push(0);
@@ -197,6 +198,7 @@ export class SendoutlabmainComponent implements OnInit {
           
         }
         for (let index = 0; index < this.allslides.length; index++) {
+          this.semallslides[index]=[];
           for (let index2 = 0; index2 < this.allslides[index].nizQr.length; index2++) {
           
             this.semallslides[index].push(0);
