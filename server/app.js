@@ -204,7 +204,7 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
 })
 app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples'
 || '/dashfive/guest/getallsamples' || '/dashseven/guest/getallsamples' || '/grossfirst/guest/getallsamples' ||
-'/grossnext/guest/getallsamples', (req, res) => {
+'/grossnext/guest/getallsamples' || '/sendoutpathdash/guest/getallsamples', (req, res) => {
     
     Sample.find({
        
@@ -246,7 +246,7 @@ app.get('/dasheight/guest/getallcover', (req, res) => {
 })
 app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
 || '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases' || 
-'/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases', (req, res) => {
+'/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases' || '/sendoutpathdash/guest/getallcases', (req, res) => {
     
     Case.find({
        
@@ -256,7 +256,7 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
         res.send(e);
     });
 })
-app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs', (req, res) => {
+app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs' || '/sendoutpathdash/guest/getallcs', (req, res) => {
     
     CS.find({
        
