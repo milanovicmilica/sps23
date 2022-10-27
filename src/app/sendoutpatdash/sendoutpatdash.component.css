@@ -281,6 +281,9 @@ letter-spacing: 2px;
 width: 100%;
 padding: 10px;
 }
+.signupDugme:hover{
+    background-color: #2e84e7db;
+}
 .createnewcaseDugme{
     margin-top: 25%;
     background-color: #ffffff;

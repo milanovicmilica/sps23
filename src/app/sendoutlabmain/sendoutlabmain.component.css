@@ -449,6 +449,9 @@ background-color: #3c90efd3;
     margin-left: 40%;
     margin-top: 3%;
   }
+  .signupDugme:hover{
+    background-color: #2e84e7db;
+}
   .slika4{
     width: 20%;
     height: 20%;
