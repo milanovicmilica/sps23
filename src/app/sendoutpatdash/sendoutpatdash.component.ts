@@ -128,9 +128,9 @@ allcs:Cs[]=[];
   message:string;
   n1:number[]=[];
   mycs:Cs[]=[];
-  casenums:string[];
+  casenums:string[]=[];
   myCases:Case[]=[]
-  checkarray:number[];
+  checkarray:number[]=[];
   allSendout:Sendout[]=[];
   next(){
 
