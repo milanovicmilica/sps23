@@ -81,20 +81,21 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                                 <div class="oneblock" *ngFor="let b of a.nizOznaka; let i=index">
                                 <img src="../../assets/novapl90.png" class="slika2">
                                 <label class="l1">{{b}}</label>
-                                <img class="slika3" src="../../assets/chk.png" *ngIf="semallslides[j][i]==1">
+                                <img class="slika4" src="../../assets/chk.png" *ngIf="semallslides[j][i]==1">
                                 </div>
                             </div>
                             <div *ngFor="let c of allexslide; let j=index">
                                 <div class="oneblock" *ngFor="let b of c.nizOznaka; let i=index">
                                     <img src="../../assets/novapl90.png" class="slika2">
                                     <label class="l1">{{b}}</label>
-                                    <img class="slika3" src="../../assets/chk.png" *ngIf="semallexslide[j][i]==1">
+                                    <img class="slika4" src="../../assets/chk.png" *ngIf="semallexslide[j][i]==1">
                                     </div>
                         </div>
                         </div>
 
-                        <button class="button1" >DONE</button>
+                      
                     </div>
+                    <button class="signupDugme">DONE</button>
                 </div>
                 </div>
                 </div>
