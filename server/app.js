@@ -69,7 +69,7 @@ app.get('/guest/getallusers' || '/grossfirst/guest/getallusers', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning', (req, res) => {
+app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/sendoutlabmain/guest/getallsectioning', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     //console.log('caoo')
     Sectioning.find({
