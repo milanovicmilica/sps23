@@ -59,13 +59,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         </div>
                        <div class="blocks">
 
-                        <div class="oneblock" *ngFor="let a of allcass">
+                        <div class="oneblock" *ngFor="let a of allcass; let i=index">
                             <img src="../../assets/касетица.png" class="slika1">
                             <label class="l1">{{a.podslovo}}</label>
+                            <img class="slika3" src="../../assets/chk.png" *ngIf="semallcass[i]==1">
                         </div>
-                        <div class="oneblock" *ngFor="let a of allexbl">
+                        <div class="oneblock" *ngFor="let a of allexbl; let i=index">
                             <img src="../../assets/касетица.png" class="slika1">
                             <label class="l1">{{a.slovo}}1</label>
+                            <img class="slika3" src="../../assets/chk.png" *ngIf="semallexbl[i]==1">
                         </div>
                        </div>
                     </div>
@@ -76,18 +78,22 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <div class="blocks">
 
                             <div *ngFor="let a of allslides">
-                                <div class="oneblock" *ngFor="let b of a.nizOznaka">
+                                <div class="oneblock" *ngFor="let b of a.nizOznaka; let i=index">
                                 <img src="../../assets/novapl90.png" class="slika2">
                                 <label class="l1">{{b}}</label>
+                                <img class="slika3" src="../../assets/chk.png" *ngIf="semallslides[i]==1">
                                 </div>
                             </div>
-                            <div *ngFor="let c of allexslide">
+                            <div *ngFor="let c of allexslide; let i=index">
                                 <div class="oneblock" *ngFor="let b of c.nizOznaka">
                                     <img src="../../assets/novapl90.png" class="slika2">
                                     <label class="l1">{{b}}</label>
+                                    <img class="slika3" src="../../assets/chk.png" *ngIf="semallexslide[i]==1">
                                     </div>
                         </div>
                         </div>
+
+                        <button class="button1" >DONE</button>
                     </div>
                 </div>
                 </div>

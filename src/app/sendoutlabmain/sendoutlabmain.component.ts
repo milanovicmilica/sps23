@@ -181,7 +181,27 @@ export class SendoutlabmainComponent implements OnInit {
           }}
           
         }
-
+        for (let index = 0; index < this.allcass.length; index++) {
+          this.semallcass.push(0);
+          
+        }
+        for (let index = 0; index < this.allexbl.length; index++) {
+          this.semallexbl.push(0);
+          
+        }
+        for (let index = 0; index < this.allexslide.length; index++) {
+         for (let index2 = 0; index2 < this.allexslide[index].nizQr.length; index2++) {
+          
+          this.semallexslide[index].push(0);
+         }
+          
+        }
+        for (let index = 0; index < this.allslides.length; index++) {
+          for (let index2 = 0; index2 < this.allslides[index].nizQr.length; index2++) {
+          
+            this.semallslides[index].push(0);
+           }
+        }
       })})})
 
     })
@@ -198,8 +218,83 @@ export class SendoutlabmainComponent implements OnInit {
   allSample:Sample[];
   allexslide:Sample[]=[];
   allslides:Sectioning[]=[];
+  semallcass:number[]=[];
+  semallexbl:number[]=[];
+  semallexslide:number[][]=[];
+  semallslides:number[][]=[];
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-sendout']);
   }
+word:string="";
+findw:string=""
+  @HostListener('window:keypress', ['$event'])
+  keyEvent(event: KeyboardEvent): void {
+  
+    let x;
+    if(this.word=='undefined')
+      {this.word='';}
+     else{
+    if (event.key == ']') {
+      
+        this.word+="]"
+       
+        this.findw=(this.word)
+      this.findqr(this.findw);
+        this.word="";
+      }
+      else{
+        this.word+=event.key;
+      }
+    }
+    }
+
+ findqr(qrkod){
+ let flag=0;
+ for (let index = 0; index < this.allcass.length; index++) {
+if(this.allcass[index].code==qrkod)
+{
+  flag=1;
+  this.semallcass[index]=1;
+}
+ }
+ if(flag==0)
+ {
+  for (let index = 0; index < this.allexbl.length; index++) {
+    if(this.allexbl[index].code==qrkod)
+    {
+      flag=1;
+      this.semallexbl[index]=1;
+    }
+     }
+ }
+ if(flag==0)
+ {
+  for (let index = 0; index < this.allslides.length; index++) {
+   for (let index2 = 0; index2< this.allslides[index].nizQr.length; index2++) {
+    
+    if(this.allslides[index].nizQr[index2]==qrkod)
+    {
+      this.semallslides[index][index2]=1;
+      flag=1;
+    }
+   }
+    
+ }
+ }
+ if(flag==0)
+ {
+  for (let index = 0; index < this.allexslide.length; index++) {
+   for (let index2 = 0; index2< this.allexslide[index].nizQr.length; index2++) {
+    
+    if(this.allexslide[index].nizQr[index2]==qrkod)
+    {
+      this.semallexslide[index][index2]=1;
+      flag=1;
+    }
+   }
+    
+ }
+ }
+}   
 }
