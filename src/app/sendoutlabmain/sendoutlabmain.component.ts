@@ -8,6 +8,7 @@ import { UserService } from '../user.service';
 import { Sectioning } from '../models/sectioning';
 import { Cs } from '../models/infocs';
 import { Case } from '../models/case';
+import { Sample } from '../models/sample';
 
 @Component({
   selector: 'app-sendoutlabmain',
@@ -28,6 +29,8 @@ export class SendoutlabmainComponent implements OnInit {
       this.allSectioning=data;
       this.UserService.getAllCs().subscribe((data: Cs[])=>{
         this.allCS=data;
+        this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+          this.allSample=data;
         this.UserService.getAllCases().subscribe((data: Case[])=>{
           this.allCase=data;
       let cassette;
@@ -66,6 +69,7 @@ export class SendoutlabmainComponent implements OnInit {
             if(this.allCS[index3].code==this.slide)
             {
               this.myinfo=this.allCS[index3]
+             
               for (let index4 = 0; index4 < this.allCase.length; index4++) {
                if(this.myinfo.caseid==this.allCase[index4].formatcn)
                {
@@ -76,8 +80,23 @@ export class SendoutlabmainComponent implements OnInit {
             }
           }
         }
+        for (let index = 0; index < this.allCS.length; index++) {
+          
+          if(this.allCS[index].caseid==this.myCase.formatcn)
+          {
+            this.allcass.push(this.allCS[index])
+          }
+          
+        }
+        for (let index = 0; index < this.allSample.length; index++) {
+          if(this.allSample[index].acs=='External block')
+          {
+            this.allexbl.push(this.allSample[index]);
+          }
+          
+        }
 
-      })})
+      })})})
 
     })
   }
@@ -88,6 +107,9 @@ export class SendoutlabmainComponent implements OnInit {
   myinfo:Cs;
   myCase:Case;
   allCase:Case[];
+  allcass:Cs[]=[];
+  allexbl:Sample[]=[];
+  allSample:Sample[];
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-sendout']);
