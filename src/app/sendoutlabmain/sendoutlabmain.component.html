@@ -77,18 +77,18 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <div class="rscol">
                         <div class="blocks">
 
-                            <div *ngFor="let a of allslides">
+                            <div *ngFor="let a of allslides; let j=index">
                                 <div class="oneblock" *ngFor="let b of a.nizOznaka; let i=index">
                                 <img src="../../assets/novapl90.png" class="slika2">
                                 <label class="l1">{{b}}</label>
-                                <img class="slika3" src="../../assets/chk.png" *ngIf="semallslides[i]==1">
+                                <img class="slika3" src="../../assets/chk.png" *ngIf="semallslides[j][i]==1">
                                 </div>
                             </div>
-                            <div *ngFor="let c of allexslide; let i=index">
-                                <div class="oneblock" *ngFor="let b of c.nizOznaka">
+                            <div *ngFor="let c of allexslide; let j=index">
+                                <div class="oneblock" *ngFor="let b of c.nizOznaka; let i=index">
                                     <img src="../../assets/novapl90.png" class="slika2">
                                     <label class="l1">{{b}}</label>
-                                    <img class="slika3" src="../../assets/chk.png" *ngIf="semallexslide[i]==1">
+                                    <img class="slika3" src="../../assets/chk.png" *ngIf="semallexslide[j][i]==1">
                                     </div>
                         </div>
                         </div>
