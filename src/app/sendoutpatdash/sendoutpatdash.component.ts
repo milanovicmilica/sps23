@@ -46,7 +46,7 @@ if(this.allcs[index].path==this.me.username)
   if(index==0)  {this.casenums.push(cn);}
   else{
   for (let index2= 0; index2 < this.casenums.length; index2++) {
-    if(this.casenums[index]==cn)
+    if(this.casenums[index2]==cn)
     {fl=1}
   }
   if(fl==0)
