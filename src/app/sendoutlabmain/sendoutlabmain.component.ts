@@ -69,10 +69,11 @@ export class SendoutlabmainComponent implements OnInit {
             if(this.allCS[index3].code==this.slide)
             {
               this.myinfo=this.allCS[index3]
-             
+             console.log(this.myinfo.caseid)
               for (let index4 = 0; index4 < this.allCase.length; index4++) {
                if(this.myinfo.caseid==this.allCase[index4].formatcn)
                {
+                console.log('evvvv')
                 this.myCase=this.allCase[index4]
                }
                 
