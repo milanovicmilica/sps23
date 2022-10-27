@@ -52,6 +52,10 @@ if(this.allcs[index].path==this.me.username)
 }
   
 }
+for (let index = 0; index < this.casenums.length; index++) {
+console.log(this.casenums[index])
+  
+}
 console.log("mycasenum "+this.casenums.length)
 for (let index = 0; index < this.allCase.length; index++) {
   for (let index2 = 0; index2 < this.casenums.length; index2++) {
