@@ -65,7 +65,15 @@ const SampleSchema = new mongoose.Schema({
     code: {
         type: String
        
-    }
+    },
+    nizOznaka: {
+        type: [String]
+       
+    },
+    nizQr: {
+        type: [String]
+       
+    },
 });
 
 

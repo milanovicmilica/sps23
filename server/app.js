@@ -534,6 +534,24 @@ app.post('/acssecond/guest/updateSampleCode', (req, res) => {
 res.send({ message: 'error' });
 });
 })
+app.post('/acssecond/guest/updateEXSSampleCode', (req, res) => {   
+
+    Sample.findOne({
+        caseid: req.body.caseid,
+        slovo:req.body.slovo
+       
+    }).then((user) => {
+        if(user==null){   res.send({ message: 'nema' });}else{
+
+        Sample.collection.updateOne({'caseid' : req.body.caseid, 'slovo':req.body.slovo}, {$set: {'nizQr' : req.body.nizQr}});
+        Sample.collection.updateOne({'caseid' : req.body.caseid, 'slovo':req.body.slovo}, {$set: {'nizOznaka' : req.body.nizOznaka}});
+        res.send({ message: 'user' });
+        }
+
+}).catch((e) => {
+res.send({ message: 'error' });
+});
+})
 app.post('/dashfourproc/guest/addprocess', (req, res) => {    
 
     let newP = new Process({

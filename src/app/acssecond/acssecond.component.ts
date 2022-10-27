@@ -77,10 +77,12 @@ export class AcssecondComponent implements OnInit {
           this.c15=this.allSamples[index].code;
           let c16=this.allSamples[index].niz1;
           let c17=this.allSamples[index].niz2;
+          let c18=this.allSamples[index].nizOznaka; 
+          let c19=this.allSamples[index].nizQr;
           this.emptycase.pop();
           this.mySamples.push({caseid: this.c1, casetype:this.c2,sampletype:this.c3, acs:this.c4, num:this.c5,
              id:this.c6 ,slovo:this.c7, spec:this.c10,ihc:this.c11, choice:this.c12, firstch:this.c13, exbl:this.c14, code:this.c15 , niz1:c16, 
-            niz2:c17});
+            niz2:c17,nizOznaka:c18,nizQr:c19});
         }
         
       }
@@ -138,11 +140,11 @@ for (let index = 0; index < this.niz2.length; index++) {
     this.exflag=0;this.Exbl=0;
     for (let index = 0; index < this.niz1.length; index++) {
       this.niz1[index]=0;
-      
+      this.nizOznaka=[]
     }
     for (let index = 0; index < this.niz2.length; index++) {
       this.niz2[index]=0;
-      
+      this.nizQr=[];
     }
   }
   flags1:number;
@@ -154,6 +156,8 @@ exflag:number;
   mySamples:Sample[]=[];
   allSamples;
 sample:string;
+nizOznaka:string[]=[];
+nizQr:string[]=[];
   exSamples:string[]=[];
   emptycase:string[]=['sda','sad','dasda','sad', 's','s','s','s', 's', 's'];
   histo=[ {i:'Skin'}, {i:'Lungs'}, {i:'Heart'},  {i:'Neuropathology'}, {i:'Peripheral nervous system and muscles (PNS)'},
@@ -256,7 +260,7 @@ let s=0;
     choice:string;
 
 print(b){
-
+  if(b.acs!='External block' && b.acs!='External slide'){
   let s="[spspIPMF"+b.caseid+", "+b.slovo+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
 
   this.UserService.updateSampleCode(this.caseid,b.slovo,s).subscribe((resp)=>{
@@ -267,7 +271,126 @@ print(b){
         this.allSamples=data;})
     }
   });
+  }
+  else{
+    if( b.acs=='External slide'){
+    let brhe=b.exbl;
+    let n=1
+    while(brhe>0)
+    {
+      let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+n+" HE"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+      this.nizQr.push(s);
+      let o=b.slovo+"ES"+n+" HE";
+      this.nizOznaka.push(o)
+      n+=1;
+      brhe--;
+    }
+    for (let index = 0; index < this.niz1.length; index++) {
+      let br1=this.niz1[index]
+      let k=1;
+      while(br1>0)
+      {
+        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+k+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+      this.nizQr.push(s);
+      let o=b.slovo+"ES"+n+" "+b.spec[index];
+      this.nizOznaka.push(o)
+      k+=1;
+      br1--;
+      }
+      
+    }
+    for (let index = 0; index < this.niz2.length; index++) {
+      let br1=this.niz2[index]
+      let k=1;
+      while(br1>0)
+      {
+        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+k+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+      this.nizQr.push(s);
+      let o=b.slovo+"ES"+n+" "+b.ihc[index];
+      this.nizOznaka.push(o)
+      k+=1;
+      br1--;
+      }
+      
+    }
+    this.UserService.updateEXSSampleCode(this.caseid,b.slovo,this.nizQr,this.nizOznaka).subscribe((resp)=>{
 
+      if(resp['message']=='user')
+      {
+        this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+          this.allSamples=data;
+        this.nizQr=[]
+        this.nizOznaka=[];
+        })
+      }
+    });
+    }
+    else{
+      if(b.acs=='External block')
+      {
+        let brhe=b.exbl;
+        let n=1
+        while(brhe>0)
+        {
+          let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+n+" HE"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+          this.nizQr.push(s);
+          let o=b.slovo+"EB"+n+" HE";
+          this.nizOznaka.push(o)
+          n+=1;
+          brhe--;
+        }
+        for (let index = 0; index < this.niz1.length; index++) {
+          let br1=this.niz1[index]
+          let k=1;
+          while(br1>0)
+          {
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+k+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+          this.nizQr.push(s);
+          let o=b.slovo+"EB"+n+" "+b.spec[index];
+          this.nizOznaka.push(o)
+          k+=1;
+          br1--;
+          }
+          
+        }
+        for (let index = 0; index < this.niz2.length; index++) {
+          let br1=this.niz2[index]
+          let k=1;
+          while(br1>0)
+          {
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+k+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+          this.nizQr.push(s);
+          let o=b.slovo+"EB"+n+" "+b.ihc[index];
+          this.nizOznaka.push(o)
+          k+=1;
+          br1--;
+          }
+          
+        }
+        this.UserService.updateEXSSampleCode(this.caseid,b.slovo,this.nizQr,this.nizOznaka).subscribe((resp)=>{
+    
+          if(resp['message']=='user')
+          {
+            this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+              this.allSamples=data;
+            this.nizQr=[]
+            this.nizOznaka=[];
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+
+            this.UserService.updateSampleCode(this.caseid,b.slovo,s).subscribe((resp)=>{
+          
+              if(resp['message']=='user')
+              {
+                this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+                  this.allSamples=data;})
+              }
+            });
+            })
+          }
+        });
+      }
+    }
+  }
 }
 addsample(){
 

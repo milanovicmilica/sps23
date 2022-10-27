@@ -455,6 +455,20 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateSampleCode', data)
   }
+  updateEXSSampleCode(caseid,slovo,nizQr,nizOznaka)
+  {
+    const data={
+      
+    
+      caseid:caseid,
+      slovo:slovo,
+      nizQr:nizQr,
+      nizOznaka:nizOznaka
+     
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateEXSSampleCode', data)
+  }
   addCase(sender,hospitalid,contact,address,firstname,lastname,
     pid,date,lbo,hnum,num,diagnosis,pathologist,adcomments,format,cn, gen){
     const data={

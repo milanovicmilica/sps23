@@ -71,3 +71,21 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     </div>
 
                 </div>
+                <div class="rightside">
+                    <div class="rscol">
+                        <div class="blocks">
+
+                            <div *ngFor="let a of allslides">
+                                <div class="oneblock" *ngFor="let b of a.nizOznaka">
+                                <img src="../../assets/novapl90.png" class="slika2">
+                                <label class="l1">{{b}}</label>
+                                </div>
+                            </div>
+                            <div *ngFor="let c of allexslide">
+                            <div class="oneblock" *ngFor="let d of c.exbl">
+                                
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>

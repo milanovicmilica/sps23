@@ -15,4 +15,6 @@ export class Sample{
     code:string;
     niz1:number[];
     niz2:number[];
+    nizOznaka:string[];
+    nizQr:string[];
 }
