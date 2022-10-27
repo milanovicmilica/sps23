@@ -278,9 +278,9 @@ print(b){
     let n=1
     while(brhe>0)
     {
-      let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+n+" HE"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+      let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" HE"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
-      let o=b.slovo+"ES"+n+" HE";
+      let o=b.slovo+"ES"+(this.nizQr.length+1)+" HE";
       this.nizOznaka.push(o)
       n+=1;
       brhe--;
@@ -290,9 +290,9 @@ print(b){
       let k=1;
       while(br1>0)
       {
-        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+k+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
-      let o=b.slovo+"ES"+n+" "+b.spec[index];
+      let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+b.spec[index];
       this.nizOznaka.push(o)
       k+=1;
       br1--;
@@ -304,9 +304,9 @@ print(b){
       let k=1;
       while(br1>0)
       {
-        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+k+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+        let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
-      let o=b.slovo+"ES"+n+" "+b.ihc[index];
+      let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+b.ihc[index];
       this.nizOznaka.push(o)
       k+=1;
       br1--;
@@ -332,9 +332,9 @@ print(b){
         let n=1
         while(brhe>0)
         {
-          let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+n+" HE"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+          let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(this.nizQr.length+1)+" HE"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
           this.nizQr.push(s);
-          let o=b.slovo+"EB"+n+" HE";
+          let o=b.slovo+"EB"+(this.nizQr.length+1)+" HE";
           this.nizOznaka.push(o)
           n+=1;
           brhe--;
@@ -344,9 +344,9 @@ print(b){
           let k=1;
           while(br1>0)
           {
-            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+k+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(this.nizQr.length+1)+" "+b.spec[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
           this.nizQr.push(s);
-          let o=b.slovo+"EB"+n+" "+b.spec[index];
+          let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+b.spec[index];
           this.nizOznaka.push(o)
           k+=1;
           br1--;
@@ -358,9 +358,9 @@ print(b){
           let k=1;
           while(br1>0)
           {
-            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+k+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(this.nizQr.length+1)+" "+b.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
           this.nizQr.push(s);
-          let o=b.slovo+"EB"+n+" "+b.ihc[index];
+          let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+b.ihc[index];
           this.nizOznaka.push(o)
           k+=1;
           br1--;
@@ -375,7 +375,7 @@ print(b){
               this.allSamples=data;
             this.nizQr=[]
             this.nizOznaka=[];
-            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
+            let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(b.id+1)+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
 
             this.UserService.updateSampleCode(this.caseid,b.slovo,s).subscribe((resp)=>{
           
