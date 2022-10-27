@@ -37,6 +37,30 @@ const SendoutSchema = new mongoose.Schema({
         type: Number,
       
     },
+    endsati: {
+        type: Number,
+      
+    },
+    endminuti: {
+        type: Number,
+      
+    },
+    enddan: {
+        type: Number,
+      
+    },
+    endmesec: {
+        type: Number,
+      
+    },
+    endgodina: {
+        type: Number,
+      
+    },
+    path: {
+        type: String,
+      
+    },
 });
 
 

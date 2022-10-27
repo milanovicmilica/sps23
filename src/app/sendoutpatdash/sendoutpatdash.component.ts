@@ -148,7 +148,7 @@ allcs:Cs[]=[];
     this.message='';
     sessionStorage.setItem("case", JSON.stringify(this.case));
     sessionStorage.setItem("patolog", JSON.stringify(this.me));
- //   this.router.navigate(['/grossnext']);
+    this.router.navigate(['/sendoutpathmain']);
 
   }
 

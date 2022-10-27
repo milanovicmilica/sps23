@@ -430,6 +430,21 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/sendoutlabmain/guest/addSendout', data)
   }
+  SendoutUpdate(patolog,caseid,endsati,endminuti,enddan,endmesec,endgodina){
+    const data={
+      
+    
+      patolog:patolog,
+      enddan:enddan,
+      endmesec:endmesec,
+      endgodina:endgodina,
+      caseid:caseid,
+      endminuti:endminuti,
+      endsati:endsati
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/sendoutpathmain/guest/SendoutUpdate', data)
+  }
   confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute, lab){
 
     const data={

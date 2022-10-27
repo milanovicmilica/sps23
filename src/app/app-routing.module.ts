@@ -31,6 +31,7 @@ import { ProcessingComponent } from './processing/processing.component';
 import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
 import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
 import { SendoutpatdashComponent } from './sendoutpatdash/sendoutpatdash.component';
+import { SendoutpatmainComponent } from './sendoutpatmain/sendoutpatmain.component';
 import { StainingComponent } from './staining/staining.component';
 import { StartpageComponent } from './startpage/startpage.component'
 const routes: Routes = [
@@ -67,6 +68,7 @@ const routes: Routes = [
 { path: 'sendoutlabdash', component:SendoutlabdashComponent},
 { path: 'sendoutlabmain', component:SendoutlabmainComponent},
 { path: 'sendoutpathdash', component:SendoutpatdashComponent},
+{ path: 'sendoutpathmain', component:SendoutpatmainComponent},
 ]  ;
 
 @NgModule({

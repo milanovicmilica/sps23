@@ -620,6 +620,27 @@ app.post('/sendoutlabmain/guest/addSendout', (req, res) => {
             });
 
 })
+app.post('/sendoutpathmain/guest/SendoutUpdate', (req, res) => {    
+
+    Sendout.findOne({
+        caseid: req.body.caseid
+      
+   }).then((user) => {
+       if(user==null)
+       {  
+        res.send({ message: 'zauzeto' });
+       }else{
+   
+        Sendout.collection.updateOne({ 'caseid': req.body.caseid }, {$set: {'endsati': req.body.endsati}})
+        Sendout.collection.updateOne({ 'caseid': req.body.caseid }, {$set: {'endminuti': req.body.endminuti}})
+        Sendout.collection.updateOne({ 'caseid': req.body.caseid }, {$set: {'enddan': req.body.enddan}})
+        Sendout.collection.updateOne({ 'caseid': req.body.caseid }, {$set: {'endmesec': req.body.endmesec}})
+        Sendout.collection.updateOne({ 'caseid': req.body.caseid }, {$set: {'endgodina': req.body.endgodina}})  
+        Sendout.collection.updateOne({ 'caseid': req.body.caseid }, {$set: {'path': req.body.patolog}})  
+        res.send({ message: 'user' });
+       }})
+
+})
 app.post('/addbasket/guest/addBasket', (req, res) => {    
     Bascet.findOne({
         name: req.body.name

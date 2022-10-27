@@ -39,6 +39,7 @@ import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
 import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
 import { SendoutpatdashComponent } from './sendoutpatdash/sendoutpatdash.component';
+import { SendoutpatmainComponent } from './sendoutpatmain/sendoutpatmain.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { SendoutpatdashComponent } from './sendoutpatdash/sendoutpatdash.compone
     SendoutlabdashComponent,
     SendoutlabmainComponent,
     SendoutpatdashComponent,
+    SendoutpatmainComponent,
 
   ],
   imports: [
