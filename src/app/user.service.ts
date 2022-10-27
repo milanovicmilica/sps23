@@ -415,6 +415,21 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashseven/guest/addSectioning', data)
   }
+  addSendout(laborant,caseid,sati,minuti,dan,mesec,godina){
+    const data={
+      
+    
+      laborant:laborant,
+      dan:dan,
+      mesec:mesec,
+      godina:godina,
+      caseid:caseid,
+      minuti:minuti,
+      sati:sati
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/sendoutlabmain/guest/addSendout', data)
+  }
   confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute, lab){
 
     const data={

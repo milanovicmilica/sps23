@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
-    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet} = require('./db/models');
+    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout} = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
@@ -589,6 +589,19 @@ app.post('/acssecond/guest/addSampleBlock', (req, res) => {
         caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
         id : req.body.id,    slovo: req.body.slovo,  spec:req.body.spec,ihc:req.body.ihc,
          niz1:req.body.niz1,  niz2:req.body.niz2 , exbl:req.body.exbl})
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+})
+app.post('/sendoutlabmain/guest/addSendout', (req, res) => {    
+
+    let newP = new Sendout({
+        caseid : req.body.caseid, sati: req.body.sati,   minuti: req.body.minuti, laborant:req.body.laborant, dan:req.body.dan,
+        mesec : req.body.mesec,    godina: req.body.godina})
             newP.save().then((us2) => {
                 
                 res.send({ message: 'user' });

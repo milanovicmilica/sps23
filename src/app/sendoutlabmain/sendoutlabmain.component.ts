@@ -299,4 +299,60 @@ if(this.allcass[index].code==qrkod)
  }
  }
 }   
+done()
+{
+  let flag=0;
+  for (let index = 0; index < this.semallcass.length; index++) {
+  
+    if(this.semallcass[index]==0)
+    {flag=1}
+  }
+  for (let index = 0; index < this.semallexbl.length; index++) {
+  
+    if(this.semallexbl[index]==0)
+    {flag=1}
+  }
+  for (let index = 0; index < this.semallexslide.length; index++) {
+   for (let index2 = 0; index2 < this.semallexslide[index].length; index2++) {
+    
+    if(this.semallexslide[index][index2]==0)
+    {flag=1}
+   }
+    
+  }
+  for (let index = 0; index < this.semallslides.length; index++) {
+    for (let index2 = 0; index2 < this.semallslides[index].length; index2++) {
+     
+     if(this.semallslides[index][index2]==0)
+     {flag=1}
+    }
+     
+   }
+   if(flag==0)
+   {
+    let sati=new Date().getHours();
+    let minuti=new Date().getMinutes();
+    let dan=new Date().getDate();
+    let mesec=new Date().getMonth()+1;
+    let godina=new Date().getFullYear();
+    this.UserService.addSendout(this.me.username,this.myCase.formatcn,sati,minuti,dan,mesec,godina).subscribe((resp)=>{
+    
+      if(resp['message']=='user')
+      {
+        this.router.navigate(['/sendoutlabdash']);this.mess=""
+      }
+      else{ 
+        if (resp['message']=='zauzeto')
+        { }
+        else{
+        }
+      }
+  
+    })
+   }
+   else{
+    this.mess="You have to check all of them!"
+   }
+}
+mess:string;
 }
