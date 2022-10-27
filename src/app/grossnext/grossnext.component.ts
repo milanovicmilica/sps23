@@ -58,9 +58,11 @@ export class GrossnextComponent implements OnInit {
               this.c15=this.allSample[index].code;
               let c16=this.allSample[index].niz1;
               let c17=this.allSample[index].niz2;
+              let c18=this.allSample[index].nizOznaka; 
+              let c19=this.allSample[index].nizQr;
               if(this.c4 =='External block' || this.c4=='External slide'){}else{   this.finish.push(0);
               this.mySamples.push({caseid: this.c1, casetype:this.c2,sampletype:this.c3, acs:this.c4, num:this.c5, id:this.c6 ,slovo:this.c7
-              ,spec:this.c10 ,ihc:this.c11 ,choice:this.c12, firstch:this.c13, exbl:this.c14, code:this.c15, niz1:c16,niz2:c17});
+              ,spec:this.c10 ,ihc:this.c11 ,choice:this.c12, firstch:this.c13, exbl:this.c14, code:this.c15, niz1:c16,niz2:c17, nizOznaka:c18,nizQr:c19});
               this.lamp.push(0);}
             }
             
