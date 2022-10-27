@@ -24,6 +24,7 @@ export class SendoutpatmainComponent implements OnInit {
     this.me=user1;
     let s=JSON.parse(sessionStorage.getItem("case")) as String; 
     this.case=s;
+    console.log(this.case)
     this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
       this.allSectioning=data;
       this.UserService.getAllCs().subscribe((data: Cs[])=>{
@@ -32,9 +33,10 @@ export class SendoutpatmainComponent implements OnInit {
           this.allSample=data;
         this.UserService.getAllCases().subscribe((data: Case[])=>{
           this.allCase=data;
+          console.log(this.allCase.length)
         for (let index = 0; index < this.allCase.length; index++) {
           if(this.case==this.allCase[index].formatcn)
-          this.myCase=this.allCase[index]
+          {this.myCase=this.allCase[index]}
         }
         for (let index = 0; index < this.allSample.length; index++) {
          if(this.allSample[index].caseid==this.case && this.allSample[index].acs=='External block')
@@ -42,8 +44,9 @@ export class SendoutpatmainComponent implements OnInit {
           this.allexbl.push(this.allSample[index]);
          }
         }
+        console.log(this.allexbl.length);
         for (let index = 0; index < this.allCS.length; index++) {
-          if(this.allCS[index].code==this.case)
+          if(this.allCS[index].caseid==this.case)
           {
             this.allcass.push(this.allCS[index])
           }

@@ -35,7 +35,7 @@ export class SendoutpatdashComponent implements OnInit {
 
  this.UserService.getAllCs().subscribe((data: Cs[])=>{
       this.allcs=data;
-console.log(this.allcs.length)
+//console.log(this.allcs.length)
 for (let index = 0; index < this.allcs.length; index++) {
 if(this.allcs[index].path==this.me.username)
 {
@@ -56,7 +56,7 @@ if(this.allcs[index].path==this.me.username)
   
 }
 for (let index = 0; index < this.casenums.length; index++) {
-console.log(this.casenums[index])
+//console.log(this.casenums[index])
   
 }
 console.log("mycasenum "+this.casenums.length)
@@ -65,7 +65,7 @@ for (let index = 0; index < this.allCase.length; index++) {
     if(this.allCase[index].formatcn==this.casenums[index2])
     {
       this.myCases.push(this.allCase[index]);
-      console.log(this.allCase[index].formatcn)
+      //console.log(this.allCase[index].formatcn)
     }
     
   }
@@ -76,7 +76,7 @@ for (let index = 0; index < this.myCases.length; index++) {
   this.numofSpec.push(0);
    
  }
- console.log(this.numofSpec.length)
+ //console.log(this.numofSpec.length)
  for (let index = 0; index < this.myCases.length; index++) {
   this.checkarray.push(0);
    
@@ -95,7 +95,7 @@ for (let index = 0; index < this.myCases.length; index++) {
       }
     }
   }
-console.log('evo izbr sendour')
+//console.log('evo izbr sendour')
 
 
       this.UserService.getAllSamples().subscribe((data: Sample[])=>{
@@ -112,7 +112,7 @@ console.log('evo izbr sendour')
         
       }
       for (let index = 0; index < this.checkarray.length; index++) {
-      console.log(this.checkarray[index])
+     // console.log(this.checkarray[index])
         
       }
       })
