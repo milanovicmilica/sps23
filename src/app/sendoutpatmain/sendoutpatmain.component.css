@@ -248,10 +248,14 @@ font-weight: bold;
 letter-spacing: 2px;
 width: 100%;
 padding: 10px;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 }
 .signupDugme:hover{
     background-color: #2e84e7db;
 }
+.dugme:hover{
+    background-color: #3d8ce7d9;
+  }
 .title2{
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: bold;

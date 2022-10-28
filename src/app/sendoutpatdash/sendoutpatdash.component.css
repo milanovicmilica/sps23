@@ -375,6 +375,10 @@ margin-top: 3%;
  align-items: flex-end;
  align-self: flex-end;
  align-content: flex-end;
+ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+  }
+  .dugme:hover{
+    background-color: #3d8ce7d9;
   }
   .d{
     width: 80%;
