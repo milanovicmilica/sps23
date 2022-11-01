@@ -22,11 +22,13 @@ import { LoginaccessioningComponent } from './loginaccessioning/loginaccessionin
 import { LogincoverComponent } from './logincover/logincover.component';
 import { LoginembComponent } from './loginemb/loginemb.component';
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
+import { LoginpathologComponent } from './loginpatholog/loginpatholog.component';
 import { LoginprocessingComponent } from './loginprocessing/loginprocessing.component';
 import { LoginsectioningComponent } from './loginsectioning/loginsectioning.component';
 import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
+import { PathdashComponent } from './pathdash/pathdash.component';
 import { ProcessingComponent } from './processing/processing.component';
 import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
 import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
@@ -69,6 +71,8 @@ const routes: Routes = [
 { path: 'sendoutlabmain', component:SendoutlabmainComponent},
 { path: 'sendoutpathdash', component:SendoutpatdashComponent},
 { path: 'sendoutpathmain', component:SendoutpatmainComponent},
+{ path: 'login-patholog', component:LoginpathologComponent},
+{ path: 'pathdash', component:PathdashComponent},
 ]  ;
 
 @NgModule({

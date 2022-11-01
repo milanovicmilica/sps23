@@ -40,6 +40,8 @@ import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.compone
 import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
 import { SendoutpatdashComponent } from './sendoutpatdash/sendoutpatdash.component';
 import { SendoutpatmainComponent } from './sendoutpatmain/sendoutpatmain.component';
+import { LoginpathologComponent } from './loginpatholog/loginpatholog.component';
+import { PathdashComponent } from './pathdash/pathdash.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +79,8 @@ import { SendoutpatmainComponent } from './sendoutpatmain/sendoutpatmain.compone
     SendoutlabmainComponent,
     SendoutpatdashComponent,
     SendoutpatmainComponent,
+    LoginpathologComponent,
+    PathdashComponent,
 
   ],
   imports: [
