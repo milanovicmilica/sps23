@@ -141,7 +141,7 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess', (req, res) =>
         res.send(e);
     });
 })
-app.get('/sendoutpathdash/guest/getallsendout' , (req, res) => {
+app.get('/sendoutpathdash/guest/getallsendout' || '/pathdash/guest/getallsendout' , (req, res) => {
     
     Sendout.find({
        
@@ -204,7 +204,7 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
 })
 app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples'
 || '/dashfive/guest/getallsamples' || '/dashseven/guest/getallsamples' || '/grossfirst/guest/getallsamples' ||
-'/grossnext/guest/getallsamples' || '/sendoutpathdash/guest/getallsamples', (req, res) => {
+'/grossnext/guest/getallsamples' || '/sendoutpathdash/guest/getallsamples' || '/pathdash/guest/getallsamples', (req, res) => {
     
     Sample.find({
        
@@ -246,7 +246,8 @@ app.get('/dasheight/guest/getallcover', (req, res) => {
 })
 app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
 || '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases' || 
-'/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases' || '/sendoutpathdash/guest/getallcases', (req, res) => {
+'/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases' || '/sendoutpathdash/guest/getallcases' || 
+'/pathdash/guest/getallcases', (req, res) => {
     
     Case.find({
        
@@ -256,7 +257,8 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
         res.send(e);
     });
 })
-app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs' || '/sendoutpathdash/guest/getallcs', (req, res) => {
+app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs' || '/sendoutpathdash/guest/getallcs' 
+|| '/pathdash/guest/getallcs', (req, res) => {
     
     CS.find({
        
@@ -292,7 +294,7 @@ app.get('/staining/guest/getallfreerack' || '/dasheight/guest/getallfreerack', (
 
 app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/login-staininghe/guest/loginprovera' || '/login-sectioning/guest/loginprovera'
 || '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera' || '/login-processing/guest/loginprovera'
-|| '/login-coverslipping/guest/loginprovera' || '/login-sendout/guest/loginprovera', (req, res) => {
+|| '/login-coverslipping/guest/loginprovera' || '/login-sendout/guest/loginprovera' || '/login-patholog/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -316,7 +318,7 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
 
 app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/guest/login' || '/login-sectioning/guest/login' || '/login-grossing/guest/login'
 || '/login-accessioning/guest/login' || '/login-processing/guest/login' || '/login-coverslipping/guest/login' ||
-'/login-sendout/guest/login', (req, res) => {
+'/login-sendout/guest/login' || '/login-patholog/guest/login', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username,
@@ -1058,6 +1060,10 @@ app.get('/login-coverslipping', (req, res) =>
     
 );
 app.get('/login-sendout', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/login-patholog', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

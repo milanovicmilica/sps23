@@ -25,7 +25,8 @@ export class UserService {
       this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/login', data) || 
       this.http.post('https://sps23.herokuapp.com/login-processing/guest/login', data) ||
       this.http.post('https://sps23.herokuapp.com/login-coverslipping/guest/login', data) ||
-      this.http.post('https://sps23.herokuapp.com/login-sendout/guest/login', data);
+      this.http.post('https://sps23.herokuapp.com/login-sendout/guest/login', data) ||
+      this.http.post('https://sps23.herokuapp.com/login-patholog/guest/login', data);
    }
    loginProvera(username, password){
     const data={
@@ -41,7 +42,8 @@ export class UserService {
      this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-processing/guest/loginprovera', data) || 
      this.http.post('https://sps23.herokuapp.com/login-coverslipping/guest/loginprovera', data) ||
-     this.http.post('https://sps23.herokuapp.com/login-sendout/guest/loginprovera', data);
+     this.http.post('https://sps23.herokuapp.com/login-sendout/guest/loginprovera', data) ||
+     this.http.post('https://sps23.herokuapp.com/login-patholog/guest/loginprovera', data);
   }
  
   addUser(username,password, brTipa, firstname,lastname){
@@ -533,7 +535,8 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallcs') ||
     this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcs') || 
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallcs') ||
-    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcs') ;
+    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcs') || 
+    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcs');
   }
   getAllCases(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 
@@ -545,13 +548,15 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallcases') || 
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') || 
     this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallcases') || 
-    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcases');
+    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcases') ||
+    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcases');
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
   }
   getAllSendout(){
-    return this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsendout');
+    return this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsendout') ||
+    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallsendout');
   }
   getAllSamples()
   {
@@ -562,7 +567,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallsamples') || 
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallsamples') ||
     this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallsamples') ||
-    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsamples'); 
+    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsamples') ||
+    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallsamples'); 
   }
   getAllProcessors()
   {
