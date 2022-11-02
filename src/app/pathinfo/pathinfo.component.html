@@ -99,7 +99,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                                 <label>Diagnosis:</label>
                                <label class="l2"> {{my.diagnosis}}</label>
                                </div>
-                            <div class="lsc2">
+                            <div class="lsc2" *ngIf="my.adcom != null">
                                 <label>Additional comments:</label>
                                <label class="l2"> {{my.adcom}}</label>
                             </div>
@@ -123,7 +123,27 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                             </div>
                            </div>
 
-                      
+                           <div class="blocks">
+
+                            <div *ngFor="let a of allslides; let j=index">
+                                <div class="oneblock" *ngFor="let b of a.nizOznaka; let i=index">
+                                <img src="../../assets/novapl90.png" class="slika2">
+                                <div class="divh">
+                                <label class="l1">{{b}}</label>
+                            </div>
+                               
+                                </div>
+                            </div>
+                            <div *ngFor="let c of allexslide; let j=index">
+                                <div class="oneblock" *ngFor="let b of c.nizOznaka; let i=index">
+                                    <img src="../../assets/novapl90.png" class="slika2">
+                                    <div class="divh">
+                                    <label class="l1">{{b}}</label>
+                                    </div>
+                                  
+                                    </div>
+                        </div>
+                        </div>
                     </div>
                   
                 </div>
