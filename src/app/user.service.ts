@@ -550,7 +550,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallcases') || 
     this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcases') ||
     this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcases') ||
-    this.http.get('https://sps23.herokuapp.com/pathinfo/guest/getallcases');
+    this.http.get('https://sps23.herokuapp.com/pathinfo/guest/getallcases') || 
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcases');
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
