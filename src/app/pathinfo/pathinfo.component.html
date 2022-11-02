@@ -73,20 +73,20 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                              </div>
                              <div class="lsc2">
                                 <label>Address: </label>
-                               <label class="l2">{{my.address}}</label>
+                               <label class="l2"> {{my.address}}</label>
                                </div>
                             <div class="lsc2">
                              <label>Date of birth: </label>
-                            <label class="l2">{{my.date}}</label>
+                            <label class="l2"> {{my.date}}</label>
                             </div>
                             <label>Personal ID: </label>
-                            <label class="l2">{{my.pid}}</label>
+                            <label class="l2"> {{my.pid}}</label>
                             </div>
                             <div class="lsc2">
                                 <label>LBO:</label>
                                <label class="l2"> {{my.lbo}}</label>
                             </div>
-                            <div class="lsc2">
+                            <div class="lsc2" *ngIf="my.hnum!=null">
                                 <label>Health number: </label>
                                <label class="l2"> {{my.hnum}}</label>
                             </div>
@@ -108,7 +108,19 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </div>
                 <div class="rightside">
                     <div class="rscol">
-                     
+                        <div class="blocks">
+
+                            <div class="oneblock" *ngFor="let a of allcass; let i=index">
+                                <img src="../../assets/касетица.png" class="slika1">
+                                <label class="l1">{{a.podslovo}}</label>
+                                <img class="slika3" src="../../assets/chk.png" *ngIf="semallcass[i]==1">
+                            </div>
+                            <div class="oneblock" *ngFor="let a of allexbl; let i=index">
+                                <img src="../../assets/касетица.png" class="slika1">
+                                <label class="l1">{{a.slovo}}1</label>
+                                <img class="slika3" src="../../assets/chk.png" *ngIf="semallexbl[i]==1">
+                            </div>
+                           </div>
 
                       
                     </div>
