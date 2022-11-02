@@ -20,7 +20,7 @@ export class PathdashComponent implements OnInit {
     this.me=user1;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
-      let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
+    
       let k=1;
       for (let index = 0; index < this.allCase.length; index++) {
         
