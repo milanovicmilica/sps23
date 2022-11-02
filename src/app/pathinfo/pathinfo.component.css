@@ -324,7 +324,7 @@ background-color: #3c90efd3;
 .leftside{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
     height: 80%;
    
     margin-top: 3%;
@@ -389,6 +389,7 @@ background-color: #3c90efd3;
     overflow-y:scroll;
     max-height: 40vh;
     margin-top: 4%;
+    margin-left: 2%;
   }
   .oneblock{
     width: 80%;
@@ -403,7 +404,7 @@ background-color: #3c90efd3;
   .rightside{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
     height: 80%;
    
     margin-top: 7%;
