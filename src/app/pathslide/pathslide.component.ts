@@ -23,10 +23,9 @@ export class PathslideComponent implements OnInit {
     this.case=s;
     let sl=JSON.parse(sessionStorage.getItem("slide")) as string; 
     this.slide=s;
-    let k=JSON.parse(sessionStorage.getItem("sectioning")) as Sectioning; 
-    if(k)
+    
     {
-      this.sectioning=k;
+      
       this.UserService.getAllCases().subscribe((data: Case[])=>{
         this.allCase=data;
       
