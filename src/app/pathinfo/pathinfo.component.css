@@ -361,6 +361,10 @@ background-color: #3c90efd3;
 .ndiv{
     width: 100%;
 }
+.ndiv2{
+    width: 70%;
+    margin-top: 2%;
+}
 .case{
     display: flex;
     flex-direction: row;
