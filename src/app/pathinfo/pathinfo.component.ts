@@ -109,6 +109,7 @@ allcs:Cs[]=[];
   checkarray:number[]=[];
   allSendout:Sendout[]=[];
   predji(b,a){
+    
     sessionStorage.setItem("sectioning", JSON.stringify(a));
     sessionStorage.setItem("case", JSON.stringify(this.case));
     sessionStorage.setItem("slide", JSON.stringify(b));
