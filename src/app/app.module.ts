@@ -42,6 +42,7 @@ import { SendoutpatdashComponent } from './sendoutpatdash/sendoutpatdash.compone
 import { SendoutpatmainComponent } from './sendoutpatmain/sendoutpatmain.component';
 import { LoginpathologComponent } from './loginpatholog/loginpatholog.component';
 import { PathdashComponent } from './pathdash/pathdash.component';
+import { PathinfoComponent } from './pathinfo/pathinfo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { PathdashComponent } from './pathdash/pathdash.component';
     SendoutpatmainComponent,
     LoginpathologComponent,
     PathdashComponent,
+    PathinfoComponent,
 
   ],
   imports: [

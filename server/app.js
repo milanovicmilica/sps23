@@ -247,7 +247,7 @@ app.get('/dasheight/guest/getallcover', (req, res) => {
 app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/acssecond/guest/getallcases'
 || '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases' || 
 '/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases' || '/sendoutpathdash/guest/getallcases' || 
-'/pathdash/guest/getallcases', (req, res) => {
+'/pathdash/guest/getallcases' || '/pathinfo/guest/getallcases', (req, res) => {
     
     Case.find({
        

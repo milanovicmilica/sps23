@@ -29,6 +29,7 @@ import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
 import { PathdashComponent } from './pathdash/pathdash.component';
+import { PathinfoComponent } from './pathinfo/pathinfo.component';
 import { ProcessingComponent } from './processing/processing.component';
 import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
 import { SendoutlabmainComponent } from './sendoutlabmain/sendoutlabmain.component';
@@ -73,6 +74,7 @@ const routes: Routes = [
 { path: 'sendoutpathmain', component:SendoutpatmainComponent},
 { path: 'login-patholog', component:LoginpathologComponent},
 { path: 'pathdash', component:PathdashComponent},
+{ path: 'pathinfo', component:PathinfoComponent},
 ]  ;
 
 @NgModule({

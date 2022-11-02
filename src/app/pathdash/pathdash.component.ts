@@ -121,7 +121,7 @@ for (let index = 0; index < this.myCases.length; index++) {
 me:User;
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/login-sendout']);
+    this.router.navigate(['/login-patholog']);
   }
   day:string[]=[];
   month:number[]=[];
@@ -147,7 +147,7 @@ allcs:Cs[]=[];
     this.message='';
     sessionStorage.setItem("case", JSON.stringify(this.case));
     sessionStorage.setItem("patolog", JSON.stringify(this.me));
-    this.router.navigate(['/sendoutpathmain']);
+    this.router.navigate(['/pathinfo']);
 
   }
 
