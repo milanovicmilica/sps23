@@ -43,6 +43,7 @@ import { SendoutpatmainComponent } from './sendoutpatmain/sendoutpatmain.compone
 import { LoginpathologComponent } from './loginpatholog/loginpatholog.component';
 import { PathdashComponent } from './pathdash/pathdash.component';
 import { PathinfoComponent } from './pathinfo/pathinfo.component';
+import { PathslideComponent } from './pathslide/pathslide.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +84,7 @@ import { PathinfoComponent } from './pathinfo/pathinfo.component';
     LoginpathologComponent,
     PathdashComponent,
     PathinfoComponent,
+    PathslideComponent,
 
   ],
   imports: [

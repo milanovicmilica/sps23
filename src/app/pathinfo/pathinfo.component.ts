@@ -108,4 +108,9 @@ allcs:Cs[]=[];
   myCases:Case[]=[]
   checkarray:number[]=[];
   allSendout:Sendout[]=[];
+  predji(b){
+    sessionStorage.setItem("case", JSON.stringify(this.case));
+    sessionStorage.setItem("slide", JSON.stringify(b));
+    this.router.navigate(['/pathslide']);
+  }
 }

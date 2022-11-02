@@ -342,6 +342,7 @@ background-color: #3c90efd3;
 }
 .l2{
     font-weight: bold;
+    margin-left: 2%;
 }
 .lsc2{
     display: flex;
@@ -355,7 +356,7 @@ background-color: #3c90efd3;
     background-color: #ffffff;
     padding: 1%;
     margin-top: 3%;
-    width: 48%;
+    width: 70%;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     border-radius: 5px;
     align-self: center;
