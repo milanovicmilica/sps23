@@ -402,7 +402,7 @@ background-color: #3c90efd3;
   .rightside{
     display: flex;
     flex-direction: column;
-    width: 55%;
+    width: 50%;
     height: 80%;
    
     margin-top: 7%;
