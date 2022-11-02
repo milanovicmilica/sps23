@@ -349,6 +349,18 @@ background-color: #3c90efd3;
     flex-direction: row;
     width: 100%;
 }
+.title1{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    color:#121637;
+    letter-spacing: 4px;
+    text-align: center;
+   
+}
+.ndiv{
+    width: 100%;
+}
 .case{
     display: flex;
     flex-direction: row;
