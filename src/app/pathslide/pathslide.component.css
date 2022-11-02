@@ -18,7 +18,7 @@ width: 100%;
 
 }
 .sl1{
-    width: 70%;
+    width: 50%;
     text-align: center;
     align-self: center;
     align-items: center;
@@ -226,8 +226,8 @@ width: 100%;
     align-items: center;
   }
   .divlabele{
-    width: 30%;
-    margin-left: 5%;
+    width: 10%;
+   
     height: 100%;
     align-self: center;
     align-items: center;
@@ -400,7 +400,7 @@ background-color: #3c90efd3;
     background-color: #ffffff;
     padding: 1%;
     margin-top: 3%;
-    width: 35%;
+    width: 25%;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     border-radius: 5px;
     align-self: center;

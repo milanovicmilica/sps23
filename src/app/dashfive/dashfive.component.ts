@@ -108,7 +108,7 @@ export class DashfiveComponent implements OnInit {
             if( this.allCS[index].code== this.cassette)
             {
               this.caseid=this.allCS[index].caseid;
-              this.comment=this.allCS[index].comm;
+              this.comment=this.allCS[index].comm; f0=1;
               for (let index3 = 0; index3 < this.allCases.length; index3++) {
                if(this.allCases[index3].formatcn==this.caseid)
                {
@@ -121,7 +121,10 @@ export class DashfiveComponent implements OnInit {
         //  }
         }
       }
-
+      if(f0==0)
+      {
+        this.message1="Not found"
+      }
       }}
   }
 message:string;
