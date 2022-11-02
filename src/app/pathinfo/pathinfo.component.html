@@ -63,7 +63,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                                 <label class="title1">PATIENT INFORMATION</label>
                             </div>
                             <div class="lsc2">
-                            <label>SENDER TYPE: </label>
+                            <label>Sender type: </label>
                             <label class="l2">{{my.sender}}</label>
                             </div>
                             <div *ngIf="my.sender=='Hospital'" class="lsc2">
@@ -133,18 +133,18 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
                             <div *ngFor="let a of allslides; let j=index" >
                                 <div class="oneblock" *ngFor="let b of a.nizOznaka; let i=index">
-                                <img src="../../assets/novapl90.png" class="slika2" (click)="predji(b)">
+                                <img src="../../assets/novapl90.png" class="slika2" (click)="predji(b, a)">
                                 <div class="divh">
-                                <label class="l1" (click)="predji(b)">{{b}}</label>
+                                <label class="l1" (click)="predji(b, a)">{{b}}</label>
                             </div>
                                
                                 </div>
                             </div>
                             <div *ngFor="let c of allexslide; let j=index">
                                 <div class="oneblock" *ngFor="let b of c.nizOznaka; let i=index">
-                                    <img src="../../assets/novapl90.png" class="slika2" (click)="predji(b)">
+                                    <img src="../../assets/novapl90.png" class="slika2" (click)="predji2(b,c)">
                                     <div class="divh">
-                                    <label class="l1" (click)="predji(b)">{{b}}</label>
+                                    <label class="l1" (click)="predji2(b,c)">{{b}}</label>
                                     </div>
                                   
                                     </div>

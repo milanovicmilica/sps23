@@ -1,1 +1,70 @@
-<p>pathslide works!</p>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div> <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">SENDOUT</label>  </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">{{me.firstname}} {{me.lastname}}</label>  
+                
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;"><a href="/login-sendout">LOGOUT</a></label>      
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+        
+      
+        <div class="polja">
+           <div class="zaglavlje">
+
+            <div class="case">
+                <div class="c1">
+                    <label>Case ID:</label>
+                    <label>First name:</label>
+                    <label> Last name:</label>
+                </div>
+                <div class="c1">
+                        <label class="a1">{{my.formatcn}}</label>
+                        <label class="a1">{{my.firstname}}</label>
+                        <label class="a1">{{my.lastname}}</label>
+                </div>
+           
+            </div>
+           <div class="divslike">
+            <img src="../../assets/novapl90.png" class="sl1">
+           </div>
+           <div class="divlabele">
+            <label>{{slide}}</label>
+           </div>
+           </div>
+             
+        </div>
+    </div>
+</div>
