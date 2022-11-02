@@ -22,7 +22,7 @@ export class PathslideComponent implements OnInit {
     let s=JSON.parse(sessionStorage.getItem("case")) as string; 
     this.case=s;
     let sl=JSON.parse(sessionStorage.getItem("slide")) as string; 
-    this.slide=s;
+    this.slide=sl;
     
     {
       
