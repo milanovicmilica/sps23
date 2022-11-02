@@ -61,31 +61,42 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <div class="lsc1">
                             <div class="lsc2">
                             <label>SENDER TYPE: </label>
-                            <label>{{my.sender}}</label>
+                            <label class="l2">{{my.sender}}</label>
                             </div>
                             <div *ngIf="my.sender=='Hospital'" class="lsc2">
                                 <label>Hospital ID: </label>
-                                <label>{{my.hospitalid}}</label>
+                                <label class="l2">{{my.hospitalid}}</label>
                                 </div>
+                             <div *ngIf="my.sender=='Personal'" class="lsc2">
+                                    <label>Contact: </label>
+                                    <label class="l2">{{my.contact}}</label>
+                             </div>
+                             <div class="lsc2">
+                                <label>Address: </label>
+                               <label class="l2">{{my.address}}</label>
+                               </div>
                             <div class="lsc2">
                              <label>Date of birth: </label>
-                            <label>{{my.date}}</label>
+                            <label class="l2">{{my.date}}</label>
+                            </div>
+                            <label>Personal ID: </label>
+                            <label class="l2">{{my.pid}}</label>
                             </div>
                             <div class="lsc2">
                                 <label>LBO:</label>
-                               <label> {{my.lbo}}</label>
+                               <label class="l2"> {{my.lbo}}</label>
                             </div>
                             <div class="lsc2">
                                 <label>Gender:</label>
-                               <label> {{my.gen}}</label>
+                               <label class="l2"> {{my.gen}}</label>
                             </div>
                             <div class="lsc2">
                                 <label>Diagnosis:</label>
-                               <label> {{my.diagnosis}}</label>
+                               <label class="l2"> {{my.diagnosis}}</label>
                                </div>
                             <div class="lsc2">
                                 <label>Additional comments:</label>
-                               <label> {{my.adcom}}</label>
+                               <label class="l2"> {{my.adcom}}</label>
                             </div>
                         </div>
                     </div>
