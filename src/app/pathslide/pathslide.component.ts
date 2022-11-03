@@ -35,12 +35,36 @@ export class PathslideComponent implements OnInit {
         this.my=this.allCase[index];
       }
       
-      
+      }
+    this.cassette=this.sectioning.cassette
 
-      }})
+    this.UserService.getAllCs().subscribe((data: Cs[])=>{
+      this.allcs=data;
+
+      for (let index = 0; index < this.allcs.length; index++) {
+       
+        if(this.allcs[index].code==this.cassette)
+        this.mycs=this.allcs[index]
+      }
+
+      this.UserService.getAllUsers().subscribe((data: User[])=>{
+        this.allusers=data;
+      
+      for (let index = 0; index < this.allusers.length; index++) {
+        if(this.allusers[index].username==this.mycs.asistent)
+        this.grossasistent=this.allusers[index]
+        
+      }
+      
+      })
+
+    })
+    })
 
     }
   }
+  grossasistent:User;
+  allusers:User[];
   slide:string;
   allCase:Case[];
   allcass:Cs[]=[];
@@ -49,6 +73,7 @@ export class PathslideComponent implements OnInit {
   allexslide:Sample[]=[];
   allslides:Sectioning[]=[];
   sectioning:Sectioning;
+  mycs:Cs;
   me:User;
   my:Case;
   day:string[]=[];
@@ -56,6 +81,7 @@ export class PathslideComponent implements OnInit {
   year:number[]=[];
   allS:Sample[]=[];
   numofSpec:number[]=[];
+  cassette:string;
 allcs:Cs[]=[];
 
   case:string;

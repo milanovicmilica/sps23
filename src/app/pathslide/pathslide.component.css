@@ -17,8 +17,13 @@ z-index: -1;
 width: 100%;
 
 }
+.srednji{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
 .sl1{
-    width: 50%;
+    width: 70%;
     text-align: center;
     align-self: center;
     align-items: center;
@@ -169,8 +174,31 @@ font-family: 'Raleway', sans-serif;
   
     
 }
+.gdiv1{
+  display: flex;
+  flex-direction: row;
+}
+.grossdiv{
+  width: 90%;
+  height: 30%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #ffffff;
+  padding: 1%;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+  border-radius: 5px;
+  align-self: center;
+  align-items: center; 
+  display: flex;
+  flex-direction: column;
+}
 .nes{
     margin-bottom: 10px;
+}
+.firstcol{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  
 }
 .footer {
     position: fixed;
@@ -220,7 +248,7 @@ width: 100%;
 
   }
   .divslike{
-    width: 30%;
+    width: 20%;
     height: 100%;
     align-self: center;
     align-items: center;

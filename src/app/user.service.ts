@@ -536,7 +536,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcs') || 
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallcs') ||
     this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcs') || 
-    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcs');
+    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcs') || 
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcs');
   }
   getAllCases(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 
@@ -630,7 +631,8 @@ export class UserService {
   getAllUsers()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallusers') || 
-    this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallusers')
+    this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallusers') ||
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallusers');
   }
   getAllStainingProcess()
   {

@@ -58,7 +58,7 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallusers' || '/grossfirst/guest/getallusers', (req, res) => {
+app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     console.log('caoo')
     User.find({
@@ -258,7 +258,7 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
     });
 })
 app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs' || '/sendoutpathdash/guest/getallcs' 
-|| '/pathdash/guest/getallcs', (req, res) => {
+|| '/pathdash/guest/getallcs' || '/pathslide/guest/getallcs', (req, res) => {
     
     CS.find({
        
