@@ -243,7 +243,7 @@ width: 30%;
   }
   .polja{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 width: 100%;
 
   }
