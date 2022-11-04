@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
+import { Process } from '../models/process';
 import { Sample } from '../models/sample';
 import { Sectioning } from '../models/sectioning';
 import { Sendout } from '../models/sendout';
@@ -55,7 +56,22 @@ export class PathslideComponent implements OnInit {
         this.grossasistent=this.allusers[index]
         
       }
+      this.UserService.getAllProcess().subscribe((data: Process[])=>{
+        this.allProcessings=data;
       
+      for (let index = 0; index < this.allProcessings.length; index++) {
+        
+        for (let index2 = 0; index2 < this.allProcessings[index].casette.length; index2++) {
+         
+          if(this.cassette==this.allProcessings[index].casette[index2])
+          {
+            this.myProcess=this.allProcessings[index];
+          }
+        }
+        
+      }
+      
+      })
       })
 
     })
@@ -63,6 +79,8 @@ export class PathslideComponent implements OnInit {
 
     }
   }
+  myProcess:Process;
+  allProcessings:Process[];
   grossasistent:User;
   allusers:User[];
   slide:string;

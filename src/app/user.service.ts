@@ -603,7 +603,8 @@ export class UserService {
   }
   getAllProcess()
   {
-    return this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocess')
+    return this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocess') ||
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallprocess');
   }
   getAllEmb()
   {

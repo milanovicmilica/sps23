@@ -131,7 +131,7 @@ app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/g
         res.send(e);
     });
 })
-app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess', (req, res) => {
+app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide/guest/getallprocess', (req, res) => {
     
     Process.find({
        
