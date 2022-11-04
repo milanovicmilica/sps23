@@ -4,6 +4,7 @@ import { Case } from '../models/case';
 import { Embedding } from '../models/embedding';
 import { Cs } from '../models/infocs';
 import { Process } from '../models/process';
+import { ProcessStaining } from '../models/processstaining';
 import { Sample } from '../models/sample';
 import { Sectioning } from '../models/sectioning';
 import { Sendout } from '../models/sendout';
@@ -102,6 +103,28 @@ export class PathslideComponent implements OnInit {
           }
           
         }
+        this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
+          this.stainhe=data;
+        
+          for (let index = 0; index < this.stainhe.length; index++) {
+           
+            for (let index2 = 0; index2 < this.stainhe[index].casette.length; index2++) {
+             
+              if(this.stainhe[index].casette[index2]==this.cassette)
+              {
+                this.myshe=this.stainhe[index]
+              }
+            }
+          }
+          if(this.myshe){
+        for (let index = 0; index < this.allusers.length; index++) {
+          if(this.allusers[index].username==this.myshe.lab)
+          this.shelab=this.allusers[index]
+          
+        }}
+
+        })
+
       })
       
       })
@@ -112,6 +135,9 @@ export class PathslideComponent implements OnInit {
 
     }
   }
+  shelab:User
+  myshe:ProcessStaining;
+  stainhe:ProcessStaining[]
   sectlab:User;
   emblab:User;
   proclab:User;

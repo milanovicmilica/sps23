@@ -130,6 +130,29 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                             <label>{{sectlab.firstname}} {{sectlab.lastname}}</label>
                         </div>
                     </div>
+                    <div class="grossdiv2" *ngIf="myshe!=null">
+                        <div class="gdiv1">
+                        <label>STAINING H&E:</label>
+                        </div>
+                        <div class="gdiv1">
+                            <label>Stainer: </label>
+                            <label>{{myshe.stainer}}</label>
+                        </div>
+                        <div class="gdiv1">
+                            <label>Protocol: </label>
+                            <label>{{myshe.protocol}} </label>
+                            
+                        </div>
+                        <div class="gdiv1">
+                            <label>Finished: </label>
+                            <label>{{myshe.endday}}.{{myshe.endmonth}}.{{myshe.endyear}}.   {{myshe.endhours}}:{{myshe.endminutes}} </label>
+                            
+                        </div>
+                        <div class="gdiv1">
+                            <label>Assistent: </label>
+                            <label>{{shelab.firstname}} {{shelab.lastname}}</label>
+                        </div>
+                    </div>
                 </div>
                 <div>
 
