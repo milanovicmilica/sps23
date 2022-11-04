@@ -236,7 +236,7 @@ app.get('/guest/getallcases', (req, res) => {
         res.send(e);
     });
 })
-app.get('/dasheight/guest/getallcover', (req, res) => {
+app.get('/dasheight/guest/getallcover' || '/pathslide/guest/getallcover', (req, res) => {
     
     Coverslipping.find({
        

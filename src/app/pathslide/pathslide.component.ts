@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
+import { Coverslipping } from '../models/coverslipping';
 import { Embedding } from '../models/embedding';
 import { Cs } from '../models/infocs';
 import { Process } from '../models/process';
@@ -124,6 +125,33 @@ export class PathslideComponent implements OnInit {
           this.shelab=this.allusers[index]
           
         }}
+        this.UserService.getAllCover().subscribe((data: Coverslipping[])=>{
+          this.allcovs=data;
+        
+          for (let index = 0; index < this.allcovs.length; index++) {
+            for (let index2 = 0; index2 < this.allcovs[index].slides.length; index2++) {
+              
+              if(this.qrslide==this.allcovs[index].slides[index2])
+              {
+                this.myCovs=this.allcovs[index]
+              }
+            }
+            
+          }
+          if(this.myCovs)
+          {
+            for (let index = 0; index < this.allusers.length; index++) {
+             
+              if(this.allusers[index].username==this.myCovs.laborant)
+              {
+                this.covslab=this.allusers[index]
+              }
+              
+            }
+          }
+        
+        })
+
 
         })
 
@@ -137,6 +165,9 @@ export class PathslideComponent implements OnInit {
 
     }
   }
+  covslab:User;
+  myCovs:Coverslipping;
+  allcovs:Coverslipping[]
   qrslide:string;
   shelab:User
   myshe:ProcessStaining;
