@@ -26,6 +26,8 @@ export class PathslideComponent implements OnInit {
     this.case=s;
     let sl=JSON.parse(sessionStorage.getItem("slide")) as string; 
     this.slide=sl;
+    let q=JSON.parse(sessionStorage.getItem("qr")) as string; 
+    this.qrslide=q;
    if(JSON.parse(sessionStorage.getItem("sectioning")))
     {
       this.sectioning=JSON.parse(sessionStorage.getItem("sectioning")) as Sectioning; 
@@ -110,7 +112,7 @@ export class PathslideComponent implements OnInit {
            
             for (let index2 = 0; index2 < this.stainhe[index].casette.length; index2++) {
              
-              if(this.stainhe[index].casette[index2]==this.slide)
+              if(this.stainhe[index].casette[index2]==this.qrslide)
               {
                 this.myshe=this.stainhe[index]
               }
@@ -135,6 +137,7 @@ export class PathslideComponent implements OnInit {
 
     }
   }
+  qrslide:string;
   shelab:User
   myshe:ProcessStaining;
   stainhe:ProcessStaining[]

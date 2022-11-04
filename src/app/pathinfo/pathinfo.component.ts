@@ -108,17 +108,20 @@ allcs:Cs[]=[];
   myCases:Case[]=[]
   checkarray:number[]=[];
   allSendout:Sendout[]=[];
-  predji(b,a){
-    
+  predji(b,a,i){
+    let qr=a.nizQr[i]
     sessionStorage.setItem("sectioning", JSON.stringify(a));
     sessionStorage.setItem("case", JSON.stringify(this.case));
     sessionStorage.setItem("slide", JSON.stringify(b));
+    sessionStorage.setItem("qr", JSON.stringify(qr));
     this.router.navigate(['/pathslide']);
   }
-  predji2(b,c){
+  predji2(b,c,i){
+    let qr=c.nizQr[i]
     sessionStorage.setItem("sample", JSON.stringify(c));
     sessionStorage.setItem("case", JSON.stringify(this.case));
     sessionStorage.setItem("slide", JSON.stringify(b));
+    sessionStorage.setItem("qr", JSON.stringify(qr));
     this.router.navigate(['/pathslide']);
   }
 }
