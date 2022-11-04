@@ -11,6 +11,7 @@ import { Cs } from '../models/infocs';
 import { Embedding } from '../models/embedding';
 import { Rack } from '../models/rack';
 import { Coverslipping } from '../models/coverslipping';
+import { ProcessStaining } from '../models/processstaining';
 @Component({
   selector: 'app-dasheight',
   templateUrl: './dasheight.component.html',
@@ -97,6 +98,8 @@ export class DasheightComponent implements OnInit {
       }}
   }
 message:string;
+allstain:ProcessStaining[];
+rst:ProcessStaining[]=[];
   confirm(){
   
       let done=0;
@@ -120,7 +123,18 @@ message:string;
 let mesec=new Date().getMonth()+1;
 let godina=new Date().getFullYear();
 let lab=this.me.username;
-    this.UserService.confirmCoverslipping(this.caseid, this.rack, dan, mesec, godina, time, minute, lab).subscribe((resp)=>{
+
+this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
+  this.allstain=data;
+
+  for (let index = 0; index < this.allstain.length; index++) {
+   if(this.rack==this.allstain[index].bascet)
+   {
+    this.rst.push(this.allstain[index])
+   }
+    
+  }
+    this.UserService.confirmCoverslipping(this.caseid, this.rack, dan, mesec, godina, time, minute, lab, this.rst[this.rst.length-1].casette).subscribe((resp)=>{
 
       if(resp['message']=='user')
       {
@@ -138,7 +152,7 @@ let lab=this.me.username;
        }
       }
   
-    })
+    })})
   
   }}
 }

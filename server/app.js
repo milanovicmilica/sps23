@@ -80,7 +80,7 @@ app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/se
         res.send(e);
     });
 })
-app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess', (req, res) => {
+app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess' || '/dasheight/guest/getallstainingprocess', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     //console.log('caoo')
     ProcessStaining.find({
@@ -121,6 +121,8 @@ app.get('/dasheight/guest/getallrack', (req, res) => {
         res.send(e);
     });
 })
+
+
 app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/getallemb', (req, res) => {
     
     Embedding.find({
@@ -838,7 +840,7 @@ app.post('/dasheight/guest/confirmCoverslipping', (req, res) => {
     
     let newP = new Coverslipping({
         rack : req.body.rack, caseid: req.body.caseid,   day: req.body.day, time:req.body.time, minute:req.body.minute,
-        month: req.body.month, year:req.body.year, laborant:req.body.laborant
+        month: req.body.month, year:req.body.year, laborant:req.body.laborant, slides:req.body.slides
       })
             newP.save().then((us2) => {
                 

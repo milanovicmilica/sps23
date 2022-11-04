@@ -457,7 +457,7 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/sendoutpathmain/guest/SendoutUpdate', data)
   }
-  confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute, lab){
+  confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute, lab, slides){
 
     const data={
       
@@ -469,7 +469,8 @@ export class UserService {
       year:godina,
       time:time,
       minute:minute,
-      laborant:lab
+      laborant:lab,
+      slides:slides
     }
 
     return this.http.post('https://sps23.herokuapp.com/dasheight/guest/confirmCoverslipping', data)
@@ -621,6 +622,7 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainers') ||
     this.http.get('https://sps23.herokuapp.com/staining/guest/getallstainers');
   }
+ 
   getAllStainersAdmin()
   {
     return this.http.get('https://sps23.herokuapp.com/addstprotocol/guest/getallstainers')
@@ -651,7 +653,8 @@ export class UserService {
   getAllStainingProcess()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess') || 
-    this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainingprocess')
+    this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainingprocess') ||
+    this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallstainingprocess')
   }
   getAllSectioning()
   {
