@@ -959,7 +959,9 @@ app.post('/dashseven/guest/updateSectioning', (req, res) => {
         else{
            
             Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'done' : 1}});
-          
+            Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'minute' : req.body.minute}});
+            Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'hour' : req.body.hour}});
+            Sectioning.collection.updateOne({'cassette' :req.body.cassette}, {$set: {'lab' : req.body.lab}});
             res.send({ message: 'user' });
         }
     })

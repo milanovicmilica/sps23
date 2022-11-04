@@ -95,6 +95,13 @@ export class PathslideComponent implements OnInit {
           this.emblab=this.allusers[index]
         }
         }}
+        for (let index = 0; index < this.allusers.length; index++) {
+          if(this.sectioning.lab==this.allusers[index].username)
+          {
+            this.sectlab=this.allusers[index];
+          }
+          
+        }
       })
       
       })
@@ -105,6 +112,7 @@ export class PathslideComponent implements OnInit {
 
     }
   }
+  sectlab:User;
   emblab:User;
   proclab:User;
   myEmb:Embedding;

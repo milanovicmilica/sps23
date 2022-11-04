@@ -474,12 +474,15 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dasheight/guest/confirmCoverslipping', data)
   }
-  updateSectioning(cassette)
+  updateSectioning(cassette, lab, hour,minute)
   {
     const data={
       
     
-      cassette:cassette
+      cassette:cassette,
+      lab:lab,
+      hour:hour,
+      minute:minute
      
     }
 

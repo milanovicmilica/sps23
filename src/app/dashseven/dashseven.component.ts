@@ -438,8 +438,10 @@ print(i,podslovo,bb1,bb2)
           }
         }
         if(znak==0)
-        {
-          this.UserService.updateSectioning(this.cassette).subscribe((resp)=>{
+        {   let date=new Date(); 
+          let time=date.getHours();
+          let minute=date.getMinutes();
+          this.UserService.updateSectioning(this.cassette, this.me.username,time,minute ).subscribe((resp)=>{
     
             if(resp['message']=='user')
             { 

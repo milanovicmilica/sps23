@@ -12,7 +12,9 @@ const SectioningSchema = new mongoose.Schema({
     cassette: {
         type: String,
     },
-   
+    lab: {
+        type: String,
+    },
     nizprint: {
         type: [Number],
     },
@@ -29,6 +31,12 @@ const SectioningSchema = new mongoose.Schema({
         type: Number,
     },
     year: {
+        type: Number,
+    },
+    hour: {
+        type: Number,
+    },
+    minute: {
         type: Number,
     },
    nizOznaka:{
