@@ -820,7 +820,8 @@ app.post('/dashfour/guest/updateProcessor', (req, res) => {
 app.post('/dashfive/guest/confirmEmb', (req, res) => {    
     
     let newP = new Embedding({
-        cassette : req.body.cassette, caseid: req.body.caseid,   date: req.body.date, time:req.body.time, minute:req.body.minute,
+        cassette : req.body.cassette, caseid: req.body.caseid,   day: req.body.day, time:req.body.time, minute:req.body.minute, 
+        month: req.body.month, year: req.body.year, lab:req.body.lab
       })
             newP.save().then((us2) => {
                 

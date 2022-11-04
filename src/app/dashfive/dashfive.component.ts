@@ -145,9 +145,12 @@ message:string;
         this.message="Done Embedding"
       }else{
     let date=new Date();
+    let dan=new Date().getDate();
+    let mesec=new Date().getMonth()+1;
+    let godina=new Date().getFullYear();
     let time=date.getHours();
     let minute=date.getMinutes();
-    this.UserService.confirmEmb(this.caseid, this.cassette, date, time, minute).subscribe((resp)=>{
+    this.UserService.confirmEmb(this.caseid, this.cassette, dan,mesec,godina, time, minute, this.me.username).subscribe((resp)=>{
 
       if(resp['message']=='user')
       {

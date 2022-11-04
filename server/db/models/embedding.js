@@ -17,11 +17,25 @@ const EmbeddingSchema = new mongoose.Schema({
         type: String,
       
     },
-    date: {
+    lab: {
         type: String,
-       
+      
     },
-   
+    day: {
+        type: Number,
+        
+        
+    },
+    month: {
+        type: Number,
+        
+        
+    },
+    year: {
+        type: Number,
+        
+        
+    },
     time: {
         type: Number,
         

@@ -387,16 +387,19 @@ export class UserService {
 
     return this.http.post('http://localhost:4000/guest/findCassette', data)
   }
-  confirmEmb(caseid, cassette, date, time, minute)
+  confirmEmb(caseid, cassette, dan,mesec,godina, time, minute, lab)
   {
     const data={
       
     
       cassette:cassette,
       caseid:caseid,
-      date:date,
+      day:dan,
+      month:mesec,
+      year:godina,
       time:time,
       minute:minute,
+      lab:lab
     }
 
     return this.http.post('https://sps23.herokuapp.com/dashfive/guest/confirmEmb', data)
