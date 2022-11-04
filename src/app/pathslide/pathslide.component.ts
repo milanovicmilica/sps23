@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
+import { Embedding } from '../models/embedding';
 import { Cs } from '../models/infocs';
 import { Process } from '../models/process';
 import { Sample } from '../models/sample';
@@ -70,6 +71,31 @@ export class PathslideComponent implements OnInit {
         }
         
       }
+      if(this.myProcess){
+      for (let index = 0; index < this.allusers.length; index++) {
+      if(this.allusers[index].username==this.myProcess.lab)
+      this.proclab=this.allusers[index]
+        
+      }}
+      this.UserService.getAllEmb().subscribe((data: Embedding[])=>{
+        this.allEmbs=data;
+      
+        for (let index = 0; index < this.allEmbs.length; index++) {
+          if(this.cassette==this.allEmbs[index].cassette)
+          {
+            this.myEmb=this.allEmbs[index]
+          }
+          
+        }
+        if(this.myEmb){
+        for (let index = 0; index < this.allusers.length; index++) {
+          
+          if(this.myEmb.lab==this.allusers[index].username)
+        {
+          this.emblab=this.allusers[index]
+        }
+        }}
+      })
       
       })
       })
@@ -79,6 +105,10 @@ export class PathslideComponent implements OnInit {
 
     }
   }
+  emblab:User;
+  proclab:User;
+  myEmb:Embedding;
+  allEmbs:Embedding[];
   myProcess:Process;
   allProcessings:Process[];
   grossasistent:User;
