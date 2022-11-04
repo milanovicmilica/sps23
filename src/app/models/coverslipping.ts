@@ -7,4 +7,5 @@ export class Coverslipping{
     time:number;
     minute:number;
     laborant:string;
+    slides:string[];
     }

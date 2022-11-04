@@ -17,6 +17,9 @@ const CslippingSchema = new mongoose.Schema({
         type: String,
       
     },
+    slides: {
+        type: [String],
+    },
     day: {
         type: Number,
        

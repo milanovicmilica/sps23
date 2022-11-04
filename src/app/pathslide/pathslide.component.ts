@@ -110,7 +110,7 @@ export class PathslideComponent implements OnInit {
            
             for (let index2 = 0; index2 < this.stainhe[index].casette.length; index2++) {
              
-              if(this.stainhe[index].casette[index2]==this.cassette)
+              if(this.stainhe[index].casette[index2]==this.slide)
               {
                 this.myshe=this.stainhe[index]
               }
