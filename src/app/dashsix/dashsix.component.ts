@@ -260,7 +260,10 @@ else{ this.popup=1;
     this.popup=0;
   }
   done(bascet,sati,minuti, stainer, casette){
-    this.UserService.endSProcess(bascet,sati,minuti,casette).subscribe((resp)=>{
+    let dan=new Date().getDate();
+    let mesec=new Date().getMonth()+1;
+    let godina=new Date().getFullYear();
+    this.UserService.endSProcess(bascet,sati,minuti,casette, dan, mesec, godina, this.me.username).subscribe((resp)=>{
     
       if(resp['message']=='user')
       { 

@@ -3,6 +3,7 @@ export class ProcessStaining{
     protocol:string;
 
     bascet:string;
+    lab:string;
     casette:string[];
     hours:number;
     minutes:number;
@@ -15,4 +16,7 @@ export class ProcessStaining{
     posmonth:number;
     posyear:number;
     possec:number;
+    endday:number;
+    endmonth:number;
+    endyear:number;
 }

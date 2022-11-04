@@ -18,6 +18,9 @@ const ProcessSSchema = new mongoose.Schema({
     bascet: {
         type: String,
     },
+    lab: {
+        type: String,
+    },
     casette: {
         type: [String],
     },
@@ -34,6 +37,15 @@ const ProcessSSchema = new mongoose.Schema({
         type: Number,
     },
     endminutes: {
+        type: Number,
+    },
+    endday: {
+        type: Number,
+    },
+    endmonth: {
+        type: Number,
+    },
+    endyear: {
         type: Number,
     },
     poshours: {

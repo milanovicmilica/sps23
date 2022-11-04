@@ -860,7 +860,10 @@ app.post('/dashsix/guest/endsprocess', (req, res) => {
 
         }else{
             let s=1;
-                     
+            ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {  $set: {'endday': req.body.endday}});
+            ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {    $set: {'endmonth': req.body.endmonth}});
+            ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {  $set: {'endyear': req.body.endyear}});
+                ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {    $set: {'lab': req.body.lab}});
                 ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette}, {  $set: {'status': s}});
                 ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {  $set: {'endhours': req.body.endhours}});
                 ProcessStaining.collection.updateOne({'bascet': req.body.bascet,  'casette':req.body.cassette }, {    $set: {'endminutes': req.body.endminutes}});
