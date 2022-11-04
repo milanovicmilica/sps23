@@ -149,7 +149,31 @@ export class PathslideComponent implements OnInit {
               
             }
           }
-        
+          this.UserService.getAllSendout().subscribe((data: Sendout[])=>{
+            this.allsendout=data;
+          
+          for (let index = 0; index < this.allsendout.length; index++) {
+            if(this.allsendout[index].caseid==this.my.formatcn)
+            {
+              this.mysend=this.allsendout[index]
+            }
+            
+          }
+          if(this.mysend)
+          {
+            for (let index = 0; index < this.allusers.length; index++) {
+             if(this.allusers[index].username==this.mysend.laborant)
+             {this.labsend=this.allusers[index]}
+              
+            }
+            for (let index = 0; index < this.allusers.length; index++) {
+              if(this.allusers[index].username==this.mysend.path)
+              {this.pathSend=this.allusers[index]}
+               
+             }
+          }
+          
+          })
         })
 
 
@@ -165,6 +189,10 @@ export class PathslideComponent implements OnInit {
 
     }
   }
+  labsend:User;
+  pathSend:User;
+  mysend:Sendout;
+  allsendout:Sendout[]
   covslab:User;
   myCovs:Coverslipping;
   allcovs:Coverslipping[]
