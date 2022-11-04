@@ -289,7 +289,7 @@ export class UserService {
     return this.http.post('https://sps23.herokuapp.com/staining/guest/addstainingprocess', data)
 
   }
-  endProcess(bascet, endhours,endminutes)
+  endProcess(bascet, endhours,endminutes, endday,endmonth,endyear,lab)
   {
     const data={
       
@@ -298,7 +298,10 @@ export class UserService {
   
       endhours:endhours,
       endminutes:endminutes,
-      
+      lab:lab,
+      endday:endday,
+      endmonth:endmonth,
+      endyear:endyear
     }
 
     return this.http.post('https://sps23.herokuapp.com/dashfour/guest/endprocess', data)

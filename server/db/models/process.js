@@ -36,6 +36,15 @@ const ProcessSchema = new mongoose.Schema({
     endminutes: {
         type: Number,
     },
+    endday: {
+        type: Number,
+    },
+    endmonth: {
+        type: Number,
+    },
+    endyear: {
+        type: Number,
+    },
     poshours: {
         type: Number,
     },
@@ -51,6 +60,9 @@ const ProcessSchema = new mongoose.Schema({
     posyear: {
         type: Number,
     },
+    lab:{
+        type:String
+    }
 });
 
 

@@ -140,7 +140,10 @@ export class DashboardfourthComponent implements OnInit {
   popup:number;
   done(bascet, sati,minuti,processor)
   {
-    this.UserService.endProcess(bascet,sati,minuti).subscribe((resp)=>{
+    let dan=new Date().getDate();
+    let mesec=new Date().getMonth()+1;
+    let godina=new Date().getFullYear();
+    this.UserService.endProcess(bascet,sati,minuti, dan, mesec, godina,this.me.username).subscribe((resp)=>{
     
       if(resp['message']=='user')
       { this.UserService.updateProcessor(processor).subscribe((resp)=>{
