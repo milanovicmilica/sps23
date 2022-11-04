@@ -181,7 +181,7 @@ font-family: 'Raleway', sans-serif;
 }
 .grossdiv{
   width: 90%;
-  height: 30%;
+  height: 40%;
   font-family: 'Open Sans', sans-serif;
   background-color: #ffffff;
   padding: 1%;
@@ -192,6 +192,7 @@ font-family: 'Raleway', sans-serif;
   display: flex;
   flex-direction: column;
   margin-top: 3%;
+  margin-bottom: 2%;
 }
 .nes{
     margin-bottom: 10px;
