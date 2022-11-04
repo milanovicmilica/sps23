@@ -23,7 +23,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 
                 <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
                 align-items: center;
-                align-content: center;"><a href="/login-sendout">LOGOUT</a></label>      
+                align-content: center;"><a href="/login-patholog">LOGOUT</a></label>      
             </li>   
             </ul>
         
@@ -79,7 +79,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                             <label>{{grossasistent.firstname}} {{grossasistent.lastname}}</label>
                         </div>
                     </div>
-                    <div class="grossdiv" *ngIf="myProcess!=null">
+                    <div class="grossdiv2" *ngIf="myProcess!=null">
                         <div class="gdiv1">
                         <label>PROCESSING:</label>
                         </div>
@@ -100,6 +100,19 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <div class="gdiv1">
                             <label>Assistent: </label>
                             <label>{{myProcess.lab}} {{myProcess.lab}}</label>
+                        </div>
+                    </div>
+                    <div class="grossdiv">
+                        <div class="gdiv1">
+                        <label>EMBEDDING:</label>
+                        </div>
+                        <div class="gdiv1">
+                            <label>Finished: </label>
+                            <label>{{cassette}}</label>
+                        </div>
+                        <div class="gdiv1">
+                            <label>Assistent: </label>
+                            <label>{{grossasistent.firstname}} {{grossasistent.lastname}}</label>
                         </div>
                     </div>
                 </div>

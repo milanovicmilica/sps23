@@ -57,6 +57,7 @@ export class DashfiveComponent implements OnInit {
   search(){
     this.message=""
     this.message1=""
+    console.log(this.cassette)
     this.flag1=0;
     if (this.cassette==null)
     {
@@ -92,7 +93,7 @@ export class DashfiveComponent implements OnInit {
             {
               this.firstname=this.allCases[index2].firstname;
               this.lastname=this.allCases[index2].lastname;
-              this.cassette="";
+          //    this.cassette="";
             }
             
           }
@@ -114,7 +115,7 @@ export class DashfiveComponent implements OnInit {
                {
                 this.firstname=this.allCases[index3].firstname;
                 this.lastname=this.allCases[index3].lastname;
-                this.cassette="";
+              //  this.cassette="";
                }
               }
             }
