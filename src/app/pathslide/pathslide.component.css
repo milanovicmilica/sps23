@@ -191,6 +191,11 @@ font-family: 'Raleway', sans-serif;
   flex-direction: row; 
   text-align: left;
 }
+.gdiv3{
+  display: flex;
+  flex-direction: column; 
+  text-align: left;
+}
 .gdiv1p{
   display: flex;
   flex-direction: column; 
