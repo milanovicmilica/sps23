@@ -728,6 +728,8 @@ border-right: transparent;
     margin-right: 3%;
   }
   .pad{
+    display: flex;
+    flex-direction: row;
     width: 60%;
   }
   .multiselect {
