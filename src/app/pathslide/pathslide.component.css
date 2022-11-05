@@ -182,10 +182,10 @@ font-family: 'Raleway', sans-serif;
 }
 .thirdcol{
   height: 60%;
-  width: 35%;
+  width: 37%;
   display: flex;
   flex-direction: column;
-  margin-left: 2%;
+ 
 }
 .gdiv1{
   display: flex;
