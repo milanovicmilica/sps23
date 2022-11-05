@@ -727,6 +727,9 @@ border-right: transparent;
     width: 20%;
     margin-right: 3%;
   }
+  .pad{
+    width: 60%;
+  }
   .multiselect {
     width: 200px;
    margin-right: 3%;
