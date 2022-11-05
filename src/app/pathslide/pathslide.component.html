@@ -66,7 +66,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
            </div>
              <div class="srednji">
                 <div class="firstcol">
-                    <div class="grossdiv">
+                    <div class="grossdiv" *ngIf="sectioning!=null">
                         <div class="gdiv1">
                         <label class="labs">GROSSING:</label>
                         </div>
@@ -102,7 +102,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                             <label  class="razm">{{proclab.firstname}} {{proclab.lastname}}</label>
                         </div>
                     </div>
-                    <div class="grossdiv">
+                    <div class="grossdiv" *ngIf="myEmb!=null">
                         <div class="gdiv1">
                         <label class="labs">EMBEDDING:</label>
                         </div>
