@@ -35,7 +35,7 @@ export class AddbascetComponent implements OnInit {
 
   addProcessor(){
 
-    if (this.name==null)
+    if (this.name==null || this.name=="")
     {this.message3="Required*"}
     else
     {
@@ -44,7 +44,7 @@ export class AddbascetComponent implements OnInit {
 
    
 
-    if(this.name!=null )
+    if(this.name!=null  && this.name!="")
     {
       this.message="";
 

@@ -36,7 +36,7 @@ export class AddrackComponent implements OnInit {
 
   addProcessor(){
 
-    if (this.name==null)
+    if (this.name==null || this.name=="")
     {this.message3="Required*"}
     else
     {
@@ -45,7 +45,7 @@ export class AddrackComponent implements OnInit {
 
    
 
-    if(this.name!=null )
+    if(this.name!=null && this.name!="" )
     {
       this.message="";
 

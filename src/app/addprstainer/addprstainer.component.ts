@@ -41,7 +41,7 @@ export class AddprstainerComponent implements OnInit {
     this.router.navigate(['/addprotocol']);
   }
   addProtocol(){
-    if (this.name==null)
+    if (this.name==null || this.name=="")
     {
       this.message3="Required*";
     }
@@ -58,7 +58,7 @@ export class AddprstainerComponent implements OnInit {
       this.message4="";
     }
 
-    if(this.name!=null && this.hours!=null && this.minutes!=null)
+    if(this.name!=null && this.hours!=null && this.minutes!=null && this.name!="")
     {
       this.message="";
 

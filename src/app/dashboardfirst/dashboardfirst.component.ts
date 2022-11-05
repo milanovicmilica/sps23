@@ -58,13 +58,13 @@ export class DashboardfirstComponent implements OnInit {
   }
   addUser(){
     this.message="";
-   if(this.username==null) this.message0="Required*";
+   if(this.username==null || this.username=="") this.message0="Required*";
    else this.message0="";
-   if(this.password==null) this.message1="Required*";
+   if(this.password==null || this.password=="") this.message1="Required*";
    else this.message1="";
-   if(this.firstname==null) this.message3="Required*";
+   if(this.firstname==null || this.firstname=="") this.message3="Required*";
    else this.message3="";
-   if(this.lastname==null) this.message4="Required*";
+   if(this.lastname==null || this.lastname=="") this.message4="Required*";
    else this.message4="";
     for (let index = 0; index < this.k.length; index++) {
       if(this.k[index].sel==true)
@@ -76,7 +76,8 @@ export class DashboardfirstComponent implements OnInit {
         this.message2="Required*";
       }else this.message2="";
     }
-    if(this.username!=null && this.password!=null && this.brTipa!=null && this.firstname!=null && this.lastname!=null){
+    if(this.username!=null && this.password!=null && this.brTipa!=null && this.firstname!=null && this.lastname!=null 
+      && this.username!="" && this.password!="" && this.firstname!="" && this.lastname!=""){
 
     this.UserService.addUser(this.username,this.password,this.brTipa, this.firstname,this.lastname).subscribe((resp)=>{
 

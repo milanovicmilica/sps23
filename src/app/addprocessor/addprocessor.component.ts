@@ -36,7 +36,7 @@ export class AddprocessorComponent implements OnInit {
 
   addProcessor(){
 
-    if (this.name==null)
+    if (this.name==null || this.name=="")
     {this.message3="Required*"}
     else
     {
@@ -52,7 +52,7 @@ export class AddprocessorComponent implements OnInit {
       this.message4="";
     }
 
-    if(this.name!=null && this.num!=null)
+    if(this.name!=null && this.num!=null && this.name!="")
     {
       this.message="";
 
