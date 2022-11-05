@@ -188,7 +188,85 @@ export class PathslideComponent implements OnInit {
     })
 
     }
+    if(JSON.parse(sessionStorage.getItem("sample")))
+    {
+      this.mysample=JSON.parse(sessionStorage.getItem("sample")) as Sample; 
+      this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
+        this.stainhe=data;
+      
+        for (let index = 0; index < this.stainhe.length; index++) {
+         
+          for (let index2 = 0; index2 < this.stainhe[index].casette.length; index2++) {
+           
+            if(this.stainhe[index].casette[index2]==this.qrslide)
+            {
+              this.myshe=this.stainhe[index]
+            }
+          }
+        }
+        if(this.myshe){
+      for (let index = 0; index < this.allusers.length; index++) {
+        if(this.allusers[index].username==this.myshe.lab)
+        this.shelab=this.allusers[index]
+        
+      }}
+      this.UserService.getAllCover().subscribe((data: Coverslipping[])=>{
+        this.allcovs=data;
+      
+        for (let index = 0; index < this.allcovs.length; index++) {
+          for (let index2 = 0; index2 < this.allcovs[index].slides.length; index2++) {
+            
+            if(this.qrslide==this.allcovs[index].slides[index2])
+            {
+              this.myCovs=this.allcovs[index]
+            }
+          }
+          
+        }
+        if(this.myCovs)
+        {
+          for (let index = 0; index < this.allusers.length; index++) {
+           
+            if(this.allusers[index].username==this.myCovs.laborant)
+            {
+              this.covslab=this.allusers[index]
+            }
+            
+          }
+        }
+        this.UserService.getAllSendout().subscribe((data: Sendout[])=>{
+          this.allsendout=data;
+        
+        for (let index = 0; index < this.allsendout.length; index++) {
+          if(this.allsendout[index].caseid==this.my.formatcn)
+          {
+            this.mysend=this.allsendout[index]
+          }
+          
+        }
+        if(this.mysend)
+        {
+          for (let index = 0; index < this.allusers.length; index++) {
+           if(this.allusers[index].username==this.mysend.laborant)
+           {this.labsend=this.allusers[index]}
+            
+          }
+          for (let index = 0; index < this.allusers.length; index++) {
+            if(this.allusers[index].username==this.mysend.path)
+            {this.pathSend=this.allusers[index]}
+             
+           }
+        }
+        
+        })
+      })
+
+
+      })
+    }
+
   }
+  mysample:Sample;
   labsend:User;
   pathSend:User;
   mysend:Sendout;

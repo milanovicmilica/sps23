@@ -208,6 +208,12 @@ font-family: 'Raleway', sans-serif;
   text-align: left;
   width: 100%;
 }
+.gdiv23{
+  display: flex;
+  flex-direction: row; 
+  text-align: left;
+  width: 100%;
+}
 .grossdiv{
   width: 90%;
   height: 40%;
@@ -225,7 +231,7 @@ font-family: 'Raleway', sans-serif;
 }
 .grossdiv3{
   width: 90%;
-  height: 40%;
+  height: 45%;
   font-family: 'Open Sans', sans-serif;
   background-color: #ffffff;
   padding: 1%;
