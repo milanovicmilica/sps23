@@ -41,7 +41,7 @@ export class PathinfoComponent implements OnInit {
           this.allSample=data;
         this.UserService.getAllCases().subscribe((data: Case[])=>{
           this.allCase=data;
-          console.log(this.allCase.length)
+       
         for (let index = 0; index < this.allCase.length; index++) {
           if(this.case==this.allCase[index].formatcn)
           {this.my=this.allCase[index]}
@@ -52,7 +52,7 @@ export class PathinfoComponent implements OnInit {
           this.allexbl.push(this.allSample[index]);
          }
         }
-        console.log(this.allexbl.length);
+     
         for (let index = 0; index < this.allCS.length; index++) {
           if(this.allCS[index].caseid==this.case)
           {
