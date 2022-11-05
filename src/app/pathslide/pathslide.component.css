@@ -175,6 +175,7 @@ font-family: 'Raleway', sans-serif;
     
 }
 .middlecol{
+  height: 60%;
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -273,7 +274,7 @@ font-family: 'Raleway', sans-serif;
   width: 30%;
   display: flex;
   flex-direction: column;
-  
+  height: 60%;
 }
 .footer {
     position: fixed;
