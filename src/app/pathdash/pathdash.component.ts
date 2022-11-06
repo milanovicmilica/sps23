@@ -121,7 +121,7 @@ for (let index = 0; index < this.myCases.length; index++) {
 me:User;
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/login-patholog']);
+    this.router.navigate(['/login-pathologist']);
   }
   day:string[]=[];
   month:number[]=[];

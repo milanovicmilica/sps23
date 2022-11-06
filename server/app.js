@@ -1074,7 +1074,7 @@ app.get('/login-sendout', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
-app.get('/login-patholog', (req, res) =>
+app.get('/login-pathologist', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

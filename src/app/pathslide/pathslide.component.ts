@@ -309,6 +309,6 @@ allcs:Cs[]=[];
   case:string;
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/login-patholog']);
+    this.router.navigate(['/login-pathologist']);
   }
 }

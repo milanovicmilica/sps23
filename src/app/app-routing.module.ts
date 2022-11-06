@@ -73,7 +73,7 @@ const routes: Routes = [
 { path: 'sendoutlabmain', component:SendoutlabmainComponent},
 { path: 'sendoutpathdash', component:SendoutpatdashComponent},
 { path: 'sendoutpathmain', component:SendoutpatmainComponent},
-{ path: 'login-patholog', component:LoginpathologComponent},
+{ path: 'login-pathologist', component:LoginpathologComponent},
 { path: 'pathdash', component:PathdashComponent},
 { path: 'pathinfo', component:PathinfoComponent},
 { path: 'pathslide', component:PathslideComponent},

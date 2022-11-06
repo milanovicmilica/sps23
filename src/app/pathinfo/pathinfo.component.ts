@@ -90,7 +90,7 @@ export class PathinfoComponent implements OnInit {
   me:User;
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['/login-patholog']);
+    this.router.navigate(['/login-pathologist']);
   }
   my:Case;
   day:string[]=[];
