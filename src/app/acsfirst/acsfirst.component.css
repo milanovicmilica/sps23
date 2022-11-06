@@ -508,6 +508,9 @@ letter-spacing: 2px;
     height:90%;
     border-color: transparent;
 }
+.gens{
+    width: 70%;
+}
 .n1{
     display: flex;
     flex-direction: column;
