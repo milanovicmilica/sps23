@@ -34,12 +34,10 @@ word:string="";
   keyEvent(event: KeyboardEvent): void {
   
     let x;
-    if(this.word=='undefined')
-      {this.word='';}
-     else{
+    
     if (event.key == ']') {
       
-        this.word+="]"
+       
        
         this.slide=(this.word)
         sessionStorage.setItem("slide", JSON.stringify(this.slide));
@@ -50,7 +48,7 @@ word:string="";
       else{
         this.word+=event.key;
       }
-    }
+    
     }
     @HostListener('window:keydown', ['$event'])
     keyEvent2(event: KeyboardEvent): void {
