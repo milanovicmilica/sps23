@@ -183,7 +183,7 @@ font-family: 'Raleway', sans-serif;
 }
 .thirdcol{
   height: 60%;
-  width: 37%;
+  width: 34%;
   display: flex;
   flex-direction: column;
  
@@ -271,7 +271,7 @@ font-family: 'Raleway', sans-serif;
     margin-bottom: 10px;
 }
 .firstcol{
-  width: 30%;
+  width: 32%;
   display: flex;
   flex-direction: column;
   height: 60%;
