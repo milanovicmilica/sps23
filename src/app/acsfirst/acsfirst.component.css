@@ -508,15 +508,16 @@ letter-spacing: 2px;
     height:90%;
     border-color: transparent;
 }
+.ssdiv{
+    width: 80%;
+}
 .gens{
     width: 70%;
 }
 .n1{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    align-self: center;
-    align-content: center;
+  
     text-align: left;
     width: 50%;
 }
