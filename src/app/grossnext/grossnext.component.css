@@ -846,7 +846,7 @@ table {
   .whitediv{
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 65%;
     height: 80%;
     background-color: white;
     padding: 2%;
