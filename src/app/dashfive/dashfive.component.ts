@@ -124,7 +124,8 @@ export class DashfiveComponent implements OnInit {
       }
       if(f0==0)
       {
-        this.message1="Not found"
+        this.message1="Not found";
+        this.flag1=0
       }
       }}
   }
@@ -178,7 +179,7 @@ message:string;
    
     if(event.key=="]")
   {
-    this.word+="]";
+    
    console.log(this.word)
     this.cassette=this.word
     this.word=""
