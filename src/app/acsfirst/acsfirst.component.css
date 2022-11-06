@@ -397,7 +397,7 @@ letter-spacing: 2px;
     flex-direction: row;
     padding-top: 20px;
     padding-bottom: 20px;
-
+    width: 100% ;
 }
 .seccol{
     padding-top: 5%;
@@ -515,6 +515,7 @@ letter-spacing: 2px;
     align-self: left;
     align-content: left;
     text-align: left;
+    width: 50%;
 }
 .l3{
     color: #121637;
