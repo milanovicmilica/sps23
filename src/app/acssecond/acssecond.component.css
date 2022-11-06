@@ -724,13 +724,14 @@ border-right: transparent;
 
   /*multi*/
   .f1p{
-    width: 20%;
+    width: 30%;
     margin-right: 3%;
   }
   .pad{
     display: flex;
     flex-direction: row;
     width: 60%;
+    margin-left: 3%;
   }
   .multiselect {
     width:100%;
