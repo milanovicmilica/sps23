@@ -38,8 +38,9 @@ word:string="";
     if (event.key == ']') {
       
        
-       
+      this.word+=event.key;
         this.slide=(this.word)
+        console.log(this.slide)
         sessionStorage.setItem("slide", JSON.stringify(this.slide));
         sessionStorage.setItem("laborant", JSON.stringify(this.me));
         this.router.navigate(['/sendoutlabmain']);
