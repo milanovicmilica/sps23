@@ -324,7 +324,7 @@ background-color: #3c90efd3;
 .leftside{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 45%;
     height: 80%;
    
     margin-top: 6%;
@@ -393,7 +393,7 @@ background-color: #3c90efd3;
     height: 80%;
    
     margin-top: 7%;
-    margin-left: 20%;
+    margin-left: 15%;
   }
   .embpopup{
     display: flex;

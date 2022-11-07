@@ -329,7 +329,7 @@ table tr:nth-child(odd) td{
 .caselist{
     width: 80%;
     height: 80%;
-    margin-top: 10%;
+    margin-top: 7%;
    /* overflow-y:scroll;
     max-height: 50vh;
     */
@@ -382,7 +382,7 @@ margin-top: 3%;
   }
   .d{
     width: 80%;
-    height: 10%;
+    height: 20%;
     align-items: flex-end;
     align-self: flex-end;
     align-content: flex-end;
