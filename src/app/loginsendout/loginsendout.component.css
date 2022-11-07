@@ -252,12 +252,12 @@ box-shadow: 2px 6px 10px 2px rgba(0, 0, 0 , .1);
     font-family: 'Orbitron', sans-serif;
      color:#FFFFFF;
      letter-spacing: 3px;
-     width: 10%;
+ 
  }
  .logo2{
      font-family: 'Orbitron', sans-serif;
       color:#2787F2;
-      letter-spacing: 3px; width: 10%;
+      letter-spacing: 3px; 
   }
   .stavka2{
     
@@ -266,9 +266,6 @@ box-shadow: 2px 6px 10px 2px rgba(0, 0, 0 , .1);
     font-size: 17px;
     color:#FFFFFF;
     letter-spacing: 4px;
-  width: 30%;
-   
-}
-.nav-item {
-width: 40%;
+    text-align: center;
+    padding-right: 50px;
 }
