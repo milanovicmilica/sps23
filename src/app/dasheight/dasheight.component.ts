@@ -102,7 +102,7 @@ allstain:ProcessStaining[];
 rst:ProcessStaining[]=[];
   confirm(){
   
-      let done=0;
+     /* let done=0;
       for (let index = 0; index < this.allCsl.length; index++) {
         
         if(this.rack==this.allCsl[index].rack)
@@ -115,7 +115,7 @@ rst:ProcessStaining[]=[];
       {
        // this.flag1=0;
         this.message="Done Coverslipping"
-      }else{
+      }else{*/
     let date=new Date();
     let time=date.getHours();
     let minute=date.getMinutes();
@@ -154,5 +154,5 @@ this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
   
     })})
   
-  }}
+  }
 }
