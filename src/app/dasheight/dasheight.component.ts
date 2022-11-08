@@ -62,22 +62,7 @@ export class DasheightComponent implements OnInit {
       this.g=1;this.flag1=0;
     }
     else{
-      this.g=0;
-      let done=0;
-      for (let index = 0; index < this.allCsl.length; index++) {
-        
-        if(this.rack==this.allCsl[index].rack)
-        {
-          done=1
-        }
-        
-      }  
-      if(done==1)
-      {
-        this.flag1=0;
-        this.message1="Done Coverslipping"
-      }
-      else{
+      
       this.flag1=1;
       let f0=0;
       this.message1=""
@@ -95,7 +80,7 @@ export class DasheightComponent implements OnInit {
         this.flag1=0;
       }
 
-      }}
+      }
   }
 message:string;
 allstain:ProcessStaining[];
