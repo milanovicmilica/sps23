@@ -429,7 +429,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     height: 100%;
     color: #121637;
    /* padding: 3%;*/
-    margin-right: 2%;
+   /* margin-right: 2%;*/
     align-content: center;
     text-align: center;
     border-radius: 3px;
@@ -786,7 +786,7 @@ border-right: transparent;
     box-shadow: 2px 4px 6px rgba(19, 19, 19, 0.548);
     height: 50%;
     overflow-y:scroll;
-    max-height: 12vh;
+    max-height: 10vh;
     font-size: small;
    
   }
@@ -824,7 +824,7 @@ border-right: transparent;
     box-shadow: 2px 4px 6px rgba(19, 19, 19, 0.548);
     height: 50%;
     overflow-y:scroll;
-    max-height: 12vh;
+    max-height: 10vh;
     font-size: small;
   }
   
@@ -849,7 +849,7 @@ border-right: transparent;
     align-items: center;
     align-self: center;
     align-content: center;
-    margin-top: 5%;
+    margin-top: 10%;
   }
   .pl1{
     width: 100%;
