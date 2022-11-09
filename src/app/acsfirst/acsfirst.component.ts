@@ -116,6 +116,10 @@ addcase(){
   this.g9=1;
   if( this.gen!=null)
   this.g9=0;
+  if(this.lbo.length!=11)
+  {
+    this.message='Health insurance number must have 11 numbers*'
+  }
   
   this.UserService.getAllCases().subscribe((data: Case[])=>{
     this.allCases=data;
