@@ -150,7 +150,7 @@ addcase(){
     if((this.sender=="Personal" && this.contact!=null && this.firstname!=null && this.lastname!=null && 
     this.pid!=null && this.date!=null && this.lbo!=null && this.lbo.length==11 && this.diagnosis!=null && this.gen!=null)||(this.sender=="Hospital" && this.hospitalid!=null
      && this.firstname!=null && this.lastname!=null && 
-    this.pid!=null && this.date!=null && this.lbo!=null && this.diagnosis!=null))
+    this.pid!=null && this.date!=null && this.lbo!=null && this.diagnosis!=null && this.lbo.length==11))
     this.UserService.addCase(this.sender,this.hospitalid,this.contact,this.address,this.firstname,this.lastname,
       this.pid,dat,this.lbo,this.hnum,this.num,this.diagnosis,this.pathologist,this.adcomments,this.format, this.newcn,this.gen).subscribe((resp)=>{
   

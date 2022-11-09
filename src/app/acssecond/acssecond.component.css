@@ -695,6 +695,28 @@ border-right: transparent;
     border-color: transparent;
     box-shadow: inset 0 0 2px 2px rgba(79, 78, 78, 0.422);
 }
+.exb12{
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0 , .1);
+  border-radius: 5px 5px 5px 5px;
+  border-color: transparent;
+  
+  padding: 2%;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin-right: 3%;
+}
+.exb12:focus{
+  background-color: #7b7676c9;
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: inset 0 0 2px 2px rgba(79, 78, 78, 0.422);
+}
   .exb1{
     align-self: center;
     align-items: center;
