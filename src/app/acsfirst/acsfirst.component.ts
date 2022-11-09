@@ -104,9 +104,9 @@ addcase(){
   this.g5=1;
   if( this.date!=null)
   this.g5=0;
-  if( this.lbo==null)
+  if( this.lbo==null || this.lbo.length!=11)
   this.g6=1;
-  if( this.lbo!=null)
+  if( this.lbo!=null && this.lbo.length==11)
   this.g6=0;
   if( this.diagnosis==null)
   this.g7=1;
