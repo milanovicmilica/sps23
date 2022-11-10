@@ -852,7 +852,7 @@ border-right: transparent;
     align-items: center;
     align-self: center;
     align-content: center;
-    margin-top: 20%;
+    margin-top: 30%;
     text-align: center;
   }
   .pl1{
@@ -866,7 +866,7 @@ border-right: transparent;
     flex-direction: row;
   }
   .slikaexbl{
-    margin-top: 7%;
+    margin-top: 10%;
     width: 47%;
     height: 47%;
   }
@@ -879,7 +879,7 @@ border-right: transparent;
     width: 17%;
     height: 17%;
     margin-left: 3%;
-    margin-top: 7%;
+    margin-top: 10%;
     align-self: center;
   }
   .slikaexbl4{
