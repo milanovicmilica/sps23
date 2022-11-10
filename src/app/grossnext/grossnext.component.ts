@@ -162,7 +162,7 @@ export class GrossnextComponent implements OnInit {
   pkas(){
     this.brK=this.brK+1;
     this.brk2=this.brk2+1;
-    let n=this.uz+this.brk2;
+    let n=this.uz+this.brK;
     this.kasetice.push(n);
     this.plocice.push(1);
     let n2=n+'.'+'1';
