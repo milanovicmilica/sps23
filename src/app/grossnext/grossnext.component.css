@@ -602,7 +602,7 @@ table {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 80%;
+    height: 70%;
     margin-top: 1%;
   }
   .plocice{
@@ -705,7 +705,7 @@ table {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
   }
   .slika3{
-    height: 75%;
+    height: 85%;
 
     align-self: center;
   }
