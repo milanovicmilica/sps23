@@ -171,10 +171,10 @@ export class GrossnextComponent implements OnInit {
     this.comm.push("");
     this.printano.push(0);
   }
-  dkas(r,i)
+  dkas()
   {
     if(this.brK>1){
-      if(this.printano[i]==0){
+      if(this.printano[this.kasetice.length-1]==0){
         
     for (let index = 0; index < this.kasetice.length; index++) {
      if(index==this.kasetice.length-1)
