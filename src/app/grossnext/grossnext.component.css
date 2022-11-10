@@ -444,6 +444,7 @@ table {
     height: 25%;
     width: 100%;
     margin-bottom: 2%;
+    margin-top: 2%;
   }
   .opt{
     display: flex;
@@ -571,7 +572,7 @@ table {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 70%;
+    height: 60%;
     margin-bottom: 10%;
     margin-top: 3%;
    
