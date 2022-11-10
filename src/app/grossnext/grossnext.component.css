@@ -572,22 +572,30 @@ table {
     display: flex;
     flex-direction: column;
     height: 70%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
     margin-top: 3%;
+   
+  }
+  .zaScroll{
+    overflow-y:scroll;
+    max-height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
   .comm{
     width: 80%;
     display: flex;
     flex-direction: column;
     height: 20%;
-    margin-bottom: 3%;
+    
   }
   .k{
     width: 35%;
     display: flex;
     flex-direction: column;
-    overflow-y:scroll;
-    max-height: 50vh;
+
     margin-right: 3%;
   }
   .basic{
@@ -645,7 +653,7 @@ table {
     margin-right: 15%;
     background-color: #121637;
     width: 100%;
-    height: 100%;
+    height: 60%;
     align-self: center;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     align-items: center;
