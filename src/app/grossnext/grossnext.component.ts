@@ -177,7 +177,7 @@ export class GrossnextComponent implements OnInit {
       if(this.printano[i]==0){
         
     for (let index = 0; index < this.kasetice.length; index++) {
-     if(this.kasetice[index]==r)
+     if(index==this.kasetice.length-1)
      {
       this.kasetice.splice(index,1);
       this.brK--;
@@ -191,7 +191,7 @@ export class GrossnextComponent implements OnInit {
   }
     else{
       for (let index = 0; index < this.kasetice.length; index++) {
-        if(this.kasetice[index]==r)
+        if(index==this.kasetice.length-1)
         {
          this.kasetice.splice(index,1);
          this.brK--;
