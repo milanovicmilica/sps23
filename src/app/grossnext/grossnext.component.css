@@ -441,7 +441,7 @@ table {
   .adddiv{
     display: flex;
     flex-direction: row;
-    height: 16%;
+    height: 13%;
     width: 100%;
     margin-bottom: 2%;
     margin-top: 2%;
