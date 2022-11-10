@@ -72,19 +72,22 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 
 <div class="kasetice" *ngFor="let r of kasetice; let i=index;">
+  <div class="adddiv">
+    <button class="pm" (click)="dkas(r,i)">DELETE CASSETTE</button>
+    <button class="pm" (click)="pkas()">ADD CASSETTE</button>
+  </div>
 <div class="basic" *ngIf="sem1==1">
     <div class="whitediv">
 <div class="plocice1">
 <div class="plusminus">
-    <button class="pm" (click)="dkas(r,i)">-</button>
-    <button class="pm" (click)="pkas()">+</button>
+   
 </div>
 <img class="slika3" src="../../assets/касетица.png" style="text-align: center;">
 <label>{{r}}</label>
 </div>
 <div class="pddiv">
 <button class="pdButton" (click)="print(i,r)">PRINT</button>
-<button class="pdButton">DELETE</button>
+
 </div></div>
 <div class="plocice">
     <div class="kaspt2">
