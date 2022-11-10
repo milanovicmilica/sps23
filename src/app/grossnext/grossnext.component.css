@@ -573,6 +573,7 @@ table {
     flex-direction: column;
     height: 70%;
     margin-bottom: 5%;
+    margin-top: 3%;
   }
   .comm{
     width: 80%;
@@ -639,6 +640,22 @@ table {
     width: 80%;
  
   }
+  .pm2{
+    border-color: transparent;
+    margin-right: 35%;
+    background-color: #121637;
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    border-radius: 3px;
+    color: white;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+  
+  }
   .pm{
     border-color: transparent;
     margin-right: 35%;
@@ -656,6 +673,9 @@ table {
   
   }
   .pm:hover{
+    background-color:#1d235bca
+  }
+  .pm2:hover{
     background-color:#1d235bca
   }
   .kaspt2{
