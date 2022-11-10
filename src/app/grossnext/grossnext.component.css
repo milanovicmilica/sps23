@@ -642,7 +642,7 @@ table {
   }
   .pm2{
     border-color: transparent;
-    margin-right: 35%;
+    margin-right: 15%;
     background-color: #121637;
     width: 100%;
     height: 100%;
@@ -877,7 +877,7 @@ table {
     display: flex;
     flex-direction: row;
     width: 65%;
-    height: 80%;
+    height: 60%;
     background-color: white;
     padding: 2%;
     border-radius: 4px;
