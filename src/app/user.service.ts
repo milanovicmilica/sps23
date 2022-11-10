@@ -294,10 +294,10 @@ export class UserService {
     const data={
       
   
-      dan:dan,
+      day:dan,
   
-      mesec:mesec,
-      godina:godina,
+      month:mesec,
+      year:godina,
       hours:hours,
       minutes:minutes,
       caseid:caseid,
@@ -312,10 +312,10 @@ export class UserService {
     const data={
       
       Qr:Qr,
-      dan:dan,
+      day:dan,
   
-      mesec:mesec,
-      godina:godina,
+      month:mesec,
+      year:godina,
       hours:hours,
       minutes:minutes,
       caseid:caseid,
