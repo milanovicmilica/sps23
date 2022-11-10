@@ -17,6 +17,7 @@ const { Coverslipping } = require('./coverslipping');
 const { Rack } = require('./rack');
 const { Bascet } = require('./bascet');
 const { Sendout } = require('./sendout');
+const { Dcassette } = require('./dcassette');
 module.exports = {
     List,
     Task,
@@ -36,7 +37,8 @@ module.exports = {
     Coverslipping,
     Rack,
     Bascet,
-    Sendout
+    Sendout,
+    Dcassette
 
 
 }

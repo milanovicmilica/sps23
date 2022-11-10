@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
+import { Cs } from '../models/infocs';
 import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
@@ -128,6 +129,7 @@ export class GrossnextComponent implements OnInit {
   code:string;
   brk2:number=1;
   qri;
+  allCs:Cs[];
   print(i,r){
 
     {this.printano[i]++;
@@ -149,7 +151,8 @@ export class GrossnextComponent implements OnInit {
 
       if(resp['message']=='user added')
       {
-
+        this.UserService.getAllCs().subscribe((data: Cs[])=>{
+          this.allCs=data;})
       }
       else{
 
@@ -173,6 +176,13 @@ export class GrossnextComponent implements OnInit {
   }
   dkas()
   {
+    let d=new Date();
+    let dan=new Date().getDate();
+    let mesec=new Date().getMonth()+1;
+    let godina=new Date().getFullYear();
+    let hours=d.getHours();
+    let minutes=d.getMinutes();
+    let mark=this.kasetice[this.kasetice.length-1]
     if(this.brK>1){
       if(this.printano[this.kasetice.length-1]==0){
         
@@ -184,6 +194,15 @@ export class GrossnextComponent implements OnInit {
       this.plocice.splice(index, 1);
       this.comm.splice(index,1);
       this.printano.splice(index,1);
+      this.UserService.addDc(dan,mesec,godina, hours, minutes, this.myCase.formatcn,this.me.username,mark).subscribe((resp)=>{
+        if(resp['message']=='user')
+        { }
+        else{ 
+          if (resp['message']=='zauzeto')
+          { }
+          else{ }}
+    
+      })
      }
       
     }
@@ -193,11 +212,27 @@ export class GrossnextComponent implements OnInit {
       for (let index = 0; index < this.kasetice.length; index++) {
         if(index==this.kasetice.length-1)
         {
+
+          let Qr;
+          for (let index = 0; index < this.allCs.length; index++) {
+            if(this.allCs[index].podslovo==this.kasetice[this.kasetice.length-1])
+            {Qr=this.allCs[index].code}
+          }
+
          this.kasetice.splice(index,1);
          this.brK--;
          this.plocice.splice(index, 1);
          this.comm.splice(index,1);
          this.printano.splice(index,1);
+         this.UserService.addDcQr(Qr,dan,mesec,godina, hours, minutes, this.myCase.formatcn,this.me.username,mark).subscribe((resp)=>{
+          if(resp['message']=='user')
+          { }
+          else{ 
+            if (resp['message']=='zauzeto')
+            { }
+            else{ }}
+      
+        })
         }
          
        }

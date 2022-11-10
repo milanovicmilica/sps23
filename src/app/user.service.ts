@@ -289,6 +289,42 @@ export class UserService {
     return this.http.post('https://sps23.herokuapp.com/staining/guest/addstainingprocess', data)
 
   }
+  addDc(dan,mesec,godina, hours, minutes, caseid,pathologist,mark)
+  {
+    const data={
+      
+  
+      dan:dan,
+  
+      mesec:mesec,
+      godina:godina,
+      hours:hours,
+      minutes:minutes,
+      caseid:caseid,
+      pathologist:pathologist,
+      mark:mark
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addDc', data)
+  }
+  addDcQr(Qr,dan,mesec,godina, hours, minutes, caseid,pathologist,mark)
+  {
+    const data={
+      
+      Qr:Qr,
+      dan:dan,
+  
+      mesec:mesec,
+      godina:godina,
+      hours:hours,
+      minutes:minutes,
+      caseid:caseid,
+      pathologist:pathologist,
+      mark:mark
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addDcqr', data)
+  }
   endProcess(bascet, endhours,endminutes, endday,endmonth,endyear,lab)
   {
     const data={
@@ -551,7 +587,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallcs') ||
     this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcs') || 
     this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcs') || 
-    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcs');
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcs') ||
+    this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallcs');
   }
   getAllCases(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 

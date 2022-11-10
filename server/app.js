@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
-    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout} = require('./db/models');
+    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout, Dcassette} = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
@@ -260,7 +260,7 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
     });
 })
 app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs' || '/sendoutpathdash/guest/getallcs' 
-|| '/pathdash/guest/getallcs' || '/pathslide/guest/getallcs', (req, res) => {
+|| '/pathdash/guest/getallcs' || '/pathslide/guest/getallcs' || '/grossnext/guest/getallcs', (req, res) => {
     
     CS.find({
        
@@ -361,6 +361,47 @@ app.post('/addstprotocol/guest/addSTProtocol', (req, res) => {
             res.send({ message: 'zauzeto' });
         }
     }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+})
+
+app.post('/grossnext/guest/addDc', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+ 
+
+    let newP = new Dcassette({
+       
+        hours: req.body.hours,
+        minutes: req.body.minutes, month: req.body.month, pathologist: req.body.pathologist,
+        day: req.body.day, year: req.body.year, caseid: req.body.caseid, mark: req.body.mark,
+
+    });
+
+   
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+        res.send({ message: 'error' });
+    });
+})
+app.post('/grossnext/guest/addDcqr', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+ 
+
+    let newP = new Dcassette({
+       
+        hours: req.body.hours, Qr:req.body.Qr,
+        minutes: req.body.minutes, month: req.body.month, pathologist: req.body.pathologist,
+        day: req.body.day, year: req.body.year, caseid: req.body.caseid, mark: req.body.mark,
+
+    });
+
+   
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
         res.send({ message: 'error' });
     });
 })
