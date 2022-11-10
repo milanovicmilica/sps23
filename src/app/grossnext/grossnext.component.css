@@ -441,8 +441,9 @@ table {
   .adddiv{
     display: flex;
     flex-direction: row;
-    height: 20%;
+    height: 25%;
     width: 100%;
+    margin-bottom: 2%;
   }
   .opt{
     display: flex;
@@ -578,7 +579,7 @@ table {
     display: flex;
     flex-direction: column;
     height: 20%;
-    
+    margin-bottom: 3%;
   }
   .k{
     width: 35%;
@@ -593,6 +594,7 @@ table {
     flex-direction: row;
     width: 100%;
     height: 80%;
+    margin-top: 1%;
   }
   .plocice{
 
