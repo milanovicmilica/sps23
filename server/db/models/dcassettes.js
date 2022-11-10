@@ -48,6 +48,6 @@ const DcassettesSchema = new mongoose.Schema({
 
 
 
-const Dcassette = mongoose.model('Dcassette', DcassettesSchema,'dcassette');
+const Dcassette = mongoose.model('Dcassette', DcassettesSchema,'dcassettes');
 
 module.exports = { Dcassette }
