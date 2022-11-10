@@ -623,7 +623,7 @@ table {
   .plocice1{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
     height: 80%;
   }
   .kas2{
@@ -706,7 +706,7 @@ table {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
   }
   .slika3{
-    height: 85%;
+    height: 95%;
 
     align-self: center;
   }
