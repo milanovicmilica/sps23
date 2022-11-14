@@ -28,6 +28,7 @@ import { LoginsectioningComponent } from './loginsectioning/loginsectioning.comp
 import { LoginsendoutComponent } from './loginsendout/loginsendout.component';
 import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
+import { PathaddgroupComponent } from './pathaddgroup/pathaddgroup.component';
 import { PathdashComponent } from './pathdash/pathdash.component';
 import { PathinfoComponent } from './pathinfo/pathinfo.component';
 import { PathslideComponent } from './pathslide/pathslide.component';
@@ -77,6 +78,7 @@ const routes: Routes = [
 { path: 'pathdash', component:PathdashComponent},
 { path: 'pathinfo', component:PathinfoComponent},
 { path: 'pathslide', component:PathslideComponent},
+{ path: 'pathaddgroup', component:PathaddgroupComponent},
 ]  ;
 
 @NgModule({

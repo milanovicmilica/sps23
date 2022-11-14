@@ -152,4 +152,7 @@ allcs:Cs[]=[];
   }
 
   }
+  predjinasl(){
+    this.router.navigate(['/pathaddgroup']);
+  }
 }

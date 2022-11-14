@@ -44,6 +44,7 @@ import { LoginpathologComponent } from './loginpatholog/loginpatholog.component'
 import { PathdashComponent } from './pathdash/pathdash.component';
 import { PathinfoComponent } from './pathinfo/pathinfo.component';
 import { PathslideComponent } from './pathslide/pathslide.component';
+import { PathaddgroupComponent } from './pathaddgroup/pathaddgroup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +86,7 @@ import { PathslideComponent } from './pathslide/pathslide.component';
     PathdashComponent,
     PathinfoComponent,
     PathslideComponent,
+    PathaddgroupComponent,
 
   ],
   imports: [
