@@ -18,6 +18,7 @@ const { Rack } = require('./rack');
 const { Bascet } = require('./bascet');
 const { Sendout } = require('./sendout');
 const { Dcassette } = require('./dcassettes');
+const { PathGroup } = require('./pathgroup');
 module.exports = {
     List,
     Task,
@@ -38,7 +39,8 @@ module.exports = {
     Rack,
     Bascet,
     Sendout,
-    Dcassette
+    Dcassette,
+    PathGroup
 
 
 }

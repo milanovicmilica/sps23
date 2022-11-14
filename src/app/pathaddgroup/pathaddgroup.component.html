@@ -1,1 +1,111 @@
-<p>pathaddgroup works!</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div>
+              <label  class="stavka2"  style="text-align: center; align-self: center;
+              align-items: center;
+              align-content: center; align-self: center;">PATHOLOGIST</label>  
+          </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">{{me.firstname}} {{me.lastname}}</label>  
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;"><a href="/login-pathologist">LOGOUT</a></label>           
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+      <div class="left">
+        <div class="firstrow">
+            <div class="name">
+            <label class="labblue">Group name:</label>
+            <input class=in1 type="text" [(ngModel)]='groupname'>
+            </div>
+        <select  class='sel1'  name="Please-select" [(ngModel)]='type'>
+            <option value="0"  selected  class="Invalid" hidden>Please Select Type</option>
+            <option *ngFor='let a of histo' >{{a.i}}</option>
+        </select>
+        </div>
+        <div class="centralmenus">
+            <form>
+                <div class="multiselect">
+                  <div class="selectBox" (click)="showCheckboxes()">
+                    <select class="select1">
+                      <option>SPECIAL STAIN</option>
+                    </select>
+                    <div class="overSelect"></div>
+                  </div>
+                  <div id="checkboxes">
+                    <div class="oneopt" *ngFor='let b of ss; let i=index'>
+                      <div class="exblop1">
+                     {{b}} 
+                      </div>
+                      <div class="exblop">
+                       <input type="checkbox" (value)="b" onchange="addordelete(b)">
+                      </div>
+               
+                 </div>
+        
+                  </div>
+                </div>
+              </form>
+              <form>
+                <div class="multiselect">
+                  <div class="selectBox" (click)="showCheckboxes2()">
+                    <select class="select1">
+                      <option>IHC</option>
+                    </select>
+                    <div class="overSelect"></div>
+                  </div>
+                  <div id="checkboxes1">
+                    <div class="oneopt" *ngFor='let b of ihc; let i=index'>
+                      <div class="exblop1">
+                        {{b}} 
+                      </div>
+                      <div class="exblop">
+                       
+                            <input type="checkbox" (value)="b" onchange="addordelete2(b)">
+                        
+                       </div>
+                    </div>
+        
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div class="end">
+            <button class="dugme" (click)="addgroup()">ADD GROUP</button>
+        </div>  
+      </div>
+    
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>
+

@@ -289,6 +289,20 @@ export class UserService {
     return this.http.post('https://sps23.herokuapp.com/staining/guest/addstainingprocess', data)
 
   }
+  addPathGroup(pathologist,groupname, type, ss,ihc){
+    const data={
+      
+      pathologist: pathologist,
+      groupname: groupname,
+     
+      type:type,
+      ss:ss,
+      ihc:ihc,
+      
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/pathaddgroup/guest/addPathGroup', data)
+  }
   addDc(dan,mesec,godina, hours, minutes, caseid,pathologist,mark)
   {
     const data={
@@ -687,6 +701,10 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallusers') || 
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallusers') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallusers');
+  }
+  getAllPathGroups()
+  {
+    return this.http.get('https://sps23.herokuapp.com/pathaddgroup/guest/getallgroup');
   }
   getAllStainingProcess()
   {

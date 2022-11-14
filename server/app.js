@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
-    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout, Dcassette} = require('./db/models');
+    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout, Dcassette, PathGroup} = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
@@ -197,6 +197,17 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
 || '/dashfourproc/guest/getallprocessors', (req, res) => {
     
     Processor.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+
+app.get('/pathaddgroup/guest/getallgroup' , (req, res) => {
+    
+    PathGroup.find({
        
     }).then((lists) => {
         res.send(lists);
@@ -539,6 +550,23 @@ app.post('/acsfirst/guest/addCase' || '${process.env.PORT}/guest/addCase' || '${
             newP.save().then((us2) => {
                 console.log('evoo u app')
                 res.send({ message: 'user added' });
+            }).catch((e) => {console.log('evoo u error')
+                res.send({ message: 'error' });
+            });
+
+})
+
+app.post('/pathaddgroup/guest/addPathGroup', (req, res) => {
+    // We want to return an array of all the lists that belong to the authenticated user 
+   
+    
+    let newP = new PathGroup({
+        groupname : req.body.groupname, pathologist: req.body.pathologist,   ss: req.body.ss, ihc:req.body.ihc, type:req.body.type,
+     
+    });
+            newP.save().then((us2) => {
+               
+                res.send({ message: 'user' });
             }).catch((e) => {console.log('evoo u error')
                 res.send({ message: 'error' });
             });
