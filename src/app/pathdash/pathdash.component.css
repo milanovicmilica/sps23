@@ -37,7 +37,7 @@ flex-direction: column;
 align-items: center;
 }
 .divp{
-    width: 100%;
+    width: 30%;
 }
 .middle{
     width: 100%;
@@ -438,3 +438,24 @@ margin-top: 3%;
  width:15%;
    
  }
+ .dugme2{
+  
+    background-color: #2787F2;
+color: #FFFFFF;
+border-radius: 5px;
+border-color: transparent;
+font-family: 'Roboto Condensed', sans-serif;
+font-weight: bold;
+letter-spacing: 2px;
+width: 100%;
+padding: 1%;
+height:30%;
+margin-top: 3%;
+align-items: flex-end;
+align-self: flex-end;
+align-content: flex-end;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+}
+.dugme2:hover{
+  background-color: #3d8ce7d9;
+}

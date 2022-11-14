@@ -567,7 +567,7 @@ app.post('/pathaddgroup/guest/addPathGroup', (req, res) => {
             newP.save().then((us2) => {
                
                 res.send({ message: 'user' });
-            }).catch((e) => {console.log('evoo u error')
+            }).catch((e) => {
                 res.send({ message: 'error' });
             });
 
