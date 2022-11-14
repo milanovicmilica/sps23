@@ -114,6 +114,10 @@ showCheckboxes2() {
   }
 }
 message:string;
+logout(){
+  sessionStorage.clear();
+  this.router.navigate(['/login-pathologist']);
+}
 addgroup()
 {
   if(this.groupname==null || this.groupname=="")
