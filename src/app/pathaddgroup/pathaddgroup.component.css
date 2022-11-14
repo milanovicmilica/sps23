@@ -130,8 +130,8 @@ align-items: center;
     background-color: #c1c6ca;
   }
 .sel1{
-    width: 100%;
-    padding: 2%;
+    width: 50%;
+    padding: 1%;
     border-color: transparent;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     border-radius: 5px;
@@ -186,13 +186,18 @@ font-family: 'Raleway', sans-serif;
 .firstrow{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     height: 10%;
+    margin-top: 3%;
+    margin-bottom: 5%;
 }
 .end{
     height: 5%;
     width: 100%;
 
+}
+.f1{
+    margin-right: 3%;
 }
 .dugme1{
     border-color: rgba(255, 127, 80, 0.877);
@@ -467,6 +472,8 @@ table {
   .name{
     display: flex;
     flex-direction: column;
+    width: 40%;
+    height: 100%;
   }
   .labblue{
     color: #121637;

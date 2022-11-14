@@ -51,7 +51,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         </select>
         </div>
         <div class="centralmenus">
-            <form>
+            <form class="f1">
                 <div class="multiselect">
                   <div class="selectBox" (click)="showCheckboxes()">
                     <select class="select1">
@@ -65,7 +65,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                      {{b}} 
                       </div>
                       <div class="exblop">
-                       <input type="checkbox" (value)="b" onchange="addordelete(b)">
+                       <input type="checkbox" (value)="b" (onchange)="addordelete(b)">
                       </div>
                
                  </div>
@@ -88,7 +88,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                       </div>
                       <div class="exblop">
                        
-                            <input type="checkbox" (value)="b" onchange="addordelete2(b)">
+                            <input type="checkbox" (value)="b" (onchange)="addordelete2(b)">
                         
                        </div>
                     </div>
