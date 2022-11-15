@@ -239,6 +239,32 @@ width: 40%;
  align-content: flex-end;
  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
  margin-right: 5%;
+ font-size: small;
+  }
+  .ssmenu{
+    margin-right: 10%;
+  }
+  .dugme2{  
+    background-color: #2787F2;
+    color: #FFFFFF;
+    border-radius: 5px;
+    border-color: transparent;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    width: 100%;
+    padding: 1%;
+    height:100%;
+  
+   align-items: flex-end;
+   align-self: flex-end;
+   align-content: flex-end;
+   box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+   margin-left: 10%;
+
+  }
+  .dugme2:hover{
+    background-color: #3d8ce7d9;
   }
   .dugme:hover{
     background-color: #3d8ce7d9;
