@@ -32,6 +32,7 @@ import { PathaddgroupComponent } from './pathaddgroup/pathaddgroup.component';
 import { PathdashComponent } from './pathdash/pathdash.component';
 import { PatheditComponent } from './pathedit/pathedit.component';
 import { PathinfoComponent } from './pathinfo/pathinfo.component';
+import { PathreportComponent } from './pathreport/pathreport.component';
 import { PathslideComponent } from './pathslide/pathslide.component';
 import { ProcessingComponent } from './processing/processing.component';
 import { SendoutlabdashComponent } from './sendoutlabdash/sendoutlabdash.component';
@@ -81,6 +82,7 @@ const routes: Routes = [
 { path: 'pathslide', component:PathslideComponent},
 { path: 'pathaddgroup', component:PathaddgroupComponent},
 { path: 'pathedit', component:PatheditComponent},
+{ path: 'pathreport', component:PathreportComponent},
 ]  ;
 
 @NgModule({

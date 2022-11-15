@@ -92,6 +92,11 @@ export class PathinfoComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['/login-pathologist']);
   }
+  predjinaRep()
+  {
+    sessionStorage.setItem("case", JSON.stringify(this.case));
+    this.router.navigate(['/pathreport']);
+  }
   my:Case;
   day:string[]=[];
   month:number[]=[];
