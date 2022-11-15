@@ -22,7 +22,12 @@ export class PathaddgroupComponent implements OnInit {
     this.me=user1;
     this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
       this.allPathGroups=data;
-    
+      var checkboxes = document.getElementById("checkboxes1");
+      
+
+      checkboxes.style.display = "block";
+     var  checkboxes2 = document.getElementById("checkboxes");
+     checkboxes2.style.display = "block";
       for (let index = 0; index < this.allPathGroups.length; index++) {
        
         if(this.me.username==this.allPathGroups[index].pathologist)
@@ -40,8 +45,7 @@ export class PathaddgroupComponent implements OnInit {
           }
         }
       }
-      this.expanded2=true
-      this.expanded=true
+     
     })
 
   }
@@ -105,7 +109,7 @@ showCheckboxes() {
     checkboxes.style.display = "none";
     this.expanded = false;
   }
-  this.expanded=true;
+ 
 }
 expanded2:boolean; 
 showCheckboxes2() {
@@ -117,7 +121,7 @@ showCheckboxes2() {
     checkboxes.style.display = "none";
     this.expanded2 = false;
   }
-  this.expanded2=true
+
 }
 showCheckboxesright(i)
 {
