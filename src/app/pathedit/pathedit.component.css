@@ -295,8 +295,8 @@ width: 40%;
     flex-direction: column;
     width: 50%;
     height: 70%;
-    margin-top: 5%;
-
+    margin-top: 10%;
+position: fixed;
   }
   .rightside{
     display: flex;
