@@ -108,8 +108,8 @@ align-items: center;
   }
   #checkboxesP {
     display: block;
-    border: 1px #dadada solid;
-    background-color: white;
+  
+    background-color: transparent;
     text-align: left;
     box-shadow: 2px 4px 6px rgba(19, 19, 19, 0.548);
   }
@@ -151,8 +151,8 @@ align-items: center;
     background-color: #c1c6ca;
   }
 .sel1{
-    width: 50%;
-    padding: 3px;
+    width: 40%;
+    height: 40%;
     border-color: transparent;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     border-radius: 5px;
@@ -550,6 +550,7 @@ margin-top: 3%;
  align-self: flex-end;
  align-content: flex-end;
  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+ margin-right: 30%;
   }
   .dugme:hover{
     background-color: #3d8ce7d9;

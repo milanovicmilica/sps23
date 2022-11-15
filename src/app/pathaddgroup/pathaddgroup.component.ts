@@ -40,7 +40,8 @@ export class PathaddgroupComponent implements OnInit {
           }
         }
       }
-    
+      this.expanded2=true
+      this.expanded=true
     })
 
   }
@@ -104,6 +105,7 @@ showCheckboxes() {
     checkboxes.style.display = "none";
     this.expanded = false;
   }
+  this.expanded=true;
 }
 expanded2:boolean; 
 showCheckboxes2() {
@@ -115,6 +117,7 @@ showCheckboxes2() {
     checkboxes.style.display = "none";
     this.expanded2 = false;
   }
+  this.expanded2=true
 }
 showCheckboxesright(i)
 {
