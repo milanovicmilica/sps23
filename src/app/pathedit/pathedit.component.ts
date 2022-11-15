@@ -52,7 +52,7 @@ if(this.searchss!=null || this.searchss=="")
   console.log(this.searchss)
   for (let index = 0; index < this.ss.length; index++) {
     console.log(this.ss[index].indexOf(this.searchss))
-    if(this.ss[index].indexOf(this.searchss)!=-1)
+    if(this.searchss.indexOf(this.ss[index])!=-1)
     {
       this.niz.push(this.ss[index])
     }
