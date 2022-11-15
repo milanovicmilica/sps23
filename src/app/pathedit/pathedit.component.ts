@@ -73,6 +73,13 @@ export class PatheditComponent implements OnInit {
                   this.myPathGroups.push(this.allPathGroups[index])
                 }
               }
+              for (let index = 0; index < this.myPathGroups.length; index++) {
+                if(this.groupname==this.myPathGroups[index].groupname)
+                {
+                  this.choosenGroup=this.myPathGroups[index]
+                }
+                
+              }
             })
           }
         
@@ -98,6 +105,13 @@ export class PatheditComponent implements OnInit {
                 {
                   this.myPathGroups.push(this.allPathGroups[index])
                 }
+              }
+              for (let index = 0; index < this.myPathGroups.length; index++) {
+                if(this.groupname==this.myPathGroups[index].groupname)
+                {
+                  this.choosenGroup=this.myPathGroups[index]
+                }
+                
               }
             })
           }
