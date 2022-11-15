@@ -38,6 +38,8 @@ export class PathreportComponent implements OnInit {
   case:string;
   allCase:Case[];
   my:Case;
+  micror:string;
+  pathd:string;
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-pathologist']);
