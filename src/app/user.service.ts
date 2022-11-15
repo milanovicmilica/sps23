@@ -645,6 +645,7 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcases') ||
     this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcases') ||
     this.http.get('https://sps23.herokuapp.com/pathinfo/guest/getallcases') || 
+    this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallcases') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcases');
   }
   getAllHospitals(){
