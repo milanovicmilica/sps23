@@ -617,6 +617,41 @@ app.post('/acssecond/guest/updateSampleCode', (req, res) => {
 res.send({ message: 'error' });
 });
 })
+
+app.post('/pathedit/guest/updatePathGroupss', (req, res) => {   
+
+    PathGroup.findOne({
+        pathologist: req.body.pathologist,
+        groupname:req.body.groupname
+       
+    }).then((user) => {
+        if(user==null){   res.send({ message: 'nema' });}
+
+        PathGroup.collection.updateOne({'pathologist' : req.body.pathologist, 'groupname':req.body.groupname}, {$set: {'ss' : req.body.ss}});
+        res.send({ message: 'user' });
+      
+
+}).catch((e) => {
+res.send({ message: 'error' });
+});
+})
+app.post('/pathedit/guest/updatePathGroupihc', (req, res) => {   
+
+    PathGroup.findOne({
+        pathologist: req.body.pathologist,
+        groupname:req.body.groupname
+       
+    }).then((user) => {
+        if(user==null){   res.send({ message: 'nema' });}
+
+        PathGroup.collection.updateOne({'pathologist' : req.body.pathologist, 'groupname':req.body.groupname}, {$set: {'ihc' : req.body.ihc}});
+        res.send({ message: 'user' });
+      
+
+}).catch((e) => {
+res.send({ message: 'error' });
+});
+})
 app.post('/acssecond/guest/updateEXSSampleCode', (req, res) => {   
 
     Sample.findOne({

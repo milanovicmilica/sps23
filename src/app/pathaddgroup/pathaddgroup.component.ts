@@ -153,13 +153,10 @@ addgroup()
   {
     this.message="You did't check anything*"
   }
-  console.log(this.groupname)
-  console.log(this.type)
-  console.log(this.myihc.length)
-  console.log(this.myss.length)
+
   if(this.groupname!=null && this.groupname!="" && this.type!=null && (this.myss.length!=0 || this.myihc.length!=0 )){
   this.UserService.addPathGroup(this.me.username,this.groupname, this.type, this.myss,this.myihc).subscribe((resp)=>{
-        console.log(resp['message'])
+        
     if(resp['message']=='user')
     { 
       this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{

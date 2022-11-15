@@ -52,4 +52,59 @@ export class PatheditComponent implements OnInit {
       
     }
   }}
+  deletemember(b)
+  {
+
+    for (let index = 0; index < this.choosenGroup.ss.length; index++) {
+     
+      if(b==this.choosenGroup.ss[index])
+      {
+        this.choosenGroup.ss.splice(index,1);
+        this.UserService.updatePathGroupss(this.choosenGroup.pathologist,this.choosenGroup.groupname, this.choosenGroup.ss).subscribe((resp)=>{
+        
+          if(resp['message']=='user')
+          {
+            this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
+              this.allPathGroups=data;
+              for (let index = 0; index < this.allPathGroups.length; index++) {
+               
+                if(this.me.username==this.allPathGroups[index].pathologist)
+                {
+                  this.myPathGroups.push(this.allPathGroups[index])
+                }
+              }
+            })
+          }
+        
+        })
+      }
+      
+    }
+    
+    for (let index = 0; index < this.choosenGroup.ihc.length; index++) {
+     
+      if(b==this.choosenGroup.ihc[index])
+      {
+        this.choosenGroup.ihc.splice(index,1);
+        this.UserService.updatePathGroupihc(this.choosenGroup.pathologist,this.choosenGroup.groupname, this.choosenGroup.ihc).subscribe((resp)=>{
+        
+          if(resp['message']=='user')
+          {
+            this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
+              this.allPathGroups=data;
+              for (let index = 0; index < this.allPathGroups.length; index++) {
+               
+                if(this.me.username==this.allPathGroups[index].pathologist)
+                {
+                  this.myPathGroups.push(this.allPathGroups[index])
+                }
+              }
+            })
+          }
+        
+        })
+      }
+      
+    }
+  }
 }

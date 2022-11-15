@@ -565,6 +565,34 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateEXSSampleCode', data)
   }
+  updatePathGroupss(pathologist,groupname, ss)
+  {
+    const data={
+      
+    
+      pathologist:pathologist,
+      groupname:groupname,
+      ss:ss,
+   
+     
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/pathedit/guest/updatePathGroupss', data)
+  }
+  updatePathGroupihc(pathologist,groupname, ihc)
+  {
+    const data={
+      
+    
+      pathologist:pathologist,
+      groupname:groupname,
+      ihc:ihc,
+   
+     
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/pathedit/guest/updatePathGroupihc', data)
+  }
   addCase(sender,hospitalid,contact,address,firstname,lastname,
     pid,date,lbo,hnum,num,diagnosis,pathologist,adcomments,format,cn, gen){
     const data={
