@@ -31,11 +31,15 @@ export class PathreportComponent implements OnInit {
     }
       
     }})
-    
+
   }
 
   me:User;
   case:string;
   allCase:Case[];
   my:Case;
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['/login-pathologist']);
+  }
 }
