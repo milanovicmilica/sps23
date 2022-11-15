@@ -42,9 +42,9 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       <div class="sve">
         <div class="leftside">
             <div class="selectdiv">
-                <select name="Please-select" [(ngModel)]='groupname' class="selectedit"> 
+                <select name="Please-select" [(ngModel)]='groupname' class="selectedit" (change)="promeni()"> 
                     <option value="0"  selected  class="Invalid" hidden>Please Select Groupname</option>
-                    <option *ngFor='let a of myPathGroups' (click)="promeni(a.groupname)">{{a.groupname}}</option>
+                    <option *ngFor='let a of myPathGroups' >{{a.groupname}}</option>
                 </select>
             </div>
             <div *ngIf="choosenGroup!=null" class="gmembers">

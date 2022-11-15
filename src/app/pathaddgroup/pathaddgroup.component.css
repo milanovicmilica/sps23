@@ -111,7 +111,7 @@ align-items: center;
   
     background-color: transparent;
     text-align: left;
-   
+   margin-left: 2%;
   }
   
   #checkboxesP label {
@@ -164,7 +164,7 @@ align-items: center;
     background-color: #c1c6ca;
   }
   .zasel{
-    margin-top: 3%;
+    margin-top: 4%;
     height: 70%;
     width: 40%;
   }
