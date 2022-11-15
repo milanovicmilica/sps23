@@ -51,8 +51,8 @@ if(this.searchss!=null || this.searchss=="")
   this.niz=[];
   console.log(this.searchss)
   for (let index = 0; index < this.ss.length; index++) {
-    console.log(this.ss[index].search(this.searchss))
-    if(this.ss[index].search(this.searchss)!=-1)
+    console.log(this.ss[index].search("/"+this.searchss+'/gi'))
+    if(this.ss[index].search("/"+this.searchss+'/gi')!=-1)
     {
       this.niz.push(this.ss[index])
     }
