@@ -358,8 +358,9 @@ margin-left: 5%;
   .insearch{
     border-radius: 50px;
     border-color: transparent;
-    width: 33%;
+    width: 30%;
     padding: 1%;
+    margin-right: 15%;
     height: 50%;
   }
 
