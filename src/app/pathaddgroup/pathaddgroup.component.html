@@ -46,10 +46,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <label class="labblue">Group name:</label>
             <input class=in1 type="text" [(ngModel)]='groupname'>
             </div>
+            <div class="zasel">
         <select  class='sel1'  name="Please-select" [(ngModel)]='type'>
             <option value="0"  selected  class="Invalid" hidden>Please Select Type</option>
             <option *ngFor='let a of histo' >{{a.i}}</option>
         </select>
+        </div>
         </div>
         <div class="centralmenus">
             <form class="f1">

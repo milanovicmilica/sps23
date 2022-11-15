@@ -151,9 +151,13 @@ align-items: center;
   #checkboxes1 label:hover {
     background-color: #c1c6ca;
   }
-.sel1{
+  .zasel{
+    height: 50%;
     width: 40%;
- padding: 0.5%;
+  }
+.sel1{
+    width: 100%;
+ padding: 1%;
     border-color: transparent;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     border-radius: 5px;
