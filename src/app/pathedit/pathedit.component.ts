@@ -30,6 +30,7 @@ export class PatheditComponent implements OnInit {
           this.myPathGroups.push(this.allPathGroups[index])
         }
       }
+      this.niz=this.ss;
     })
   }
   me:User;
@@ -37,8 +38,26 @@ export class PatheditComponent implements OnInit {
   myPathGroups:pathGroup[]=[];
   choosenGroup:pathGroup;
   groupname:string;
+  searchss:string;
+  searchihc:string;
+  niz:string[]=[];
   ihc:string[]=['PROGESTERON','ESTROGEN', 'Ki 67', 'CK 7', 'CK 20', 'VIMENTIN'];
 ss:string[]=['MASSON','ALCIAN BLUE', 'GIEMSA','PAS', 'SREBRO', 'GOMORI'];
+
+searchssin(){
+if(this.searchss!=null)
+{
+  
+  this.niz=[];
+  for (let index = 0; index < this.ss.length; index++) {
+    if(this.ss[index].search(this.searchss))
+    {
+      this.niz.push(this.ss[index])
+    }
+    
+  }
+}
+}
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-pathologist']);
