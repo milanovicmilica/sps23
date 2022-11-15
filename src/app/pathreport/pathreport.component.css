@@ -279,12 +279,13 @@ letter-spacing: 2px;
     background-color: #ffffff;
     padding: 1%;
     margin-top: 3%;
-    width: 40%;
+    width: 25%;
     height: 100%;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     border-radius: 5px;
     align-self: center;
     align-items: center;
+    margin-right: 5%;
   }
   .c1{
     display: flex;
@@ -342,6 +343,7 @@ letter-spacing: 2px;
     flex-direction: row;
 }
 .patinfo{
+    margin-top: 3%;
  width: 50%;
  height: 100%;
  display: flex;

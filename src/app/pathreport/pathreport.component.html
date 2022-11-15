@@ -93,11 +93,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </div>
                 <div class="patinfo1">
                     <div class="prow1">
-                        <label>LBO:</label>
+                        <label>Health insurance number:</label>
                         <label class="l2"> {{my.lbo}}</label>
                     </div>
-                    <div class="prow1">
-                        <label>Health number: </label>
+                    <div class="prow1" *ngIf="my.hnum!=null">
+                        <label>Health record number: </label>
                         <label class="l2"> {{my.hnum}}</label>
                     </div>
                     <div class="prow1">
