@@ -19,6 +19,7 @@ const { Bascet } = require('./bascet');
 const { Sendout } = require('./sendout');
 const { Dcassette } = require('./dcassettes');
 const { PathGroup } = require('./pathgroup');
+const { Reporting } = require('./reporting');
 module.exports = {
     List,
     Task,
@@ -40,7 +41,7 @@ module.exports = {
     Bascet,
     Sendout,
     Dcassette,
-    PathGroup
-
+    PathGroup,
+    Reporting
 
 }

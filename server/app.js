@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
-    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout, Dcassette, PathGroup} = require('./db/models');
+    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout, Dcassette, PathGroup, Reporting} = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
