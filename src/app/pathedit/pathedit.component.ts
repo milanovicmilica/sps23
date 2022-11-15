@@ -99,6 +99,7 @@ export class PatheditComponent implements OnInit {
           {
             this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
               this.allPathGroups=data;
+              this.myPathGroups=[];
               for (let index = 0; index < this.allPathGroups.length; index++) {
                
                 if(this.me.username==this.allPathGroups[index].pathologist)
