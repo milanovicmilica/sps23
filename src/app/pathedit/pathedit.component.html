@@ -62,7 +62,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <div class="rightside">
             <div class="searchdiv">
                 <input class="insearch" placeholder="  Search special stain" [(ngModel)]='searchss' (change)="searchssin()">
-                <input class="insearch" placeholder="  Search ihc" [(ngModel)]='searchihc'>
+                <input class="insearch" placeholder="  Search ihc" [(ngModel)]='searchihc'  (change)="searchihcin()">
             </div>
             <div class="menudiv">
             <div class="ssmenu" >
@@ -99,7 +99,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <div class="overSelect"></div>
                       </div>
                       <div id="checkboxes1">
-                        <div class="oneopt" *ngFor='let b of ihc; let i=index'>
+                        <div class="oneopt" *ngFor='let b of niz2; let i=index'>
                           <div class="exblop1">
                             {{b}} 
                           </div>

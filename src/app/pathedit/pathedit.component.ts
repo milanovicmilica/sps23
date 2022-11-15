@@ -31,6 +31,7 @@ export class PatheditComponent implements OnInit {
         }
       }
       this.niz=this.ss;
+      this.niz2=this.ihc;
     })
   }
   me:User;
@@ -41,6 +42,7 @@ export class PatheditComponent implements OnInit {
   searchss:string;
   searchihc:string;
   niz:string[]=[];
+  niz2:string[]=[];
   ihc:string[]=['PROGESTERON','ESTROGEN', 'Ki 67', 'CK 7', 'CK 20', 'VIMENTIN'];
 ss:string[]=['MASSON','ALCIAN BLUE', 'GIEMSA','PAS', 'SREBRO', 'GOMORI'];
 
@@ -49,10 +51,10 @@ if(this.searchss!=null && this.searchss!="")
 {
   
   this.niz=[];
-  console.log(this.searchss)
+ 
   let a=this.searchss.toUpperCase();
   for (let index = 0; index < this.ss.length; index++) {
-    console.log(this.ss[index])
+    
     if(this.ss[index].includes(a)==true)
     {
       this.niz.push(this.ss[index])
@@ -63,6 +65,28 @@ if(this.searchss!=null && this.searchss!="")
 }
 else{
   this.niz=this.ss
+}
+}
+searchihcin()
+{
+  if(this.searchihc!=null && this.searchihc!="")
+{
+  
+  this.niz2=[];
+
+  let a=this.searchihc.toUpperCase();
+  for (let index = 0; index < this.ihc.length; index++) {
+  
+    if(this.ihc[index].includes(a)==true)
+    {
+      this.niz2.push(this.ihc[index])
+    }
+    
+  }
+
+}
+else{
+  this.niz2=this.ihc
 }
 }
   logout(){
