@@ -111,12 +111,13 @@ align-items: center;
   
     background-color: transparent;
     text-align: left;
-   margin-left: 2%;
+   margin-left: 10%;
   }
   
   #checkboxesP label {
     display: block;
     font-weight: bold;
+    margin-left: 10%;
   }
   
  
@@ -164,9 +165,9 @@ align-items: center;
     background-color: #c1c6ca;
   }
   .zasel{
-    margin-top: 4%;
+    margin-top: 6%;
     height: 70%;
-    width: 40%;
+    width: 37%;
   }
 .sel1{
     width: 100%;

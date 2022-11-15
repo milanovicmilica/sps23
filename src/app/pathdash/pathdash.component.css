@@ -182,25 +182,7 @@ font-weight: bolder;
 font-style: italic;
 
 }
-.dugme2{
-    border-color: rgba(255, 127, 80, 0.877);
-    background-color: rgb(255, 255, 255);
-    border-width: thin;
-    border-spacing: 3vh;
-    border-radius: 4pt;
-    width: 6vw;
-    height: 5vh;
-    letter-spacing: 3px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bolder;
-    font-family: 'Montserrat', sans-serif;
-font-family: 'Raleway', sans-serif;
-    color:#3a2812;
-}
-.dugme2:hover{
-    box-shadow: 2px 4px 6px rgba(19, 19, 19, 0.548);
-    background-color: transparent;
-}
+
 .st{
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
@@ -454,7 +436,7 @@ font-weight: bold;
 letter-spacing: 2px;
 width: 60%;
 padding: 1%;
-height:20%;
+height:25%;
 margin-top: 3%;
 align-items: flex-end;
 align-self: flex-end;
