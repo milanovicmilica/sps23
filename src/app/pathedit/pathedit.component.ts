@@ -50,7 +50,7 @@ if(this.searchss!=null)
   
   this.niz=[];
   for (let index = 0; index < this.ss.length; index++) {
-    if(this.ss[index].search(this.searchss))
+    if(this.ss[index].search(this.searchss)!=-1)
     {
       this.niz.push(this.ss[index])
     }
