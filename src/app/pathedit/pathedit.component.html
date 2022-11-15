@@ -59,7 +59,55 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     </div>
             </div>
         </div>
-        
+        <div class="rightside">
+            <div >
+                <form>
+                    <div class="multiselect">
+                      <div class="selectBox" (click)="showCheckboxes()">
+                        <select class="select1">
+                          <option>SPECIAL STAIN</option>
+                        </select>
+                        <div class="overSelect"></div>
+                      </div>
+                      <div id="checkboxes">
+                        <div class="oneopt" *ngFor='let b of ss; let i=index'>
+                          <div class="exblop1">
+                         {{b}} 
+                          </div>
+                          <div class="exblop">
+                            <button class="dugme" (click)="addmemberss(b)"> + </button>
+                          </div>
+                   
+                     </div>
+            
+                      </div>
+                    </div>
+                  </form>
+              </div>
+              <div>
+                <form>
+                    <div class="multiselect">
+                      <div class="selectBox" (click)="showCheckboxes2()">
+                        <select class="select1">
+                          <option>IHC</option>
+                        </select>
+                        <div class="overSelect"></div>
+                      </div>
+                      <div id="checkboxes1">
+                        <div class="oneopt" *ngFor='let b of ihc; let i=index'>
+                          <div class="exblop1">
+                            {{b}} 
+                          </div>
+                          <div class="exblop">
+                            <button class="dugme" (click)="addmemberihc(b)"> + </button>
+                           </div>
+                        </div>
+            
+                      </div>
+                    </div>
+                  </form>
+              </div>
+        </div>
     </div></div>
     <div class="footer">
         <p>© M-Rising 2022</p>

@@ -37,6 +37,8 @@ export class PatheditComponent implements OnInit {
   myPathGroups:pathGroup[]=[];
   choosenGroup:pathGroup;
   groupname:string;
+  ihc:string[]=['PROGESTERON','ESTROGEN', 'Ki 67', 'CK 7', 'CK 20', 'VIMENTIN'];
+ss:string[]=['MASSON','ALCIAN BLUE', 'GIEMSA','PAS', 'SREBRO', 'GOMORI'];
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-pathologist']);
@@ -52,6 +54,90 @@ export class PatheditComponent implements OnInit {
       
     }
   }}
+  expanded:boolean; 
+
+showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!this.expanded) {
+    checkboxes.style.display = "block";
+    this.expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    this.expanded = false;
+  }
+}
+expanded2:boolean; 
+showCheckboxes2() {
+  var checkboxes = document.getElementById("checkboxes1");
+  if (!this.expanded2) {
+    checkboxes.style.display = "block";
+    this.expanded2 = true;
+  } else {
+    checkboxes.style.display = "none";
+    this.expanded2 = false;
+  }
+}
+  addmemberss(b)
+  {
+    if(this.groupname!=null)
+    {
+      this.choosenGroup.ss.push(b);
+      this.UserService.updatePathGroupss(this.choosenGroup.pathologist,this.choosenGroup.groupname, this.choosenGroup.ss).subscribe((resp)=>{
+        
+        if(resp['message']=='user')
+        {
+          this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
+            this.allPathGroups=data;
+            for (let index = 0; index < this.allPathGroups.length; index++) {
+             
+              if(this.me.username==this.allPathGroups[index].pathologist)
+              {
+                this.myPathGroups.push(this.allPathGroups[index])
+              }
+            }
+            for (let index = 0; index < this.myPathGroups.length; index++) {
+              if(this.groupname==this.myPathGroups[index].groupname)
+              {
+                this.choosenGroup=this.myPathGroups[index]
+              }
+              
+            }
+          })
+        }
+      
+      })
+    }
+  }
+  addmemberihc(b){
+    if(this.groupname!=null)
+    {
+      this.choosenGroup.ihc.push(b);
+      this.UserService.updatePathGroupihc(this.choosenGroup.pathologist,this.choosenGroup.groupname, this.choosenGroup.ihc).subscribe((resp)=>{
+        
+        if(resp['message']=='user')
+        {
+          this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
+            this.allPathGroups=data;
+            for (let index = 0; index < this.allPathGroups.length; index++) {
+             
+              if(this.me.username==this.allPathGroups[index].pathologist)
+              {
+                this.myPathGroups.push(this.allPathGroups[index])
+              }
+            }
+            for (let index = 0; index < this.myPathGroups.length; index++) {
+              if(this.groupname==this.myPathGroups[index].groupname)
+              {
+                this.choosenGroup=this.myPathGroups[index]
+              }
+              
+            }
+          })
+        }
+      
+      })
+    }
+  }
   deletemember(b)
   {
 
