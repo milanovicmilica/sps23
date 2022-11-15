@@ -22,7 +22,8 @@ width: 100%;
   flex-direction: row;
   text-align: right;
   
-  width: 20%;
+  width: 15%;
+  height: 80%;
   margin-left: 4%;
 }
 .exblop1{
@@ -312,7 +313,7 @@ width: 40%;
     width: 50%;
     height: 70%;
     margin-top: 10%;
-position: relative;
+position: static;
   }
   .rightside{
     display: flex;
@@ -320,6 +321,7 @@ position: relative;
     width: 50%;
     height: 70%;
     margin-top: 10%;
+    position: static;
   }
   .gmembers{
     height: 70%;
