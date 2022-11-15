@@ -81,6 +81,13 @@ showCheckboxes2() {
   {
     if(this.groupname!=null)
     {
+      let flag=0;
+      for (let index = 0; index < this.choosenGroup.ss.length; index++) {
+        if(this.choosenGroup.ss[index]==b)
+        flag=1;
+        
+      }
+      if(flag==0){
       this.choosenGroup.ss.push(b);
       this.UserService.updatePathGroupss(this.choosenGroup.pathologist,this.choosenGroup.groupname, this.choosenGroup.ss).subscribe((resp)=>{
         
@@ -106,12 +113,19 @@ showCheckboxes2() {
           })
         }
       
-      })
+      })}
     }
   }
   addmemberihc(b){
     if(this.groupname!=null)
     {
+    let flag=0;
+    for (let index = 0; index < this.choosenGroup.ihc.length; index++) {
+      if(this.choosenGroup.ihc[index]==b)
+      flag=1;
+      
+    }
+    if(flag==0){
       this.choosenGroup.ihc.push(b);
       this.UserService.updatePathGroupihc(this.choosenGroup.pathologist,this.choosenGroup.groupname, this.choosenGroup.ihc).subscribe((resp)=>{
         
@@ -137,7 +151,7 @@ showCheckboxes2() {
           })
         }
       
-      })
+      })}
     }
   }
   deletemember(b)
