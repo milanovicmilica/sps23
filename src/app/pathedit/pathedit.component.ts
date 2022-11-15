@@ -37,6 +37,10 @@ export class PatheditComponent implements OnInit {
   myPathGroups:pathGroup[]=[];
   choosenGroup:pathGroup;
   groupname:string;
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['/login-pathologist']);
+  }
   promeni(groupname)
   {
     for (let index = 0; index < this.myPathGroups.length; index++) {
