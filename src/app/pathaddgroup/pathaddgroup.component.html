@@ -102,7 +102,19 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <span class='error'>{{message}}</span>
         </div>  
       </div>
-    
+      <div class="right">
+        <div class="ndiv2">
+          <label class="title1">PATIENT INFORMATION</label>
+      </div>
+      <div class="selmenus" *ngFor="let c of myPathGroups">
+        <button class="Editdugme" >EDIT</button>
+        <select>
+          <option selected disabled class="">{{c.groupname}}</option>
+          <option *ngFor="let clan of c.ss">{{clan}}</option>
+          <option *ngFor="let clan of c.ihc">{{clan}}</option>
+        </select>
+      </div>
+      </div>
     </div>
     <div class="footer">
         <p>© M-Rising 2022</p>

@@ -27,6 +27,7 @@ export class PathaddgroupComponent implements OnInit {
        
         if(this.me.username==this.allPathGroups[index].pathologist)
         {
+          this.myPathGroups.push(this.allPathGroups[index])
           for (let index2 = 0; index2 < this.histo.length; index2++) {
            
             if(this.histo[index].i==this.allPathGroups[index].type)
@@ -43,7 +44,7 @@ export class PathaddgroupComponent implements OnInit {
   }
 me:User;
 allPathGroups:pathGroup[];
-myPathGroups:pathGroup[];
+myPathGroups:pathGroup[]=[];
 type:string;
 ihc:string[]=['PROGESTERON','ESTROGEN', 'Ki 67', 'CK 7', 'CK 20', 'VIMENTIN'];
 ss:string[]=['MASSON','ALCIAN BLUE', 'GIEMSA','PAS', 'SREBRO', 'GOMORI'];
@@ -141,10 +142,12 @@ addgroup()
     { 
       this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
         this.allPathGroups=data;
+        this.myPathGroups=[]
         for (let index = 0; index < this.allPathGroups.length; index++) {
        
           if(this.me.username==this.allPathGroups[index].pathologist)
           {
+            this.myPathGroups.push(this.allPathGroups[index])
             for (let index2 = 0; index2 < this.histo.length; index2++) {
              
               if(this.histo[index].i==this.allPathGroups[index].type)
