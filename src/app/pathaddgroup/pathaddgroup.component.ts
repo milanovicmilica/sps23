@@ -28,6 +28,8 @@ export class PathaddgroupComponent implements OnInit {
         if(this.me.username==this.allPathGroups[index].pathologist)
         {
           this.myPathGroups.push(this.allPathGroups[index])
+          this.exp.push(false)
+          this.blocks.push(0);
           for (let index2 = 0; index2 < this.histo.length; index2++) {
            
             if(this.histo[index].i==this.allPathGroups[index].type)
@@ -114,7 +116,20 @@ showCheckboxes2() {
     this.expanded2 = false;
   }
 }
+showCheckboxesright(i)
+{
+  
+  if (!this.exp[i]) {
+  
+    this.exp[i] = true;
+  } else {
+ 
+    this.exp[i]  = false;
+  }
+}
 message:string;
+exp:boolean[]=[];
+blocks:number[]=[]
 logout(){
   sessionStorage.clear();
   this.router.navigate(['/login-pathologist']);
@@ -143,11 +158,15 @@ addgroup()
       this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
         this.allPathGroups=data;
         this.myPathGroups=[]
+        this.exp=[]
+        this.blocks=[]
         for (let index = 0; index < this.allPathGroups.length; index++) {
        
           if(this.me.username==this.allPathGroups[index].pathologist)
           {
             this.myPathGroups.push(this.allPathGroups[index])
+            this.exp.push(false)
+            this.blocks.push(0);
             for (let index2 = 0; index2 < this.histo.length; index2++) {
              
               if(this.histo[index].i==this.allPathGroups[index].type)

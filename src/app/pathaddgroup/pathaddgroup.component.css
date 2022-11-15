@@ -106,6 +106,19 @@ align-items: center;
   #checkboxes label:hover {
     background-color: #c1c6ca;
   }
+  #checkboxesP {
+    display: block;
+    border: 1px #dadada solid;
+    background-color: white;
+    text-align: left;
+    box-shadow: 2px 4px 6px rgba(19, 19, 19, 0.548);
+  }
+  
+  #checkboxesP label {
+    display: block;
+  }
+  
+ 
   .select1{
     padding: 5%;
     background-color: #121637;
