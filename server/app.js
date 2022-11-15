@@ -586,6 +586,20 @@ app.post('/acssecond/guest/addSample', (req, res) => {
             });
 
 })
+
+app.post('/pathreport/guest/addReporting', (req, res) => {    
+
+    let newP = new Reporting({
+        caseid : req.body.caseid, microreporting: req.body.microreporting,   pathologist: req.body.pathologist,
+        pathdiagnosis : req.body.pathdiagnosis   })
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+})
 app.post('/acssecond/guest/addSampleSlide', (req, res) => {    
 
     let newP = new Sample({
@@ -1184,6 +1198,10 @@ app.get('/login-pathologist', (req, res) =>
     
 );
 app.get('/pathdash', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/pathinfo', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

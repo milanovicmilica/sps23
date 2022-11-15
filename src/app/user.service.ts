@@ -620,6 +620,21 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/acsfirst/guest/addCase', data)
   }
+  addReporting(caseid,pathologist, microreporting,pathdiagnosis)
+  {
+    const data={
+      
+      caseid: caseid,
+      microreporting: microreporting,
+      pathdiagnosis:pathdiagnosis,
+      pathologist:pathologist,
+  
+
+
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/pathreport/guest/addReporting', data)
+  }
   getAllPath(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallpath') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallpath') 
   }

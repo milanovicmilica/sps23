@@ -42,6 +42,6 @@ module.exports = {
     Sendout,
     Dcassette,
     PathGroup,
-    Reporting
+    Reporting,
 
 }

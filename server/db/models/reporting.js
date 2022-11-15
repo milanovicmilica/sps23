@@ -22,6 +22,10 @@ const ReportingSchema = new mongoose.Schema({
         type: String,
       
     },
+    pathologist: {
+        type: String,
+      
+    },
 });
 
 

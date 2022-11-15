@@ -117,12 +117,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
          <div class="pt3">
             <div class="ptmr">
                 <label class="l1">Microscope Reporting:</label>
-                <textarea class="tx1" [(ngModel)]="micror"></textarea>
+                <textarea class="tx1" [(ngModel)]="micror"  cols="5" rows="5"></textarea>
             </div>
             <div class="ptmr">
                 <label class="l1">Pathological Diagnosis:</label>
-                <textarea class="tx1" [(ngModel)]="pathd"></textarea>
-                <button class="dugme">SIGNATURE</button>
+                <textarea class="tx1" [(ngModel)]="pathd" cols="5" rows="5"></textarea>
+                <button class="dugme" (click)="addRepo()">SIGNATURE</button>
             </div>
          </div>
     </div>

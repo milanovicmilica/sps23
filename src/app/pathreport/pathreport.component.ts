@@ -44,4 +44,17 @@ export class PathreportComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['/login-pathologist']);
   }
+  addRepo()
+  {
+    if(this.micror!=null && this.micror!="" && this.pathd!=null && this.pathd!="")
+    {
+      this.UserService.addReporting(this.my.formatcn,this.me.username, this.micror,this.pathd).subscribe((resp)=>{
+        
+        if(resp['message']=='user')
+        {
+          this.router.navigate(['/pathinfo'])
+        }
+    })
+  }
+}
 }

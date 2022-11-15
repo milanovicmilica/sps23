@@ -372,6 +372,9 @@ flex-direction: row;
     display: flex;
     flex-direction: column;
 }
+textarea {
+    resize: none;
+ }
 .tx1{
     width: 65%;
     height: 30%;
