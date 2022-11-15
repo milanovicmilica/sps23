@@ -36,6 +36,7 @@ export class PatheditComponent implements OnInit {
   allPathGroups:pathGroup[];
   myPathGroups:pathGroup[]=[];
   choosenGroup:pathGroup;
+  groupname:string;
   promeni(groupname)
   {
     for (let index = 0; index < this.myPathGroups.length; index++) {
