@@ -14,7 +14,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div>
               <label  class="stavka2"  style="text-align: center; align-self: center;
               align-items: center;
-              align-content: center; align-self: center;">PATHOLOGIST</label>  
+              align-content: center; align-self: center;"><a href="/pathdash">PATHOLOGIST</a></label>  
           </div>
         <ul class="navbar-nav">
             <li class="nav-item active">
@@ -39,46 +39,31 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
  
     
     <div class="pozadina">
-      <div class="middle">
-      <div class="caselist">
-        <table>
-            <tr> 
-                <th class="pr"></th>
-                <th class="pr"></th>
-                <th>Case ID:</th>
-                <th>First name:</th>
-                <th>Last name:</th>
-                <th class="s1">Date of birth:</th>
-                <th >Gender:</th>
-              <th>Number of Specimens:</th>
-              <th></th>
-              </tr>
-              <tbody>
-              <tr *ngFor="let a of myCases;let i=index" class="redovi">
-                <td class="pr">{{(i+1)}}</td>
-                <td class="pr"><input type="radio" class="rad" name="r1" [value]="a.formatcn"  [(ngModel)]="case" ></td>
-                <td>{{a.formatcn}}</td>
-                <td>{{a.firstname}}</td>
-                <td>{{a.lastname}}</td>
-                <td class="s1">{{a.date}}</td>
-                <td>{{a.gen}}</td>
-                <td>{{numofSpec[i]}}</td>
-                <td><img *ngIf="checkarray[i]==1" src="../../assets/n1.png" class="slika1"></td>
-              </tr></tbody>
-        </table>
-      </div>
-    <div class="divp">
-      <button class="dugme2"  (click)="predjinasl()">ADD STAINING GROUP</button>
-      <button class="dugme2"  (click)="predjinaedit()">EDIT GROUP</button>
-    </div>
-    </div>
-      <div class="d">
-        <button class="dugme"  (click)="next()">NEXT</button>
-        <span class='error'>{{message}}</span>
-      </div>
-    </div>
+      <div class="sve">
+        <div class="leftside">
+            <div class="selectdiv">
+                <select name="Please-select" [(ngModel)]='groupname'>
+                    <option value="0"  selected  class="Invalid" hidden>Please Select Groupname</option>
+                    <option *ngFor='let a of myPathGroups' (onclick)="promeni(a.groupname)">{{a.groupname}}</option>
+                </select>
+            </div>
+            <div *ngIf="choosenGroup!=null" class="gmembers">
+                <div class="chrow" *ngFor="let b of choosenGroup.ss">
+                <label class="labblue">{{b}}</label>
+                <button class="dugme"> X </button>
+                </div>
+                <div class="chrow" *ngFor="let b of choosenGroup.ihc">
+                    <label class="labblue">{{b}}</label>
+                    <button class="dugme"> X </button>
+                    </div>
+            </div>
+        </div>
+        
+    </div></div>
     <div class="footer">
         <p>© M-Rising 2022</p>
       </div>
+
 </div>
 </div>
+

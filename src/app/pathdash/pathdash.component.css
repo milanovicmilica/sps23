@@ -37,6 +37,8 @@ flex-direction: column;
 align-items: center;
 }
 .divp{
+    display: flex;
+    flex-direction: column;
     margin-top: 20%;
     width: 30%;
     margin-right: 15%;

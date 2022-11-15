@@ -138,6 +138,10 @@ allcs:Cs[]=[];
   myCases:Case[]=[]
   checkarray:number[]=[];
   allSendout:Sendout[]=[];
+  predjinaedit()
+  {
+    this.router.navigate(['/pathedit']);
+  }
   next(){
 
     if (this.case==null)

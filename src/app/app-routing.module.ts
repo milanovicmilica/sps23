@@ -30,6 +30,7 @@ import { LoginsheComponent } from './loginshe/loginshe.component';
 import { LoginstartComponent } from './loginstart/loginstart.component';
 import { PathaddgroupComponent } from './pathaddgroup/pathaddgroup.component';
 import { PathdashComponent } from './pathdash/pathdash.component';
+import { PatheditComponent } from './pathedit/pathedit.component';
 import { PathinfoComponent } from './pathinfo/pathinfo.component';
 import { PathslideComponent } from './pathslide/pathslide.component';
 import { ProcessingComponent } from './processing/processing.component';
@@ -79,6 +80,7 @@ const routes: Routes = [
 { path: 'pathinfo', component:PathinfoComponent},
 { path: 'pathslide', component:PathslideComponent},
 { path: 'pathaddgroup', component:PathaddgroupComponent},
+{ path: 'pathedit', component:PatheditComponent},
 ]  ;
 
 @NgModule({
