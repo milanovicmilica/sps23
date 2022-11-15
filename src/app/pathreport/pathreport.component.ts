@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
+import { Reporting } from '../models/reporting';
 import { Sample } from '../models/sample';
 import { Sectioning } from '../models/sectioning';
 import { Sendout } from '../models/sendout';
@@ -30,22 +31,55 @@ export class PathreportComponent implements OnInit {
       this.my=this.allCase[index];
     }
       
-    }})
+    }
+    this.flag=0
+    this.UserService.getAllReportings().subscribe((data: Reporting[])=>{
+      this.allReportings=data;
+
+      for (let index = 0; index < this.allReportings.length; index++) {
+        if(this.my.formatcn==this.allReportings[index].caseid)
+        {
+          this.flag=1;
+          this.myReporting=this.allReportings[index]
+          this.micror=this.myReporting.microreporting
+          this.pathd=this.myReporting.pathdiagnosis
+          
+        }
+        
+      }
+    })
+  })
 
   }
-
+  flag:number;
   me:User;
   case:string;
   allCase:Case[];
   my:Case;
   micror:string;
   pathd:string;
+  allReportings:Reporting[];
+  myReporting:Reporting;
+  message:string;
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-pathologist']);
   }
   addRepo()
   {
+    if (this.flag==1)
+    {
+      this.router.navigate(['/pathinfo'])
+    }else{
+      if(this.micror==null || this.micror=="")
+      {
+        this.message="Microscope Reporting is requred*"
+      }
+      else{
+        if(this.pathd==null || this.pathd=="")
+        {
+          this.message="Pathological Diagnosis is requred*"
+        }else{
     if(this.micror!=null && this.micror!="" && this.pathd!=null && this.pathd!="")
     {
       this.UserService.addReporting(this.my.formatcn,this.me.username, this.micror,this.pathd).subscribe((resp)=>{
@@ -55,6 +89,6 @@ export class PathreportComponent implements OnInit {
           this.router.navigate(['/pathinfo'])
         }
     })
-  }
+  }}}}
 }
 }

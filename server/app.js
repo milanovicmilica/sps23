@@ -143,6 +143,16 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide
         res.send(e);
     });
 })
+app.get('/pathreport/guest/getallreporting' , (req, res) => {
+    
+    Reporting.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
 app.get('/sendoutpathdash/guest/getallsendout' || '/pathdash/guest/getallsendout' , (req, res) => {
     
     Sendout.find({

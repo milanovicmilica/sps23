@@ -670,6 +670,10 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsendout') ||
     this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallsendout');
   }
+  getAllReportings()
+  {
+    return this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallreporting')
+  }
   getAllSamples()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || 

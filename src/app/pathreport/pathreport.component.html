@@ -117,12 +117,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
          <div class="pt3">
             <div class="ptmr">
                 <label class="l1">Microscope Reporting:</label>
-                <textarea class="tx1" [(ngModel)]="micror"  cols="5" rows="5"></textarea>
+                <textarea class="tx1" [(ngModel)]="micror"  cols="5" rows="5" *ngIf="flag==0"></textarea>
+                <textarea class="tx1" [(ngModel)]="micror"  cols="5" rows="5" *ngIf="flag==1" disabled>{{myReporting.microreporting}}</textarea>
             </div>
             <div class="ptmr">
                 <label class="l1">Pathological Diagnosis:</label>
-                <textarea class="tx1" [(ngModel)]="pathd" cols="5" rows="5"></textarea>
+                <textarea class="tx1" [(ngModel)]="pathd" cols="5" rows="5" *ngIf="flag==0"></textarea>
+                <textarea class="tx1" [(ngModel)]="pathd"  cols="5" rows="5" *ngIf="flag==1" disabled>{{myReporting.pathdiagnosis}}</textarea>
                 <button class="dugme" (click)="addRepo()">SIGNATURE</button>
+                <span class='error'>{{message}}</span>
             </div>
          </div>
     </div>

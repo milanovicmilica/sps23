@@ -34,6 +34,6 @@ const ReportingSchema = new mongoose.Schema({
 
 
 
-const Reportng = mongoose.model('Reportng', ReportingSchema,'reportng');
+const Reporting = mongoose.model('Reporting', ReportingSchema,'reporting');
 
-module.exports = { Reportng }
+module.exports = { Reporting }
