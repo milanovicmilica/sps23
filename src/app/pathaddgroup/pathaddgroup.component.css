@@ -153,7 +153,7 @@ align-items: center;
   }
 .sel1{
     width: 40%;
-   padding: 10px;
+   padding: 3px;
     border-color: transparent;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     border-radius: 5px;
@@ -467,9 +467,10 @@ table tr:nth-child(odd) td{
    /* overflow-y:scroll;
     max-height: 50vh;
     */
+    margin-left: 5%;
 }
 .right{
-  width: 27%;
+  width: 22%;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -505,6 +506,7 @@ table {
     color:#121637;
     letter-spacing: 4px;
     text-align: center;
+    margin-right: 50%;
    
 }
   td{
