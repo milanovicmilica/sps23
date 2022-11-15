@@ -45,17 +45,23 @@ export class PatheditComponent implements OnInit {
 ss:string[]=['MASSON','ALCIAN BLUE', 'GIEMSA','PAS', 'SREBRO', 'GOMORI'];
 
 searchssin(){
-if(this.searchss!=null)
+if(this.searchss!=null || this.searchss=="")
 {
   
   this.niz=[];
+  console.log(this.searchss)
   for (let index = 0; index < this.ss.length; index++) {
-    if(this.searchss.search(this.ss[index])!=-1)
+    console.log(this.ss[index].search(this.searchss))
+    if(this.ss[index].search(this.searchss)!=-1)
     {
       this.niz.push(this.ss[index])
     }
     
   }
+
+}
+else{
+  this.niz=this.ss
 }
 }
   logout(){

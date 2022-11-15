@@ -236,7 +236,7 @@ width: 40%;
    
    font-size: 15px;
    margin-right: 7%;
-   margin-top: 10%;
+   margin-top: 3%;
 }
 .labblue1{
   color: #121637;
@@ -265,6 +265,7 @@ width: 40%;
  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
  margin-right: 5%;
  font-size: small;
+ margin-bottom: 5%;
   }
   .ssmenu{
     margin-right: 5%;
@@ -357,7 +358,7 @@ margin-left: 5%;
   .insearch{
     border-radius: 50px;
     border-color: transparent;
-    width: 35%;
+    width: 55%;
     margin-right: 35%;
     height: 50%;
   }
