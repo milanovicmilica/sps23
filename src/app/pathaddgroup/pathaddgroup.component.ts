@@ -155,6 +155,9 @@ addgroup()
             }
           }
         }
+        this.groupname=""
+        this.myihc=[]
+        this.myss=[]
         this.message="Group added"
       });
     
