@@ -155,6 +155,7 @@ addgroup()
             }
           }
         }
+        this.message="Group added"
       });
     
 
