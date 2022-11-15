@@ -1,4 +1,4 @@
-import { MetadataDtsModuleScopeResolver } from '@angular/compiler-cli/src/ngtsc/scope';
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
