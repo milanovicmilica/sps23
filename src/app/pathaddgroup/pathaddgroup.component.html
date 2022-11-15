@@ -39,6 +39,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
  
     
     <div class="pozadina">
+      <div class="sve">
       <div class="left">
         <div class="firstrow">
             <div class="name">
@@ -108,11 +109,34 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       </div>
       <div class="selmenus" *ngFor="let c of myPathGroups">
         <button class="Editdugme" >EDIT</button>
-        <select>
-          <option selected disabled class="">{{c.groupname}}</option>
-          <option *ngFor="let clan of c.ss">{{clan}}</option>
-          <option *ngFor="let clan of c.ihc">{{clan}}</option>
-        </select>
+        <form class="f1">
+          <div class="multiselect">
+            <div class="selectBox" (click)="showCheckboxes()">
+              <select class="select1">
+                <option>{{c.groupname}}</option>
+              </select>
+              <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes">
+              <div class="oneopt" *ngFor='let clan of c.ss; let i=index'>
+                <div class="exblop1">
+               {{clan}} 
+                </div>
+           
+         
+           </div>
+           <div class="oneopt" *ngFor='let clan of c.ihc; let i=index'>
+            <div class="exblop1">
+           {{clan}} 
+            </div>
+       
+     
+       </div>
+            </div>
+          </div>
+        </form>
+      
+      </div>
       </div>
       </div>
     </div>

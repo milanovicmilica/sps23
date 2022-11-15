@@ -33,6 +33,14 @@ a{
         color: red;
         text-decoration: none;
     }
+    .sve{
+      width: 100%;
+      height:100%;
+      display: flex;
+justify-content: center;
+flex-direction: row;
+align-items: center;
+    }
 .pozadina{
     width: 100%;
 height:100%;
@@ -548,6 +556,7 @@ margin-top: 3%;
    align-self: flex-end;
    align-content: flex-end;
    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+   margin-right: 3%;
   }
   .Editdugme:hover{
     background-color: #3d8ce7d9;
