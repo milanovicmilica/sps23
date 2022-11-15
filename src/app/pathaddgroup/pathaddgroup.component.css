@@ -132,6 +132,18 @@ align-items: center;
   .select1:hover{
     background-color: #191e4bcd;
   }
+  .select1all{
+    padding: 5%;
+    background-color: #121637;
+    border-radius: 25px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 1px;
+
+  }
+  .select1all:hover{
+    background-color: #191e4bcd;
+  }
   .labsel{
     margin-left: 3%;
   }
@@ -152,6 +164,7 @@ align-items: center;
     background-color: #c1c6ca;
   }
   .zasel{
+    margin-top: 30%;
     height: 70%;
     width: 40%;
   }

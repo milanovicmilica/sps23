@@ -1147,4 +1147,8 @@ app.get('/login-pathologist', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
+app.get('/pathdash', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
 app.listen(process.env.PORT);
