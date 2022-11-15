@@ -50,9 +50,10 @@ if(this.searchss!=null && this.searchss!="")
   
   this.niz=[];
   console.log(this.searchss)
+  let a=this.searchss.toUpperCase();
   for (let index = 0; index < this.ss.length; index++) {
-    console.log(this.ss[index].includes(this.searchss))
-    if(this.ss[index].includes(this.searchss)==true)
+    console.log(this.ss[index])
+    if(this.ss[index].includes(a)==true)
     {
       this.niz.push(this.ss[index])
     }
