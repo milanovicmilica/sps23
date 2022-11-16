@@ -33,7 +33,7 @@ export class AdminlabactivityComponent implements OnInit {
   months:string[]=['January', 'February', 'March','April', 'May', 'June' , 'July', 'August', 'September','October','November','December'];
   daysinm:number[]=[31, 28, 31,30,31, 30 , 31, 31, 30,31,30,31];
   year:number;
-  month:number;
+  month:Date;
   startdate:number;
   day:number;
   startday:Date;
@@ -65,23 +65,49 @@ export class AdminlabactivityComponent implements OnInit {
       }
       else{
         if(this.month!=null) console.log(this.month)
-        /*
+        
         if(this.month!=null)
         {
           this.UserService.getAllCases().subscribe((data: Case[])=>{
             this.allCase=data;
     
             let dcase:Case[]=[];
-          
+            let sub=this.month.getFullYear()%100;
             for (let index = 0; index < this.allCase.length; index++) {
-              if(this.allCase[index].month==this.month)
+              if(this.allCase[index].month==(this.month.getMonth()+1) && this.allCase[index].formatcn.includes('/'+sub))
               {
                 dcase.push(this.allCase[index])
               }
                 
               }
+              this.numofcaseid=dcase.length;
           })
-        }*/
+        }
+        /*
+        else{
+          if(this.startday!=null && this.endday!=null)
+          {
+            let stdan=this.startday.getDate();
+            let stmesec=this.startday.getMonth()+1;
+            let stgod=this.startday.getFullYear();
+
+             let endan=this.endday.getDate();
+            let enmesec=this.endday.getMonth()+1;
+            let engod=this.endday.getFullYear();
+
+             this.UserService.getAllCases().subscribe((data: Case[])=>{
+            this.allCase=data;
+          let subst=stgod%100;
+          let subend=engod%100;
+          for (let index = 0; index < this.allCase.length; index++) {
+            
+
+          }
+          })
+          }
+        }
+        
+        */
       }
   }
   ch(){
