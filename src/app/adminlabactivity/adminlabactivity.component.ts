@@ -74,7 +74,7 @@ export class AdminlabactivityComponent implements OnInit {
             this.allCase=data;
             
             let dcase:Case[]=[];
-            let sub=this.month.toString()
+            let sub=this.year.toString()
           
             
             let n=sub.slice(2,4)
@@ -84,10 +84,11 @@ export class AdminlabactivityComponent implements OnInit {
             if(this.months[index]==this.month)
             {
               br=index;
+              console.log(br)
             }
            }
             for (let index = 0; index < this.allCase.length; index++) {
-              if(this.allCase[index].month==(br+1) && this.allCase[index].formatcn.includes('/'+n))
+              if(this.allCase[index].month==(br+1) && this.allCase[index].formatcn.includes('/'+(this.year%100)))
               {
                 dcase.push(this.allCase[index])
               }
@@ -100,13 +101,14 @@ export class AdminlabactivityComponent implements OnInit {
         else{
           if(this.startday!=null && this.endday!=null)
           {
-            let stdan=this.startday.getDate();
-            let stmesec=this.startday.getMonth()+1;
-            let stgod=this.startday.getFullYear();
-
-             let endan=this.endday.getDate();
-            let enmesec=this.endday.getMonth()+1;
-            let engod=this.endday.getFullYear();
+            let novi=new Date(this.startdate);
+            let stdan=novi.getDate();
+            let stmesec=novi.getMonth()+1;
+            let stgod=novi.getFullYear();
+            let sd=new Date(this.endday);
+             let endan=sd.getDate();
+            let enmesec=sd.getMonth()+1;
+            let engod=sd.getFullYear();
 
              this.UserService.getAllCases().subscribe((data: Case[])=>{
             this.allCase=data;

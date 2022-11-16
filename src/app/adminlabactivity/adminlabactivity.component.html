@@ -89,8 +89,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </div>
             <div *ngIf="period=='Date'" class="ddiv">
                 <label>Choose start date:</label>
-                <input type="date" class="monthinput"
-                [(ngModel)]="startday"> 
+                <input type="date" class="monthinput" [(ngModel)]="startday"> 
 
             </div>
             <div *ngIf="period=='Date'" class="ddiv">
@@ -99,7 +98,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 [(ngModel)]="endday"> 
 
             </div>
-            <div class="divzadugme" *ngIf="year!=null || month!=null || (startday!=null && endday!=null)">
+            <div class="divzadugme" *ngIf="(year!=null && (period=='Year'))||
+             (month!=null && year!=null && period=='Month') || (startday!=null && endday!=null)">
                 <button class="dugme2" (click)="getval()">GET</button>
             </div>
         </div>
