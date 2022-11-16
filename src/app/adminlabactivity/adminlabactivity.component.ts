@@ -101,7 +101,7 @@ export class AdminlabactivityComponent implements OnInit {
         else{
           if(this.startday!=null && this.endday!=null)
           {
-            let novi=new Date(this.startdate);
+            let novi=new Date(this.startday);
             let stdan=novi.getDate();
             let stmesec=novi.getMonth()+1;
             let stgod=novi.getFullYear();
