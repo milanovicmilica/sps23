@@ -12,9 +12,25 @@ export class AdminlabactivityComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
+    let date=new Date();
+    let dan=new Date().getDate();
+    let mesec=new Date().getMonth()+1;
+    let godina=new Date().getFullYear();
+    for (let index = 2000; index <= godina; index++) {
+        this.years.push(index);
+    }
   }
   logout(){
     sessionStorage.clear();
     this.router.navigate(['']);
   }
+  activity:string;
+  years:number[]=[];
+  months:string[]=['January', 'February', 'March','April', 'May', 'June' , 'July', 'August', 'September','October','November','December'];
+  daysinm:number[]=[31, 28, 31,30,31, 30 , 31, 31, 30,31,30,31];
+  year:number;
+  month:number;
+  startdate:number;
+  day:number;
+  startday:Date;
 }

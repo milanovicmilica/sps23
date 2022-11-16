@@ -46,7 +46,40 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <button  class="dugme">LAB TECHNICIAN ACTIVITY</button>
         <button  class="dugme">ADMINISTRATOR ACTIVITY</button>
       </div>
-     
+     <div class="midcontent">
+        <div class="midtitle">
+            <label class="title1">LAB ACTIVITY:</label>
+        </div>
+        <div class="content1">
+            <div>
+            <label>Choose activity:</label>
+            <select class="selectactivity" [(ngModel)]="activity">
+                <option disabled hidden selected>Choose activity</option>
+                <option (value)="Case tracking">Case tracking</option>
+            </select>
+            </div>
+            <div *ngIf="activity!=null">
+                <label>Choose year:</label>
+                <select class="selectyeat" [(ngModel)]="year">
+                    <option disabled hidden selected>Choose year</option>
+                    <option *ngFor="let a of years" (value)="a">{{a}}</option>
+                </select>
+
+            </div>
+            <div *ngIf="year!=null">
+                <label>Choose month (Optional):</label>
+                <input type="month" class="monthinput"
+                min="year" max="year" [(ngModel)]="month"> 
+
+            </div>
+            <div *ngIf="month!=null">
+                <label>Choose start date (Optional):</label>
+                <input type="date" class="monthinput"
+                min="year-month" max="year-month" [(ngModel)]="startday"> 
+
+            </div>
+        </div>
+     </div>
       </div>
     </div>
     <div class="footer">
