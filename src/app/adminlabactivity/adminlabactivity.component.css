@@ -251,9 +251,9 @@ border-color: transparent;
 font-family: 'Roboto Condensed', sans-serif;
 font-weight: bold;
 letter-spacing: 2px;
-width: 30%;
+width: 15%;
 padding: 1%;
-height:30%;
+height:25%;
 padding-top: 2%;
 padding-bottom: 2%;
 border-radius: 5px;
@@ -291,9 +291,12 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     flex-direction: column;
 }
 .selectactivity{
-   width: 40%;
+   width: 30%;
    border-color: transparent;
    height: 5%;
+   border-radius: 5px;
+   padding: 1%;
+   box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 }
 .ydiv{
     display: flex;
@@ -316,12 +319,24 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     text-align: left;
 }
 .selectyear{
-    width: 40%;
+    width: 30%;
     border-color: transparent;
     height: 5%;
+    border-radius: 5px;
+    padding: 1%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 }
 .monthinput{
-    width: 40%;
+    width: 30%;
     border-color: transparent;
     height: 5%;
+    border-radius: 5px;
+    padding: 1%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+}
+.divzadugme{
+margin-top: 3%;
+align-items: left;
+align-self: left;
+align-content: left;
 }

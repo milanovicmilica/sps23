@@ -37,4 +37,28 @@ export class AdminlabactivityComponent implements OnInit {
   day:number;
   startday:Date;
   endday:Date;
+
+  ch(){
+    if(this.period=='Year')
+    {
+      this.startday=null;
+      this.endday=null;
+      this.month=null
+    }
+    else{
+      if(this.period=='Month')
+      {
+        this.startday=null;
+        this.endday=null;
+        this.year=null;
+      }
+      else{
+        if(this.period=='Date')
+        {
+          this.month=null;
+          this.year=null;
+        }
+      }
+    }
+  }
 }

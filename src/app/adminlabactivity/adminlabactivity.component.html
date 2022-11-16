@@ -60,7 +60,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </div>
             <div *ngIf="activity!=null" class="ydiv">
                 <label>Choose period:</label>
-                <select class="selectyear" [(ngModel)]="period">
+                <select class="selectyear" [(ngModel)]="period" (change)="ch()">
                     <option disabled hidden selected>Choose year</option>
                     <option *ngFor="let a of periods" (value)="a">{{a}}</option>
                 </select>
