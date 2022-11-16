@@ -288,6 +288,12 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     height: 70%;
     margin-top: 3%;
     display: flex;
+    flex-direction: row;
+}
+.formdiv{
+    width: 30%;
+    height: 100%;
+    display: flex;
     flex-direction: column;
 }
 .selectactivity{
@@ -302,25 +308,25 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 30%;
+    width: 100%;
 }
 .monthdiv{
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 30%;
+    width: 100%;
 }
 .ddiv{
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 30%;
+    width: 100%;
 }
 .divact{
     display: flex;
     flex-direction: column;
     text-align: left;
-    width: 30%;
+    width: 100%;
 }
 .selectyear{
     width: 100%;
@@ -343,6 +349,6 @@ margin-top: 3%;
 align-items: left;
 align-self: left;
 align-content: left;
-width: 30%;
+width: 100%;
 text-align: left;
 }
