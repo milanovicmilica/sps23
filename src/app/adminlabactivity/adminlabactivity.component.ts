@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-adminlabactivity',
   templateUrl: './adminlabactivity.component.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminlabactivityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
   }
-
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
 }
