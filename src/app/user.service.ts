@@ -753,7 +753,8 @@ export class UserService {
   getAllPathGroups()
   {
     return this.http.get('https://sps23.herokuapp.com/pathaddgroup/guest/getallgroup') ||
-    this.http.get('https://sps23.herokuapp.com/pathedit/guest/getallgroup') ;
+    this.http.get('https://sps23.herokuapp.com/pathedit/guest/getallgroup') ||
+    this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallgroup') ;
   }
   getAllStainingProcess()
   {

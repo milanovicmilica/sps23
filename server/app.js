@@ -215,7 +215,7 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
     });
 })
 
-app.get('/pathaddgroup/guest/getallgroup' || '/pathedit/guest/getallgroup', (req, res) => {
+app.get('/pathaddgroup/guest/getallgroup' || '/pathedit/guest/getallgroup' || '/grossnext/guest/getallgroup', (req, res) => {
     
     PathGroup.find({
        

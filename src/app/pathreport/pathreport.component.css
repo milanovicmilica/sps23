@@ -378,7 +378,7 @@ textarea {
     resize: none;
  }
  textarea :disabled{
-    background-color: #ffffffac;
+    background-color: #ffffffc6;
  }
 .tx1{
     width: 65%;
@@ -389,7 +389,7 @@ textarea {
 }
 .patinfo1{
     height: 100%;
-    width: 30%;
+    width: 33%;
     display: flex;
     flex-direction: column;
 }

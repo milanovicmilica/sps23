@@ -4,6 +4,7 @@ import { NumberValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
+import { pathGroup } from '../models/pathgroups';
 import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
@@ -77,7 +78,21 @@ export class GrossnextComponent implements OnInit {
             this.niz2.push(0);
           }
           this.start=0;
-          console.log(this.mySamples)
+    
+          this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
+            this.allGroups=data;
+          
+          for (let index = 0; index < this.allGroups.length; index++) {
+          if(this.allGroups[index].pathologist==this.me.username)
+          {
+            this.myGroups.push(this.allGroups[index])
+          }
+            
+          }
+          this.array1=this.ss;
+          this.array2=this.ihc;
+          
+          })
         })
 
     })
@@ -98,6 +113,8 @@ export class GrossnextComponent implements OnInit {
   c15:string;
   asistent:string;
   niz1:number[]=[];
+  myGroups:pathGroup[]=[]
+  allGroups:pathGroup[];
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-grossing']);
@@ -114,6 +131,8 @@ export class GrossnextComponent implements OnInit {
   ihcsend:string[]=[];
   start:number;
   uz:string;
+  array1:string[]=[];
+  array2:string[]=[];
   ihc:string[]=['PROGESTERON','ESTROGEN', 'Ki 67', 'CK 7', 'CK 20', 'VIMENTIN'];
   ss:string[]=['MASSON','ALCIAN BLUE', 'GIEMSA','PAS', 'SREBRO', 'GOMORI'];
   brK:number=1;
@@ -266,6 +285,28 @@ export class GrossnextComponent implements OnInit {
     this.start=0;
     this.brk2=1;
     this.printano.push(0);
+    let chosensample:Sample;
+    let znakP=0;
+    for (let index = 0; index < this.mySamples.length; index++) {
+      if(this.mySamples[index].slovo==this.uz)
+      {
+        chosensample=this.mySamples[index]
+      }
+      
+    }
+    for (let index = 0; index < this.myGroups.length; index++) {
+      if(this.myGroups[index].type==chosensample.sampletype)
+      {
+        this.array1=this.myGroups[index].ss;
+        this.array2=this.myGroups[index].ihc;
+        znakP=1;
+      }
+      
+    }
+    if(znakP==0){
+      this.array1=this.ss;
+      this.array2=this.ihc;
+    }
     for (let index = 0; index < this.niz1.length; index++) {
       this.niz1[index]=0;
       
