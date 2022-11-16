@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { Case } from '../models/case';
 import { UserService } from '../user.service';
 @Component({
   selector: 'app-adminlabactivity',
@@ -37,7 +38,31 @@ export class AdminlabactivityComponent implements OnInit {
   day:number;
   startday:Date;
   endday:Date;
+  numofcaseid:number;
+  allCase:Case[]
+  getval(){
 
+      if(this.year!=null)
+      {
+       let a=this.year%100;
+       let sub='/'+a;
+
+       this.UserService.getAllCases().subscribe((data: Case[])=>{
+        this.allCase=data;
+
+        let dcase:Case[]=[];
+
+        for (let index = 0; index < this.allCase.length; index++) {
+        if(this.allCase[index].formatcn.includes(sub))
+        {
+          dcase.push(this.allCase[index])
+        }
+          
+        }
+        this.numofcaseid=dcase.length;
+        })
+      }
+  }
   ch(){
     if(this.period=='Year')
     {

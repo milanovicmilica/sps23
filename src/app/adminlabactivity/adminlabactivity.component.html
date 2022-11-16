@@ -75,7 +75,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
             </div>
             <div *ngIf="period=='Month'" class="monthdiv">
-                <label>Choose month (Optional):</label>
+                <label>Choose month:</label>
                 <input type="month" class="monthinput"
                  [(ngModel)]="month"> 
 
@@ -93,8 +93,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
             </div>
             <div class="divzadugme" *ngIf="year!=null || month!=null || (startday!=null && endday!=null)">
-                <button class="dugme2">GET</button>
+                <button class="dugme2" (click)="getval()">GET</button>
             </div>
+        </div>
+        <div class="contdiv">
+            <div class="midtitle">
+                <label class="title1">NUM OF CASEID:</label>
+
+            </div>
+            <label class="title1">{{numofcaseid}}</label>
         </div>
      </div></div>
       </div>
