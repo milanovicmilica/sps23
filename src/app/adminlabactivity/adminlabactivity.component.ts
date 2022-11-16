@@ -66,7 +66,7 @@ export class AdminlabactivityComponent implements OnInit {
         })
       }
       else{
-        if(this.month!=null) console.log(this.month)
+       
         
         if(this.period=='Month')
         {
@@ -78,13 +78,13 @@ export class AdminlabactivityComponent implements OnInit {
           
             
             let n=sub.slice(2,4)
-            console.log(n);
+         
            let br;
            for (let index = 0; index < this.months.length; index++) {
             if(this.months[index]==this.month)
             {
               br=index;
-              console.log(br)
+          
             }
            }
             for (let index = 0; index < this.allCase.length; index++) {
@@ -115,11 +115,12 @@ export class AdminlabactivityComponent implements OnInit {
             let myc:Case[]=[];
           let subst=stgod%100;
           let subend=engod%100;
+          console.log(stmesec,enmesec, stdan,endan, subst,subend )
           for (let index = 0; index < this.allCase.length; index++) {
             
             if(this.allCase[index].formatcn.includes("/"+subst) || this.allCase[index].formatcn.includes("/"+subend)  && subend==subst)
           {
-            
+            console.log('hej')
           if(stmesec==enmesec)
           {
             if(this.allCase[index].month==stmesec && this.allCase[index].day>=stdan && this.allCase[index].day<=endan)
