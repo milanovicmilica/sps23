@@ -25,6 +25,7 @@ export class AdminlabactivityComponent implements OnInit {
     this.router.navigate(['']);
   }
   activity:string;
+  activties:string[]=['Case tracking']
   years:number[]=[];
   months:string[]=['January', 'February', 'March','April', 'May', 'June' , 'July', 'August', 'September','October','November','December'];
   daysinm:number[]=[31, 28, 31,30,31, 30 , 31, 31, 30,31,30,31];
