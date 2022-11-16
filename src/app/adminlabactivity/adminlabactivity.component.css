@@ -242,6 +242,30 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 .dugme:hover{
   background-color: #3d8ce7d9;
 }
+.dugme2{
+  
+    background-color: #2787F2;
+color: #FFFFFF;
+
+border-color: transparent;
+font-family: 'Roboto Condensed', sans-serif;
+font-weight: bold;
+letter-spacing: 2px;
+width: 30%;
+padding: 1%;
+height:30%;
+padding-top: 2%;
+padding-bottom: 2%;
+border-radius: 5px;
+align-items: flex-end;
+align-self: flex-end;
+align-content: flex-end;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+
+}
+.dugme2:hover{
+  background-color: #3d8ce7d9;
+}
 .midtitle{
     width: 100%;
     text-align: center;
@@ -267,18 +291,37 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     flex-direction: column;
 }
 .selectactivity{
-    display: flex;
-    flex-direction: column;
+   width: 40%;
+   border-color: transparent;
+   height: 5%;
 }
 .ydiv{
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 .monthdiv{
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 .ddiv{
     display: flex;
     flex-direction: column;
+    text-align: left;
+}
+.divact{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.selectyear{
+    width: 40%;
+    border-color: transparent;
+    height: 5%;
+}
+.monthinput{
+    width: 40%;
+    border-color: transparent;
+    height: 5%;
 }

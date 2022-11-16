@@ -51,7 +51,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <label class="title1">LAB ACTIVITY:</label>
         </div>
         <div class="content1">
-            <div>
+            <div class="divact">
             <label>Choose activity:</label>
             <select class="selectactivity" [(ngModel)]="activity">
                 <option disabled hidden selected>Choose activity</option>
@@ -59,24 +59,40 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </select>
             </div>
             <div *ngIf="activity!=null" class="ydiv">
+                <label>Choose period:</label>
+                <select class="selectyear" [(ngModel)]="period">
+                    <option disabled hidden selected>Choose year</option>
+                    <option *ngFor="let a of periods" (value)="a">{{a}}</option>
+                </select>
+            </div>
+            <div *ngIf="period=='Year'" class="ydiv">
                 <label>Choose year:</label>
-                <select class="selectyeat" [(ngModel)]="year">
+                <select class="selectyear" [(ngModel)]="year">
                     <option disabled hidden selected>Choose year</option>
                     <option *ngFor="let a of years" (value)="a">{{a}}</option>
                 </select>
 
             </div>
-            <div *ngIf="year!=null" class="monthdiv">
+            <div *ngIf="period=='Month'" class="monthdiv">
                 <label>Choose month (Optional):</label>
                 <input type="month" class="monthinput"
-                min="year" max="year" [(ngModel)]="month"> 
+                 [(ngModel)]="month"> 
 
             </div>
-            <div *ngIf="month!=null" class="ddiv">
-                <label>Choose start date (Optional):</label>
+            <div *ngIf="period=='Date'" class="ddiv">
+                <label>Choose start date:</label>
                 <input type="date" class="monthinput"
-                min="month" max="month" [(ngModel)]="startday"> 
+                [(ngModel)]="startday"> 
 
+            </div>
+            <div *ngIf="period=='Date'" class="ddiv">
+                <label>Choose end date:</label>
+                <input type="date" class="monthinput"
+                [(ngModel)]="endday"> 
+
+            </div>
+            <div class="divzadugme" *ngIf="year!=null || month!=null || (startday!=null && endday!=null)">
+                <button class="dugme2">GET</button>
             </div>
         </div>
      </div>
