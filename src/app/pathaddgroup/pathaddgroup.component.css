@@ -224,7 +224,8 @@ font-family: 'Raleway', sans-serif;
     padding: 2%;
     border-color: transparent;
     border-radius: 5px;
-}
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+  }
 .firstrow{
     display: flex;
     flex-direction: row;
@@ -495,6 +496,7 @@ table tr:nth-child(odd) td{
  /* overflow-y:scroll;
   max-height: 50vh;
   */
+  position: relative;
 }
 table {
     border-collapse: collapse;
