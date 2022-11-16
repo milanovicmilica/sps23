@@ -63,6 +63,26 @@ export class AdminlabactivityComponent implements OnInit {
         this.numofcaseid=dcase.length;
         })
       }
+      else{
+        if(this.month!=null) console.log(this.month)
+        /*
+        if(this.month!=null)
+        {
+          this.UserService.getAllCases().subscribe((data: Case[])=>{
+            this.allCase=data;
+    
+            let dcase:Case[]=[];
+          
+            for (let index = 0; index < this.allCase.length; index++) {
+              if(this.allCase[index].month==this.month)
+              {
+                dcase.push(this.allCase[index])
+              }
+                
+              }
+          })
+        }*/
+      }
   }
   ch(){
     if(this.period=='Year')
