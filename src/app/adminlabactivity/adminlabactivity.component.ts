@@ -1,3 +1,5 @@
+
+
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
@@ -43,7 +45,7 @@ export class AdminlabactivityComponent implements OnInit {
   fl1:number;
   getval(){
       this.fl1=1;
-      if(this.year!=null)
+      if(this.period=='Year')
       {
        let a=this.year%100;
        let sub='/'+a;
@@ -66,7 +68,7 @@ export class AdminlabactivityComponent implements OnInit {
       else{
         if(this.month!=null) console.log(this.month)
         
-        if(this.month!=null)
+        if(this.period=='Month')
         {
           this.UserService.getAllCases().subscribe((data: Case[])=>{
             this.allCase=data;
@@ -94,7 +96,7 @@ export class AdminlabactivityComponent implements OnInit {
               this.numofcaseid=dcase.length;
           })
         }
-        /*
+        
         else{
           if(this.startday!=null && this.endday!=null)
           {
@@ -108,17 +110,43 @@ export class AdminlabactivityComponent implements OnInit {
 
              this.UserService.getAllCases().subscribe((data: Case[])=>{
             this.allCase=data;
+            let myc:Case[]=[];
           let subst=stgod%100;
           let subend=engod%100;
           for (let index = 0; index < this.allCase.length; index++) {
             
+            if(this.allCase[index].formatcn.includes("/"+subst) || this.allCase[index].formatcn.includes("/"+subend)  && subend==subst)
+          {
+            
+          if(stmesec==enmesec)
+          {
+            if(this.allCase[index].month==stmesec && this.allCase[index].day>=stdan && this.allCase[index].day<=endan)
+            {
+              myc.push(this.allCase[index])
+            }
+          }
+          else{
+            if(stmesec<enmesec)
+            {
+              if(this.allCase[index].month>=stmesec && this.allCase[index].month<=enmesec &&
+                 this.allCase[index].day>=stdan && this.allCase[index].day<=endan)
+                 {
+                  myc.push(this.allCase[index])
+                 }
+            }
+            else{
+
+            }
+          }
 
           }
+          }
+          this.numofcaseid=myc.length;
           })
           }
         }
         
-        */
+        
       }
   }
   ch(){
