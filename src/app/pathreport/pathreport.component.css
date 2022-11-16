@@ -352,6 +352,7 @@ letter-spacing: 2px;
     display: flex;
     flex-direction: column;
     margin-top: 2%;
+    margin-bottom: 3%;
 }
 .patinfo{
     margin-top: 4%;
@@ -365,6 +366,7 @@ flex-direction: row;
     height: 40%;
     display: flex;
     flex-direction: row;
+
 }
 .ptmr{
     height: 100%;
@@ -375,11 +377,15 @@ flex-direction: row;
 textarea {
     resize: none;
  }
+ textarea :disabled{
+    background-color: #ffffffac;
+ }
 .tx1{
     width: 65%;
     height: 30%;
     border-color: transparent;
     border-radius: 5px;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 }
 .patinfo1{
     height: 100%;
