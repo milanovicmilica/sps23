@@ -47,6 +47,7 @@ import { PathslideComponent } from './pathslide/pathslide.component';
 import { PathaddgroupComponent } from './pathaddgroup/pathaddgroup.component';
 import { PatheditComponent } from './pathedit/pathedit.component';
 import { PathreportComponent } from './pathreport/pathreport.component';
+import { AdminlabactivityComponent } from './adminlabactivity/adminlabactivity.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +92,7 @@ import { PathreportComponent } from './pathreport/pathreport.component';
     PathaddgroupComponent,
     PatheditComponent,
     PathreportComponent,
+    AdminlabactivityComponent,
 
   ],
   imports: [

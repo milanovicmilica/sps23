@@ -356,7 +356,7 @@ letter-spacing: 2px;
 }
 .patinfo{
     margin-top: 4%;
- width: 50%;
+ width: 60%;
  height: 100%;
  display: flex;
 flex-direction: row;
@@ -378,7 +378,7 @@ textarea {
     resize: none;
  }
  textarea :disabled{
-    background-color: #ffffffc6;
+    background-color: #ffffffe4;
  }
 .tx1{
     width: 65%;
@@ -395,7 +395,7 @@ textarea {
 }
 .patinfo2{
     height: 100%;
-    width: 40%;
+    width: 45%;
     display: flex;
     flex-direction: column;
 }

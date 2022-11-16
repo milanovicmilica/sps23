@@ -8,6 +8,7 @@ import { AddprotocolComponent } from './addprotocol/addprotocol.component';
 import { AddprstainerComponent } from './addprstainer/addprstainer.component';
 import { AddrackComponent } from './addrack/addrack.component';
 import { AddstainerComponent } from './addstainer/addstainer.component';
+import { AdminlabactivityComponent } from './adminlabactivity/adminlabactivity.component';
 import { CaselistadComponent } from './caselistad/caselistad.component';
 import { DashboardfirstComponent } from './dashboardfirst/dashboardfirst.component';
 import { DashboardfourthComponent } from './dashboardfourth/dashboardfourth.component';
@@ -83,6 +84,7 @@ const routes: Routes = [
 { path: 'pathaddgroup', component:PathaddgroupComponent},
 { path: 'pathedit', component:PatheditComponent},
 { path: 'pathreport', component:PathreportComponent},
+{ path: 'labactivity', component:AdminlabactivityComponent},
 ]  ;
 
 @NgModule({

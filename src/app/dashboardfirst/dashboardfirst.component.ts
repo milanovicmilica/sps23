@@ -56,6 +56,9 @@ export class DashboardfirstComponent implements OnInit {
   addprotocol(){
     this.router.navigate(['/addprotocol']);
   }
+  labactivity(){
+    this.router.navigate(['/labactivity']);
+  }
   addUser(){
     this.message="";
    if(this.username==null || this.username=="") this.message0="Required*";
