@@ -18,4 +18,6 @@ export class Case{
     formatcn:string;
     hospitalid:string;
     gen:string;
+    month:number;
+    day:number;
 }

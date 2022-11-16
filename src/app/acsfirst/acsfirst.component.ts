@@ -51,6 +51,8 @@ export class AcsfirstComponent implements OnInit {
   hospitalid:string;
   allHospital:Hospital[];
   gen:string;
+  month1:number;
+  day1:number;
   pers(){
     this.sender='Personal';
     this.flag=1;
@@ -139,6 +141,10 @@ addcase(){
     let day=novi.getDate();
     let mon=novi.getMonth()+1;
     let ye=novi.getFullYear();
+    let date=new Date();
+     this.day1=new Date().getDate();
+    this.month1=new Date().getMonth()+1;
+    let godina=new Date().getFullYear();
     let s1,s2;
     if(day<10)
     { s1="0"+day; }
@@ -152,7 +158,7 @@ addcase(){
      && this.firstname!=null && this.lastname!=null && 
     this.pid!=null && this.date!=null && this.lbo!=null && this.diagnosis!=null && this.lbo.length==11))
     this.UserService.addCase(this.sender,this.hospitalid,this.contact,this.address,this.firstname,this.lastname,
-      this.pid,dat,this.lbo,this.hnum,this.num,this.diagnosis,this.pathologist,this.adcomments,this.format, this.newcn,this.gen).subscribe((resp)=>{
+      this.pid,dat,this.lbo,this.hnum,this.num,this.diagnosis,this.pathologist,this.adcomments,this.format, this.newcn,this.gen, this.day1,this.month1).subscribe((resp)=>{
   
       if(resp['message']=='user added')
       {this.message='Case added'; 

@@ -39,9 +39,10 @@ export class AdminlabactivityComponent implements OnInit {
   startday:Date;
   endday:Date;
   numofcaseid:number;
-  allCase:Case[]
+  allCase:Case[];
+  fl1:number;
   getval(){
-
+      this.fl1=1;
       if(this.year!=null)
       {
        let a=this.year%100;

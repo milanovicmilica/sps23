@@ -80,6 +80,16 @@ const CaseSchema = new mongoose.Schema({
         type: String,
         
     },
+    month: {
+        type: Number,
+       
+        
+    },
+    day: {
+        type: Number,
+       
+        
+    },
 });
 
 
