@@ -131,11 +131,13 @@ export class AdminlabactivityComponent implements OnInit {
           else{
             if(stmesec<enmesec)
             {
-              if(this.allCase[index].month>=stmesec && this.allCase[index].month<=enmesec &&
-                 this.allCase[index].day>=stdan && this.allCase[index].day<=endan)
-                 {
-                  myc.push(this.allCase[index])
-                 }
+              if((this.allCase[index].month<enmesec && this.allCase[index].day>=stdan && this.allCase[index].month>=stmesec) ||
+                (this.allCase[index].month<enmesec && this.allCase[index].month>stmesec) ||
+                (this.allCase[index].month==enmesec && this.allCase[index].day<=endan)
+                )
+              {
+                myc.push(this.allCase[index])
+              }
             }
             else{
 
