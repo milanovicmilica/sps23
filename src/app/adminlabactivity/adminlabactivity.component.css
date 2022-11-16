@@ -266,3 +266,19 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     display: flex;
     flex-direction: column;
 }
+.selectactivity{
+    display: flex;
+    flex-direction: column;
+}
+.ydiv{
+    display: flex;
+    flex-direction: column;
+}
+.monthdiv{
+    display: flex;
+    flex-direction: column;
+}
+.ddiv{
+    display: flex;
+    flex-direction: column;
+}

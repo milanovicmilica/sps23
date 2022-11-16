@@ -58,7 +58,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <option *ngFor="let c of activties"(value)="c">Case tracking</option>
             </select>
             </div>
-            <div *ngIf="activity!=null">
+            <div *ngIf="activity!=null" class="ydiv">
                 <label>Choose year:</label>
                 <select class="selectyeat" [(ngModel)]="year">
                     <option disabled hidden selected>Choose year</option>
@@ -66,16 +66,16 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </select>
 
             </div>
-            <div *ngIf="year!=null">
+            <div *ngIf="year!=null" class="monthdiv">
                 <label>Choose month (Optional):</label>
                 <input type="month" class="monthinput"
                 min="year" max="year" [(ngModel)]="month"> 
 
             </div>
-            <div *ngIf="month!=null">
+            <div *ngIf="month!=null" class="ddiv">
                 <label>Choose start date (Optional):</label>
                 <input type="date" class="monthinput"
-                min="year-month" max="year-month" [(ngModel)]="startday"> 
+                min="month" max="month" [(ngModel)]="startday"> 
 
             </div>
         </div>
