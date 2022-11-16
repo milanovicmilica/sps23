@@ -33,7 +33,7 @@ export class AdminlabactivityComponent implements OnInit {
   months:string[]=['January', 'February', 'March','April', 'May', 'June' , 'July', 'August', 'September','October','November','December'];
   daysinm:number[]=[31, 28, 31,30,31, 30 , 31, 31, 30,31,30,31];
   year:number;
-  month:Date;
+  month:string;
   startdate:number;
   day:number;
   startday:Date;
@@ -70,13 +70,22 @@ export class AdminlabactivityComponent implements OnInit {
         {
           this.UserService.getAllCases().subscribe((data: Case[])=>{
             this.allCase=data;
-            console.log(this.month.getMonth()+1)
+            
             let dcase:Case[]=[];
             let sub=this.month.toString()
+          
+            
             let n=sub.slice(2,4)
             console.log(n);
+           let br;
+           for (let index = 0; index < this.months.length; index++) {
+            if(this.months[index]==this.month)
+            {
+              br=index;
+            }
+           }
             for (let index = 0; index < this.allCase.length; index++) {
-              if(this.allCase[index].month==(this.month.getMonth()+1) && this.allCase[index].formatcn.includes('/'+n))
+              if(this.allCase[index].month==(br+1) && this.allCase[index].formatcn.includes('/'+n))
               {
                 dcase.push(this.allCase[index])
               }

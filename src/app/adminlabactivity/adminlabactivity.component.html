@@ -75,9 +75,16 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
             </div>
             <div *ngIf="period=='Month'" class="monthdiv">
+                <label>Choose year:</label>
+                <select class="selectyear" [(ngModel)]="year">
+                    <option disabled hidden selected>Choose year</option>
+                    <option *ngFor="let a of years" (value)="a">{{a}}</option>
+                </select>
                 <label>Choose month:</label>
-                <input type="month" class="monthinput"
-                 [(ngModel)]="month"> 
+                <select class="selectyear" [(ngModel)]="month">
+                    <option disabled hidden selected>Choose month</option>
+                    <option *ngFor="let a of months;let i=index" (value)="a">{{a}}</option>
+                </select>
 
             </div>
             <div *ngIf="period=='Date'" class="ddiv">
