@@ -70,11 +70,13 @@ export class AdminlabactivityComponent implements OnInit {
         {
           this.UserService.getAllCases().subscribe((data: Case[])=>{
             this.allCase=data;
-    
+            console.log(this.month.getMonth()+1)
             let dcase:Case[]=[];
-            let sub=this.month.getFullYear()%100;
+            let sub=this.month.toString()
+            let n=sub.slice(2,4)
+            console.log(n);
             for (let index = 0; index < this.allCase.length; index++) {
-              if(this.allCase[index].month==(this.month.getMonth()+1) && this.allCase[index].formatcn.includes('/'+sub))
+              if(this.allCase[index].month==(this.month.getMonth()+1) && this.allCase[index].formatcn.includes('/'+n))
               {
                 dcase.push(this.allCase[index])
               }
