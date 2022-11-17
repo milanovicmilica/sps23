@@ -48,14 +48,14 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       </div>
      <div class="midcontent">
         <div class="midtitle">
-            <label class="title1">PATHOLOGIST ACTIVITY:</label>
+            <label class="title1">ADMINISTRATOR ACTIVITY:</label>
         </div>
         <div class="content1">
             <div class="formdiv">
             <div class="divact">
-            <label>Choose activity:</label>
+            <label>Choose administrator:</label>
             <select class="selectactivity" [(ngModel)]="adminis">
-                <option disabled selected>Choose pathologist</option>
+                <option disabled selected>Choose administrator</option>
                 <option *ngFor="let c of paths"(value)="c.username">{{c.firstname}} {{c.lastname}}</option>
             </select>
             </div>
