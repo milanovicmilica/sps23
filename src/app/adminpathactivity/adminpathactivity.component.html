@@ -1,1 +1,127 @@
-<p>adminpathactivity works!</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
+    </style>
+<div class="container-12">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+             <label class="logo">SMART</label>
+             <label class="logo2">PATH</label>
+             <label class="logo">SOFT</label>
+            </li>   </ul>
+            <div>
+              <label  class="stavka2"  style="text-align: center; align-self: center;
+              align-items: center;
+              align-content: center; align-self: center;"><a href="/dashfirst">ADMIN</a></label>  
+          </div>
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <label  class="stavka2"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;">ADMIN</label>  
+                <label (click)="logout()"  class="stavka3"  style="text-align: center; align-self: center;
+                align-items: center;
+                align-content: center;"><a href="/">LOGOUT</a></label>           
+            </li>   
+            </ul>
+        
+            
+                
+
+              
+           
+     
+    
+       </nav>
+<div class="col-12">
+ 
+    
+    <div class="pozadina">
+      <div class="sve">
+      <div class="leftmenu"> 
+        <button class="dugme">LAB ACTIVITY</button>
+        <button  class="dugme" (click)="gotopathactivity()">PATHOLOGIST ACTIVITY</button>
+        <button  class="dugme">LAB TECHNICIAN ACTIVITY</button>
+        <button  class="dugme">ADMINISTRATOR ACTIVITY</button>
+      </div>
+     <div class="midcontent">
+        <div class="midtitle">
+            <label class="title1">LAB ACTIVITY:</label>
+        </div>
+        <div class="content1">
+            <div class="formdiv">
+            <div class="divact">
+            <label>Choose activity:</label>
+            <select class="selectactivity" [(ngModel)]="activity">
+                <option disabled hidden selected>Choose activity</option>
+                <option *ngFor="let c of activties"(value)="c">{{c}}</option>
+            </select>
+            </div>
+            <div *ngIf="activity!=null" class="ydiv">
+                <label>Choose period:</label>
+                <select class="selectyear" [(ngModel)]="period" (change)="ch()">
+                    <option disabled hidden selected>Choose year</option>
+                    <option *ngFor="let a of periods" (value)="a">{{a}}</option>
+                </select>
+            </div>
+            <div *ngIf="period=='Year'" class="ydiv">
+                <label>Choose year:</label>
+                <select class="selectyear" [(ngModel)]="year">
+                    <option disabled hidden selected>Choose year</option>
+                    <option *ngFor="let a of years" (value)="a">{{a}}</option>
+                </select>
+
+            </div>
+            <div *ngIf="period=='Month'" class="monthdiv">
+                <label>Choose year:</label>
+                <select class="selectyear" [(ngModel)]="year">
+                    <option disabled hidden selected>Choose year</option>
+                    <option *ngFor="let a of years" (value)="a">{{a}}</option>
+                </select>
+                <label>Choose month:</label>
+                <select class="selectyear" [(ngModel)]="month">
+                    <option disabled hidden selected>Choose month</option>
+                    <option *ngFor="let a of months;let i=index" (value)="a">{{a}}</option>
+                </select>
+
+            </div>
+            <div *ngIf="period=='Date'" class="ddiv">
+                <label>Choose start date:</label>
+                <input type="date" class="monthinput" [(ngModel)]="startday"> 
+
+            </div>
+            <div *ngIf="period=='Date'" class="ddiv">
+                <label>Choose end date:</label>
+                <input type="date" class="monthinput"
+                [(ngModel)]="endday"> 
+
+            </div>
+            <div class="divzadugme" *ngIf="(year!=null && (period=='Year'))||
+             (month!=null && year!=null && period=='Month') || (startday!=null && endday!=null)">
+                <button class="dugme2" (click)="getval()">GET</button>
+                <span class='error'>{{message}}</span>
+            </div>
+        </div>
+        <div class="contdiv">
+            <div class="midtitle2" *ngIf="fl1==1">
+                <label class="title1">NUM OF CASEID:</label>
+
+            </div>
+            <label class="title1" *ngIf="fl1==1">{{numofcaseid}}</label>
+            <div class="midtitle2" *ngIf="fl2==1">
+                <label class="title1">NUM OF SLIDES:</label>
+
+            </div>
+            <label class="title1" *ngIf="fl2==1">{{numofslides}}</label>
+        </div>
+     </div></div>
+      </div>
+    </div>
+    <div class="footer">
+        <p>© M-Rising 2022</p>
+      </div>
+</div>
+</div>
+

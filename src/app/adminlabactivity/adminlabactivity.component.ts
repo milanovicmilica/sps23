@@ -196,7 +196,7 @@ export class AdminlabactivityComponent implements OnInit {
                  }
                 }
                 for (let index = 0; index < this.allSectionings.length; index++) {
-                 if(this.allSectionings[index].year==this.year && this.month==br)
+                 if(this.allSectionings[index].year==this.year && this.month==(br+1))
                  {
                   ukupno+=this.allSectionings[index].nizQr.length
                  }

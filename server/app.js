@@ -142,7 +142,7 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide
         res.send(e);
     });
 })
-app.get('/pathreport/guest/getallreporting' , (req, res) => {
+app.get('/pathreport/guest/getallreporting' || '/pathactivity/guest/getallreporting', (req, res) => {
     
     Reporting.find({
        
@@ -600,7 +600,8 @@ app.post('/pathreport/guest/addReporting', (req, res) => {
 
     let newP = new Reporting({
         caseid : req.body.caseid, microreporting: req.body.microreporting,   pathologist: req.body.pathologist,
-        pathdiagnosis : req.body.pathdiagnosis   })
+        pathdiagnosis : req.body.pathdiagnosis, day:req.body.day,  month:req.body.month,year:req.body.year,
+        hours:req.body.hours, minutes:req.body.minutes, })
             newP.save().then((us2) => {
                 
                 res.send({ message: 'user' });

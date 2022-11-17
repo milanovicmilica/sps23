@@ -26,6 +26,31 @@ const ReportingSchema = new mongoose.Schema({
         type: String,
       
     },
+    day: {
+        type: Number,
+        
+        
+    },
+    month: {
+        type: Number,
+        
+        
+    },
+    year: {
+        type: Number,
+        
+        
+    },
+    hours: {
+        type: Number,
+        
+        
+    },
+    minutes: {
+        type: Number,
+        
+        
+    }
 });
 
 

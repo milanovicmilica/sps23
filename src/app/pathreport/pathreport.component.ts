@@ -82,7 +82,14 @@ export class PathreportComponent implements OnInit {
         }else{
     if(this.micror!=null && this.micror!="" && this.pathd!=null && this.pathd!="")
     {
-      this.UserService.addReporting(this.my.formatcn,this.me.username, this.micror,this.pathd).subscribe((resp)=>{
+
+      let date=new Date();
+      let dan=new Date().getDate();
+      let mesec=new Date().getMonth()+1;
+      let godina=new Date().getFullYear();
+      let time=date.getHours();
+      let minute=date.getMinutes();
+      this.UserService.addReporting(this.my.formatcn,this.me.username, this.micror,this.pathd, dan,mesec,godina,time,minute).subscribe((resp)=>{
         
         if(resp['message']=='user')
         {
