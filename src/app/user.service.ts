@@ -683,7 +683,8 @@ export class UserService {
   }
   getAllSendout(){
     return this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsendout') ||
-    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallsendout');
+    this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallsendout') || 
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallsendout');
   }
   getAllReportings()
   {
@@ -723,13 +724,15 @@ export class UserService {
   getAllProcess()
   {
     return this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocess') ||
-    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallprocess');
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallprocess') ||
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallprocess');
   }
   getAllEmb()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallemb') ||
     this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallemb') || 
-    this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallemb');
+    this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallemb') ||
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallemb');
   }
   getAllStainers()
   {
@@ -753,7 +756,8 @@ export class UserService {
   getAllCover()
   {
     return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallcover') ||
-    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcover')
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcover') ||
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallcover');
   }
   getAllFreeRack()
   {
@@ -766,7 +770,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallusers') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallusers') ||
     this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallusers') || 
-    this.http.get('https://sps23.herokuapp.com/adsactivity/guest/getallusers');
+    this.http.get('https://sps23.herokuapp.com/adsactivity/guest/getallusers') ||
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallusers');
   }
   getAllPathGroups()
   {
@@ -778,14 +783,16 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess') || 
     this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainingprocess') ||
-    this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallstainingprocess')
+    this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallstainingprocess') ||
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallstainingprocess')
   }
   getAllSectioning()
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallsectioning') || 
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallsectioning')||
     this.http.get('https://sps23.herokuapp.com/sendoutlabmain/guest/getallsectioning') ||
-    this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallsectioning');
+    this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallsectioning') || 
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallsectioning');
   }
   dodajKupcaPoc(ime, prezime, korime, lozinka, grad, datum, telefon, mejl, slika){
     let t=0;

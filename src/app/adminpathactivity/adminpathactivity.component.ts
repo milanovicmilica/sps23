@@ -171,6 +171,9 @@ export class AdminpathactivityComponent implements OnInit {
       
     }
   }
+  gotolaact(){
+    this.router.navigate(['/adlabactivity']);
+  }
   gotoadsactivity(){
     this.router.navigate(['/adsactivity']);
   }

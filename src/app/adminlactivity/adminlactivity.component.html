@@ -42,24 +42,24 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       <div class="sve">
       <div class="leftmenu"> 
         <button class="dugme" (click)="gotolabactivity()">LAB ACTIVITY</button>
-        <button  class="dugme" (click)="gotopathactivity()" >PATHOLOGIST ACTIVITY</button>
-        <button  class="dugme" (click)="gotolaact()">LAB TECHNICIAN ACTIVITY</button>
-        <button  class="dugme">ADMINISTRATOR ACTIVITY</button>
+        <button  class="dugme" (click)="gotopathactivity()">PATHOLOGIST ACTIVITY</button>
+        <button  class="dugme" >LAB TECHNICIAN ACTIVITY</button>
+        <button  class="dugme" (click)="gotoadsactivity()">ADMINISTRATOR ACTIVITY</button>
       </div>
      <div class="midcontent">
         <div class="midtitle">
-            <label class="title1">ADMINISTRATOR ACTIVITY:</label>
+            <label class="title1">LAB TECHNICIAN ACTIVITY:</label>
         </div>
         <div class="content1">
             <div class="formdiv">
             <div class="divact">
-            <label>Choose administrator:</label>
-            <select class="selectactivity" [(ngModel)]="adminis">
-                <option disabled selected>Choose administrator</option>
-                <option *ngFor="let c of ads" value="{{c.username}}">{{c.firstname}} {{c.lastname}}</option>
+            <label>Choose lab technician:</label>
+            <select class="selectactivity" [(ngModel)]="labs">
+                <option disabled selected>Choose lab technician</option>
+                <option *ngFor="let c of laborants" value="{{c.username}}">{{c.firstname}} {{c.lastname}}</option>
             </select>
             </div>
-            <div *ngIf="adminis!=null" class="ydiv">
+            <div *ngIf="labs!=null" class="ydiv">
                 <label>Choose period:</label>
                 <select class="selectyear" [(ngModel)]="period" (change)="ch()">
                     <option disabled hidden selected>Choose year</option>
@@ -106,15 +106,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         </div>
         <div class="contdiv">
             <div class="midtitle2" *ngIf="fl1==1">
-                <label class="title1">NUM OF CASEID:</label>
+                <label class="title1">LAB TECHNICIAN PREVIEW:</label>
 
             </div>
-            <label class="title1" *ngIf="fl1==1">{{numofcaseid}}</label>
-            <div class="midtitle2" *ngIf="fl2==1">
-                <label class="title1">NUM OF CASES:</label>
-
-            </div>
-            <label class="title1" *ngIf="fl2==1">{{numofslides}}</label>
+           
+           
         </div>
      </div></div>
       </div>

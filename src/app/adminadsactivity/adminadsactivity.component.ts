@@ -65,7 +65,9 @@ export class AdminadsactivityComponent implements OnInit {
   fl2:number;
   adminis:string;
 
-
+  gotolaact(){
+    this.router.navigate(['/adlabactivity']);
+  }
   gotolabactivity(){
     this.router.navigate(['/labactivity']);
   }

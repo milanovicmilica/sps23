@@ -59,7 +59,7 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
     });
 })
 app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers' ||
-'/pathactivity/guest/getallusers' || '/adsactivity/guest/getallusers', (req, res) => {
+'/pathactivity/guest/getallusers' || '/adsactivity/guest/getallusers' || '/adlabactivity/guest/getallusers', (req, res) => {
    
 
     User.find({
@@ -71,7 +71,7 @@ app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/g
     });
 })
 app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/sendoutlabmain/guest/getallsectioning' ||
-'/labactivity/guest/getallsectioning', (req, res) => {
+'/labactivity/guest/getallsectioning' || '/adlabactivity/guest/getallsectioning', (req, res) => {
    
     Sectioning.find({
        
@@ -81,7 +81,8 @@ app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/se
         res.send(e);
     });
 })
-app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess' || '/dasheight/guest/getallstainingprocess', (req, res) => {
+app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess' || '/dasheight/guest/getallstainingprocess'
+|| '/adlabactivity/guest/getallstainingprocess', (req, res) => {
 
     ProcessStaining.find({
        
@@ -123,7 +124,8 @@ app.get('/dasheight/guest/getallrack', (req, res) => {
 })
 
 
-app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/getallemb', (req, res) => {
+app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/getallemb' || 
+'/adlabactivity/guest/getallemb', (req, res) => {
     
     Embedding.find({
        
@@ -133,7 +135,8 @@ app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/g
         res.send(e);
     });
 })
-app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide/guest/getallprocess', (req, res) => {
+app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide/guest/getallprocess' 
+|| '/adlabactivity/guest/getallprocess', (req, res) => {
     
     Process.find({
        
@@ -153,7 +156,7 @@ app.get('/pathreport/guest/getallreporting' || '/pathactivity/guest/getallreport
         res.send(e);
     });
 })
-app.get('/sendoutpathdash/guest/getallsendout' || '/pathdash/guest/getallsendout' , (req, res) => {
+app.get('/sendoutpathdash/guest/getallsendout' || '/pathdash/guest/getallsendout' || '/adlabactivity/guest/getallsendout', (req, res) => {
     
     Sendout.find({
        
@@ -257,7 +260,7 @@ app.get('/guest/getallcases', (req, res) => {
         res.send(e);
     });
 })
-app.get('/dasheight/guest/getallcover' || '/pathslide/guest/getallcover', (req, res) => {
+app.get('/dasheight/guest/getallcover' || '/pathslide/guest/getallcover' || '/adlabactivity/guest/getallcover', (req, res) => {
     
     Coverslipping.find({
        

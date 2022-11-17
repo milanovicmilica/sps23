@@ -10,6 +10,7 @@ import { AddrackComponent } from './addrack/addrack.component';
 import { AddstainerComponent } from './addstainer/addstainer.component';
 import { AdminadsactivityComponent } from './adminadsactivity/adminadsactivity.component';
 import { AdminlabactivityComponent } from './adminlabactivity/adminlabactivity.component';
+import { AdminlactivityComponent } from './adminlactivity/adminlactivity.component';
 import { AdminpathactivityComponent } from './adminpathactivity/adminpathactivity.component';
 import { CaselistadComponent } from './caselistad/caselistad.component';
 import { DashboardfirstComponent } from './dashboardfirst/dashboardfirst.component';
@@ -89,6 +90,7 @@ const routes: Routes = [
 { path: 'labactivity', component:AdminlabactivityComponent},
 { path: 'pathactivity', component:AdminpathactivityComponent},
 { path: 'adsactivity', component:AdminadsactivityComponent},
+{ path: 'adlabactivity', component:AdminlactivityComponent},
 ]  ;
 
 @NgModule({

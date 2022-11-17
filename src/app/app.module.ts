@@ -50,6 +50,7 @@ import { PathreportComponent } from './pathreport/pathreport.component';
 import { AdminlabactivityComponent } from './adminlabactivity/adminlabactivity.component';
 import { AdminpathactivityComponent } from './adminpathactivity/adminpathactivity.component';
 import { AdminadsactivityComponent } from './adminadsactivity/adminadsactivity.component';
+import { AdminlactivityComponent } from './adminlactivity/adminlactivity.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +98,7 @@ import { AdminadsactivityComponent } from './adminadsactivity/adminadsactivity.c
     AdminlabactivityComponent,
     AdminpathactivityComponent,
     AdminadsactivityComponent,
+    AdminlactivityComponent,
 
   ],
   imports: [

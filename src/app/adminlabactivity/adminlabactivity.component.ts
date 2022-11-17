@@ -380,6 +380,9 @@ export class AdminlabactivityComponent implements OnInit {
         }
       }
   }
+  gotolaact(){
+    this.router.navigate(['/adlabactivity']);
+  }
   gotoadsactivity(){
     this.router.navigate(['/adsactivity']);
   }
