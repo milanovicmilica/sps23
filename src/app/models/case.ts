@@ -20,4 +20,5 @@ export class Case{
     gen:string;
     month:number;
     day:number;
+    worker:string;
 }

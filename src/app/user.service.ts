@@ -594,7 +594,7 @@ export class UserService {
     return this.http.post('https://sps23.herokuapp.com/pathedit/guest/updatePathGroupihc', data)
   }
   addCase(sender,hospitalid,contact,address,firstname,lastname,
-    pid,date,lbo,hnum,num,diagnosis,pathologist,adcomments,format,cn, gen, currday,currmonth){
+    pid,date,lbo,hnum,num,diagnosis,pathologist,adcomments,format,cn, gen, currday,currmonth, worker){
     const data={
       
       sender: sender,
@@ -615,7 +615,8 @@ export class UserService {
       formatcn:format,
       gen:gen,
       currday:currday,
-      currmonth:currmonth
+      currmonth:currmonth,
+      worker:worker
 
 
     }

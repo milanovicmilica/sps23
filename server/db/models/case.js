@@ -90,6 +90,10 @@ const CaseSchema = new mongoose.Schema({
        
         
     },
+    worker: {
+        type: String,
+        
+    },
 });
 
 

@@ -17,6 +17,9 @@ export class AcsfirstComponent implements OnInit {
   ngOnInit(): void {
     this.num=2;
     this.vest=1357;
+    let user1 = JSON.parse(sessionStorage.getItem("administrator")) as User; 
+      
+      this.me=user1;
     this.g1=0;    this.g2=0;this.g3=0;this.g4=0;this.g5=0;this.g6=0;this.g7=0;this.g8=0;this.g9=0;
     this.UserService.getAllPath().subscribe((data: User[])=>{
       this.allPath=data;
@@ -31,6 +34,7 @@ export class AcsfirstComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['/login-accessioning']);
   }
+  me:User;
   sender:string;
   num:number;
   contact:string;
@@ -158,7 +162,7 @@ addcase(){
      && this.firstname!=null && this.lastname!=null && 
     this.pid!=null && this.date!=null && this.lbo!=null && this.diagnosis!=null && this.lbo.length==11))
     this.UserService.addCase(this.sender,this.hospitalid,this.contact,this.address,this.firstname,this.lastname,
-      this.pid,dat,this.lbo,this.hnum,this.num,this.diagnosis,this.pathologist,this.adcomments,this.format, this.newcn,this.gen, this.day1,this.month1).subscribe((resp)=>{
+      this.pid,dat,this.lbo,this.hnum,this.num,this.diagnosis,this.pathologist,this.adcomments,this.format, this.newcn,this.gen, this.day1,this.month1, this.me.username).subscribe((resp)=>{
   
       if(resp['message']=='user added')
       {this.message='Case added'; 

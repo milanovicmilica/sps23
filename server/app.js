@@ -556,7 +556,7 @@ app.post('/acsfirst/guest/addCase' || '${process.env.PORT}/guest/addCase' || '${
         sender : req.body.sender, hospitalid: req.body.hospitalid,   contact: req.body.contact, address:req.body.address, firstname:req.body.firstname,
         lastname : req.body.lastname,    pid: req.body.pid,  date:req.body.date, lbo:req.body.lbo, hnum : req.body.hnum,bnum: req.body.bnum,
         diagnosis: req.body.diagnosis, path:req.body.path, adcom:req.body.adcom, gen: req.body.gen, casenum:req.body.casenum,
-         formatcn:req.body.formatcn, day:req.body.currday, month:req.body.currmonth
+         formatcn:req.body.formatcn, day:req.body.currday, month:req.body.currmonth, worker:req.body.worker
     });
             newP.save().then((us2) => {
                 console.log('evoo u app')
