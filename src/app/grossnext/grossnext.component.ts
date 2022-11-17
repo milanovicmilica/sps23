@@ -63,12 +63,11 @@ export class GrossnextComponent implements OnInit {
               let c17=this.allSample[index].niz2;
               let c18=this.allSample[index].nizOznaka; 
               let c19=this.allSample[index].nizQr;
-              let c20=this.allSample[index].day;
+              let c20=this.allSample[index];
               if(this.c4 =='External block' || this.c4=='External slide'){}else{   this.finish.push(0);
               this.mySamples.push({caseid: this.c1, casetype:this.c2,sampletype:this.c3, acs:this.c4, num:this.c5, id:this.c6 ,slovo:this.c7
               ,spec:this.c10 ,ihc:this.c11 ,choice:this.c12, firstch:this.c13, exbl:this.c14, code:this.c15, niz1:c16,niz2:c17,
-               nizOznaka:c18,nizQr:c19, day: c20, month:this.allSample[index].month,
-               year:this.allSample[index].year, hours:this.allSample[index].hours, minutes:this.allSample[index].minutes;});
+               nizOznaka:c18,nizQr:c19});
               this.lamp.push(0);}
             }
             
