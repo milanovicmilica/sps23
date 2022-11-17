@@ -282,7 +282,7 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
     });
 })
 app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs' || '/sendoutpathdash/guest/getallcs' 
-|| '/pathdash/guest/getallcs' || '/pathslide/guest/getallcs' || '/grossnext/guest/getallcs', (req, res) => {
+|| '/pathdash/guest/getallcs' || '/pathslide/guest/getallcs' || '/grossnext/guest/getallcs' || '/labactivity/guest/getallcs', (req, res) => {
     
     CS.find({
        

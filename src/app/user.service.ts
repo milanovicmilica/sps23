@@ -657,7 +657,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcs') || 
     this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallcs') || 
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcs') ||
-    this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallcs');
+    this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallcs') ||
+    this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallcs');
   }
   getAllCases(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 

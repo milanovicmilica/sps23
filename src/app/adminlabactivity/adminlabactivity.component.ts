@@ -1,10 +1,12 @@
 
 
+
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 
 import { Case } from '../models/case';
+import { Cs } from '../models/infocs';
 import { Sectioning } from '../models/sectioning';
 import { UserService } from '../user.service';
 @Component({
@@ -32,7 +34,7 @@ export class AdminlabactivityComponent implements OnInit {
   activity:string;
   period:string;
   periods:string[]=['Year', 'Month', 'Date']
-  activties:string[]=['Case tracking', 'Printed slides']
+  activties:string[]=['Case tracking','Printed cassettes', 'Printed slides']
   years:number[]=[];
   months:string[]=['January', 'February', 'March','April', 'May', 'June' , 'July', 'August', 'September','October','November','December'];
   daysinm:number[]=[31, 28, 31,30,31, 30 , 31, 31, 30,31,30,31];
@@ -49,6 +51,9 @@ export class AdminlabactivityComponent implements OnInit {
   allSectionings:Sectioning[];
   numofslides:number;
   fl2:number;
+  allCs:Cs[];
+  numofcass:number;
+  fl3:number;
   getval(){
     if(this.activity=='Case tracking'){
     this.message=""
@@ -261,6 +266,115 @@ export class AdminlabactivityComponent implements OnInit {
           }
           this.numofslides=uk;
           })}
+            }
+          }
+        }
+        else{
+          if(this.activity=='Printed cassettes')
+          {
+            this.message=""
+            this.fl2=0;
+            this.fl1=0;
+            this.fl3=1;
+            if(this.period=='Year')
+            {
+              this.UserService.getAllCs().subscribe((data: Cs[])=>{
+                this.allCs=data;
+                let ukupno=0;
+                for (let index = 0; index < this.allCs.length; index++) {
+                 if(this.allCs[index].year==this.year)
+                 {
+                  ukupno+=1;
+                 }
+                
+                  }
+                  this.numofcass=ukupno;
+                  
+                  })
+
+            }
+            else{
+              if(this.period=='Month')
+              {
+                this.UserService.getAllCs().subscribe((data: Cs[])=>{
+                  this.allCs=data;
+                  let ukupno=0;
+                  let br;
+                  for (let index = 0; index < this.months.length; index++) {
+                   if(this.months[index]==this.month)
+                   {
+                     br=index;
+                   }
+                  }
+                  for (let index = 0; index < this.allCs.length; index++) {
+                   if(this.allCs[index].year==this.year && this.allCs[index].month==(br+1))
+                   {
+                    ukupno+=1
+                   }
+                  
+                    }
+                    this.numofcass=ukupno;
+                    
+                    })
+              }
+              else{
+                if(this.startday!=null && this.endday!=null)
+                {
+                  
+                    let novi=new Date(this.startday);
+                    let stdan=novi.getDate();
+                    let stmesec=novi.getMonth()+1;
+                    let stgod=novi.getFullYear();
+                    let sd=new Date(this.endday);
+                     let endan=sd.getDate();
+                    let enmesec=sd.getMonth()+1;
+                    let engod=sd.getFullYear();
+        
+                     this.UserService.getAllCs().subscribe((data: Cs[])=>{
+                    this.allCs=data;
+                    let mys:Cs[]=[];
+                
+                 
+                  for (let index = 0; index < this.allCs.length; index++) {
+                    
+                    if(this.allCs[index].year==stgod || this.allCs[index].year==engod  && stgod==engod)
+                  {
+              
+                  if(stmesec==enmesec)
+                  {
+                    if(this.allCs[index].month==stmesec && this.allCs[index].day>=stdan && this.allCs[index].day<=endan)
+                    {
+                      mys.push(this.allCs[index])
+                    }
+                  }
+                  else{
+                    if(stmesec<enmesec)
+                    {
+                      if((this.allCs[index].month<enmesec && this.allCs[index].day>=stdan && this.allCs[index].month>=stmesec) ||
+                        (this.allCs[index].month<enmesec && this.allCs[index].month>stmesec) ||
+                        (this.allCs[index].month==enmesec && this.allCs[index].day<=endan)
+                        )
+                      {
+                        mys.push(this.allCs[index])
+                      }
+                    }
+                    else{
+                      this.message='Start date must be before end date'
+                    }
+                  }
+        
+                  }
+                  }
+        
+                  let uk=0;
+                  for (let index = 0; index < mys.length; index++) {
+                 
+                    uk+=1
+                  }
+                  this.numofcass=uk;
+                  })
+                }
+              }
             }
           }
         }
