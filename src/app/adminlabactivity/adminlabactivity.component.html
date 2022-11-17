@@ -42,7 +42,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
       <div class="sve">
       <div class="leftmenu"> 
         <button class="dugme">LAB ACTIVITY</button>
-        <button  class="dugme">PATHOLOGIST ACTIVITY</button>
+        <button  class="dugme" (click)="gotopathactivity()">PATHOLOGIST ACTIVITY</button>
         <button  class="dugme">LAB TECHNICIAN ACTIVITY</button>
         <button  class="dugme">ADMINISTRATOR ACTIVITY</button>
       </div>
@@ -56,7 +56,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <label>Choose activity:</label>
             <select class="selectactivity" [(ngModel)]="activity">
                 <option disabled hidden selected>Choose activity</option>
-                <option *ngFor="let c of activties"(value)="c">Case tracking</option>
+                <option *ngFor="let c of activties"(value)="c">{{c}}</option>
             </select>
             </div>
             <div *ngIf="activity!=null" class="ydiv">

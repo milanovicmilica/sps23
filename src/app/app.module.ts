@@ -48,6 +48,7 @@ import { PathaddgroupComponent } from './pathaddgroup/pathaddgroup.component';
 import { PatheditComponent } from './pathedit/pathedit.component';
 import { PathreportComponent } from './pathreport/pathreport.component';
 import { AdminlabactivityComponent } from './adminlabactivity/adminlabactivity.component';
+import { AdminpathactivityComponent } from './adminpathactivity/adminpathactivity.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +94,7 @@ import { AdminlabactivityComponent } from './adminlabactivity/adminlabactivity.c
     PatheditComponent,
     PathreportComponent,
     AdminlabactivityComponent,
+    AdminpathactivityComponent,
 
   ],
   imports: [

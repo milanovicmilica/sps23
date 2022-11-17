@@ -263,6 +263,9 @@ export class AdminlabactivityComponent implements OnInit {
         }
       }
   }
+  gotopathactivity(){
+    this.router.navigate(['/pathactivity']);
+  }
   ch(){
     if(this.period=='Year')
     {
