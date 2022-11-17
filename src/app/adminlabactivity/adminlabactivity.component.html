@@ -109,7 +109,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <label class="title1">NUM OF CASEID:</label>
 
             </div>
-            <label class="title1">{{numofcaseid}}</label>
+            <label class="title1" *ngIf="fl1==1">{{numofcaseid}}</label>
+            <div class="midtitle2" *ngIf="fl2==1">
+                <label class="title1">NUM OF SLIDES:</label>
+
+            </div>
+            <label class="title1" *ngIf="fl2==1">{{numofslides}}</label>
         </div>
      </div></div>
       </div>

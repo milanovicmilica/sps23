@@ -47,6 +47,8 @@ export class AdminlabactivityComponent implements OnInit {
   fl1:number;
   message:string;
   allSectionings:Sectioning[];
+  numofslides:number;
+  fl2:number;
   getval(){
     if(this.activity=='Case tracking'){
     this.message=""
@@ -157,13 +159,14 @@ export class AdminlabactivityComponent implements OnInit {
           }
         }
         
-        
+        this.fl2=0;
       }}
       else{
         if(this.activity=='Printed slides')
         {
           this.message=""
-          this.fl1=1;
+          this.fl2=1;
+          this.fl1=0;
           if(this.period=='Year')
           {
             this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
@@ -176,7 +179,7 @@ export class AdminlabactivityComponent implements OnInit {
                }
               
                 }
-                this.numofcaseid=ukupno;
+                this.numofslides=ukupno;
                 
                 })
           }else{
@@ -199,7 +202,7 @@ export class AdminlabactivityComponent implements OnInit {
                  }
                 
                   }
-                  this.numofcaseid=ukupno;
+                  this.numofslides=ukupno;
                   
                   })
             }
@@ -256,7 +259,7 @@ export class AdminlabactivityComponent implements OnInit {
          
             uk+=mys[index].nizQr.length;
           }
-          this.numofcaseid=uk;
+          this.numofslides=uk;
           })}
             }
           }

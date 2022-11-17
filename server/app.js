@@ -59,7 +59,7 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
     });
 })
 app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+   
     console.log('caoo')
     User.find({
        
@@ -69,9 +69,9 @@ app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/g
         res.send(e);
     });
 })
-app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/sendoutlabmain/guest/getallsectioning', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
-    //console.log('caoo')
+app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/sendoutlabmain/guest/getallsectioning' ||
+'/labactivity/guest/getallsectioning', (req, res) => {
+   
     Sectioning.find({
        
     }).then((lists) => {
@@ -81,8 +81,7 @@ app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/se
     });
 })
 app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess' || '/dasheight/guest/getallstainingprocess', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
-    //console.log('caoo')
+
     ProcessStaining.find({
        
     }).then((lists) => {

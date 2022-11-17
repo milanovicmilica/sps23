@@ -769,7 +769,8 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallsectioning') || 
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallsectioning')||
-    this.http.get('https://sps23.herokuapp.com/sendoutlabmain/guest/getallsectioning');
+    this.http.get('https://sps23.herokuapp.com/sendoutlabmain/guest/getallsectioning') ||
+    this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallsectioning');
   }
   dodajKupcaPoc(ime, prezime, korime, lozinka, grad, datum, telefon, mejl, slika){
     let t=0;
