@@ -59,7 +59,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <option *ngFor="let c of paths"(value)="c.username">{{c.firstname}} {{c.lastname}}</option>
             </select>
             </div>
-            <div *ngIf="activity!=null" class="ydiv">
+            <div *ngIf="pathologist!=null" class="ydiv">
                 <label>Choose period:</label>
                 <select class="selectyear" [(ngModel)]="period" (change)="ch()">
                     <option disabled hidden selected>Choose year</option>
