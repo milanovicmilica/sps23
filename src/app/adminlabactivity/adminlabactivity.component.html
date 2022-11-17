@@ -101,6 +101,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="divzadugme" *ngIf="(year!=null && (period=='Year'))||
              (month!=null && year!=null && period=='Month') || (startday!=null && endday!=null)">
                 <button class="dugme2" (click)="getval()">GET</button>
+                <span class='error'>{{message}}</span>
             </div>
         </div>
         <div class="contdiv">

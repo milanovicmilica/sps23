@@ -3,7 +3,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+
 import { Case } from '../models/case';
+import { Sectioning } from '../models/sectioning';
 import { UserService } from '../user.service';
 @Component({
   selector: 'app-adminlabactivity',
@@ -30,7 +32,7 @@ export class AdminlabactivityComponent implements OnInit {
   activity:string;
   period:string;
   periods:string[]=['Year', 'Month', 'Date']
-  activties:string[]=['Case tracking']
+  activties:string[]=['Case tracking', 'Printed slides']
   years:number[]=[];
   months:string[]=['January', 'February', 'March','April', 'May', 'June' , 'July', 'August', 'September','October','November','December'];
   daysinm:number[]=[31, 28, 31,30,31, 30 , 31, 31, 30,31,30,31];
@@ -43,7 +45,11 @@ export class AdminlabactivityComponent implements OnInit {
   numofcaseid:number;
   allCase:Case[];
   fl1:number;
+  message:string;
+  allSectionings:Sectioning[];
   getval(){
+    if(this.activity=='Case tracking'){
+    this.message=""
       this.fl1=1;
       if(this.period=='Year')
       {
@@ -115,12 +121,12 @@ export class AdminlabactivityComponent implements OnInit {
             let myc:Case[]=[];
           let subst=stgod%100;
           let subend=engod%100;
-          console.log(stmesec,enmesec, stdan,endan, subst,subend )
+         
           for (let index = 0; index < this.allCase.length; index++) {
             
             if(this.allCase[index].formatcn.includes("/"+subst) || this.allCase[index].formatcn.includes("/"+subend)  && subend==subst)
           {
-            console.log('hej')
+      
           if(stmesec==enmesec)
           {
             if(this.allCase[index].month==stmesec && this.allCase[index].day>=stdan && this.allCase[index].day<=endan)
@@ -140,7 +146,7 @@ export class AdminlabactivityComponent implements OnInit {
               }
             }
             else{
-
+              this.message='Start date must be before end date'
             }
           }
 
@@ -152,6 +158,109 @@ export class AdminlabactivityComponent implements OnInit {
         }
         
         
+      }}
+      else{
+        if(this.activity=='Printed slides')
+        {
+          this.message=""
+          this.fl1=1;
+          if(this.period=='Year')
+          {
+            this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
+              this.allSectionings=data;
+              let ukupno=0;
+              for (let index = 0; index < this.allSectionings.length; index++) {
+               if(this.allSectionings[index].year==this.year)
+               {
+                ukupno+=this.allSectionings[index].nizQr.length
+               }
+              
+                }
+                this.numofcaseid=ukupno;
+                
+                })
+          }else{
+            if(this.period=='Month')
+            {
+              this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
+                this.allSectionings=data;
+                let ukupno=0;
+                let br;
+                for (let index = 0; index < this.months.length; index++) {
+                 if(this.months[index]==this.month)
+                 {
+                   br=index;
+                 }
+                }
+                for (let index = 0; index < this.allSectionings.length; index++) {
+                 if(this.allSectionings[index].year==this.year && this.month==br)
+                 {
+                  ukupno+=this.allSectionings[index].nizQr.length
+                 }
+                
+                  }
+                  this.numofcaseid=ukupno;
+                  
+                  })
+            }
+            else{
+              if(this.startday!=null && this.endday!=null)
+          {
+            let novi=new Date(this.startday);
+            let stdan=novi.getDate();
+            let stmesec=novi.getMonth()+1;
+            let stgod=novi.getFullYear();
+            let sd=new Date(this.endday);
+             let endan=sd.getDate();
+            let enmesec=sd.getMonth()+1;
+            let engod=sd.getFullYear();
+
+             this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
+            this.allSectionings=data;
+            let mys:Sectioning[]=[];
+        
+         
+          for (let index = 0; index < this.allSectionings.length; index++) {
+            
+            if(this.allSectionings[index].year==stgod || this.allSectionings[index].year==engod  && stgod==engod)
+          {
+      
+          if(stmesec==enmesec)
+          {
+            if(this.allSectionings[index].month==stmesec && this.allSectionings[index].day>=stdan && this.allSectionings[index].day<=endan)
+            {
+              mys.push(this.allSectionings[index])
+            }
+          }
+          else{
+            if(stmesec<enmesec)
+            {
+              if((this.allSectionings[index].month<enmesec && this.allSectionings[index].day>=stdan && this.allSectionings[index].month>=stmesec) ||
+                (this.allSectionings[index].month<enmesec && this.allSectionings[index].month>stmesec) ||
+                (this.allSectionings[index].month==enmesec && this.allSectionings[index].day<=endan)
+                )
+              {
+                mys.push(this.allSectionings[index])
+              }
+            }
+            else{
+              this.message='Start date must be before end date'
+            }
+          }
+
+          }
+          }
+
+          let uk=0;
+          for (let index = 0; index < mys.length; index++) {
+         
+            uk+=mys[index].nizQr.length;
+          }
+          this.numofcaseid=uk;
+          })}
+            }
+          }
+        }
       }
   }
   ch(){
