@@ -1131,6 +1131,11 @@ app.post('/grossnext/guest/addCS', (req, res) => {
             CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'comm' : req.body.comm}});
             CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'niz1' : req.body.niz1}});
             CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'niz2' : req.body.niz2}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'day' : req.body.day}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'month' : req.body.month}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'year' : req.body.year}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'hours' : req.body.hours}});
+            CS.collection.updateOne({'caseid' :req.body.caseid,'podslovo' :req.body.podslovo}, {$set: {'minutes' : req.body.minutes}});
             res.send({ message: 'user added' });
         }
     })

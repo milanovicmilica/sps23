@@ -220,7 +220,7 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addprcs', data)
   }
-  addCS(caseid,brK,specstain,ihc,slovo, plocice,comm, path, asistent, podslovo, niz1,niz2){
+  addCS(caseid,brK,specstain,ihc,slovo, plocice,comm, path, asistent, podslovo, niz1,niz2,day,month,year,hours,minutes){
 
 
     const data={
@@ -236,7 +236,12 @@ export class UserService {
       asistent:asistent,
       podslovo:podslovo,
       niz1:niz1,
-      niz2:niz2
+      niz2:niz2,
+      day:day,
+      month:month,
+      year:year,
+      hours:hours,
+      minutes:minutes
     }
 
     return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addCS', data)

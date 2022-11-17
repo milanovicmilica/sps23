@@ -14,4 +14,9 @@ export class Cs{
     niz2:number[];
     code:string;
     print:number;
+    day:number;
+    month:number;
+    year:number;
+    hours:number;
+    minutes:number;
 }

@@ -67,6 +67,31 @@ const InfoCSSchema = new mongoose.Schema({
     print: {
         type: Number, 
     },
+    day: {
+        type: Number,
+        
+        
+    },
+    month: {
+        type: Number,
+        
+        
+    },
+    year: {
+        type: Number,
+        
+        
+    },
+    hours: {
+        type: Number,
+        
+        
+    },
+    minutes: {
+        type: Number,
+        
+        
+    }
 });
 
 
