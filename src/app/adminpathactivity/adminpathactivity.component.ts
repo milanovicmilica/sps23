@@ -65,6 +65,7 @@ export class AdminpathactivityComponent implements OnInit {
   }
   getval(){
     this.fl2=1;
+    console.log(this.pathologist)
       if(this.period=='Year')
       {
         this.UserService.getAllReportings().subscribe((data: Reporting[])=>{

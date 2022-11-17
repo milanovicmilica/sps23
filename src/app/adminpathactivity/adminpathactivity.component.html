@@ -53,7 +53,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <div class="content1">
             <div class="formdiv">
             <div class="divact">
-            <label>Choose activity:</label>
+            <label>Choose pathologist:</label>
             <select class="selectactivity" [(ngModel)]="pathologist">
                 <option disabled selected>Choose pathologist</option>
                 <option *ngFor="let c of paths"(value)="c.username">{{c.firstname}} {{c.lastname}}</option>
