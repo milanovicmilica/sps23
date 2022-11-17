@@ -7,6 +7,7 @@ import { Reporting } from '../models/reporting';
 import { Sectioning } from '../models/sectioning';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-adminpathactivity',
   templateUrl: './adminpathactivity.component.html',
