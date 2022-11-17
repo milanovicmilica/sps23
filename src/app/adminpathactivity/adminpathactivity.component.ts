@@ -68,9 +68,93 @@ export class AdminpathactivityComponent implements OnInit {
             
             })
       }
+      else{
+        if(this.period=='Month')
+        {
+          this.UserService.getAllReportings().subscribe((data: Reporting[])=>{
+            this.allReportings=data;
+            let ukupno=0;
+            let br;
+            for (let index = 0; index < this.months.length; index++) {
+             if(this.months[index]==this.month)
+             {
+               br=index;
+             }
+            }
+            for (let index = 0; index < this.allReportings.length; index++) {
+             if(this.allReportings[index].year==this.year && this.allReportings[index].month==(br+1))
+             {
+              ukupno+=1;
+             }
+            
+              }
+              this.numofslides=ukupno;
+              
+              })
+        }
+        else{
+          if(this.startday!=null && this.endday!=null)
+          {
+            let novi=new Date(this.startday);
+            let stdan=novi.getDate();
+            let stmesec=novi.getMonth()+1;
+            let stgod=novi.getFullYear();
+            let sd=new Date(this.endday);
+             let endan=sd.getDate();
+            let enmesec=sd.getMonth()+1;
+            let engod=sd.getFullYear();
+
+             this.UserService.getAllReportings().subscribe((data: Reporting[])=>{
+            this.allReportings=data;
+            let mys:Reporting[]=[];
+        
+         
+          for (let index = 0; index < this.allReportings.length; index++) {
+            
+            if(this.allReportings[index].year==stgod || this.allReportings[index].year==engod  && stgod==engod)
+          {
+      
+          if(stmesec==enmesec)
+          {
+            if(this.allReportings[index].month==stmesec && this.allReportings[index].day>=stdan && this.allReportings[index].day<=endan)
+            {
+              mys.push(this.allReportings[index])
+            }
+          }
+          else{
+            if(stmesec<enmesec)
+            {
+              if((this.allReportings[index].month<enmesec && this.allReportings[index].day>=stdan && this.allReportings[index].month>=stmesec) ||
+                (this.allReportings[index].month<enmesec && this.allReportings[index].month>stmesec) ||
+                (this.allReportings[index].month==enmesec && this.allReportings[index].day<=endan)
+                )
+              {
+                mys.push(this.allReportings[index])
+              }
+            }
+            else{
+              this.message='Start date must be before end date'
+            }
+          }
+
+          }
+          }
+
+          let uk=0;
+          for (let index = 0; index < mys.length; index++) {
+         
+            uk+=1;
+          }
+          this.numofslides=uk;
+          })}
+            
+        }
+      }
     }
   }
-
+  gotolabactivity(){
+    this.router.navigate(['/labactivity']);
+  }
   //reseting values when changing periods
   ch(){
     if(this.period=='Year')
