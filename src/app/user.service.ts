@@ -679,8 +679,8 @@ export class UserService {
   }
   getAllReportings()
   {
-    return this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallreporting') 
-    || this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallreporting')
+    return this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallreporting') || 
+    this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallreporting');
   }
   getAllSamples()
   {
