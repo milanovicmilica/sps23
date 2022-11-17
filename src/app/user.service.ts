@@ -679,8 +679,8 @@ export class UserService {
   }
   getAllReportings()
   {
-    return this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallreporting') || 
-    this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallreporting');
+    return this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallreporting') || 
+    this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallreporting');
   }
   getAllSamples()
   {
@@ -756,7 +756,8 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/guest/getallusers') || 
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallusers') ||
-    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallusers');
+    this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallusers') ||
+    this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallusers');
   }
   getAllPathGroups()
   {

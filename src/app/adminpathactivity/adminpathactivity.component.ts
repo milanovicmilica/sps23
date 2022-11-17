@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Case } from '../models/case';
 import { Reporting } from '../models/reporting';
 import { Sectioning } from '../models/sectioning';
+import { User } from '../models/user';
 import { UserService } from '../user.service';
 @Component({
   selector: 'app-adminpathactivity',
@@ -23,6 +24,17 @@ export class AdminpathactivityComponent implements OnInit {
     for (let index = 2000; index <= godina; index++) {
         this.years.push(index);
     }
+    this.UserService.getAllUsers().subscribe((data: User[])=>{
+      this.allUsers=data;
+    
+    for (let index = 0; index < this.allUsers.length; index++) {
+     if(this.allUsers[index].type==3)
+      {
+        this.paths.push(this.allUsers[index])
+      }
+    }
+    })
+
   }
   activity:string;
   period:string;
@@ -44,7 +56,9 @@ export class AdminpathactivityComponent implements OnInit {
   allReportings:Reporting[];
   numofslides:number;
   fl2:number;
-
+  pathologist:string;
+  allUsers:User[];
+  paths:User[]=[];
   logout(){
     sessionStorage.clear();
     this.router.navigate(['']);
@@ -58,7 +72,7 @@ export class AdminpathactivityComponent implements OnInit {
           this.allReportings=data;
           let ukupno=0;
           for (let index = 0; index < this.allReportings.length; index++) {
-           if(this.allReportings[index].year==this.year)
+           if(this.allReportings[index].year==this.year && this.allReportings[index].pathologist==this.pathologist)
            {
             ukupno+=1;
            }
@@ -82,7 +96,7 @@ export class AdminpathactivityComponent implements OnInit {
              }
             }
             for (let index = 0; index < this.allReportings.length; index++) {
-             if(this.allReportings[index].year==this.year && this.allReportings[index].month==(br+1))
+             if(this.allReportings[index].year==this.year && this.allReportings[index].month==(br+1) && this.allReportings[index].pathologist==this.pathologist)
              {
               ukupno+=1;
              }
@@ -116,7 +130,8 @@ export class AdminpathactivityComponent implements OnInit {
       
           if(stmesec==enmesec)
           {
-            if(this.allReportings[index].month==stmesec && this.allReportings[index].day>=stdan && this.allReportings[index].day<=endan)
+            if(this.allReportings[index].month==stmesec && this.allReportings[index].day>=stdan && this.allReportings[index].day<=endan
+              && this.allReportings[index].pathologist==this.pathologist)
             {
               mys.push(this.allReportings[index])
             }
@@ -124,9 +139,12 @@ export class AdminpathactivityComponent implements OnInit {
           else{
             if(stmesec<enmesec)
             {
-              if((this.allReportings[index].month<enmesec && this.allReportings[index].day>=stdan && this.allReportings[index].month>=stmesec) ||
-                (this.allReportings[index].month<enmesec && this.allReportings[index].month>stmesec) ||
-                (this.allReportings[index].month==enmesec && this.allReportings[index].day<=endan)
+              if((this.allReportings[index].month<enmesec && this.allReportings[index].day>=stdan 
+                && this.allReportings[index].month>=stmesec&& this.allReportings[index].pathologist==this.pathologist) ||
+                (this.allReportings[index].month<enmesec && this.allReportings[index].month>stmesec && 
+                  this.allReportings[index].pathologist==this.pathologist) 
+                ||(this.allReportings[index].month==enmesec && this.allReportings[index].day<=endan && 
+                  this.allReportings[index].pathologist==this.pathologist)
                 )
               {
                 mys.push(this.allReportings[index])

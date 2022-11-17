@@ -58,9 +58,10 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
         res.send(e);
     });
 })
-app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers', (req, res) => {
+app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers' ||
+'/pathactivity/guest/getallusers', (req, res) => {
    
-    console.log('caoo')
+
     User.find({
        
     }).then((lists) => {
