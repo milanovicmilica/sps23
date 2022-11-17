@@ -266,6 +266,9 @@ export class AdminlabactivityComponent implements OnInit {
         }
       }
   }
+  gotoadsactivity(){
+    this.router.navigate(['/adsactivity']);
+  }
   gotopathactivity(){
     this.router.navigate(['/pathactivity']);
   }

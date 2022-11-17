@@ -170,6 +170,9 @@ export class AdminpathactivityComponent implements OnInit {
       
     }
   }
+  gotoadsactivity(){
+    this.router.navigate(['/adsactivity']);
+  }
   gotolabactivity(){
     this.router.navigate(['/labactivity']);
   }
