@@ -97,6 +97,115 @@ export class AdminadsactivityComponent implements OnInit {
 
 
   getval(){
+    if(this.period=='Year')
+    {
+      this.fl2=1;
+      let a=this.year%100;
+      let sub='/'+a;
 
+      this.UserService.getAllCases().subscribe((data: Case[])=>{
+       this.allCase=data;
+
+       let dcase:Case[]=[];
+
+       for (let index = 0; index < this.allCase.length; index++) {
+       if(this.allCase[index].formatcn.includes(sub) && this.allCase[index].worker==this.adminis)
+       {
+         dcase.push(this.allCase[index])
+       }
+         
+       }
+       this.numofslides=dcase.length;
+       })
+
+    }
+    else{
+      if(this.period=='Month')
+      {
+        this.fl2=1;
+        this.UserService.getAllCases().subscribe((data: Case[])=>{
+          this.allCase=data;
+          
+          let dcase:Case[]=[];
+          let sub=this.year.toString()
+        
+          
+          let n=sub.slice(2,4)
+       
+         let br;
+         for (let index = 0; index < this.months.length; index++) {
+          if(this.months[index]==this.month)
+          {
+            br=index;
+        
+          }
+         }
+          for (let index = 0; index < this.allCase.length; index++) {
+            if(this.allCase[index].month==(br+1) && this.allCase[index].formatcn.includes('/'+(this.year%100)) 
+            && this.allCase[index].worker==this.adminis)
+            {
+              dcase.push(this.allCase[index])
+            }
+              
+            }
+            this.numofslides=dcase.length;
+        })
+      }
+      else{
+        if(this.startday!=null && this.endday!=null)
+        {
+          this.fl2=1;
+          let novi=new Date(this.startday);
+          let stdan=novi.getDate();
+          let stmesec=novi.getMonth()+1;
+          let stgod=novi.getFullYear();
+          let sd=new Date(this.endday);
+           let endan=sd.getDate();
+          let enmesec=sd.getMonth()+1;
+          let engod=sd.getFullYear();
+
+           this.UserService.getAllCases().subscribe((data: Case[])=>{
+          this.allCase=data;
+          let myc:Case[]=[];
+        let subst=stgod%100;
+        let subend=engod%100;
+       
+        for (let index = 0; index < this.allCase.length; index++) {
+          
+          if(this.allCase[index].formatcn.includes("/"+subst) || this.allCase[index].formatcn.includes("/"+subend)  && subend==subst)
+        {
+    
+        if(stmesec==enmesec)
+        {
+          if(this.allCase[index].month==stmesec && this.allCase[index].day>=stdan && this.allCase[index].day<=endan 
+            && this.allCase[index].worker==this.adminis)
+          {
+            myc.push(this.allCase[index])
+          }
+        }
+        else{
+          if(stmesec<enmesec)
+          {
+            if((this.allCase[index].month<enmesec && this.allCase[index].day>=stdan && this.allCase[index].month>=stmesec 
+              && this.allCase[index].worker==this.adminis) ||
+              (this.allCase[index].month<enmesec && this.allCase[index].month>stmesec && this.allCase[index].worker==this.adminis) ||
+              (this.allCase[index].month==enmesec && this.allCase[index].day<=endan && this.allCase[index].worker==this.adminis)
+              )
+            {
+              myc.push(this.allCase[index])
+            }
+          }
+          else{
+            this.message='Start date must be before end date'
+          }
+        }
+
+        }
+        }
+        this.numofslides=myc.length;
+        })
+        }
+      }
+    }
   }
 }

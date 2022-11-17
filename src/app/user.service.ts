@@ -669,7 +669,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/pathinfo/guest/getallcases') || 
     this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallcases') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcases') || 
-    this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallcases');
+    this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallcases') || 
+    this.http.get('https://sps23.herokuapp.com/adsactivity/guest/getallcases');
   }
   getAllHospitals(){
     return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
@@ -758,7 +759,8 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallusers') || 
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallusers') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallusers') ||
-    this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallusers');
+    this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallusers') || 
+    this.http.get('https://sps23.herokuapp.com/adsactivity/guest/getallusers');
   }
   getAllPathGroups()
   {

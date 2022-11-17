@@ -59,7 +59,7 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
     });
 })
 app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers' ||
-'/pathactivity/guest/getallusers', (req, res) => {
+'/pathactivity/guest/getallusers' || '/adsactivity/guest/getallusers', (req, res) => {
    
 
     User.find({
@@ -271,7 +271,7 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
 || '/clacs/guest/getallcases' || '/dashfive/guest/getallcases' || '/dashseven/guest/getallcases' || 
 '/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases' || '/sendoutpathdash/guest/getallcases' || 
 '/pathdash/guest/getallcases' || '/pathinfo/guest/getallcases' || '/pathslide/guest/getallcases' 
-|| '/pathreport/guest/getallcases' || '/labactivity/guest/getallcases', (req, res) => {
+|| '/pathreport/guest/getallcases' || '/labactivity/guest/getallcases' || '/adsactivity/guest/getallcases', (req, res) => {
     
     Case.find({
        

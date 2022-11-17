@@ -56,7 +56,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <label>Choose administrator:</label>
             <select class="selectactivity" [(ngModel)]="adminis">
                 <option disabled selected>Choose administrator</option>
-                <option *ngFor="let c of paths"(value)="c.username">{{c.firstname}} {{c.lastname}}</option>
+                <option *ngFor="let c of paths"(value)="{{c.username}}">{{c.firstname}} {{c.lastname}}</option>
             </select>
             </div>
             <div *ngIf="adminis!=null" class="ydiv">
@@ -111,7 +111,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </div>
             <label class="title1" *ngIf="fl1==1">{{numofcaseid}}</label>
             <div class="midtitle2" *ngIf="fl2==1">
-                <label class="title1">NUM OF REPORTINGS:</label>
+                <label class="title1">NUM OF CASES:</label>
 
             </div>
             <label class="title1" *ngIf="fl2==1">{{numofslides}}</label>
