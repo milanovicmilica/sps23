@@ -13,8 +13,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./adminadsactivity.component.css']
 })
 export class AdminadsactivityComponent implements OnInit {
-  allUsers: User[];
-  paths: User[];
+
 
   constructor(private router: Router, private UserService: UserService) { }
 
@@ -32,7 +31,7 @@ export class AdminadsactivityComponent implements OnInit {
     for (let index = 0; index < this.allUsers.length; index++) {
      if(this.allUsers[index].type==2)
       {
-        this.paths.push(this.allUsers[index])
+        this.ads.push(this.allUsers[index])
       }
     }
     })
@@ -41,7 +40,9 @@ export class AdminadsactivityComponent implements OnInit {
   logout(){
     sessionStorage.clear();
     this.router.navigate(['']);
-  }
+  }  
+  allUsers: User[];
+  ads: User[]=[];
   activity:string;
   period:string;
   periods:string[]=['Year', 'Month', 'Date']
