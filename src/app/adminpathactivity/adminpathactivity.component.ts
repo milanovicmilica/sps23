@@ -26,7 +26,7 @@ export class AdminpathactivityComponent implements OnInit {
     }
     this.UserService.getAllUsers().subscribe((data: User[])=>{
       this.allUsers=data;
-      this.paths.push('Choose pathologist')
+     
     for (let index = 0; index < this.allUsers.length; index++) {
      if(this.allUsers[index].type==3)
       {
