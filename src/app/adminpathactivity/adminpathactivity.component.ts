@@ -64,7 +64,7 @@ export class AdminpathactivityComponent implements OnInit {
     this.router.navigate(['']);
   }
   getval(){
-    
+    this.fl2=1;
       if(this.period=='Year')
       {
         this.UserService.getAllReportings().subscribe((data: Reporting[])=>{
@@ -151,6 +151,7 @@ export class AdminpathactivityComponent implements OnInit {
             }
             else{
               this.message='Start date must be before end date'
+              this.fl2=0
             }
           }
 
