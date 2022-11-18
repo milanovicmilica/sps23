@@ -54,7 +54,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="formdiv">
             <div class="divact">
             <label>Choose activity:</label>
-            <select class="selectactivity" [(ngModel)]="activity">
+            <select class="selectactivity" [(ngModel)]="activity" (change)="chviz()">
                 <option disabled hidden selected>Choose activity</option>
                 <option *ngFor="let c of activties"(value)="c">{{c}}</option>
             </select>
@@ -119,9 +119,16 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </div>
             <label class="title1" *ngIf="fl3==1">{{numofcass}}</label>
         </div>
-        <div class="contdiv">
-            <div style="width:100%;">
-                <canvas id="myChart" width="700" height="600" #mychart></canvas>
+        <div class="contdiv"> 
+            <div *ngIf="fl4==1"><label class="title1" >{{curryear}}</label></div>
+            <div style="width:100%;" *ngIf="fl4==1">
+                <canvas id="myChart" width="750" height="950" #mychart></canvas>
+             </div>
+             <div style="width:100%;" *ngIf="fl5==1">
+                <canvas id="myChart" width="750" height="950" #mychart></canvas>
+             </div>
+             <div style="width:100%;" *ngIf="fl6==1">
+                <canvas id="myChart" width="750" height="950" #mychart></canvas>
              </div>
         </div>
      </div></div>

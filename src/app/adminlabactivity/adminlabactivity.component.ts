@@ -30,28 +30,17 @@ export class AdminlabactivityComponent implements OnInit {
         this.years.push(index);
     }
 
-    let cnt1=0;
-    let cnt2=0;
-    let cnt3=0;
-    let cnt4=0;
-    let cnt5=0;
-    let cnt6=0;
-    let cnt7=0;
-    let cnt8=0;
-    let cnt9=0;
-    let cnt10=0;
-
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
     
           
       let novi=new Date();
-      let year=novi.getFullYear();
+      this.curryear=novi.getFullYear();
     
      let br;
-    
+    this.fl4=1;
       for (let index = 0; index < this.allCase.length; index++) {
-        if(this.allCase[index].formatcn.includes('/'+(year%100)))
+        if(this.allCase[index].formatcn.includes('/'+(this.curryear%100)))
         {
         this.marray[this.allCase[index].month-1]++;
         }
@@ -67,8 +56,9 @@ export class AdminlabactivityComponent implements OnInit {
               datasets: [{
                   label: 'Number of cases',
                   data: this.marray,
-                  backgroundColor: "rgb(234, 124, 0)",
-                  borderColor: "#00008f",
+                  backgroundColor: "rgba(18, 22, 55, 0.3)",
+                  hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                  borderColor: "#ffffff",
                   //fill: true,
               },
              /* {
@@ -84,11 +74,136 @@ export class AdminlabactivityComponent implements OnInit {
       
     }
       )}
-  
+      chviz()
+      {
+        if(this.activity=='Printed cassettes')
+        {
+          this.UserService.getAllCs().subscribe((data: Cs[])=>{
+            this.allCs=data;
+          this.fl4=0;
+          this.fl6=0;
+          this.fl5=1;
+          for (let index = 0; index < this.marray.length; index++) {
+            this.marray[index]=0;
+            
+          }
+          for (let index = 0; index < this.allCs.length; index++) {
+            if(this.allCs[index].year==this.curryear )
+            {
+            this.marray[this.allCs[index].month-1]++;
+            }
+           
+          }
+          this.canvas = this.mychart.nativeElement; 
+          this.ctx = this.canvas.getContext('2d');
+          Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+          new Chart(this.ctx, {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    label: 'Number of cases',
+                    data: this.marray,
+                    backgroundColor: "rgba(18, 22, 55, 0.3)",
+                    hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                    borderColor: "#ffffff",
+                    //fill: true,
+                },
+                ],
+                labels: this.months
+            }, });
+          })
+        }
+        else{
+          if(this.activity=='Printed slides')
+          {
+            this.fl4=0;
+            this.fl6=1;
+            this.fl5=0;
+            this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
+              this.allSectionings=data;
+            for (let index = 0; index < this.marray.length; index++) {
+              this.marray[index]=0;
+              
+            }
+            for (let index = 0; index < this.allSectionings.length; index++) {
+              if(this.allSectionings[index].year==this.curryear )
+              {
+                this.marray[this.allSectionings[index].month-1]++;
+              }
+             
+               }
+
+               this.canvas = this.mychart.nativeElement; 
+               this.ctx = this.canvas.getContext('2d');
+               Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+               new Chart(this.ctx, {
+                 type: 'bar',
+                 data: {
+                     datasets: [{
+                         label: 'Number of cases',
+                         data: this.marray,
+                         backgroundColor: "rgba(18, 22, 55, 0.3)",
+                         hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                         borderColor: "#ffffff",
+                         //fill: true,
+                     },
+                     ],
+                     labels: this.months
+                 }, });
+          })
+        
+        }
+        else{
+
+          if(this.activity=='Case tracking')
+          {
+            this.fl4=1;
+            this.fl6=0;
+            this.fl5=0;
+            for (let index = 0; index < this.marray.length; index++) {
+              this.marray[index]=0;
+              
+            }
+            for (let index = 0; index < this.allCase.length; index++) {
+              if(this.allCase[index].formatcn.includes('/'+(this.curryear%100)))
+              {
+              this.marray[this.allCase[index].month-1]++;
+              }
+                
+              }
+           
+              this.canvas = this.mychart.nativeElement; 
+              this.ctx = this.canvas.getContext('2d');
+              Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+              new Chart(this.ctx, {
+                type: 'bar',
+                data: {
+                    datasets: [{
+                        label: 'Number of cases',
+                        data: this.marray,
+                        backgroundColor: "rgba(18, 22, 55, 0.3)",
+                        hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                        borderColor: "#ffffff",
+                        //fill: true,
+                    },
+                    ],
+                    labels: this.months
+                }, });
+          }
+        }
+
+        }
+
+
+      }
   logout(){
     sessionStorage.clear();
     this.router.navigate(['']);
   }
+  curryear:number;
+  fl4:number;
+  fl5:number;
+  fl6:number;
   marray:number[]=[0,0,0,0,0,0,0,0,0,0,0,0];
   activity:string;
   period:string;
