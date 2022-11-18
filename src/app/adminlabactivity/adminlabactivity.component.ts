@@ -177,12 +177,12 @@ export class AdminlabactivityComponent implements OnInit {
               console.log('evo u ct')
               this.destroyChart();
             }*/
-            this.destroyChart();
-            this.fl4=0;
+          //  this.destroyChart();
+            this.fl4=1;
             this.fl6=0;
             this.fl5=0;
             this.fl3=0;
-            this.fl7=1;
+          //  this.fl7=1;
             this.fl2=0;
             for (let index = 0; index < this.marray.length; index++) {
               this.marray[index]=0;
@@ -199,7 +199,7 @@ export class AdminlabactivityComponent implements OnInit {
                 console.log(this.marray[index])
                 
               }
-              this.canvas = this.mychart.nativeElement; 
+            /*  this.canvas = this.mychart.nativeElement; 
               this.ctx = this.canvas.getContext('2d');
               Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
               this.obj=new Chart(this.ctx, {
@@ -215,7 +215,7 @@ export class AdminlabactivityComponent implements OnInit {
                     },
                     ],
                     labels: this.months
-                }, });
+                }, });*/
           }
         }
 
