@@ -1,7 +1,7 @@
 
 
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, destroyPlatform,ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { ChartConfiguration, LineController, LineElement, PointElement, LinearScale, Title} from 'chart.js' 
@@ -74,10 +74,14 @@ export class AdminlabactivityComponent implements OnInit {
       
     }
       )}
+      obj:any;
+      destroyChart() {
+        this.obj.destroy();
+      }
       chviz()
       {
         if(this.activity=='Printed cassettes')
-        {
+        {this.destroyChart();
           this.UserService.getAllCs().subscribe((data: Cs[])=>{
             this.allCs=data;
           this.fl4=0;
@@ -115,7 +119,7 @@ export class AdminlabactivityComponent implements OnInit {
         }
         else{
           if(this.activity=='Printed slides')
-          {
+          {this.destroyChart();
             this.fl4=0;
             this.fl6=1;
             this.fl5=0;
@@ -156,7 +160,7 @@ export class AdminlabactivityComponent implements OnInit {
         else{
 
           if(this.activity=='Case tracking')
-          {
+          {this.destroyChart();
             this.fl4=1;
             this.fl6=0;
             this.fl5=0;
