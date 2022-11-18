@@ -199,7 +199,7 @@ export class AdminlabactivityComponent implements OnInit {
                 console.log(this.marray[index])
                 
               }
-            /*  this.canvas = this.mychart.nativeElement; 
+              this.canvas = this.mychart.nativeElement; 
               this.ctx = this.canvas.getContext('2d');
               Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
               this.obj=new Chart(this.ctx, {
@@ -215,7 +215,7 @@ export class AdminlabactivityComponent implements OnInit {
                     },
                     ],
                     labels: this.months
-                }, });*/
+                }, });
           }
         }
 
