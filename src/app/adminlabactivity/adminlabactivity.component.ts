@@ -177,7 +177,7 @@ export class AdminlabactivityComponent implements OnInit {
               console.log('evo u ct')
               this.destroyChart();
             }*/
-          //  this.destroyChart();
+            this.destroyChart();
             this.fl4=1;
             this.fl6=0;
             this.fl5=0;
