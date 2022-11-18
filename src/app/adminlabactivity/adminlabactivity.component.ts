@@ -47,7 +47,7 @@ export class AdminlabactivityComponent implements OnInit {
           
         }
      
-        this.canvas = this.mychart.nativeElement; 
+        /*this.canvas = this.mychart.nativeElement; 
         this.ctx = this.canvas.getContext('2d');
         Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
         this.obj=new Chart(this.ctx, {
@@ -63,7 +63,7 @@ export class AdminlabactivityComponent implements OnInit {
               },
               ],
               labels: this.months
-          }, });
+          }, });*/
       
     }
       )}
@@ -73,7 +73,7 @@ export class AdminlabactivityComponent implements OnInit {
       }
       chviz()
       {
-        this.fl4=1;
+        
         if(this.activity=='Printed cassettes')
         {
          
@@ -172,12 +172,12 @@ export class AdminlabactivityComponent implements OnInit {
 
           if(this.activity=='Case tracking')
           {
-         /*   if(this.fl6==1 || this.fl5==1)
+          if(this.fl6==1 || this.fl5==1)
             {
               console.log('evo u ct')
               this.destroyChart();
-            }*/
-            this.destroyChart();
+            }
+          
             this.fl4=1;
             this.fl6=0;
             this.fl5=0;
@@ -216,6 +216,7 @@ export class AdminlabactivityComponent implements OnInit {
                     ],
                     labels: this.months
                 }, });
+              
           }
         }
 
@@ -228,7 +229,7 @@ export class AdminlabactivityComponent implements OnInit {
     this.router.navigate(['']);
   }
   curryear:number;
-  fl4:number=1;
+  fl4:number=0;
   fl5:number;
   fl6:number;
   fl7:number;
