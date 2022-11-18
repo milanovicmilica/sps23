@@ -38,7 +38,7 @@ export class AdminlabactivityComponent implements OnInit {
       this.curryear=novi.getFullYear();
     
      let br;
-    this.fl4=1;
+   // this.fl4=1;
       for (let index = 0; index < this.allCase.length; index++) {
         if(this.allCase[index].formatcn.includes('/'+(this.curryear%100)))
         {
@@ -229,7 +229,7 @@ export class AdminlabactivityComponent implements OnInit {
     this.router.navigate(['']);
   }
   curryear:number;
-  fl4:number=0;
+  fl4:number;
   fl5:number;
   fl6:number;
   fl7:number;
