@@ -60,7 +60,8 @@ export class AdminlabactivityComponent implements OnInit {
                   hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                   borderColor: "#ffffff",
                   //fill: true,
-              },],
+              },
+              ],
               labels: this.months
           }, });
       
@@ -77,7 +78,7 @@ export class AdminlabactivityComponent implements OnInit {
         {
          
           if(this.fl4==1 || this.fl6==1)
-          {
+          { console.log('evo u cass')
             this.destroyChart();
           }
           
@@ -110,7 +111,7 @@ export class AdminlabactivityComponent implements OnInit {
             type: 'bar',
             data: {
                 datasets: [{
-                    label: 'Number of slides',
+                    label: 'Number of cassettes',
                     data: this.marray,
                     backgroundColor: "rgba(18, 22, 55, 0.7)",
                     hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
@@ -126,7 +127,7 @@ export class AdminlabactivityComponent implements OnInit {
           if(this.activity=='Printed slides')
           {
             if(this.fl4==1 || this.fl5==1)
-            {
+            { console.log('evo u s')
               this.destroyChart();
             }
             this.fl4=0;
@@ -175,6 +176,7 @@ export class AdminlabactivityComponent implements OnInit {
           {
             if(this.fl6==1 || this.fl5==1)
             {
+              console.log('evo u ct')
               this.destroyChart();
             }
             this.fl4=1;
@@ -194,7 +196,7 @@ export class AdminlabactivityComponent implements OnInit {
               }
                 
               }
-           
+              
               this.canvas = this.mychart.nativeElement; 
               this.ctx = this.canvas.getContext('2d');
               Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
