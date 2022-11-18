@@ -101,10 +101,7 @@ export class AdminlabactivityComponent implements OnInit {
             }
            
           }
-          for (let index = 0; index < this.marray.length; index++) {
-            console.log(this.marray[index])
-            
-          }
+        
           this.canvas = this.mychart.nativeElement; 
           this.ctx = this.canvas.getContext('2d');
           Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
@@ -150,7 +147,7 @@ export class AdminlabactivityComponent implements OnInit {
               }
              
                }
-               console.log(this.marray[10],this.marray[11]);
+               
                this.canvas = this.mychart.nativeElement; 
                this.ctx = this.canvas.getContext('2d');
                Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
@@ -198,7 +195,10 @@ export class AdminlabactivityComponent implements OnInit {
               }
                 
               }
-              
+              for (let index = 0; index < this.marray.length; index++) {
+                console.log(this.marray[index])
+                
+              }
               this.canvas = this.mychart.nativeElement; 
               this.ctx = this.canvas.getContext('2d');
               Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
