@@ -81,7 +81,8 @@ export class AdminlabactivityComponent implements OnInit {
       chviz()
       {
         if(this.activity=='Printed cassettes')
-        {this.destroyChart();
+        {
+          this.destroyChart();
           this.UserService.getAllCs().subscribe((data: Cs[])=>{
             this.allCs=data;
           this.fl4=0;
