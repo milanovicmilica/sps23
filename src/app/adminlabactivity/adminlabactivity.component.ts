@@ -30,8 +30,7 @@ export class AdminlabactivityComponent implements OnInit {
         this.years.push(index);
     }
 
-    this.UserService.getAllCases().subscribe((data: Case[])=>{
-      this.allCase=data;
+    
     
           
       let novi=new Date();
@@ -39,13 +38,7 @@ export class AdminlabactivityComponent implements OnInit {
     
      let br;
    // this.fl4=1;
-      for (let index = 0; index < this.allCase.length; index++) {
-        if(this.allCase[index].formatcn.includes('/'+(this.curryear%100)))
-        {
-        this.marray[this.allCase[index].month-1]++;
-        }
-          
-        }
+      
      
         /*this.canvas = this.mychart.nativeElement; 
         this.ctx = this.canvas.getContext('2d');
@@ -66,7 +59,7 @@ export class AdminlabactivityComponent implements OnInit {
           }, });*/
       
     }
-      )}
+      
       obj:any;
       destroyChart() {
         this.obj.destroy();
@@ -184,6 +177,8 @@ export class AdminlabactivityComponent implements OnInit {
             this.fl3=0;
           //  this.fl7=1;
             this.fl2=0;
+            this.UserService.getAllCases().subscribe((data: Case[])=>{
+              this.allCase=data;
             for (let index = 0; index < this.marray.length; index++) {
               this.marray[index]=0;
               
@@ -216,7 +211,7 @@ export class AdminlabactivityComponent implements OnInit {
                     ],
                     labels: this.months
                 }, });
-              
+            })   
           }
         }
 
