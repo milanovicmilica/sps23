@@ -53,7 +53,7 @@ export class AdminlabactivityComponent implements OnInit {
       for (let index = 0; index < this.allCase.length; index++) {
         if(this.allCase[index].formatcn.includes('/'+(year%100)))
         {
-        this.marray[index]++;
+        this.marray[this.allCase[index].month-1]++;
         }
           
         }
