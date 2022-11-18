@@ -110,7 +110,7 @@ export class AdminlabactivityComponent implements OnInit {
             type: 'bar',
             data: {
                 datasets: [{
-                    label: 'Number of cassettes',
+                    label: 'Number of slides',
                     data: this.marray,
                     backgroundColor: "rgba(18, 22, 55, 0.7)",
                     hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
@@ -224,7 +224,7 @@ export class AdminlabactivityComponent implements OnInit {
     this.router.navigate(['']);
   }
   curryear:number;
-  fl4:number;
+  fl4:number=1;
   fl5:number;
   fl6:number;
   marray:number[]=[0,0,0,0,0,0,0,0,0,0,0,0];
