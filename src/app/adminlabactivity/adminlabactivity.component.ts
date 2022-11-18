@@ -87,6 +87,7 @@ export class AdminlabactivityComponent implements OnInit {
           this.fl5=1;
           this.fl1=0;
           this.fl2=0;
+          this.fl7=0;
           this.UserService.getAllCs().subscribe((data: Cs[])=>{
             this.allCs=data;
           for (let index = 0; index < this.marray.length; index++) {
@@ -135,7 +136,7 @@ export class AdminlabactivityComponent implements OnInit {
             this.fl5=0;
             this.fl1=0;
             this.fl3=0;
-          
+          this.fl7=0;
             this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
               this.allSectionings=data;
             for (let index = 0; index < this.marray.length; index++) {
@@ -180,11 +181,11 @@ export class AdminlabactivityComponent implements OnInit {
               this.destroyChart();
             }*/
             this.destroyChart();
-            this.fl4=1;
+            this.fl4=0;
             this.fl6=0;
             this.fl5=0;
             this.fl3=0;
-            
+            this.fl7=1;
             this.fl2=0;
             for (let index = 0; index < this.marray.length; index++) {
               this.marray[index]=0;
@@ -230,6 +231,7 @@ export class AdminlabactivityComponent implements OnInit {
   fl4:number=1;
   fl5:number;
   fl6:number;
+  fl7:number;
   marray:number[]=[0,0,0,0,0,0,0,0,0,0,0,0];
   activity:string;
   period:string;
