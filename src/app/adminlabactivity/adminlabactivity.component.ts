@@ -50,7 +50,7 @@ export class AdminlabactivityComponent implements OnInit {
         this.canvas = this.mychart.nativeElement; 
         this.ctx = this.canvas.getContext('2d');
         Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
-        new Chart(this.ctx, {
+        this.obj=new Chart(this.ctx, {
           type: 'bar',
           data: {
               datasets: [{
@@ -80,6 +80,7 @@ export class AdminlabactivityComponent implements OnInit {
       }
       chviz()
       {
+        this.fl4=1;
         if(this.activity=='Printed cassettes')
         {
          
