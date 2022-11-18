@@ -1,10 +1,11 @@
 
 
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
-
+import { ChartConfiguration, LineController, LineElement, PointElement, LinearScale, Title} from 'chart.js' 
+import Chart from 'chart.js/auto'
 import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
 import { Sectioning } from '../models/sectioning';
@@ -17,7 +18,9 @@ import { UserService } from '../user.service';
 export class AdminlabactivityComponent implements OnInit {
 
   constructor(private router: Router, private UserService: UserService) { }
-
+  canvas: any;
+  ctx: any;
+  @ViewChild('mychart') mychart:any;
   ngOnInit(): void {
     let date=new Date();
     let dan=new Date().getDate();
@@ -26,11 +29,67 @@ export class AdminlabactivityComponent implements OnInit {
     for (let index = 2000; index <= godina; index++) {
         this.years.push(index);
     }
-  }
+
+    let cnt1=0;
+    let cnt2=0;
+    let cnt3=0;
+    let cnt4=0;
+    let cnt5=0;
+    let cnt6=0;
+    let cnt7=0;
+    let cnt8=0;
+    let cnt9=0;
+    let cnt10=0;
+
+    this.UserService.getAllCases().subscribe((data: Case[])=>{
+      this.allCase=data;
+    
+          
+      let novi=new Date();
+      let year=novi.getFullYear();
+    
+     let br;
+    
+      for (let index = 0; index < this.allCase.length; index++) {
+        if(this.allCase[index].formatcn.includes('/'+(year%100)))
+        {
+        this.marray[index]++;
+        }
+          
+        }
+     
+        this.canvas = this.mychart.nativeElement; 
+        this.ctx = this.canvas.getContext('2d');
+        Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+        new Chart(this.ctx, {
+          type: 'bar',
+          data: {
+              datasets: [{
+                  label: 'Number of cases',
+                  data: this.marray,
+                  backgroundColor: "rgb(234, 124, 0)",
+                  borderColor: "#00008f",
+                  //fill: true,
+              },
+             /* {
+                label: 'Meseci',
+                data: this.months,
+                backgroundColor: "",
+                borderColor: "",
+                //fill: false,
+            }
+          */ ],
+              labels: this.months
+          }, });
+      
+    }
+      )}
+  
   logout(){
     sessionStorage.clear();
     this.router.navigate(['']);
   }
+  marray:number[]=[0,0,0,0,0,0,0,0,0,0,0,0];
   activity:string;
   period:string;
   periods:string[]=['Year', 'Month', 'Date']
