@@ -94,7 +94,7 @@ export class AdminlabactivityComponent implements OnInit {
           this.fl5=1;
           this.fl1=0;
           this.fl2=0;
-          this.fl3=1;
+          
           for (let index = 0; index < this.marray.length; index++) {
             this.marray[index]=0;
             
@@ -141,7 +141,7 @@ export class AdminlabactivityComponent implements OnInit {
             this.fl5=0;
             this.fl1=0;
             this.fl3=0;
-            this.fl2=1;
+          
             this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
               this.allSectionings=data;
             for (let index = 0; index < this.marray.length; index++) {
@@ -165,8 +165,8 @@ export class AdminlabactivityComponent implements OnInit {
                      datasets: [{
                          label: 'Number of slides',
                          data: this.marray,
-                         backgroundColor: "rgba(18, 22, 55, 0.3)",
-                         hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                         backgroundColor: "rgba(18, 22, 55, 0.7)",
+                         hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                          borderColor: "#ffffff",
                          //fill: true,
                      },
@@ -188,7 +188,7 @@ export class AdminlabactivityComponent implements OnInit {
             this.fl6=0;
             this.fl5=0;
             this.fl3=0;
-            this.fl1=1;
+            
             this.fl2=0;
             for (let index = 0; index < this.marray.length; index++) {
               this.marray[index]=0;
