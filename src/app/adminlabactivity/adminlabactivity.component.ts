@@ -20,7 +20,7 @@ export class AdminlabactivityComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
   canvas: any;
   ctx: any;
-  @ViewChild('myChart') mychart:any;
+  @ViewChild('mychart') mychart:any;
   ngOnInit(): void {
     let date=new Date();
     let dan=new Date().getDate();
