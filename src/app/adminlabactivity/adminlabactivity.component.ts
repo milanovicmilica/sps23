@@ -56,7 +56,7 @@ export class AdminlabactivityComponent implements OnInit {
               datasets: [{
                   label: 'Number of cases',
                   data: this.marray,
-                  backgroundColor: "rgba(18, 22, 55, 0.7)",
+                  backgroundColor: "rgba(18, 22, 55, 0.85)",
                   hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                   borderColor: "#ffffff",
                   //fill: true,
@@ -113,7 +113,7 @@ export class AdminlabactivityComponent implements OnInit {
                 datasets: [{
                     label: 'Number of cassettes',
                     data: this.marray,
-                    backgroundColor: "rgba(18, 22, 55, 0.7)",
+                    backgroundColor: "rgba(18, 22, 55, 0.85)",
                     hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                     borderColor: "#ffffff",
                     //fill: true,
@@ -159,7 +159,7 @@ export class AdminlabactivityComponent implements OnInit {
                      datasets: [{
                          label: 'Number of slides',
                          data: this.marray,
-                         backgroundColor: "rgba(18, 22, 55, 0.7)",
+                         backgroundColor: "rgba(18, 22, 55, 0.85)",
                          hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                          borderColor: "#ffffff",
                          //fill: true,
@@ -174,11 +174,12 @@ export class AdminlabactivityComponent implements OnInit {
 
           if(this.activity=='Case tracking')
           {
-            if(this.fl6==1 || this.fl5==1)
+         /*   if(this.fl6==1 || this.fl5==1)
             {
               console.log('evo u ct')
               this.destroyChart();
-            }
+            }*/
+            this.destroyChart();
             this.fl4=1;
             this.fl6=0;
             this.fl5=0;
@@ -206,7 +207,7 @@ export class AdminlabactivityComponent implements OnInit {
                     datasets: [{
                         label: 'Number of cases',
                         data: this.marray,
-                        backgroundColor: "rgba(18, 22, 55, 0.7)",
+                        backgroundColor: "rgba(18, 22, 55, 0.85)",
                         hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                         borderColor: "#ffffff",
                         //fill: true,
