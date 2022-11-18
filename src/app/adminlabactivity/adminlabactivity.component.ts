@@ -92,6 +92,9 @@ export class AdminlabactivityComponent implements OnInit {
           this.fl4=0;
           this.fl6=0;
           this.fl5=1;
+          this.fl1=0;
+          this.fl2=0;
+          this.fl3=1;
           for (let index = 0; index < this.marray.length; index++) {
             this.marray[index]=0;
             
@@ -103,6 +106,10 @@ export class AdminlabactivityComponent implements OnInit {
             }
            
           }
+          for (let index = 0; index < this.marray.length; index++) {
+            console.log(this.marray[index])
+            
+          }
           this.canvas = this.mychart.nativeElement; 
           this.ctx = this.canvas.getContext('2d');
           Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
@@ -110,10 +117,10 @@ export class AdminlabactivityComponent implements OnInit {
             type: 'bar',
             data: {
                 datasets: [{
-                    label: 'Number of cases',
+                    label: 'Number of cassettes',
                     data: this.marray,
-                    backgroundColor: "rgba(18, 22, 55, 0.3)",
-                    hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                    backgroundColor: "rgba(18, 22, 55, 0.7)",
+                    hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                     borderColor: "#ffffff",
                     //fill: true,
                 },
@@ -132,6 +139,9 @@ export class AdminlabactivityComponent implements OnInit {
             this.fl4=0;
             this.fl6=1;
             this.fl5=0;
+            this.fl1=0;
+            this.fl3=0;
+            this.fl2=1;
             this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
               this.allSectionings=data;
             for (let index = 0; index < this.marray.length; index++) {
@@ -141,11 +151,11 @@ export class AdminlabactivityComponent implements OnInit {
             for (let index = 0; index < this.allSectionings.length; index++) {
               if(this.allSectionings[index].year==this.curryear )
               {
-                this.marray[this.allSectionings[index].month-1]++;
+                this.marray[this.allSectionings[index].month-1]= this.marray[this.allSectionings[index].month-1]+this.allSectionings[index].nizQr.length;
               }
              
                }
-
+               console.log(this.marray[10],this.marray[11]);
                this.canvas = this.mychart.nativeElement; 
                this.ctx = this.canvas.getContext('2d');
                Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
@@ -153,7 +163,7 @@ export class AdminlabactivityComponent implements OnInit {
                  type: 'bar',
                  data: {
                      datasets: [{
-                         label: 'Number of cases',
+                         label: 'Number of slides',
                          data: this.marray,
                          backgroundColor: "rgba(18, 22, 55, 0.3)",
                          hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
@@ -177,6 +187,9 @@ export class AdminlabactivityComponent implements OnInit {
             this.fl4=1;
             this.fl6=0;
             this.fl5=0;
+            this.fl3=0;
+            this.fl1=1;
+            this.fl2=0;
             for (let index = 0; index < this.marray.length; index++) {
               this.marray[index]=0;
               
