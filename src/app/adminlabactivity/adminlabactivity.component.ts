@@ -198,8 +198,8 @@ export class AdminlabactivityComponent implements OnInit {
                     datasets: [{
                         label: 'Number of cases',
                         data: this.marray,
-                        backgroundColor: "rgba(18, 22, 55, 0.3)",
-                        hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                        backgroundColor: "rgba(18, 22, 55, 0.7)",
+                        hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                         borderColor: "#ffffff",
                         //fill: true,
                     },
