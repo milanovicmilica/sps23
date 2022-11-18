@@ -50,7 +50,7 @@ export class AdminlabactivityComponent implements OnInit {
         this.canvas = this.mychart.nativeElement; 
         this.ctx = this.canvas.getContext('2d');
         Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
-        this.obj=new Chart(this.ctx, {
+        new Chart(this.ctx, {
           type: 'bar',
           data: {
               datasets: [{
@@ -82,7 +82,11 @@ export class AdminlabactivityComponent implements OnInit {
       {
         if(this.activity=='Printed cassettes')
         {
-          this.destroyChart();
+         
+          if(this.fl4==1 || this.fl6==1)
+          {
+            this.destroyChart();
+          }
           this.UserService.getAllCs().subscribe((data: Cs[])=>{
             this.allCs=data;
           this.fl4=0;
@@ -120,7 +124,11 @@ export class AdminlabactivityComponent implements OnInit {
         }
         else{
           if(this.activity=='Printed slides')
-          {this.destroyChart();
+          {
+            if(this.fl4==1 || this.fl5==1)
+            {
+              this.destroyChart();
+            }
             this.fl4=0;
             this.fl6=1;
             this.fl5=0;
@@ -161,7 +169,11 @@ export class AdminlabactivityComponent implements OnInit {
         else{
 
           if(this.activity=='Case tracking')
-          {this.destroyChart();
+          {
+            if(this.fl6==1 || this.fl5==1)
+            {
+              this.destroyChart();
+            }
             this.fl4=1;
             this.fl6=0;
             this.fl5=0;
