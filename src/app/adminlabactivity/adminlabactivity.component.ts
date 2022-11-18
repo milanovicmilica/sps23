@@ -56,19 +56,11 @@ export class AdminlabactivityComponent implements OnInit {
               datasets: [{
                   label: 'Number of cases',
                   data: this.marray,
-                  backgroundColor: "rgba(18, 22, 55, 0.3)",
-                  hoverBackgroundColor:"rgba(18, 22, 156, 0.2)",
+                  backgroundColor: "rgba(18, 22, 55, 0.7)",
+                  hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                   borderColor: "#ffffff",
                   //fill: true,
-              },
-             /* {
-                label: 'Meseci',
-                data: this.months,
-                backgroundColor: "",
-                borderColor: "",
-                //fill: false,
-            }
-          */ ],
+              },],
               labels: this.months
           }, });
       
@@ -88,14 +80,14 @@ export class AdminlabactivityComponent implements OnInit {
           {
             this.destroyChart();
           }
-          this.UserService.getAllCs().subscribe((data: Cs[])=>{
-            this.allCs=data;
+          
           this.fl4=0;
           this.fl6=0;
           this.fl5=1;
           this.fl1=0;
           this.fl2=0;
-          
+          this.UserService.getAllCs().subscribe((data: Cs[])=>{
+            this.allCs=data;
           for (let index = 0; index < this.marray.length; index++) {
             this.marray[index]=0;
             
