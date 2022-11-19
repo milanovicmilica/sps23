@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,destroyPlatform,ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
-
+import { ChartConfiguration, LineController, LineElement, PointElement, LinearScale, Title} from 'chart.js' 
+import Chart from 'chart.js/auto'
 import { Case } from '../models/case';
 import { Reporting } from '../models/reporting';
 import { Sectioning } from '../models/sectioning';
@@ -16,12 +17,16 @@ export class AdminadsactivityComponent implements OnInit {
 
 
   constructor(private router: Router, private UserService: UserService) { }
-
+  canvas: any;
+  ctx: any;
+  @ViewChild('mychart') mychart:any;
   ngOnInit(): void {
     let date=new Date();
     let dan=new Date().getDate();
     let mesec=new Date().getMonth()+1;
     let godina=new Date().getFullYear();
+    let novi=new Date();
+    this.curryear=novi.getFullYear();
     for (let index = 2000; index <= godina; index++) {
         this.years.push(index);
     }
@@ -36,6 +41,10 @@ export class AdminadsactivityComponent implements OnInit {
     }
     })
 
+  }
+  obj:any;
+  destroyChart() {
+    this.obj.destroy();
   }
   logout(){
     sessionStorage.clear();
@@ -64,7 +73,54 @@ export class AdminadsactivityComponent implements OnInit {
   numofslides:number;
   fl2:number;
   adminis:string;
+  fl4:number;
+  curryear:number;
+  marray:number[]=[0,0,0,0,0,0,0,0,0,0,0,0];
+  chad(){
+    if(this.fl4==1)
+    {
+      this.destroyChart()
+    }
+    this.fl4=1;
+    this.fl2=1;
+    let a=this.curryear%100;
+    let sub='/'+a;
 
+    this.UserService.getAllCases().subscribe((data: Case[])=>{
+     this.allCase=data;
+
+     let dcase:Case[]=[];
+     for (let index = 0; index < this.marray.length; index++) {
+      this.marray[index]=0;
+    
+       }
+     for (let index = 0; index < this.allCase.length; index++) {
+     if(this.allCase[index].formatcn.includes(sub) && this.allCase[index].worker==this.adminis)
+     {
+      this.marray[this.allCase[index].month-1]++;
+     }
+     }
+     this.canvas = this.mychart.nativeElement; 
+     this.ctx = this.canvas.getContext('2d');
+     Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+     this.obj=new Chart(this.ctx, {
+       type: 'bar',
+       data: {
+           datasets: [{
+               label: 'Number of cases',
+               data: this.marray,
+               backgroundColor: "rgba(18, 22, 55, 0.85)",
+               hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
+               borderColor: "#ffffff",
+               //fill: true,
+           },
+           ],
+           labels: this.months
+       }, });
+
+
+     })
+  }
   gotolaact(){
     this.router.navigate(['/adlabactivity']);
   }
