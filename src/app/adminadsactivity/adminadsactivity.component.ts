@@ -82,7 +82,7 @@ export class AdminadsactivityComponent implements OnInit {
       this.destroyChart()
     }
     this.fl4=1;
-    this.fl2=1;
+    
     let a=this.curryear%100;
     let sub='/'+a;
 
