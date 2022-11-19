@@ -462,12 +462,13 @@ align-content: center;
 .insearch{
   border-radius: 50px;
   border-color: transparent;
-  width: 27%;
+  width: 18%;
   padding: 1%;
-  margin-right: 25%;
+  margin-right: 5%;
   height: 50%;
   text-align: left;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+  margin-bottom: 2%;
 }
 .radiob{
     border-color: transparent;
