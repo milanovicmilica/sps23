@@ -54,7 +54,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="formdiv">
             <div class="divact">
             <label>Choose pathologist:</label>
-            <select class="selectactivity" [(ngModel)]="pathologist">
+            <select class="selectactivity" [(ngModel)]="pathologist" (change)="chpath()">
                 <option disabled selected>Choose pathologist</option>
                 <option *ngFor="let c of paths" value="{{c.username}}">{{c.firstname}} {{c.lastname}}</option>
             </select>
@@ -103,18 +103,18 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <button class="dugme2" (click)="getval()">GET</button>
                 <span class='error'>{{message}}</span>
             </div>
-        </div>
-        <div class="contdiv">
-            <div class="midtitle2" *ngIf="fl1==1">
-                <label class="title1">NUM OF CASEID:</label>
-
-            </div>
-            <label class="title1" *ngIf="fl1==1">{{numofcaseid}}</label>
             <div class="midtitle2" *ngIf="fl2==1">
                 <label class="title1">NUM OF REPORTINGS:</label>
 
             </div>
             <label class="title1" *ngIf="fl2==1">{{numofslides}}</label>
+        </div>
+        <div class="contdiv">
+           
+      
+            <div style="width:100%;" *ngIf="fl4==1">
+                <canvas id="mychart" width="600" height="500" #mychart></canvas>
+             </div>
         </div>
      </div></div>
       </div>
