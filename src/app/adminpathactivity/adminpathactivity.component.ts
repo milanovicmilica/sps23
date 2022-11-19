@@ -101,7 +101,7 @@ export class AdminpathactivityComponent implements OnInit {
           type: 'bar',
           data: {
               datasets: [{
-                  label: 'Number of cassettes',
+                  label: 'Number of reportings',
                   data: this.marray,
                   backgroundColor: "rgba(18, 22, 55, 0.85)",
                   hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
