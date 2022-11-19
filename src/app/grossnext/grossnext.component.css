@@ -811,9 +811,12 @@ table {
     justify-self: right;
   }
 
-
+  .fr1{
+margin-right: 3%;
+  }
   .multiselect {
     width: 200px;
+   
   }
   
   .selectBox {
@@ -885,7 +888,7 @@ table {
     width: 200px;
     padding: 1%;
     margin-right: 3%;
-    height: 50%;
+    height: 70%;
     text-align: left;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     margin-bottom: 2%;
