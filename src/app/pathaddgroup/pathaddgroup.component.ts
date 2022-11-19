@@ -37,18 +37,65 @@ export class PathaddgroupComponent implements OnInit {
           this.blocks.push(0);
           for (let index2 = 0; index2 < this.histo.length; index2++) {
            
-            if(this.histo[index].i==this.allPathGroups[index].type)
+            if(this.histo[index2].i==this.allPathGroups[index].type)
             {
-              this.histo.splice(index,1)
+              this.histo.splice(index2,1)
               //this.spec.splice(index,1);
             }
           }
         }
       }
+      this.niz=this.ss;
+      this.niz2=this.ihc;
      
     })
 
   }
+  searchihcin()
+  {
+    if(this.searchihc!=null && this.searchihc!="")
+  {
+    
+    this.niz2=[];
+  
+    let a=this.searchihc.toUpperCase();
+    for (let index = 0; index < this.ihc.length; index++) {
+    
+      if(this.ihc[index].includes(a)==true)
+      {
+        this.niz2.push(this.ihc[index])
+      }
+      
+    }
+  
+  }
+  else{
+    this.niz2=this.ihc
+  }
+  }
+  searchssin(){
+    if(this.searchss!=null && this.searchss!="")
+    {
+      
+      this.niz=[];
+     
+      let a=this.searchss.toUpperCase();
+      for (let index = 0; index < this.ss.length; index++) {
+        
+        if(this.ss[index].includes(a)==true)
+        {
+          this.niz.push(this.ss[index])
+        }
+        
+      }
+    
+    }
+    else{
+      this.niz=this.ss
+    }
+    }
+    searchss:string;
+    searchihc:string;
 me:User;
 allPathGroups:pathGroup[];
 myPathGroups:pathGroup[]=[];
@@ -63,6 +110,8 @@ histo=[ {i:'Skin'}, {i:'Lungs'}, {i:'Heart'},  {i:'Neuropathology'}, {i:'Periphe
 myss:string[]=[];
 myihc:string[]=[];
 groupname:string;
+niz:string[]=[];
+niz2:string[]=[];
 addordelete(b)
 {
   let find=0;

@@ -459,6 +459,16 @@ align-items: center;
 text-align: center;
 align-content: center;
 }
+.insearch{
+  border-radius: 50px;
+  border-color: transparent;
+  width: 27%;
+  padding: 1%;
+  margin-right: 25%;
+  height: 50%;
+  text-align: left;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+}
 .radiob{
     border-color: transparent;
     margin-left: 20px;
