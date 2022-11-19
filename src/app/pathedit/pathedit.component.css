@@ -288,7 +288,7 @@ margin-bottom: 3%;
    align-content: flex-end;
    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
    margin-left: 10%;
-
+font-size: 5px;
   }
   .dugme2:hover{
     background-color: #3d8ce7d9;
@@ -351,7 +351,7 @@ margin-left: 5%;
     height: 70%;
     width: 40%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     overflow-y:scroll;
     max-height: 40vh;
   }
@@ -387,6 +387,7 @@ margin-left: 5%;
     width: 80%;
     height: 20%;
     margin-bottom: 5%;
+    text-align: left;
   }
   .selectedit{
     border-color: transparent;
@@ -395,7 +396,7 @@ margin-left: 5%;
   }
   .chrow{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: left;
   }
   

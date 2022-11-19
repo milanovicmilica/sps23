@@ -49,13 +49,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </select>
             </div>
             <div *ngIf="choosenGroup!=null" class="gmembers">
-                <div class="chrow" *ngFor="let b of choosenGroup.ss">
-                <label class="labblue">{{b}}</label>
-                <button class="dugme" (click)="deletemember(b)"> X </button>
+                <div class="chrow" >
+                <label class="labblue" *ngFor="let b of choosenGroup.ss">{{b}}</label>
+                <label class="labblue" *ngFor="let b of choosenGroup.ihc">{{b}}</label>
+                
                 </div>
-                <div class="chrow" *ngFor="let b of choosenGroup.ihc">
-                    <label class="labblue">{{b}}</label>
-                    <button class="dugme" (click)="deletemember(b)"> X </button>
+                <div class="chrow" >
+                   
+                    <button class="dugme" *ngFor="let b of choosenGroup.ss" (click)="deletemember(b)" > X </button>
+                    <button class="dugme" *ngFor="let b of choosenGroup.ihc" (click)="deletemember(b)" > X </button>
                     </div>
             </div>
         </div>
