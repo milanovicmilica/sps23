@@ -503,7 +503,7 @@ table {
   .selectm{
     width: 30%;
  display: flex;
- flex-direction: row;
+ flex-direction: column;
  margin-top: 4%;
   }
   .sel3g{
@@ -879,7 +879,20 @@ table {
   #checkboxes1 label:hover {
     background-color: #c1c6ca;
   }
+  .insearch{
+    border-radius: 50px;
+    border-color: transparent;
+    width: 20%;
+    padding: 1%;
+    margin-right: 4%;
+    height: 50%;
+    text-align: left;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+    margin-bottom: 2%;
+  }
   .selmenifirst{
+    display: flex;
+    flex-direction: row;
     margin-right: 5%;
   }
   .whitediv{

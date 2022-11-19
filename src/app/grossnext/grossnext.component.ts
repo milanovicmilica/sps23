@@ -152,6 +152,55 @@ export class GrossnextComponent implements OnInit {
   brk2:number=1;
   qri;
   allCs:Cs[];
+  searchss:string;
+  searchihc:string;
+  niza:string[]=[];
+nizb:string[]=[];
+searchihcin()
+{
+  if(this.searchihc!=null && this.searchihc!="")
+{
+  
+  this.nizb=[];
+
+  let a=this.searchihc.toUpperCase();
+  for (let index = 0; index < this.ihc.length; index++) {
+  
+    if(this.ihc[index].includes(a)==true)
+    {
+      this.nizb.push(this.ihc[index])
+    }
+    
+  }
+
+}
+else{
+  this.nizb=this.ihc
+}
+this.array2=this.nizb;
+}
+searchssin(){
+  if(this.searchss!=null && this.searchss!="")
+  {
+    
+    this.niza=[];
+   
+    let a=this.searchss.toUpperCase();
+    for (let index = 0; index < this.ss.length; index++) {
+      
+      if(this.ss[index].includes(a)==true)
+      {
+        this.niza.push(this.ss[index])
+      }
+      
+    }
+  
+  }
+  else{
+    this.niza=this.ss
+  }
+  this.array1=this.niza;
+  }
   print(i,r){
 
     {this.printano[i]++;
