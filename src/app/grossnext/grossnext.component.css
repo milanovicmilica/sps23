@@ -882,9 +882,9 @@ table {
   .insearch{
     border-radius: 50px;
     border-color: transparent;
-    width: 20%;
+    width: 200px;
     padding: 1%;
-    margin-right: 4%;
+    margin-right: 3%;
     height: 50%;
     text-align: left;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
@@ -894,6 +894,7 @@ table {
     display: flex;
     flex-direction: row;
     margin-right: 5%;
+    width: 100%;
   }
   .whitediv{
     display: flex;
