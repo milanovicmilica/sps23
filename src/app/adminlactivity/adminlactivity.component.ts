@@ -194,12 +194,12 @@ this.nizStaining.push(0)
   destroyChart() {
     this.obj.destroy();
   }
-  nizSectioning:number[];
-  nizSendOut:number[];
-  nizCoverslipping:number[];
-  nizProcessing:number[];
-  nizStaining:number[];
-  nizEmbedding:number[];
+  nizSectioning:number[]=[];
+  nizSendOut:number[]=[];
+  nizCoverslipping:number[]=[];
+  nizProcessing:number[]=[];
+  nizStaining:number[]=[];
+  nizEmbedding:number[]=[];
 curryear:number;
   activity:string;
   period:string;
