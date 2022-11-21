@@ -45,6 +45,8 @@ export class AdminlactivityComponent implements OnInit {
     }
     
 for (let index = 0; index < this.laborants.length; index++) {
+  let i=this.laborants[index].firstname+' '+this.laborants[index].lastname;
+  this.nazivil.push(i);
 this.nizCoverslipping.push(0)
 this.nizEmbedding.push(0)
 this.nizProcessing.push(0)
@@ -78,7 +80,7 @@ this.nizStaining.push(0)
                       }
                      }
                      }}
-                     
+                    
                      for (let index = 0; index < this.nizSectioning.length; index++) {
                       
                       this.nizSectioning[index]=(this.nizSectioning[index]/this.allSectionings.length)*100;
@@ -186,7 +188,7 @@ this.nizStaining.push(0)
                              //fill: true,
                          },
                          ],
-                         labels: this.laborants
+                         labels: this.nazivil
                      }, });
               })
             })
@@ -199,6 +201,7 @@ this.nizStaining.push(0)
   destroyChart() {
     this.obj.destroy();
   }
+  nazivil:string[]=[];
   nizSectioning:number[]=[];
   nizSendOut:number[]=[];
   nizCoverslipping:number[]=[];
