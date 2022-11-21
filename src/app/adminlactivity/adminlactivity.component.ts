@@ -43,7 +43,7 @@ export class AdminlactivityComponent implements OnInit {
         this.laborants.push(this.allUsers[index])
       }
     }
-    })
+    
 for (let index = 0; index < this.laborants.length; index++) {
 this.nizCoverslipping.push(0)
 this.nizEmbedding.push(0)
@@ -188,7 +188,7 @@ this.nizStaining.push(0)
           })
         })
       })
-    })
+    })})
   }
   obj:any;
   destroyChart() {
