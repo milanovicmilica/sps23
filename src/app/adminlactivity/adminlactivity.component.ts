@@ -77,7 +77,8 @@ this.nizStaining.push(0)
                           this.nizSectioning[index2]++;
                       }
                      }
-                     }
+                     }}
+                     
                      for (let index = 0; index < this.nizSectioning.length; index++) {
                       
                       this.nizSectioning[index]=(this.nizSectioning[index]/this.allSectionings.length)*100;
@@ -93,6 +94,7 @@ this.nizStaining.push(0)
                        }
                       }
                       }
+                     
                       for (let index = 0; index < this.nizEmbedding.length; index++) {
                       
                         this.nizEmbedding[index]=(this.nizEmbedding[index]/this.allEmb.length)*100;
@@ -125,11 +127,12 @@ this.nizStaining.push(0)
                        }
                       }
                   }   
+                  
                   for (let index = 0; index < this.nizCoverslipping.length; index++) {
                       
                     this.nizCoverslipping[index]=(this.nizCoverslipping[index]/this.allCover.length)*100;
                    }
-
+                   
                   for (let index = 0; index < this.allShe.length; index++) {
                       if(this.allShe[index].endyear==this.curryear )
                       {
@@ -141,11 +144,12 @@ this.nizStaining.push(0)
                        }
                       }
                   }
+                
                   for (let index = 0; index < this.nizStaining.length; index++) {
                       
                     this.nizStaining[index]=(this.nizStaining[index]/this.allShe.length)*100;
                    }
-
+                  
                   for (let index = 0; index < this.allProcessing.length; index++) {
                       if(this.allProcessing[index].endyear==this.curryear )
                       {
@@ -157,11 +161,12 @@ this.nizStaining.push(0)
                        }
                       }
                     }
+                    
                     for (let index = 0; index < this.nizProcessing.length; index++) {
                       
                       this.nizProcessing[index]=(this.nizProcessing[index]/this.allProcessing.length)*100;
                      }
-                  }
+                  
                   for (let index = 0; index < this.nizSectioning.length; index++) {
                       
                    console.log(this.nizSectioning[index])
