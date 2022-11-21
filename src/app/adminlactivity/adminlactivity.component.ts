@@ -180,7 +180,7 @@ this.nizStaining.push(0)
                      type: 'doughnut',
                      data: {
                          datasets: [{
-                             label: 'Sectionings',
+                             label: 'Sectionings in %',
                              data: this.nizSectioning,
                              backgroundColor: "rgba(18, 22, 55, 0.85)",
                              hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
