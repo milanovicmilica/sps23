@@ -83,7 +83,7 @@ this.nizStaining.push(0)
                     
                      for (let index = 0; index < this.nizSectioning.length; index++) {
                       
-                      this.nizSectioning[index]=(this.nizSectioning[index]/this.allSectionings.length)*100;
+                      this.nizSectioning[index]=Number(((this.nizSectioning[index]/this.allSectionings.length)*100).toFixed(2));
                      }
                     for (let index = 0; index < this.allEmb.length; index++) {
                       if(this.allEmb[index].year==this.curryear )
@@ -180,8 +180,8 @@ this.nizStaining.push(0)
                      type: 'doughnut',
                      data: {
                          datasets: [{
-                             label: 'Number of sectioning',
-                             data: this.nizSectioning,
+                             label: 'sectionings',
+                             data: this.nizSectioning+'%',
                              backgroundColor: "rgba(18, 22, 55, 0.85)",
                              hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
                              borderColor: "#ffffff",
