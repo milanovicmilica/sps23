@@ -1,8 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,destroyPlatform,ViewChild} from '@angular/core';
 
 import { Router } from '@angular/router';
-
+import { ChartConfiguration, LineController, LineElement, PointElement, LinearScale, Title} from 'chart.js' 
+import Chart from 'chart.js/auto'
 import { Case } from '../models/case';
 import { Coverslipping } from '../models/coverslipping';
 import { Embedding } from '../models/embedding';
@@ -21,12 +22,15 @@ import { UserService } from '../user.service';
 export class AdminlactivityComponent implements OnInit {
 
   constructor(private router: Router, private UserService: UserService) { }
-
+  canvas: any;
+  ctx: any;
+  @ViewChild('mychart') mychart:any;
   ngOnInit(): void {
     let date=new Date();
     let dan=new Date().getDate();
     let mesec=new Date().getMonth()+1;
     let godina=new Date().getFullYear();
+    this.curryear=date.getFullYear();
     for (let index = 2000; index <= godina; index++) {
         this.years.push(index);
     }
@@ -40,7 +44,163 @@ export class AdminlactivityComponent implements OnInit {
       }
     }
     })
+for (let index = 0; index < this.laborants.length; index++) {
+this.nizCoverslipping.push(0)
+this.nizEmbedding.push(0)
+this.nizProcessing.push(0)
+this.nizSectioning.push(0)
+this.nizSendOut.push(0)
+this.nizStaining.push(0)
+  
+}
+    this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
+      this.allSectionings=data;
+      this.UserService.getAllEmb().subscribe((data: Embedding[])=>{
+        this.allEmb=data;
+        this.UserService.getAllSendout().subscribe((data: Sendout[])=>{
+          this.allSendOut=data;
+          this.UserService.getAllCover().subscribe((data: Coverslipping[])=>{
+            this.allCover=data;
+            this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
+              this.allShe=data;
+              this.UserService.getAllProcess().subscribe((data: Process[])=>{
+                this.allProcessing=data;
+
+
+                   
+                    for (let index = 0; index < this.allSectionings.length; index++) {
+                     if(this.allSectionings[index].year==this.curryear)
+                     {
+                      for (let index2 = 0; index2 < this.laborants.length; index2++) {
+                        if(this.allSectionings[index].lab==this.laborants[index2].username)
+                        {
+                          this.nizSectioning[index2]++;
+                      }
+                     }
+                     }
+                     for (let index = 0; index < this.nizSectioning.length; index++) {
+                      
+                      this.nizSectioning[index]=(this.nizSectioning[index]/this.allSectionings.length)*100;
+                     }
+                    for (let index = 0; index < this.allEmb.length; index++) {
+                      if(this.allEmb[index].year==this.curryear )
+                      {
+                        for (let index2 = 0; index2 < this.laborants.length; index2++) {
+                          if(this.allEmb[index].lab==this.laborants[index2].username)
+                          {
+                            this.nizEmbedding[index2]++;
+                        }
+                       }
+                      }
+                      }
+                      for (let index = 0; index < this.nizEmbedding.length; index++) {
+                      
+                        this.nizEmbedding[index]=(this.nizEmbedding[index]/this.allEmb.length)*100;
+                       }
+
+                    for (let index = 0; index < this.allSendOut.length; index++) {
+                    if(this.allSendOut[index].godina==this.curryear)
+                    {
+                      for (let index2 = 0; index2 < this.laborants.length; index2++) {
+                        if(this.allSendOut[index].laborant==this.laborants[index2].username)
+                        {
+                          this.nizSendOut[index2]++;
+                      }
+                     }
+                    }
+                    }
+                    for (let index = 0; index < this.nizSendOut.length; index++) {
+                      
+                      this.nizSendOut[index]=(this.nizSendOut[index]/this.allSendOut.length)*100;
+                     }
+
+                  for (let index = 0; index < this.allCover.length; index++) {
+                      if(this.allCover[index].year==this.curryear )
+                      {
+                        for (let index2 = 0; index2 < this.laborants.length; index2++) {
+                          if(this.allCover[index].laborant==this.laborants[index2].username)
+                          {
+                            this.nizCoverslipping[index2]++;
+                        }
+                       }
+                      }
+                  }   
+                  for (let index = 0; index < this.nizCoverslipping.length; index++) {
+                      
+                    this.nizCoverslipping[index]=(this.nizCoverslipping[index]/this.allCover.length)*100;
+                   }
+
+                  for (let index = 0; index < this.allShe.length; index++) {
+                      if(this.allShe[index].endyear==this.curryear )
+                      {
+                        for (let index2 = 0; index2 < this.laborants.length; index2++) {
+                          if(this.allShe[index].lab==this.laborants[index2].username)
+                          {
+                            this.nizStaining[index2]++;
+                        }
+                       }
+                      }
+                  }
+                  for (let index = 0; index < this.nizStaining.length; index++) {
+                      
+                    this.nizStaining[index]=(this.nizStaining[index]/this.allShe.length)*100;
+                   }
+
+                  for (let index = 0; index < this.allProcessing.length; index++) {
+                      if(this.allProcessing[index].endyear==this.curryear )
+                      {
+                        for (let index2 = 0; index2 < this.laborants.length; index2++) {
+                          if(this.allProcessing[index].lab==this.laborants[index2].username)
+                          {
+                            this.nizProcessing[index2]++;
+                        }
+                       }
+                      }
+                    }
+                    for (let index = 0; index < this.nizProcessing.length; index++) {
+                      
+                      this.nizProcessing[index]=(this.nizProcessing[index]/this.allProcessing.length)*100;
+                     }
+                  }
+                  for (let index = 0; index < this.nizSectioning.length; index++) {
+                      
+                   console.log(this.nizSectioning[index])
+                   }
+                   this.canvas = this.mychart.nativeElement; 
+                   this.ctx = this.canvas.getContext('2d');
+                   Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+                   this.obj=new Chart(this.ctx, {
+                     type: 'doughnut',
+                     data: {
+                         datasets: [{
+                             label: 'Number of sectioning',
+                             data: this.nizSectioning,
+                             backgroundColor: "rgba(18, 22, 55, 0.85)",
+                             hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
+                             borderColor: "#ffffff",
+                             //fill: true,
+                         },
+                         ],
+                         labels: this.laborants
+                     }, });
+              })
+            })
+          })
+        })
+      })
+    })
   }
+  obj:any;
+  destroyChart() {
+    this.obj.destroy();
+  }
+  nizSectioning:number[];
+  nizSendOut:number[];
+  nizCoverslipping:number[];
+  nizProcessing:number[];
+  nizStaining:number[];
+  nizEmbedding:number[];
+curryear:number;
   activity:string;
   period:string;
   periods:string[]=['Year', 'Month', 'Date']
