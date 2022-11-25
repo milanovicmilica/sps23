@@ -244,7 +244,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             
             //Set content to print...
             //Create Zebra ZPL commands for sample label
-            var cmds =  "^XA";
+            var cmds =  "CT~~CD,~CC^~CT~";
+            cmds += "^XA";
             cmds += "^FO20,30^GB750,1100,4^FS";
             cmds += "^FO20,30^GB750,200,4^FS";
             cmds += "^FO20,30^GB750,400,4^FS";
