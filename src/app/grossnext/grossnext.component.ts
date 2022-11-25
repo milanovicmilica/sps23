@@ -216,6 +216,8 @@ searchssin(){
       let qrInfo =item;
       this.code=qrInfo;
       this.qri=qrInfo;
+      let prvired=this.c1+' '+r;
+      let drugired=this.myCase.firstname+" "+this.myCase.lastname;
       
     this.UserService.printCassette(this.myCase.formatcn,
       this.uz,this.kasetice[i],this.printano[i],this.code,  this.me.username, this.asistent).subscribe((resp)=>{
