@@ -321,7 +321,8 @@ app.get('/staining/guest/getallfreerack' || '/dasheight/guest/getallfreerack', (
 
 app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/login-staininghe/guest/loginprovera' || '/login-sectioning/guest/loginprovera'
 || '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera' || '/login-processing/guest/loginprovera'
-|| '/login-coverslipping/guest/loginprovera' || '/login-sendout/guest/loginprovera' || '/login-patholog/guest/loginprovera', (req, res) => {
+|| '/login-coverslipping/guest/loginprovera' || '/login-sendout/guest/loginprovera' || '/login-patholog/guest/loginprovera'
+|| '/login-archive/guest/loginprovera', (req, res) => {
     // We want to return an array of all the lists that belong to the authenticated user 
     User.findOne({
         username: req.body.username
@@ -1221,6 +1222,10 @@ app.get('/pathdash', (req, res) =>
     
 );
 app.get('/pathinfo', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/login-archive', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

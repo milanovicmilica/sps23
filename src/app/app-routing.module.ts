@@ -12,6 +12,7 @@ import { AdminadsactivityComponent } from './adminadsactivity/adminadsactivity.c
 import { AdminlabactivityComponent } from './adminlabactivity/adminlabactivity.component';
 import { AdminlactivityComponent } from './adminlactivity/adminlactivity.component';
 import { AdminpathactivityComponent } from './adminpathactivity/adminpathactivity.component';
+import { ArchivedashComponent } from './archivedash/archivedash.component';
 import { CaselistadComponent } from './caselistad/caselistad.component';
 import { DashboardfirstComponent } from './dashboardfirst/dashboardfirst.component';
 import { DashboardfourthComponent } from './dashboardfourth/dashboardfourth.component';
@@ -23,6 +24,7 @@ import { DashsevenComponent } from './dashseven/dashseven.component';
 import { DashsixComponent } from './dashsix/dashsix.component';
 import { GrossnextComponent } from './grossnext/grossnext.component';
 import { LoginaccessioningComponent } from './loginaccessioning/loginaccessioning.component';
+import { LoginarchiveComponent } from './loginarchive/loginarchive.component';
 import { LogincoverComponent } from './logincover/logincover.component';
 import { LoginembComponent } from './loginemb/loginemb.component';
 import { LogingrossingComponent } from './logingrossing/logingrossing.component';
@@ -91,6 +93,8 @@ const routes: Routes = [
 { path: 'pathactivity', component:AdminpathactivityComponent},
 { path: 'adsactivity', component:AdminadsactivityComponent},
 { path: 'adlabactivity', component:AdminlactivityComponent},
+{ path: 'login-archive', component:LoginarchiveComponent},
+{ path: 'archivedash', component:ArchivedashComponent},
 ]  ;
 
 @NgModule({
