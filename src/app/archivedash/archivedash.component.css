@@ -383,6 +383,7 @@ background-color: #3c90efd3;
     flex-direction: column;
     width: 52%;
     align-self: center;
+    margin-left: 3%;
 }
 .case{
     display: flex;
