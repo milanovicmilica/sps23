@@ -54,17 +54,17 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         <label class="ti1">CABINET: {{myf.cabinet}}</label>
                         </div>
                         <div>
-                        <label class="ti1">NAME : {{myf.name}}</label>
+                        <label class="ti12">NAME : {{myf.name}}</label>
                         </div>
                      
                     </div>
                     <div class="lastpieces">
-                        <label *ngFor="let a of last3">
+                        <label *ngFor="let a of last3" class="isl">
                             {{a}}
                         </label>
                     </div>
                     <div *ngFor="let s of piece">
-                        <input *ngIf="piece.length>0" [value]="s" class="poljazaUnos">
+                        <input *ngIf="piece.length>0" [value]="s" class="poljazaUnosin">
                     </div>
                     <div>
                         <button (click)="save()" class="searchButton">SAVE</button>
