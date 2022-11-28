@@ -29,4 +29,7 @@ export class AddcabinetComponent implements OnInit {
   addCabinet(){
     
   }
+  addadmin(){
+    this.router.navigate(['/dashfirst']);
+  }
 }

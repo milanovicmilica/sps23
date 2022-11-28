@@ -1122,6 +1122,22 @@ app.post('/dashseven/guest/updateSectioning', (req, res) => {
         }
     })
 })
+app.post('/archivedash/guest/updateF', (req, res) => {    
+
+    Fijoka.findOne({name:req.body.name, cabinet:req.body.cabinet}, (err,user)=>{
+                    
+        if(user==null)  {   
+            res.send({ message: 'error' });
+        
+       }
+        else{
+           
+            Fijoka.collection.updateOne({'name':req.body.name, 'cabinet':req.body.cabinet}, {$set: {'nizQr' : req.body.piece}});
+         
+            res.send({ message: 'user' });
+        }
+    })
+})
 app.post('/grossnext/guest/addprcs', (req, res) => {    
 
     let user1=new CS({caseid:req.body.caseid,

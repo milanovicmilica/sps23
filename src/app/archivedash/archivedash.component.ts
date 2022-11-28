@@ -63,6 +63,28 @@ last3:string[]=[];
       
     }
   }
+  save(){
+    for (let index = 0; index < this.piece.length; index++) {
+     this.myf.nizQr.push(this.piece[index])
+    }
+    if(this.piece.length>0)
+    {
+      this.UserService.updateF(this.myf.name,this.myf.cabinet,this.myf.nizQr).subscribe((resp)=>{
+
+        if(resp['message']=='user')
+        {
+          this.UserService.getAllf().subscribe((data: Fijoka[])=>{
+            this.allf=data;
+        });
+      }
+        else{ 
+          if (resp['message']=='error')
+          {}
+        }
+  
+      })
+    }
+  }
   f2:number=0;
   word:string=""
   piece:string[]=[];

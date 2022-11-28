@@ -394,6 +394,21 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashfour/guest/updateProcessor', data)
   }
+  updateF(name,cabinet,piece)
+  {
+    const data={
+      
+  
+      name:name,
+      cabinet:cabinet,
+      piece:piece
+  
+  
+      
+    }
+
+    return this.http.post('https://sps23.herokuapp.com/archivedash/guest/updateF', data)
+  }
   updateStainer(stainer)
   {
     const data={
