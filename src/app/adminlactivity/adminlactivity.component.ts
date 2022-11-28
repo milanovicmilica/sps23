@@ -29,9 +29,18 @@ export class AdminlactivityComponent implements OnInit {
   ctx1: any;
   canvas2: any;
   ctx2: any;
+  canvas3: any;
+  ctx3: any;
+  canvas4: any;
+  ctx4: any;
+  canvas5: any;
+  ctx5: any;
   @ViewChild('mychart') mychart:any;
   @ViewChild('mychart1') mychart1:any;
   @ViewChild('mychart2') mychart2:any;
+  @ViewChild('mychart3') mychart3:any;
+  @ViewChild('mychart4') mychart4:any;
+  @ViewChild('mychart5') mychart5:any;
   ngOnInit(): void {
     let date=new Date();
     let dan=new Date().getDate();
@@ -231,6 +240,57 @@ this.nizStaining.push(0)
                              ],
                              labels: this.nazivil
                          }, });
+                         this.canvas3 = this.mychart3.nativeElement; 
+                         this.ctx3 = this.canvas3.getContext('2d');
+                         Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+                         this.obj3=new Chart(this.ctx3, {
+                           type: 'doughnut',
+                           data: {
+                               datasets: [{
+                                   label: 'Processing in %',
+                                   data: this.nizProcessing,
+                                   backgroundColor: "rgba(18, 22, 55, 0.85)",
+                                   hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
+                                   borderColor: "#ffffff",
+                                   //fill: true,
+                               },
+                               ],
+                               labels: this.nazivil
+                           }, });
+                           this.canvas4 = this.mychart4.nativeElement; 
+                           this.ctx4 = this.canvas4.getContext('2d');
+                           Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+                           this.obj4=new Chart(this.ctx4, {
+                             type: 'doughnut',
+                             data: {
+                                 datasets: [{
+                                     label: 'Staining in %',
+                                     data: this.nizStaining,
+                                     backgroundColor: "rgba(18, 22, 55, 0.85)",
+                                     hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
+                                     borderColor: "#ffffff",
+                                     //fill: true,
+                                 },
+                                 ],
+                                 labels: this.nazivil
+                             }, });
+                             this.canvas5 = this.mychart5.nativeElement; 
+                             this.ctx5 = this.canvas5.getContext('2d');
+                             Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+                             this.obj5=new Chart(this.ctx5, {
+                               type: 'doughnut',
+                               data: {
+                                   datasets: [{
+                                       label: 'Coverslipping in %',
+                                       data: this.nizCoverslipping,
+                                       backgroundColor: "rgba(18, 22, 55, 0.85)",
+                                       hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
+                                       borderColor: "#ffffff",
+                                       //fill: true,
+                                   },
+                                   ],
+                                   labels: this.nazivil
+                               }, });
               })
             })
           })
@@ -241,6 +301,9 @@ this.nizStaining.push(0)
   obj:any;
   obj1:any;
   obj2:any;
+  obj3:any;
+  obj4:any;
+  obj5:any;
   destroyChart() {
     this.obj.destroy();
   }
