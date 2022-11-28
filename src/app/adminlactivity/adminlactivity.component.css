@@ -309,7 +309,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
 .contdiv{
     width: 70%;
     margin-left: 10%;
-    height: 80%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
