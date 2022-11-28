@@ -26,8 +26,10 @@ export class ArchivedashComponent implements OnInit {
   this.me=user1;
   this.UserService.getAllCabinets().subscribe((data: Cabinet[])=>{
     this.allCabinets=data;
+    console.log(this.allCabinets.length)
     this.UserService.getAllf().subscribe((data: Fijoka[])=>{
       this.allf=data;
+      console.log(this.allf.length)
   });
 })
   }
@@ -92,7 +94,7 @@ last3:string[]=[];
   keyEvent(event: KeyboardEvent): void {
    
     if(event.key=="]")
-  {
+  { this.word+=event.key;
     if(this.f2==1)
     {
 
