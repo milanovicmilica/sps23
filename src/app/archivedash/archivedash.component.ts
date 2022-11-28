@@ -46,7 +46,7 @@ last3:string[]=[];
  f1:number=0;
   findf(inval){
     for (let index = 0; index < this.allf.length; index++) {
-      if(this.allf[index]==inval)
+      if(this.allf[index].Qr==inval)
       {
         this.myf=this.allf[index];
         if(this.myf.nizQr.length>=100)
