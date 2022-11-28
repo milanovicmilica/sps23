@@ -326,8 +326,24 @@ background-color: #3c90efd3;
 .lsrow{
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 50%;
    
+}
+.rsrow{
+
+  display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.rtfirst{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.lastpieces{
+  display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 .case{
     display: flex;

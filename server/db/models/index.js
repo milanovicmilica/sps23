@@ -20,6 +20,8 @@ const { Sendout } = require('./sendout');
 const { Dcassette } = require('./dcassettes');
 const { PathGroup } = require('./pathgroup');
 const { Reporting } = require('./reporting');
+const { Cabinet } = require('./cabinet');
+const { Fijoka } = require('./fijoka');
 module.exports = {
     List,
     Task,
@@ -43,5 +45,6 @@ module.exports = {
     Dcassette,
     PathGroup,
     Reporting,
-
+    Cabinet,
+    Fijoka
 }

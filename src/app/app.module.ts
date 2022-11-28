@@ -53,6 +53,7 @@ import { AdminadsactivityComponent } from './adminadsactivity/adminadsactivity.c
 import { AdminlactivityComponent } from './adminlactivity/adminlactivity.component';
 import { LoginarchiveComponent } from './loginarchive/loginarchive.component';
 import { ArchivedashComponent } from './archivedash/archivedash.component';
+import { AddcabinetComponent } from './addcabinet/addcabinet.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,6 +104,7 @@ import { ArchivedashComponent } from './archivedash/archivedash.component';
     AdminlactivityComponent,
     LoginarchiveComponent,
     ArchivedashComponent,
+    AddcabinetComponent,
 
   ],
   imports: [

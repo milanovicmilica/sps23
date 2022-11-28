@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 // Load in the mongoose models
 const { List, Task, User, Case, Embedding, Hospital, CS, Process, Processor, ProcessStaining, Protocol,
-    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout, Dcassette, PathGroup, Reporting} = require('./db/models');
+    Protocol2, Sample, Sectioning, Stainer , Coverslipping, Rack, Bascet, Sendout, Dcassette, PathGroup, Reporting, Cabinet, Fijoka} = require('./db/models');
 
 const jwt = require('jsonwebtoken');
 
@@ -149,6 +149,26 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide
 app.get('/pathreport/guest/getallreporting' || '/pathactivity/guest/getallreporting', (req, res) => {
     
     Reporting.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/archivedash/guest/getallcabinets', (req, res) => {
+    
+    Cabinet.find({
+       
+    }).then((lists) => {
+        res.send(lists);
+    }).catch((e) => {
+        res.send(e);
+    });
+})
+app.get('/archivedash/guest/getallf', (req, res) => {
+    
+    Fijoka.find({
        
     }).then((lists) => {
         res.send(lists);
