@@ -104,8 +104,13 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <span class='error'>{{message}}</span>
             </div>
             <div *ngIf="fl2==1" class="ddiv">
-                <label>Emb:{{cntEmb}}, Sectioning: {{cntSectioning}}, SendOut:{{cntSendOut}},</label>
-                <label>Processing: {{cntProcessing}}, Staining: {{cntShe}}, Coverslipping:{{cntCover}}</label>
+                <label class="m1">Emb:{{cntEmb}}</label>
+                <label class="m1">Sectioning: {{cntSectioning}}</label> 
+                <label class="m1"> SendOut:{{cntSendOut}}</label>
+                <label class="m1">Processing: {{cntProcessing}}</label> 
+                <label class="m1"> {{cntShe}} </label>
+                <label class="m1"> Coverslipping:{{cntCover}}</label>
+             
                
 
             </div>
@@ -115,7 +120,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <label class="title1">LAB TECHNICIAN {{curryear}} PREVIEW:</label>
                 
             <div style="width:100%;" >
-                <canvas id="mychart" width="400" height="300" #mychart></canvas>
+                <canvas id="mychart" width="200" height="100" #mychart></canvas>
              </div>
             </div>
            
