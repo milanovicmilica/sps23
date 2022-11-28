@@ -380,7 +380,7 @@ background-color: #3c90efd3;
 .lastpieces{
   display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 45%;
     align-self: center;
 }
 .case{
