@@ -77,6 +77,15 @@ last3:string[]=[];
         {
           this.UserService.getAllf().subscribe((data: Fijoka[])=>{
             this.allf=data;
+
+            this.last3=[];
+            let a=this.myf.nizQr.length-4
+            for (let index2 = 0; index2 <3; index2++) {
+              
+              this.last3.push(this.myf.nizQr[a])
+              a++;
+    
+            }
         });
       }
         else{ 

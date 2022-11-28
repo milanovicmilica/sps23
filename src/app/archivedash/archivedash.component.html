@@ -47,14 +47,14 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <input type="text" class="poljazaUnos" [(ngModel)]="inputval" [value]="inputval" >
                   
                   
-                    </div>
+                    </div></div>
                    <div class="rsrow" *ngIf="f1==2">
                     <div class="rtfirst">
                         <div>
-                        <label>CABINET: {{myf.cabinet}}</label>
+                        <label class="ti1">CABINET: {{myf.cabinet}}</label>
                         </div>
                         <div>
-                        <label>NAME : {{myf.name}}</label>
+                        <label class="ti1">NAME : {{myf.name}}</label>
                         </div>
                      
                     </div>
@@ -64,10 +64,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         </label>
                     </div>
                     <div *ngFor="let s of piece">
-                        <input *ngIf="piece.length>0" [value]="s">
+                        <input *ngIf="piece.length>0" [value]="s" class="poljazaUnos">
                     </div>
                     <div>
-                        <button (click)="save()">SAVE</button>
+                        <button (click)="save()" class="searchButton">SAVE</button>
                     </div>
                    </div>
                    
@@ -87,4 +87,4 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         <p>© M-Rising 2022</p>
       </div>
 </div>
-</div>
+
