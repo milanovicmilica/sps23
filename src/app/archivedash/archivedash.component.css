@@ -230,6 +230,7 @@ width: 100%;
   .isl{
     text-align: left;
     margin-left: 25%;
+    align-self: center;
   }
   .poljazaUnosin{
     
@@ -294,14 +295,14 @@ align-self: center;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
   letter-spacing: 2px;
-margin-left: 15%;
+margin-left: 20%;
 }
 .ti12{
   color: #121637;
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: bold;
   letter-spacing: 2px;
-margin-left: 30%;
+margin-left: 20%;
 }
 .plus{
     background-color: #121637;
