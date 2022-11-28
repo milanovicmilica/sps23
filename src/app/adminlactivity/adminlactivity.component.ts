@@ -1,6 +1,7 @@
 
 import { Component, OnInit ,destroyPlatform,ViewChild} from '@angular/core';
 
+
 import { Router } from '@angular/router';
 import { ChartConfiguration, LineController, LineElement, PointElement, LinearScale, Title} from 'chart.js' 
 import Chart from 'chart.js/auto'
@@ -24,7 +25,10 @@ export class AdminlactivityComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
   canvas: any;
   ctx: any;
+  canvas1: any;
+  ctx1: any;
   @ViewChild('mychart') mychart:any;
+  @ViewChild('mychart1') mychart1:any;
   ngOnInit(): void {
     let date=new Date();
     let dan=new Date().getDate();
@@ -99,7 +103,7 @@ this.nizStaining.push(0)
                      
                       for (let index = 0; index < this.nizEmbedding.length; index++) {
                       
-                        this.nizEmbedding[index]=(this.nizEmbedding[index]/this.allEmb.length)*100;
+                        this.nizEmbedding[index]=Number(((this.nizEmbedding[index]/this.allEmb.length)*100).toFixed(2));
                        }
 
                     for (let index = 0; index < this.allSendOut.length; index++) {
@@ -115,7 +119,7 @@ this.nizStaining.push(0)
                     }
                     for (let index = 0; index < this.nizSendOut.length; index++) {
                       
-                      this.nizSendOut[index]=(this.nizSendOut[index]/this.allSendOut.length)*100;
+                      this.nizSendOut[index]=Number(((this.nizSendOut[index]/this.allSendOut.length)*100).toFixed(2));
                      }
 
                   for (let index = 0; index < this.allCover.length; index++) {
@@ -132,7 +136,7 @@ this.nizStaining.push(0)
                   
                   for (let index = 0; index < this.nizCoverslipping.length; index++) {
                       
-                    this.nizCoverslipping[index]=(this.nizCoverslipping[index]/this.allCover.length)*100;
+                    this.nizCoverslipping[index]=Number(((this.nizCoverslipping[index]/this.allCover.length)*100).toFixed(2));
                    }
                    
                   for (let index = 0; index < this.allShe.length; index++) {
@@ -149,7 +153,7 @@ this.nizStaining.push(0)
                 
                   for (let index = 0; index < this.nizStaining.length; index++) {
                       
-                    this.nizStaining[index]=(this.nizStaining[index]/this.allShe.length)*100;
+                    this.nizStaining[index]=Number(((this.nizStaining[index]/this.allShe.length)*100).toFixed(2));
                    }
                   
                   for (let index = 0; index < this.allProcessing.length; index++) {
@@ -166,7 +170,7 @@ this.nizStaining.push(0)
                     
                     for (let index = 0; index < this.nizProcessing.length; index++) {
                       
-                      this.nizProcessing[index]=(this.nizProcessing[index]/this.allProcessing.length)*100;
+                      this.nizProcessing[index]=Number(((this.nizProcessing[index]/this.allProcessing.length)*100).toFixed(2));
                      }
                   
                   for (let index = 0; index < this.nizSectioning.length; index++) {
@@ -190,6 +194,23 @@ this.nizStaining.push(0)
                          ],
                          labels: this.nazivil
                      }, });
+                     this.canvas1 = this.mychart1.nativeElement; 
+                     this.ctx1 = this.canvas1.getContext('2d');
+                     Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+                     this.obj1=new Chart(this.ctx1, {
+                       type: 'doughnut',
+                       data: {
+                           datasets: [{
+                               label: 'Embeddings in %',
+                               data: this.nizEmbedding,
+                               backgroundColor: "rgba(18, 22, 55, 0.85)",
+                               hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
+                               borderColor: "#ffffff",
+                               //fill: true,
+                           },
+                           ],
+                           labels: this.nazivil
+                       }, });
               })
             })
           })
@@ -198,6 +219,7 @@ this.nizStaining.push(0)
     })})
   }
   obj:any;
+  obj1:any;
   destroyChart() {
     this.obj.destroy();
   }
