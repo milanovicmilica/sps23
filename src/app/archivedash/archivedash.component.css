@@ -360,7 +360,7 @@ background-color: #3c90efd3;
    
 }
 .s1{
-  margin-left: 20%;
+  margin-left: 25%;
 }
 .s2{
   margin-left: 20%;
@@ -380,7 +380,7 @@ background-color: #3c90efd3;
 .lastpieces{
   display: flex;
     flex-direction: column;
-    width: 45%;
+    width: 52%;
     align-self: center;
 }
 .case{
