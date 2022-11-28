@@ -59,6 +59,9 @@ export class DashboardfirstComponent implements OnInit {
   labactivity(){
     this.router.navigate(['/labactivity']);
   }
+  addcabinet(){
+    this.router.navigate(['/addcabinet']);
+  }
   addUser(){
     this.message="";
    if(this.username==null || this.username=="") this.message0="Required*";

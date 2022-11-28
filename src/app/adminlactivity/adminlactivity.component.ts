@@ -27,8 +27,11 @@ export class AdminlactivityComponent implements OnInit {
   ctx: any;
   canvas1: any;
   ctx1: any;
+  canvas2: any;
+  ctx2: any;
   @ViewChild('mychart') mychart:any;
   @ViewChild('mychart1') mychart1:any;
+  @ViewChild('mychart2') mychart2:any;
   ngOnInit(): void {
     let date=new Date();
     let dan=new Date().getDate();
@@ -211,6 +214,23 @@ this.nizStaining.push(0)
                            ],
                            labels: this.nazivil
                        }, });
+                       this.canvas2 = this.mychart2.nativeElement; 
+                       this.ctx2 = this.canvas2.getContext('2d');
+                       Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
+                       this.obj2=new Chart(this.ctx2, {
+                         type: 'doughnut',
+                         data: {
+                             datasets: [{
+                                 label: 'Sendout in %',
+                                 data: this.nizSendOut,
+                                 backgroundColor: "rgba(18, 22, 55, 0.85)",
+                                 hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
+                                 borderColor: "#ffffff",
+                                 //fill: true,
+                             },
+                             ],
+                             labels: this.nazivil
+                         }, });
               })
             })
           })
@@ -220,6 +240,7 @@ this.nizStaining.push(0)
   }
   obj:any;
   obj1:any;
+  obj2:any;
   destroyChart() {
     this.obj.destroy();
   }

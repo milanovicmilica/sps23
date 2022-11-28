@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AcsfirstComponent } from './acsfirst/acsfirst.component';
 import { AcssecondComponent } from './acssecond/acssecond.component';
 import { AddbascetComponent } from './addbascet/addbascet.component';
+import { AddcabinetComponent } from './addcabinet/addcabinet.component';
 import { AddprocessorComponent } from './addprocessor/addprocessor.component';
 import { AddprotocolComponent } from './addprotocol/addprotocol.component';
 import { AddprstainerComponent } from './addprstainer/addprstainer.component';
@@ -95,6 +96,7 @@ const routes: Routes = [
 { path: 'adlabactivity', component:AdminlactivityComponent},
 { path: 'login-archive', component:LoginarchiveComponent},
 { path: 'archivedash', component:ArchivedashComponent},
+{ path: 'addcabinet', component:AddcabinetComponent},
 ]  ;
 
 @NgModule({

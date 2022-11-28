@@ -340,6 +340,12 @@ font-weight: bold;
 letter-spacing: 2px;
 text-align: left;
 }
+.d1p{
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+}
 .ddiv{
     display: flex;
     flex-direction: column;
