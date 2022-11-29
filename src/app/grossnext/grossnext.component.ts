@@ -11,6 +11,7 @@ import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 import {} from "zebra-browser-print-wrapper";
+declare var require: any;
 const  ZebraBrowserPrintWrapper = require('zebra-browser-print-wrapper');
 const printBarcode = async (serial) => {
   try {
