@@ -2,6 +2,7 @@
 integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="public/angularPrint/angularPrint.js"></script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
     </style>
@@ -89,24 +90,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </div>
 
 <script  type="text/javascript">
-  var app = angular.module('myApp', []);
-	app.controller('myCtrl', function($scope) {
-  
-    $scope.people = [{
-      "id" : "000",
-      "name" : "alfred"
-    },
-    {
-      "id" : "020",
-      "name" : "robert"
-    },
-    {
-      "id" : "200",
-      "name" : "me"
-    }];
 
-    $scope.isPrinting = false;
-		$scope.printElement = {};
     var cmds =  "";
             cmds += "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ";
             cmds += "^XA";
@@ -119,33 +103,28 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             cmds += "^FT0,332^BQN,2,5";
             cmds += "^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS";
             cmds += "^PQ1,0,1,Y^XZ";
-		$scope.printDiv = function(cmds)
-		{
-			console.log(cmds);
-			$scope.printElement = cmds;
-			
-		//	$scope.isPrinting = true;
-      
-      //does not seem to work without toimeouts
-			setTimeout(function(){
-				window.print();
-			},50);
-			
-			setTimeout(function(){
-			//	$scope.isPrinting = false;
-			},50);
-			
-			
-		};
-    
-  });
+
+
 
 </script>
 
 
 <div class="pddiv">
 <button class="pdButton" (click)="print(i,r)" onclick="printDiv(i)">PRINT</button>
+<div print-section>
+  ^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+^XA
+^MMT
+^PW456
+^LL0650
+^LS0
+^FT0,117^A0N,42,40^FH\^FD1368/22^FS
+^FT0,164^A0N,52,50^FH\^FDB1^FS
+^FT0,332^BQN,2,5
+^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS
+^PQ1,0,1,Y^XZ
 
+</div>
 </div></div>
 <div class="plocice">
     <div class="kaspt2">
