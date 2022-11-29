@@ -36,6 +36,7 @@
     "ts-stopwatch": "^0.0.4",
     "tslib": "^2.3.0",
     "typescript": "~4.7.2",
+    "zebra-browser-print-wrapper": "^0.1.4",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

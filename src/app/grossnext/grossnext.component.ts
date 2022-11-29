@@ -2,6 +2,7 @@ import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PrintFileTXT } from 'jsprintmanager';
 
 import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
@@ -9,6 +10,41 @@ import { pathGroup } from '../models/pathgroups';
 import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
+const  ZebraBrowserPrintWrapper = require('zebra-browser-print-wrapper');
+const printBarcode = async (serial) => {
+  try {
+
+      // Create a new instance of the object
+      const browserPrint =  new ZebraBrowserPrintWrapper();
+
+      // Select default printer
+      const defaultPrinter =  await browserPrint.getDefaultPrinter();
+  
+      // Set the printer
+      browserPrint.setPrinter(defaultPrinter);
+
+      // Check printer status
+      const printerStatus = await browserPrint.checkPrinterStatus();
+
+      // Check if the printer is ready
+      if(printerStatus.isReadyToPrint) {
+
+          // ZPL script to print a simple barcode
+          const zpl = "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ^XA^MMT^PW456^LL0650^LS0^FT0,117^A0N,42,40^FH\^FD1368/22^FS^FT0,164^A0N,52,50^FH\^FDB1^FS^FT0,332^BQN,2,5^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS^PQ1,0,1,Y^XZ";
+
+          browserPrint.print(zpl);
+      } else {
+      console.log("Error/s", printerStatus.errors);
+      }
+
+  } catch (error) {
+      throw new Error(error);
+  }
+};
+
+
+const serial = "0123456789";
+printBarcode(serial);
 
 @Component({
   selector: 'app-grossnext',
@@ -159,6 +195,7 @@ export class GrossnextComponent implements OnInit {
   searchihc:string;
   niza:string[]=[];
 nizb:string[]=[];
+
 searchihcin()
 {
   if(this.searchihc!=null && this.searchihc!="")
@@ -229,7 +266,7 @@ searchssin(){
       {
         this.UserService.getAllCs().subscribe((data: Cs[])=>{
           this.allCs=data;
-        
+      
           let cmds =  "CT~~CD,~CC^~CT~";
             cmds += "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ";
             cmds += "^XA";
@@ -242,6 +279,7 @@ searchssin(){
             cmds += "^FT0,332^BQN,2,5";
             cmds += "^FH\^FDLA,[spspIPMF 1368/22, "+r+" Marko Peric]^FS";
             cmds += "^PQ1,0,1,Y^XZ";
+            printBarcode(cmds);
             let printWindow = window.open();
             printWindow.document.open('text/plain')
             printWindow.document.write(cmds);
