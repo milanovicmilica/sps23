@@ -10,6 +10,7 @@ import { pathGroup } from '../models/pathgroups';
 import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
+import {} from "zebra-browser-print-wrapper";
 const  ZebraBrowserPrintWrapper = require('zebra-browser-print-wrapper');
 const printBarcode = async (serial) => {
   try {
