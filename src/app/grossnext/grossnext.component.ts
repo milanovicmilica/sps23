@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
 
 
-const printBarcode = async () => {
+const printBarcode = async (r,bc,cid) => {
   try {
     // Create a new instance of the object
     const browserPrint = new ZebraBrowserPrintWrapper();
@@ -35,10 +35,10 @@ const printBarcode = async () => {
       ^PW456
       ^LL0650
       ^LS0
-      ^FT0,117^A0N,42,40^FH\^FD1368/22^FS
-      ^FT0,164^A0N,52,50^FH\^FDB1^FS
+      ^FT0,117^A0N,42,40^FH\^FD`+cid+`^FS
+      ^FT0,164^A0N,52,50^FH\^FD`+r+`^FS
       ^FT0,332^BQN,2,5
-      ^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS
+      ^FH\^FDLA,`+bc+`^FS
       ^PQ1,0,1,Y^XZ
       
         `;
@@ -270,7 +270,7 @@ searchssin(){
       this.qri=qrInfo;
       let prvired=this.c1+' '+r;
       let drugired=this.myCase.firstname+" "+this.myCase.lastname;
-      printBarcode();
+      printBarcode(r,item, this.c1);
     this.UserService.printCassette(this.myCase.formatcn,
       this.uz,this.kasetice[i],this.printano[i],this.code,  this.me.username, this.asistent).subscribe((resp)=>{
 
