@@ -3,7 +3,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 
 <script src="JSPrintManager.js"></script>
-
+<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <style>
@@ -92,7 +92,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <label>{{r}}</label>
 </div>
 <div class="pddiv">
-<button class="pdButton" (click)="print(i,r)" onclick="print();">PRINT</button>
+<button class="pdButton" id=”PrintBtn” (click)="print(i,r)" onClick="print_ticket()">PRINT</button>
 <div><span id="print_status"></span></div>
 </div></div>
 <div class="plocice">
@@ -205,66 +205,54 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </div>
 <script>
 
-  //WebSocket settings
-  JSPM.JSPrintManager.auto_reconnect = true;
-  JSPM.JSPrintManager.start();
-  JSPM.JSPrintManager.WS.onStatusChanged = function () {
-      if (jspmWSStatus()) {
-          //get client installed printers
-          JSPM.JSPrintManager.getPrinters().then(function (myPrinters) {
-              var options = '';
-              for (var i = 0; i < myPrinters.length; i++) {
-          options += '<option>' + myPrinters[i] + '</option>';
-      }
-              $('#installedPrinterName').html(options);
-          });
-      }
-  };
-  function jspmWSStatus() {
-        if (JSPM.JSPrintManager.websocket_status == JSPM.WSStatus.Open)
-            return true;
-        else if (JSPM.JSPrintManager.websocket_status == JSPM.WSStatus.Closed) {
-            alert('JSPrintManager (JSPM) is not installed or not running! Download JSPM Client App from https://neodynamic.com/downloads/jspm');
-            return false;
-        }
-        else if (JSPM.JSPrintManager.websocket_status == JSPM.WSStatus.Blocked) {
-            alert('JSPM has blocked this website!');
-            return false;
-        }
-    }
 
-      //Do printing...
-      function print(o) {
-        if (jspmWSStatus()) {
-            //Create a ClientPrintJob
-            var cpj = new JSPM.ClientPrintJob();
-            //Set Printer type (Refer to the help, there many of them!)
+
+
+
+var printers_array = [] // will hold all the printers found, if we expect more than one
+var myPrinter = null    // this will be the printer to use
+function onLoad () {    // called when the page loads
+
+    // ... other app init code here ...
+
+$('#PrintBtn').disabled = true
+v_out('#print_status', "Searching for printers")
+EB.PrinterZebra.searchPrinters ({"timeout":10000,}, search_callback)
+var PrinterTimeout = setTimeout(process_found_printers, 10500)
+}
+    
+
+function process_found_printers() {
+
+    // first, stop the search if it's still on
+    // ideally, the code below should be within the callback of stopSearch()
+
+EB.PrinterZebra.stopSearch()
+
+    // but we want it simple
+
+if (printers_array.length < 1 ) { // no printers found
+    v_out('#print_status', "No printers found")
+    do_something_when_no_printers_found() // your own logic here
+    return
+    }   
+
+if (printers_array.length > 1) { // multiple printers found
+    v_out('#print_status', "Multiple printers found")
+    myPrinter = choose_one_printer_somehow() // let user choose from menu
+
+} else { // exactly one printer found
+    v_out('#print_status', "Printer found")
+    myPrinter = printers_array[0]
+}
+    $('#PrintBtn').disabled = false // enable print button
+    v_out('#print_status', "Connecting to printer " + myPrinter.ID) 
+
+    // could specify name or IP instead of ID based on your use case 
+
+    myPrinter.connect(connect_callback)
+    myPrinter.printRawString('^XA^FO20,20^AD^FDTest^XZ',{},print_callback )
           
-                cpj.clientPrinter = new JSPM.InstalledPrinter($('#installedPrinterName').val());
-            
-            //Set content to print...
-            //Create Zebra ZPL commands for sample label
-            var cmds =  "CT~~CD,~CC^~CT~";
-            cmds += "^XA";
-            cmds += "^FO20,30^GB750,1100,4^FS";
-            cmds += "^FO20,30^GB750,200,4^FS";
-            cmds += "^FO20,30^GB750,400,4^FS";
-            cmds += "^FO20,30^GB750,700,4^FS";
-            cmds += "^FO20,226^GB325,204,4^FS";
-            cmds += "^FO30,40^ADN,36,20^FDShip to:^FS";
-            cmds += "^FO30,260^ADN,18,10^FDPart number #^FS";
-            cmds += "^FO360,260^ADN,18,10^FDDescription:^FS";
-            cmds += "^FO30,750^ADN,36,20^FDFrom:^FS";
-            cmds += "^FO150,125^ADN,36,20^FDAcme Printing^FS";
-            cmds += "^FO60,330^ADN,36,20^FD14042^FS";
-            cmds += "^FO400,330^ADN,36,20^FDScrew^FS";
-            cmds += "^FO70,480^BY4^B3N,,200^FD12345678^FS";
-            cmds += "^FO150,800^ADN,36,20^FDMacks Fabricating^FS";
-            cmds += "^XZ";
-            cpj.printerCommands = cmds;
-            //Send print job to printer!
-            cpj.sendToClient();
-        }
-    }
+} 
 
   </script>
