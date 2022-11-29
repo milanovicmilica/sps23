@@ -92,7 +92,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <label>{{r}}</label>
 </div>
 <div class="pddiv">
-<button class="pdButton" id=”PrintBtn” (click)="print(i,r)" onClick="print_ticket()">PRINT</button>
+<button class="pdButton" (click)="print(i,r)" onclick="print();">PRINT</button>
 <div><span id="print_status"></span></div>
 </div></div>
 <div class="plocice">
@@ -205,55 +205,62 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </div>
 <script>
 
+  //WebSocket settings
+  JSPM.JSPrintManager.auto_reconnect = true;
+  JSPM.JSPrintManager.start();
+  JSPM.JSPrintManager.WS.onStatusChanged = function () {
+      if (jspmWSStatus()) {
+          //get client installed printers
+          JSPM.JSPrintManager.getPrinters().then(function (myPrinters) {
+              var options = '';
+              for (var i = 0; i < myPrinters.length; i++) {
+          options += '<option>' + myPrinters[i] + '</option>';
+      }
+              $('#installedPrinterName').html(options);
+          });
+      }
+  };
+  function jspmWSStatus() {
+        if (JSPM.JSPrintManager.websocket_status == JSPM.WSStatus.Open)
+            return true;
+        else if (JSPM.JSPrintManager.websocket_status == JSPM.WSStatus.Closed) {
+            alert('JSPrintManager (JSPM) is not installed or not running! Download JSPM Client App from https://neodynamic.com/downloads/jspm');
+            return false;
+        }
+        else if (JSPM.JSPrintManager.websocket_status == JSPM.WSStatus.Blocked) {
+            alert('JSPM has blocked this website!');
+            return false;
+        }
+    }
 
-
-
-
-var printers_array = [] // will hold all the printers found, if we expect more than one
-var myPrinter = null    // this will be the printer to use
-function onLoad () {    // called when the page loads
-
-    // ... other app init code here ...
-
-$('#PrintBtn').disabled = true
-v_out('#print_status', "Searching for printers")
-EB.PrinterZebra.searchPrinters ({"timeout":10000,}, search_callback)
-var PrinterTimeout = setTimeout(process_found_printers, 10500)
-}
-    
-
-function process_found_printers() {
-
-    // first, stop the search if it's still on
-    // ideally, the code below should be within the callback of stopSearch()
-
-EB.PrinterZebra.stopSearch()
-
-    // but we want it simple
-
-if (printers_array.length < 1 ) { // no printers found
-    v_out('#print_status', "No printers found")
-    do_something_when_no_printers_found() // your own logic here
-    return
-    }   
-
-if (printers_array.length > 1) { // multiple printers found
-    v_out('#print_status', "Multiple printers found")
-    myPrinter = choose_one_printer_somehow() // let user choose from menu
-
-} else { // exactly one printer found
-    v_out('#print_status', "Printer found")
-    myPrinter = printers_array[0]
-}
-    $('#PrintBtn').disabled = false // enable print button
-    v_out('#print_status', "Connecting to printer " + myPrinter.ID) 
-
-    // could specify name or IP instead of ID based on your use case 
-
-    myPrinter.connect(connect_callback)
-    var cmds = 
-    myPrinter.printRawString("CT~~CD,~CC^~CT~^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ^XA^MMT^PW456^LL0650^LS0^FT0,117^A0N,42,40^FH\^FD1368/22^FS^FT0,164^A0N,52,50^FH\^FDB1^FS^FT0,332^BQN,2,5^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS^PQ1,0,1,Y^XZ",{},print_callback )
+      //Do printing...
+      function print(o) {
+        if (jspmWSStatus()) {
+            //Create a ClientPrintJob
+            var cpj = new JSPM.ClientPrintJob();
+            //Set Printer type (Refer to the help, there many of them!)
           
-} 
+                cpj.clientPrinter = new JSPM.InstalledPrinter($('#installedPrinterName').val());
+            
+            //Set content to print...
+            //Create Zebra ZPL commands for sample label
+            var cmds =  "CT~~CD,~CC^~CT~";
+            cmds += "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ";
+            cmds += "^XA";
+            cmds += "^MMT";
+            cmds += "^PW456";
+            cmds += "^LL0650";
+            cmds += "^LS0";
+            cmds += "^FT0,117^A0N,42,40^FH\^FD1368/22^FS";
+            cmds += "^FT0,164^A0N,52,50^FH\^FDB1^FS";
+            cmds += "^FT0,332^BQN,2,5";
+            cmds += "^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS";
+            cmds += "^PQ1,0,1,Y^XZ";
+     
+            cpj.printerCommands = cmds;
+            //Send print job to printer!
+            cpj.sendToClient();
+        }
+    }
 
   </script>
