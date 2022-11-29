@@ -9,6 +9,7 @@ import { pathGroup } from '../models/pathgroups';
 import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
+
 @Component({
   selector: 'app-grossnext',
   templateUrl: './grossnext.component.html',
@@ -100,6 +101,7 @@ export class GrossnextComponent implements OnInit {
 
     })
   }
+
   ftx:number=0;
   c1:string;
   c2:string;
