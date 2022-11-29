@@ -92,7 +92,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 <label>{{r}}</label>
 </div>
 <div class="pddiv">
-<button class="pdButton" (click)="print(i,r)" onclick="printZpl()">PRINT</button>
+<button class="pdButton" (click)="print(i,r)" onclick="printZpl(i,r)">PRINT</button>
 
 <div><span id="print_status"></span></div>
 </div></div>
@@ -205,7 +205,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </div>
 </div>
 <script type="text/javascript">
-    function printZpl() {
+    function printZpl(i,r) {
       var cmds =  "CT~~CD,~CC^~CT~";
             cmds += "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ";
             cmds += "^XA";
@@ -216,7 +216,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             cmds += "^FT0,117^A0N,42,40^FH\^FD1368/22^FS";
             cmds += "^FT0,164^A0N,52,50^FH\^FDB1^FS";
             cmds += "^FT0,332^BQN,2,5";
-            cmds += "^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS";
+            cmds += "^FH\^FDLA,[spspIPMF 1368/22, "+r+" Marko Peric]^FS";
             cmds += "^PQ1,0,1,Y^XZ";
   var printWindow = window.open();
   printWindow.document.open('text/plain')

@@ -225,7 +225,29 @@ searchssin(){
       if(resp['message']=='user added')
       {
         this.UserService.getAllCs().subscribe((data: Cs[])=>{
-          this.allCs=data;})
+          this.allCs=data;
+        
+          var cmds =  "CT~~CD,~CC^~CT~";
+            cmds += "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ";
+            cmds += "^XA";
+            cmds += "^MMT";
+            cmds += "^PW456";
+            cmds += "^LL0650";
+            cmds += "^LS0";
+            cmds += "^FT0,117^A0N,42,40^FH\^FD1368/22^FS";
+            cmds += "^FT0,164^A0N,52,50^FH\^FDB1^FS";
+            cmds += "^FT0,332^BQN,2,5";
+            cmds += "^FH\^FDLA,[spspIPMF 1368/22, "+r+" Marko Peric]^FS";
+            cmds += "^PQ1,0,1,Y^XZ";
+            var printWindow = window.open();
+            printWindow.document.open('text/plain')
+            printWindow.document.write(cmds);
+            printWindow.document.close();
+            printWindow.focus();
+            printWindow.print();
+            printWindow.close();
+        
+        })
       }
       else{
 
