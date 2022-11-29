@@ -10,43 +10,53 @@ import { pathGroup } from '../models/pathgroups';
 import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
-import * as all from "zebra-browser-print-wrapper";
-declare var require: any
-const  ZebraBrowserPrintWrapper = require('zebra-browser-print-wrapper');
-const printBarcode = async (serial) => {
+import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+
+
+const printBarcode = async () => {
   try {
+    // Create a new instance of the object
+    const browserPrint = new ZebraBrowserPrintWrapper();
+    // Select default printer
+    const defaultPrinter = await browserPrint.getAvailablePrinters();
+    // Set the printer
+    browserPrint.setPrinter(defaultPrinter[0]);
 
-      // Create a new instance of the object
-      const browserPrint =  new ZebraBrowserPrintWrapper();
+    // Check printer status
+    const printerStatus = await browserPrint.checkPrinterStatus();
+    // Check if the printer is ready
+    if (printerStatus.isReadyToPrint) {
+      // ZPL script to print a simple barcode
 
-      // Select default printer
-      const defaultPrinter =  await browserPrint.getDefaultPrinter();
-  
-      // Set the printer
-      browserPrint.setPrinter(defaultPrinter);
+      const zpl = `
+      ^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+      ^XA
+      ^MMT
+      ^PW456
+      ^LL0650
+      ^LS0
+      ^FT0,117^A0N,42,40^FH\^FD1368/22^FS
+      ^FT0,164^A0N,52,50^FH\^FDB1^FS
+      ^FT0,332^BQN,2,5
+      ^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS
+      ^PQ1,0,1,Y^XZ
+      
+        `;
 
-      // Check printer status
-      const printerStatus = await browserPrint.checkPrinterStatus();
-
-      // Check if the printer is ready
-      if(printerStatus.isReadyToPrint) {
-
-          // ZPL script to print a simple barcode
-          const zpl = "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ^XA^MMT^PW456^LL0650^LS0^FT0,117^A0N,42,40^FH\^FD1368/22^FS^FT0,164^A0N,52,50^FH\^FDB1^FS^FT0,332^BQN,2,5^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS^PQ1,0,1,Y^XZ";
-
-          browserPrint.print(zpl);
+      browserPrint.print(zpl);
+    } else {
+      // console.log("Error/s", printerStatus.errors);
+      console.log(printerStatus.errors, "error");
+      if (printerStatus.errors !== "Unknown Error") {
+        // errorFunction(printerStatus.errors);
       } else {
-      console.log("Error/s", printerStatus.errors);
+        // errorFunction("Please connect the printer or check the cable.");
       }
-
+    }
   } catch (error) {
-      throw new Error(error);
+    // errorFunction("Please connect the printer or check the cable.");
   }
 };
-
-
-const serial = "0123456789";
-printBarcode(serial);
 
 @Component({
   selector: 'app-grossnext',
@@ -260,7 +270,7 @@ searchssin(){
       this.qri=qrInfo;
       let prvired=this.c1+' '+r;
       let drugired=this.myCase.firstname+" "+this.myCase.lastname;
-      
+      printBarcode();
     this.UserService.printCassette(this.myCase.formatcn,
       this.uz,this.kasetice[i],this.printano[i],this.code,  this.me.username, this.asistent).subscribe((resp)=>{
 
@@ -281,14 +291,8 @@ searchssin(){
             cmds += "^FT0,332^BQN,2,5";
             cmds += "^FH\^FDLA,[spspIPMF 1368/22, "+r+" Marko Peric]^FS";
             cmds += "^PQ1,0,1,Y^XZ";
-            printBarcode(cmds);
-            let printWindow = window.open();
-            printWindow.document.open('text/plain')
-            printWindow.document.write(cmds);
-            printWindow.document.close();
-            printWindow.focus();
-            printWindow.print();
-            printWindow.close();
+            
+            
         
         })
       }
