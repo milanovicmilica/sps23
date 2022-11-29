@@ -92,8 +92,21 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 
 <div class="pddiv">
-<button class="pdButton" (click)="print(i,r)" onclick="printz()">PRINT</button>
-
+<button class="pdButton" (click)="print(i,r)" onclick="printzpl(document.getElementById('zplcode').value)">PRINT</button>
+<textarea id="zplcode" cols="40" rows="10" class="sff">^XA        
+  ^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+  ^XA
+  ^MMT
+  ^PW456
+  ^LL0650
+  ^LS0
+  ^FT0,117^A0N,42,40^FH\^FD1368/22^FS
+  ^FT0,164^A0N,52,50^FH\^FDB1^FS
+  ^FT0,332^BQN,2,5
+  ^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS
+  ^PQ1,0,1,Y^XZ
+  
+  </textarea>
 
 </div></div>
 <div class="plocice">
@@ -205,8 +218,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </div>
 </div>
 
-<script type="text/javascript" src="js/print.js">
-  function printz() {
+<script type="text/javascript" src="print.js">
+  function printzpl(zpl) {
     var cmds =  "CT~~CD,~CC^~CT~";
             cmds += "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ";
             cmds += "^XA";

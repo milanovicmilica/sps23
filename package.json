@@ -30,6 +30,7 @@
     "chart.js": "^4.0.1",
     "concurrently": "^7.4.0",
     "jsprintmanager": "^5.0.2",
+    "print-js": "^1.6.0",
     "rxjs": "~7.5.0",
     "ts-stopwatch": "^0.0.4",
     "tslib": "^2.3.0",
