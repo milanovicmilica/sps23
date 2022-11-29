@@ -240,7 +240,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             var cpj = new JSPM.ClientPrintJob();
             //Set Printer type (Refer to the help, there many of them!)
           
-                cpj.clientPrinter = new JSPM.InstalledPrinter($('#installedPrinterName').val());
+                cpj.clientPrinter = new JSPM.InstalledPrinter($('#installedPrinterName'));
             
             //Set content to print...
             //Create Zebra ZPL commands for sample label
