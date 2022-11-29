@@ -234,19 +234,19 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             return false;
         }
     }
-
+    function printZpl(zpl) {
+  var printWindow = window.open();
+  printWindow.document.open('text/plain')
+  printWindow.document.write(zpl);
+  printWindow.document.close();
+  printWindow.focus();
+  printWindow.print();
+  printWindow.close();
+}
       //Do printing...
       function print(o) {
-        if (jspmWSStatus()) {
-            //Create a ClientPrintJob
-            var cpj = new JSPM.ClientPrintJob();
-            //Set Printer type (Refer to the help, there many of them!)
-         
-                cpj.clientPrinter = new JSPM.InstalledPrinter($('#installedPrinterName'));
-            
-            //Set content to print...
-            //Create Zebra ZPL commands for sample label
-            var cmds =  "CT~~CD,~CC^~CT~";
+
+        var cmds =  "CT~~CD,~CC^~CT~";
             cmds += "^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ";
             cmds += "^XA";
             cmds += "^MMT";
@@ -258,11 +258,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             cmds += "^FT0,332^BQN,2,5";
             cmds += "^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS";
             cmds += "^PQ1,0,1,Y^XZ";
-     
-            cpj.printerCommands = cmds;
-            //Send print job to printer!
-            cpj.sendToClient();
-        }
+       printZpl(cmds);
     }
 
   </script>
