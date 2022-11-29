@@ -251,7 +251,8 @@ if (printers_array.length > 1) { // multiple printers found
     // could specify name or IP instead of ID based on your use case 
 
     myPrinter.connect(connect_callback)
-    myPrinter.printRawString('^XA^FO20,20^AD^FDTest^XZ',{},print_callback )
+    var cmds = 
+    myPrinter.printRawString("CT~~CD,~CC^~CT~^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ^XA^MMT^PW456^LL0650^LS0^FT0,117^A0N,42,40^FH\^FD1368/22^FS^FT0,164^A0N,52,50^FH\^FDB1^FS^FT0,332^BQN,2,5^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS^PQ1,0,1,Y^XZ",{},print_callback )
           
 } 
 
