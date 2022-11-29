@@ -100,6 +100,7 @@ export class GrossnextComponent implements OnInit {
 
     })
   }
+  ftx:number=0;
   c1:string;
   c2:string;
   c3:string;
