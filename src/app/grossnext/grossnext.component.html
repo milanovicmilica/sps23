@@ -4,6 +4,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="ebapi-modules.js"></script>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Orbitron&family=Roboto+Condensed&display=swap');
     </style>
@@ -96,19 +98,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 
 
 <div class="pddiv">
-<button class="pdButton" (click)="print(i,r)" onclick="window.print();" >PRINT</button>
-<style>
-  @media print{
-    body * {visibility: hidden;}
+<button class="pdButton" (click)="print(i,r)" id=”PrintBtn” onClick="print_ticket()">PRINT</button>
 
-    .print-container, .print-container * {
-      visibility: visible;
-    }
-  }
-</style>
-<div class="row print-container">
-  ^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ^XA^MMT^PW456^LL0650^LS0^FT0,117^A0N,42,40^FH\^FD1368/22^FS^FT0,164^A0N,52,50^FH\^FDB1^FS^FT0,332^BQN,2,5^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS^PQ1,0,1,Y^XZ
-</div>
 
 </div></div>
 <div class="plocice">
@@ -220,3 +211,66 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
 </div>
 </div>
 
+<script>
+var printers_array = [] // will hold all the printers found, if we expect more than one
+var myPrinter = null    // this will be the printer to use
+
+function onLoad () {    // called when the page loads
+
+    // ... other app init code here ...
+
+$('#PrintBtn').disabled = true
+v_out('#print_status', "Searching for printers")
+EB.PrinterZebra.searchPrinters ({"timeout":10000, }, search_callback)
+var PrinterTimeout = setTimeout(process_found_printers, 10500)
+}
+
+function process_found_printers() {
+
+    // first, stop the search if it's still on
+    // ideally, the code below should be within the callback of stopSearch()
+
+EB.PrinterZebra.stopSearch()
+
+    // but we want it simple
+
+if (printers_array.length < 1 ) { // no printers found
+    v_out('#print_status', "No printers found")
+    do_something_when_no_printers_found() // your own logic here
+    return
+    }   
+
+if (printers_array.length > 1) { // multiple printers found
+    v_out('#print_status', "Multiple printers found")
+    myPrinter = choose_one_printer_somehow() // let user choose from menu
+
+} else { // exactly one printer found
+    v_out('#print_status', "Printer found")
+    myPrinter = printers_array[0]
+}
+    $('#PrintBtn').disabled = false // enable print button
+    v_out('#print_status', "Connecting to printer " + myPrinter.ID) 
+
+    // could specify name or IP instead of ID based on your use case 
+
+    myPrinter.connect(connect_callback)
+}
+function search_callback(cb) {  // triggered for EVERY device found
+
+if(cb.status == 'PRINTER_STATUS_SUCCESS' && cb.printerID != undefined) {
+    v_out('#print_status', "Found printer: " + cb.printerID)            
+    var p = EB.PrinterZebra.getPrinterByID(cb.printerID)
+
+    // Add a device only if it has supported printer type 
+    // Here we choose zebra.Check - the API reference for more supported types.
+    // This code also can do more complex checks
+
+    if (p.printerType == PRINTER_TYPE_ZEBRA) printers_array.push(p)
+}
+else {
+    v_out('#print_status', "Printer search error: " + cb.status + ":" + cb.message)
+}}
+function print_ticket() {
+  var s="^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ^XA^MMT^PW456^LL0650^LS0^FT0,117^A0N,42,40^FH\^FD1368/22^FS^FT0,164^A0N,52,50^FH\^FDB1^FS^FT0,332^BQN,2,5^FH\^FDLA,[spspIPMF 1368/22, B1 Marko Peric]^FS^PQ1,0,1,Y^XZ"
+  myPrinter.printRawString(s,{},print_callback) }
+</script>
