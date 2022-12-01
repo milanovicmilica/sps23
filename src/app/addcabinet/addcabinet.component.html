@@ -51,6 +51,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <label class="username" >Num of rows:</label>
             <div class="time">
             <input type="text" class="poljazaUnos2" name='username' [(ngModel)]='rows' (change)="brch()">
+            <span class='error'>{{message4}}</span>
                 </div>
           
          
@@ -59,9 +60,11 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <div  class="rrside">
                     <label class="lab1" *ngFor="let a of typesofrow;let i=index">Type of row {{i+1}} :</label>
                 </div>
+                <div class="rrside">
                 <div *ngFor="let a of typesofrow;let i=index" class="rrside2">
-                    <button class="l1">CASSETTE</button>
-                    <button class="d1">SLIDE</button>
+                    <button class="l1" (click)="cas(i)">CASSETTE</button>
+                    <button class="d1" (click)="sl(i)">SLIDE</button>
+                </div>
                 </div>
             </div>
             <button class="signupDugme" (click)='addCabinet()' >ADD CABINET</button>

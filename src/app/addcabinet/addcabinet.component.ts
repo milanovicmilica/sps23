@@ -29,7 +29,42 @@ export class AddcabinetComponent implements OnInit {
   niz1:number[]=[]
   typesofrow:number[]=[]
   addCabinet(){
-    
+    if(this.name==null || this.name=="")
+    {this.message3="Required*"}
+    else{
+      this.message3=""
+    }
+    if(this.rows==null || this.rows<=0)
+    {
+      this.message4="Required positive number*"
+    }
+    else{this.message4=""}
+    this.message=""
+    if((this.rows!=null && this.rows>0) && (this.name!=null && this.name!=""))
+    {
+      let qr="[spspIPMF "+this.name+"]";
+      this.UserService.addCabinet(this.rows,this.name,this.typesofrow,qr).subscribe((resp)=>{
+
+        if(resp['message']=='user')
+        {this.message='Cabinet added'; 
+      this.name="";
+    this.rows=null; this.typesofrow=[]
+      }
+        else{ 
+          if (resp['message']=='zauzeto')
+          {this.message='Cabinet is already added'; 
+          this.name="";
+          this.rows=null;this.typesofrow=[]
+        }
+          else{
+         this.message='Cabinet is not added'; 
+         this.name="";
+         this.rows=null;
+        this.typesofrow=[]}
+        }
+  
+      })
+    }
   }
   addadmin(){
     this.router.navigate(['/dashfirst']);
@@ -41,5 +76,11 @@ export class AddcabinetComponent implements OnInit {
       this.typesofrow.push(0);
     }
 
+  }
+  cas(i){
+    this.typesofrow[i]=0
+  }
+  sl(i){
+    this.typesofrow[i]=1;
   }
 }

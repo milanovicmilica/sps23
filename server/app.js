@@ -778,6 +778,27 @@ app.post('/sendoutlabmain/guest/addSendout', (req, res) => {
             });
 
 })
+
+app.post('/addcabinet/guest/addCabinet', (req, res) => {    
+    Cabinet.findOne({
+        name: req.body.name
+      
+   }).then((user) => {
+    if(user!=null)
+    {  
+     res.send({ message: 'zauzeto' });
+    }else{
+    let newP = new Cabinet({
+        name : req.body.name, rows: req.body.rows,   typesofrow: req.body.typesofrow, qr:req.body.qr})
+            newP.save().then((us2) => {
+                
+                res.send({ message: 'user' });
+            }).catch((e) => {
+                res.send({ message: 'error' });
+            });
+
+}})})
+
 app.post('/sendoutpathmain/guest/SendoutUpdate', (req, res) => {    
 
     Sendout.findOne({

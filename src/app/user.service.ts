@@ -140,6 +140,18 @@ export class UserService {
   
     return this.http.post('https://sps23.herokuapp.com/addstainer/guest/addStainer', data)
     }
+    addCabinet(rows,name,typesofrow,qr){
+      const data={
+      
+        name: name,
+        rows: rows,
+        typesofrow:typesofrow,
+        qr:qr
+       
+      }
+    
+      return this.http.post('https://sps23.herokuapp.com/addcabinet/guest/addCabinet', data)
+    }
   addSample(caseid,sample,s2,brTipa,num,id,slovo, spec, ihc){
 
 
