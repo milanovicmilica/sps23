@@ -183,8 +183,62 @@ width: 30%;
   .polja{
     display: flex;
     flex-direction: column;
-width: 32%;
+width: 62%;
 
+  }
+  .lefts{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+  .rights{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+  }
+  .rrside{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .rrside2{
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+  }
+  .l1{
+    border-color: transparent;
+font-family: 'Roboto Condensed', sans-serif;
+font-weight: bold;
+letter-spacing: 2px;
+background-color: #121637;
+color: white;
+padding: 10px;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
+
+  }
+  .l1:focus{
+    background-color: #222966;
+    color: #FFFFFF;
+    border-color: transparent;
+    box-shadow: inset 0 0 2px 2px rgba(79, 78, 78, 0.422);
+  }
+  .d1{
+    border-color: transparent;
+font-family: 'Roboto Condensed', sans-serif;
+font-weight: bold;
+letter-spacing: 2px;
+background-color: #121637;
+color: white;
+padding: 10px;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
+
+  }
+  .d1:focus{
+    background-color: #222966;
+    color: #FFFFFF;
+    border-color: transparent;
+    box-shadow: inset 0 0 2px 2px rgba(79, 78, 78, 0.422);
   }
   .username{
     color: black;

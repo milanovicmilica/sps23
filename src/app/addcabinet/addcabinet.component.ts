@@ -26,10 +26,20 @@ export class AddcabinetComponent implements OnInit {
   message4:string;
   message:string;
   rows:number;
+  niz1:number[]=[]
+  typesofrow:number[]=[]
   addCabinet(){
     
   }
   addadmin(){
     this.router.navigate(['/dashfirst']);
+  }
+  brch(){
+    this.typesofrow=[]
+    for(let i=0; i<this.rows;i++)
+    {
+      this.typesofrow.push(0);
+    }
+
   }
 }

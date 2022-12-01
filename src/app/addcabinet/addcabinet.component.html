@@ -43,18 +43,27 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <hr class="lin">
         </div>
         <div class="polja">
-          
+          <div class="lefts">
             <label class="username" >Cabinet name:</label>
             <input type="text" class="poljazaUnos" name='username' [(ngModel)]='name'>
             <span class='error'>{{message3}}</span>
             
             <label class="username" >Num of rows:</label>
             <div class="time">
-            <input type="text" class="poljazaUnos2" name='username' [(ngModel)]='rows'>
+            <input type="text" class="poljazaUnos2" name='username' [(ngModel)]='rows' (change)="brch()">
                 </div>
           
          
-        
+            </div>
+            <div class="rights" *ngIf="rows!=null">
+                <div  class="rrside">
+                    <label class="lab1" *ngFor="let a of typesofrow;let i=index">Type of row {{i+1}} :</label>
+                </div>
+                <div *ngFor="let a of typesofrow;let i=index" class="rrside2">
+                    <button class="l1">CASSETTE</button>
+                    <button class="d1">SLIDE</button>
+                </div>
+            </div>
             <button class="signupDugme" (click)='addCabinet()' >ADD CABINET</button>
             <span class='error'>{{message}}</span>
         </div>
