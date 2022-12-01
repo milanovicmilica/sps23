@@ -3,6 +3,51 @@ import { Router } from '@angular/router';
 import { Case } from '../models/case';
 import { Sample } from '../models/sample';
 import { UserService } from '../user.service';
+import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+const printBarcode = async (cid,o,a) => {
+  try {
+    // Create a new instance of the object
+    const browserPrint = new ZebraBrowserPrintWrapper();
+    // Select default printer
+    const defaultPrinter = await browserPrint.getAvailablePrinters();
+    // Set the printer
+    browserPrint.setPrinter(defaultPrinter[0]);
+
+    // Check printer status
+    const printerStatus = await browserPrint.checkPrinterStatus();
+    // Check if the printer is ready
+    if (printerStatus.isReadyToPrint) {
+      // ZPL script to print a simple barcode
+
+      const zpl = `
+      ^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+      ^XA
+      ^MMT
+      ^PW456
+      ^LL0650
+      ^LS0
+      ^FT0,114^A0N,47,52^FH\^FD`+cid+`^FS
+      ^FT0,140^A0N,22,21^FH\^FD`+o+`^FS
+      ^FT0,337^BQN,2,6
+      ^FH\^FDLA,`+a+`^FS
+      ^PQ1,0,1,Y^XZ
+      
+        `;
+
+      browserPrint.print(zpl);
+    } else {
+      // console.log("Error/s", printerStatus.errors);
+      console.log(printerStatus.errors, "error");
+      if (printerStatus.errors !== "Unknown Error") {
+        // errorFunction(printerStatus.errors);
+      } else {
+        // errorFunction("Please connect the printer or check the cable.");
+      }
+    }
+  } catch (error) {
+    // errorFunction("Please connect the printer or check the cable.");
+  }
+};
 @Component({
   selector: 'app-acssecond',
   templateUrl: './acssecond.component.html',
@@ -187,21 +232,21 @@ hurology=[{i:'Operativni uzorak'},{i:'Iglena biopsija'},{i:'Endoskopska biopsija
 hgynecology=[{i:'Operativni uzorak'}];
 hhac=[{i:'Operativni uzorak'},{i:'Endoskopska biopsija'}];
 
-cskin=[{i:'razmaz'}, {i:'citoblok'}];
-clungs=[{i:'razmaz'},{i:'citoblok'}];
-cheart=[{i:'razmaz'}, {i:'citoblok'}];
-cneuropathology=[{i:'razmaz'}, {i:'citoblok'}];
+cskin=[{i:'smear'}, {i:'cytoblock'}];
+clungs=[{i:'smear'},{i:'cytoblock'}];
+cheart=[{i:'smear'}, {i:'cytoblock'}];
+cneuropathology=[{i:'smear'}, {i:'cytoblock'}];
 cperi=[];
-cbbs=[{i:'razmaz'},{i:'citoblok'}];
-chematology=[{i:'razmaz'},{i:'citoblok'}];
-cliver=[{i:'razmaz'},{i:'citoblok'}];
-cgit=[{i:'razmaz'},{i:'citoblok'}];
-cendocrine=[{i:'razmaz'}, {i:'citoblok'}];
-cbreast=[{i:'razmaz'},{i:'citoblok'}];
+cbbs=[{i:'smear'},{i:'cytoblock'}];
+chematology=[{i:'smear'},{i:'cytoblock'}];
+cliver=[{i:'smear'},{i:'cytoblock'}];
+cgit=[{i:'smear'},{i:'cytoblock'}];
+cendocrine=[{i:'smear'}, {i:'cytoblock'}];
+cbreast=[{i:'smear'},{i:'cytoblock'}];
 cnephro=[{i:'Iglena biopsija'}];
-curology=[{i:'razmaz'},{i:'citoblok'}];
-cgynecology=[{i:'razmaz'}, {i:'citoblok'}];
-chac=[{i:'razmaz'},{i:'citoblok'}];
+curology=[{i:'smear'},{i:'cytoblock'}];
+cgynecology=[{i:'smear'}, {i:'cytoblock'}];
+chac=[{i:'smear'},{i:'cytoblock'}];
 f1:number;
 s2:string;
 brTipa:string;
@@ -266,7 +311,7 @@ let s=0;
 print(b){
   if(b.acs!='External block' && b.acs!='External slide'){
   let s="[spspIPMF"+b.caseid+", "+b.slovo+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
-
+  printBarcode(this.caseid,b.slovo ,s);
   this.UserService.updateSampleCode(this.caseid,b.slovo,s).subscribe((resp)=>{
 
     if(resp['message']=='user')
@@ -285,6 +330,7 @@ print(b){
       let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" HE"+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
       let o=b.slovo+"ES"+(this.nizQr.length+1)+" HE";
+      printBarcode(this.caseid,o ,s);
       this.nizOznaka.push(o)
       n+=1;
       brhe--;
@@ -299,6 +345,7 @@ print(b){
         let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+this.ss[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
       let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+this.ss[index];
+      printBarcode(this.caseid,o ,s);
       this.nizOznaka.push(o)
       k+=1;
       br1--;
@@ -313,6 +360,7 @@ print(b){
         let s="[spspIPMF"+b.caseid+", "+b.slovo+"ES"+(this.nizQr.length+1)+" "+this.ihc[index]+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
       this.nizQr.push(s);
       let o=b.slovo+"ES"+(this.nizQr.length+1)+" "+this.ihc[index];
+      printBarcode(this.caseid,o ,s);
       this.nizOznaka.push(o)
       k+=1;
       br1--;
@@ -342,6 +390,7 @@ print(b){
           this.nizQr.push(s);
           let o=b.slovo+"EB"+(this.nizQr.length+1)+" HE";
           this.nizOznaka.push(o)
+          printBarcode(this.caseid,o ,s);
           n+=1;
           brhe--;
         }
@@ -354,6 +403,7 @@ print(b){
           this.nizQr.push(s);
           let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+this.ss[index];
           this.nizOznaka.push(o)
+          printBarcode(this.caseid,o ,s);
           k+=1;
           br1--;
           }
@@ -368,6 +418,7 @@ print(b){
           this.nizQr.push(s);
           let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+this.ihc[index];
           this.nizOznaka.push(o)
+          printBarcode(this.caseid,o ,s);
           k+=1;
           br1--;
           }
