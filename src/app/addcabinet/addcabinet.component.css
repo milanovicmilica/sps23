@@ -239,7 +239,8 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
 
   }
   .lab1{
-    height: 10%;
+    height: 15%;
+    margin-bottom: 3%;
   }
   .d1:focus{
     background-color: #222966;
@@ -259,6 +260,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
     border-color: transparent;
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     padding: 5px;
+    width: 60%;
   }
   .poljazaUnos2{
     
