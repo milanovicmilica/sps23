@@ -789,7 +789,7 @@ app.post('/addcabinet/guest/addCabinet', (req, res) => {
      res.send({ message: 'zauzeto' });
     }else{
     let newP = new Cabinet({
-        name : req.body.name, rows: req.body.rows,   typesofrow: req.body.typesofrow, qr:req.body.qr})
+        name : req.body.name, rows: req.body.rows,   typesofrow: req.body.typesofrow, Qr:req.body.qr})
             newP.save().then((us2) => {
                 
                 res.send({ message: 'user' });
