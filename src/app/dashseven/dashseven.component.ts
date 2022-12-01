@@ -10,6 +10,52 @@ import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
 import { Embedding } from '../models/embedding';
 import { Sectioning } from '../models/sectioning';
+import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+const printBarcode = async (cid,ln,ns,st,a) => {
+  try {
+    // Create a new instance of the object
+    const browserPrint = new ZebraBrowserPrintWrapper();
+    // Select default printer
+    const defaultPrinter = await browserPrint.getAvailablePrinters();
+    // Set the printer
+    browserPrint.setPrinter(defaultPrinter[0]);
+
+    // Check printer status
+    const printerStatus = await browserPrint.checkPrinterStatus();
+    // Check if the printer is ready
+    if (printerStatus.isReadyToPrint) {
+      // ZPL script to print a simple barcode
+
+      const zpl = `
+      ^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+      ^XA
+      ^MMT
+      ^PW456
+      ^LL0650
+      ^LS0
+      ^FT0,114^A0N,47,52^FH\^FD`+cid+`^FS
+      ^FT0,140^A0N,22,21^FH\^FD`+ln+`.`+ns+` `+st+`^FS
+      ^FT0,337^BQN,2,6
+      ^FH\^FDLA,`+a+`^FS
+      ^PQ1,0,1,Y^XZ
+      
+        `;
+
+      browserPrint.print(zpl);
+    } else {
+      // console.log("Error/s", printerStatus.errors);
+      console.log(printerStatus.errors, "error");
+      if (printerStatus.errors !== "Unknown Error") {
+        // errorFunction(printerStatus.errors);
+      } else {
+        // errorFunction("Please connect the printer or check the cable.");
+      }
+    }
+  } catch (error) {
+    // errorFunction("Please connect the printer or check the cable.");
+  }
+};
+
 @Component({
   selector: 'app-dashseven',
   templateUrl: './dashseven.component.html',
@@ -367,12 +413,12 @@ print(i,podslovo,bb1,bb2)
   let mesec=new Date().getMonth()+1;
   let godina=new Date().getFullYear();
    
-  let flag=0;
+  let flag=0;let a;
   for (let index = 0; index < this.allSectionings.length; index++) {
     if(this.allSectionings[index].cassette==this.cassette)
     {
       this.allSectionings[index].nizprint[i]++;
-      let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
+       a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
       let oznaka=podslovo+"."+bb1+"."+ " "+bb2;
       this.allSectionings[index].nizOznaka[i]=oznaka;
       this.allSectionings[index].nizQr[i]=a;
@@ -390,11 +436,12 @@ print(i,podslovo,bb1,bb2)
       
     }
     this.nizprint[i]++;
-    let a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
+     a="[spspIPMF"+this.caseid+", "+podslovo+"."+bb1+"."+" "+bb2+"-"+this.firstname+" "+this.lastname+"]"
     this.nizQr[i]=a;
     let oznaka=podslovo+"."+bb1+"."+ " "+bb2;
     this.nizOznaka[i]=oznaka;
   }
+  printBarcode(this.caseid,podslovo,bb1,bb2 ,a);
   this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint, this.nizOznaka).subscribe((resp)=>{
     
     if(resp['message']=='user')
