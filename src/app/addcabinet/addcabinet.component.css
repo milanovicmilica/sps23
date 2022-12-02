@@ -219,7 +219,8 @@ color: white;
 padding: 10px;
 height: 100%;
 box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
-
+border-radius: 5px;
+margin-right: 1%;
   }
   .l1:hover{
     background-color: #222966;
@@ -237,7 +238,7 @@ color: white;
 padding: 10px;
 height: 100%;
 box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
-
+border-radius: 5px;
   }
   .lab1{
     height: 35%;
