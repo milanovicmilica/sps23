@@ -221,7 +221,7 @@ height: 100%;
 box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
 
   }
-  .l1:focus{
+  .l1:hover{
     background-color: #222966;
     color: #FFFFFF;
     border-color: transparent;
@@ -244,7 +244,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.271);
     margin-bottom: 3%;
     margin-top: 3%;
   }
-  .d1:focus{
+  .d1:hover{
     background-color: #222966;
     color: #FFFFFF;
     border-color: transparent;
