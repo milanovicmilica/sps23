@@ -62,7 +62,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </div>
                 <div class="rrside">
                 <div *ngFor="let a of typesofrow;let i=index" class="rrside2">
-                    <mat-button-toggle-group name="g{{i}}" id="g{{i}}">
+                    <mat-button-toggle-group name="g{{i}}" id="{{'g'+i}}">
                        <mat-button-toggle  value="CASSETTE"  (click)="cas(i)" class="l1">
                         CASSETTE
                     </mat-button-toggle>

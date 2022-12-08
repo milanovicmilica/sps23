@@ -208,7 +208,7 @@ width: 62%;
   .rrside{
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 80%;
   }
   .rrside2{
     display: flex;
