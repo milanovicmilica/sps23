@@ -63,10 +63,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <div class="rrside">
                 <div *ngFor="let a of typesofrow;let i=index" class="rrside2">
                     <mat-button-toggle-group #toggleGroup1="matButtonToggleGroup" >
-                       <mat-button-toggle  value="CASSETTE"  (click)="cas(i)">
+                       <mat-button-toggle  value="CASSETTE"  (click)="cas(i)" class="l1">
                         CASSETTE
                     </mat-button-toggle>
-                  <mat-button-toggle  value="SLIDE"  (click)="sl(i)">
+                  <mat-button-toggle  value="SLIDE"  (click)="sl(i)" class="l1">
                     SLIDE
                      </mat-button-toggle>
                     </mat-button-toggle-group>

@@ -42,8 +42,9 @@ export class AddprocessorComponent implements OnInit {
     {
       this.message3="";
     }
-
-    if(this.num==null)
+ 
+    
+    if(this.num==null || this.num<1)
     {
       this.message4="Required*";
     }
@@ -52,7 +53,7 @@ export class AddprocessorComponent implements OnInit {
       this.message4="";
     }
 
-    if(this.name!=null && this.num!=null && this.name!="")
+    if(this.name!=null && this.num!=null && this.name!="" && this.num>0)
     {
       this.message="";
 
