@@ -62,14 +62,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </div>
                 <div class="rrside">
                 <div *ngFor="let a of typesofrow;let i=index" class="rrside2">
-                    <mat-button-toggle-group name="g{{i}}" id="{{'g'+i}}">
-                       <mat-button-toggle  value="CASSETTE"  (click)="cas(i)" class="l1">
-                        CASSETTE
-                    </mat-button-toggle>
-                  <mat-button-toggle  value="SLIDE"  (click)="sl(i)" class="d1">
-                    SLIDE
-                     </mat-button-toggle>
-                    </mat-button-toggle-group>
+                    <button class="l1" (click)="cas(i)" *ngIf="cs[i]==0 ">CASSETTE</button>
+                    <button class="l2" (click)="cas(i)" *ngIf="cs[i]==1">CASSETTE</button>
+                    <button class="d1" (click)="sl(i)" *ngIf="ss[i]==0">SLIDE</button>
+                    <button class="d2" (click)="sl(i)" *ngIf="ss[i]==1">SLIDE</button>
                    
                 </div>
                 </div>

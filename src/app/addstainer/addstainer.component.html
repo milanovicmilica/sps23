@@ -55,7 +55,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
          
         
             <button class="signupDugme" (click)='addStainer()' >ADD STAINER</button>
-            <span class='error'>{{message}}</span>
+            <span class='error' *ngIf="message!='Stainer added'">{{message}}</span>
+            <span class='error2' *ngIf="message=='Stainer added'">{{message}}</span>
         </div>
        
 

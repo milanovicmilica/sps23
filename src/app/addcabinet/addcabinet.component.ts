@@ -70,18 +70,27 @@ export class AddcabinetComponent implements OnInit {
   addadmin(){
     this.router.navigate(['/dashfirst']);
   }
+  cs:number[]=[];
+  ss:number[]=[];
   brch(){
     this.typesofrow=[]
     for(let i=0; i<this.rows;i++)
     {
       this.typesofrow.push(0);
+      this.cs.push(0);
+      this.ss.push(0);
     }
 
   }
+  
   cas(i){
+    this.cs[i]=1;
+    this.ss[i]=0;
     this.typesofrow[i]=0
   }
   sl(i){
+    this.cs[i]=0;
+    this.ss[i]=1;
     this.typesofrow[i]=1;
   }
 }
