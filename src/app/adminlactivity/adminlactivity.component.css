@@ -20,6 +20,7 @@ width: 100%;
 .m1{
     display: flex;
     flex-direction:column ;
+    width: 100%;
 }
 a{
     color: white;
@@ -284,7 +285,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     align-items: center;
     align-content: center;
     height: 55%;
-    margin-top: 5%;
+    margin-top: 3%;
     
 }
 .title1{
