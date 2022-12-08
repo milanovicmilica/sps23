@@ -283,7 +283,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     text-align: center;
     align-items: center;
     align-content: center;
-    height: 50%;
+    height: 55%;
     margin-top: 5%;
     
 }
@@ -304,7 +304,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     color:#121637;
     letter-spacing: 4px;
     text-align: center;
-  
+  margin-top: 1%;
    
 }
 .content1{
@@ -357,7 +357,7 @@ text-align: left;
 .d1p{
     display: flex;
     flex-direction: row;
-    height: 70%;
+    height: 80%;
     width: 100%;
 }
 .ddiv{
