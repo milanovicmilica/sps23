@@ -73,7 +73,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             </div>
                 <span class='error'>{{message2}}</span>
             <button class="signupDugme" (click)='addUser()' >ADD USER</button>
-            <span class='error'>{{message}}</span>
+            <span class='error' *ngIf="message!='User added'">{{message}}</span>
+            <span class='error2' *ngIf="message=='User added'">{{message}}</span>
         </div>
     </div>
     <div class="spt"></div>

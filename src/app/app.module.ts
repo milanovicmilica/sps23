@@ -54,6 +54,7 @@ import { AdminlactivityComponent } from './adminlactivity/adminlactivity.compone
 import { LoginarchiveComponent } from './loginarchive/loginarchive.component';
 import { ArchivedashComponent } from './archivedash/archivedash.component';
 import { AddcabinetComponent } from './addcabinet/addcabinet.component';
+import { MatButtonToggleModule } from "@angular/material/button-toggle";
 @NgModule({
   declarations: [
     AppComponent,
@@ -114,7 +115,8 @@ import { AddcabinetComponent } from './addcabinet/addcabinet.component';
     FormsModule,
     ReactiveFormsModule,
     ZXingScannerModule,
-    QRCodeModule
+    QRCodeModule,
+    MatButtonToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

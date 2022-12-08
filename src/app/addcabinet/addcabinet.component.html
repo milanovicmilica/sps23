@@ -62,8 +62,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 </div>
                 <div class="rrside">
                 <div *ngFor="let a of typesofrow;let i=index" class="rrside2">
-                    <button class="l1" (click)="cas(i)">CASSETTE</button>
-                    <button class="d1" (click)="sl(i)">SLIDE</button>
+                    <mat-button-toggle-group #toggleGroup1="matButtonToggleGroup">
+                       <mat-button-toggle class="l1" value="CASSETTE"  (click)="cas(i)">
+                        CASSETTE
+                    </mat-button-toggle>
+                  <mat-button-toggle class="l1" value="SLIDE"  (click)="sl(i)">
+                    SLIDE
+                     </mat-button-toggle>
+                    </mat-button-toggle-group>
+                   
                 </div>
                 </div>
             </div>
@@ -71,7 +78,8 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
         </div>
        <div>
         <button class="signupDugme" (click)='addCabinet()' >ADD CABINET</button>
-        <span class='error'>{{message}}</span>
+        <span class='error2' *ngIf="message=='Cabinet added'">{{message}}</span>
+        <span class='error' *ngIf="message!='Cabinet added'">{{message}}</span>
        </div>
 
     </div>

@@ -64,6 +64,7 @@ export class DashboardfirstComponent implements OnInit {
   }
   addUser(){
     this.message="";
+    let fl=0;
    if(this.username==null || this.username=="") this.message0="Required*";
    else this.message0="";
    if(this.password==null || this.password=="") this.message1="Required*";
@@ -72,6 +73,11 @@ export class DashboardfirstComponent implements OnInit {
    else this.message3="";
    if(this.lastname==null || this.lastname=="") this.message4="Required*";
    else this.message4="";
+   if (this.password.length<6)
+   {
+    fl=1;
+    this.message1="Passwords should have a minimum of 7 characters*"
+   }
     for (let index = 0; index < this.k.length; index++) {
       if(this.k[index].sel==true)
       {
@@ -83,7 +89,7 @@ export class DashboardfirstComponent implements OnInit {
       }else this.message2="";
     }
     if(this.username!=null && this.password!=null && this.brTipa!=null && this.firstname!=null && this.lastname!=null 
-      && this.username!="" && this.password!="" && this.firstname!="" && this.lastname!=""){
+      && this.username!="" && this.password!="" && this.firstname!="" && this.lastname!="" && fl==0){
 
     this.UserService.addUser(this.username,this.password,this.brTipa, this.firstname,this.lastname).subscribe((resp)=>{
 

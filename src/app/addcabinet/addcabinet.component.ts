@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Processor } from '../models/processors';
 import { Protocol } from '../models/protocol';
 import { UserService } from '../user.service';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 @Component({
   selector: 'app-addcabinet',
   templateUrl: './addcabinet.component.html',
