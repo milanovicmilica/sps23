@@ -106,6 +106,14 @@ font-weight: bolder;
 font-style: italic;
 
 }
+.error2{
+    font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif;
+color:green;
+font-weight: bolder;
+font-style: italic;
+
+}
 .dugme2{
     border-color: rgba(255, 127, 80, 0.877);
     background-color: rgb(255, 255, 255);
