@@ -179,10 +179,26 @@ message:string;
    
     if(event.key=="]")
   {
-    
+    let n1=0;
+        if( /[A-Z][0-9].[0-9]./.test(this.word)==true )
+        {
+          n1=1;
+        }
+        if(n1==1)
+        {
+          this.message="Only cassettes are allowed!"
+        }
+        else{
+          this.message=""
+        }
    console.log(this.word)
+   if(n1==0){
     this.cassette=this.word
-    this.word=""
+    this.word=""}
+    else{
+      this.word=""
+      this.cassette=""
+    }
   }
   else{
     this.word+=event.key;
