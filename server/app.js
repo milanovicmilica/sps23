@@ -964,6 +964,7 @@ app.post('/dashfour/guest/endprocess', (req, res) => {
                 Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'status': s}});
                 Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endhours': req.body.endhours}});
                 Process.collection.updateOne({'bascet': req.body.bascet }, {    $set: {'endminutes': req.body.endminutes}});
+                Bascet.collection.updateOne({'name': req.body.bascet }, {    $set: {'free': 1}});
             res.send({ message: 'user' });
         }
 

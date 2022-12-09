@@ -46,10 +46,7 @@ export class ProcessingComponent implements OnInit {
           this.allBascets=data;
           this.addf=0;
         this.redSelect=0;})
-       // this.cassettearray.push("");
-        //this.casette.push("");
-       // this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
-  
+      
       })
     
     })
@@ -183,6 +180,7 @@ word:string;
         
       }
   }
+  z1:number;
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
     if(this.bascet==null)
@@ -201,6 +199,7 @@ word:string;
      
     if (event.key == ']') {
       let flag=0;
+
      for (let index = 0; index < this.cassettearray.length; index++) {
       if(this.cassettearray[index]==this.word)
       {
@@ -208,25 +207,10 @@ word:string;
       }}
       if(flag==0){
         this.word+="]"
+        
        if(this.addf==0)
         this.cassettearray.push(this.word)
-        /*for (let index = 0; index < this.cassettearray.length; index++) {
-          for (let index2 = 0; index2 < this.cassettearray.length; index2++) {
-        if(this.cassettearray[index].search(this.cassettearray[index2])!=-1 && index!=index2)
-        {
-          let x=this.cassettearray[index2]
-          let y=""
-          console.log('ima')
-         for (let index3 = 0; index3 < this.cassettearray[index].length; index3++) {
-          
-          if(index3>=x.length)
-          {y=y+this.cassettearray[index].charAt(index3)}
 
-         }
-         this.cassettearray[index]=y;
-         console.log(y)
-
-        }*/
          
         this.word="";
       }
