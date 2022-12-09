@@ -957,13 +957,13 @@ app.post('/dashfour/guest/endprocess', (req, res) => {
 
         }else{
             let s=1;
-            Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'lab': req.body.lab}});
-            Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endday': req.body.endday}});
-            Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endmonth': req.body.endmonth}});
-            Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endyear': req.body.endyear}});
-                Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'status': s}});
-                Process.collection.updateOne({'bascet': req.body.bascet }, {  $set: {'endhours': req.body.endhours}});
-                Process.collection.updateOne({'bascet': req.body.bascet }, {    $set: {'endminutes': req.body.endminutes}});
+            Process.collection.updateOne({'casette': req.body.casette }, {  $set: {'lab': req.body.lab}});
+            Process.collection.updateOne({'casette': req.body.casette }, {  $set: {'endday': req.body.endday}});
+            Process.collection.updateOne({'casette': req.body.casette }, {  $set: {'endmonth': req.body.endmonth}});
+            Process.collection.updateOne({'casette': req.body.casette }, {  $set: {'endyear': req.body.endyear}});
+                Process.collection.updateOne({'casette': req.body.casette }, {  $set: {'status': s}});
+                Process.collection.updateOne({'casette': req.body.casette }, {  $set: {'endhours': req.body.endhours}});
+                Process.collection.updateOne({'casette': req.body.casette }, {    $set: {'endminutes': req.body.endminutes}});
                 Bascet.collection.updateOne({'name': req.body.bascet }, {    $set: {'free': 1}});
             res.send({ message: 'user' });
         }

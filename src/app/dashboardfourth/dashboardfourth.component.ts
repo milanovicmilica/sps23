@@ -82,35 +82,35 @@ export class DashboardfourthComponent implements OnInit {
     {
       if (godina>a.posyear)
       {
-        this.done(a.bascet,sati,minuti,a.processor)
+        this.done(a.bascet,sati,minuti,a.processor,a.casette)
       }
       else{
         if(mesec>=a.posmonth)
         {
           if(mesec> a.posmonth)
           {
-            this.done(a.bascet,sati,minuti,a.processor)
+            this.done(a.bascet,sati,minuti,a.processor,a.casette)
           }
           else{
           if( dan>=a.posday)
           {
             if(dan>a.posday)
             {
-              this.done(a.bascet,sati,minuti,a.processor)
+              this.done(a.bascet,sati,minuti,a.processor,a.casette)
             }
             else{
               if (sati>=a.poshours)
               {
                 if(sati>a.poshours)
                 {
-                  this.done(a.bascet,sati,minuti,a.processor)
+                  this.done(a.bascet,sati,minuti,a.processor,a.casette)
                 }
                 else{
                   if(minuti>=a.posminutes)
                   {
                     if(minuti>a.posminutes)
                     {
-                      this.done(a.bascet,sati,minuti,a.processor)
+                      this.done(a.bascet,sati,minuti,a.processor,a.casette)
                     }
                     else{
                       this.popup=1;}
@@ -138,15 +138,16 @@ export class DashboardfourthComponent implements OnInit {
 
   }
   popup:number;
-  done(bascet, sati,minuti,processor)
+  done(bascet, sati,minuti,processor,casette)
   {
     let dan=new Date().getDate();
     let mesec=new Date().getMonth()+1;
     let godina=new Date().getFullYear();
-    this.UserService.endProcess(bascet,sati,minuti, dan, mesec, godina,this.me.username).subscribe((resp)=>{
+    this.UserService.endProcess(bascet,sati,minuti, dan, mesec, godina,this.me.username,casette).subscribe((resp)=>{
     
       if(resp['message']=='user')
-      { this.UserService.updateProcessor(processor).subscribe((resp)=>{
+      { 
+        this.UserService.updateProcessor(processor).subscribe((resp)=>{
         if(resp['message']=='user'){
           this.unfProcess=[];
           this.UserService.getAllProcess().subscribe((data: Process[])=>{

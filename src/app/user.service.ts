@@ -358,7 +358,7 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addDcqr', data)
   }
-  endProcess(bascet, endhours,endminutes, endday,endmonth,endyear,lab)
+  endProcess(bascet, endhours,endminutes, endday,endmonth,endyear,lab,casette)
   {
     const data={
       
@@ -370,7 +370,8 @@ export class UserService {
       lab:lab,
       endday:endday,
       endmonth:endmonth,
-      endyear:endyear
+      endyear:endyear,
+      casette:casette
     }
 
     return this.http.post('https://sps23.herokuapp.com/dashfour/guest/endprocess', data)
