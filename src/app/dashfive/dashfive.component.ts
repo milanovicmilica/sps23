@@ -71,10 +71,10 @@ export class DashfiveComponent implements OnInit {
       }
       if(n1==1)
       {
-        this.message="Only cassettes are allowed!"
+        this.message1="Only cassettes are allowed!"
       }
       else{
-        this.message=""
+        this.message1=""
       }
       if(n1==0){
       this.g=0;
