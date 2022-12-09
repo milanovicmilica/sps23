@@ -65,7 +65,7 @@ export class DashfiveComponent implements OnInit {
     }
     else{
       let n1=0;
-      if( /[A-Z][0-9].[0-9]./.test(this.word)==true )
+      if( /[A-Z][0-9].[0-9]./.test(this.cassette)==true )
       {
         n1=1;
       }
