@@ -119,6 +119,19 @@ export class DashsevenComponent implements OnInit {
     this.nizQr=[]
     this.nizprint=[]
     let flagDone=0
+    let n1=0;
+    if( /[A-Z][0-9].[0-9]./.test(this.cassette)==true )
+    {
+      n1=1;
+    }
+    if(n1==1)
+    {
+      this.message1="Only cassettes are allowed!"
+    }
+    else{
+      this.message1=""
+    }
+    if(n1==0){
     for (let index = 0; index < this.allSectionings.length; index++) {
       if(this.allSectionings[index].cassette==this.cassette)
       {
@@ -261,7 +274,7 @@ export class DashsevenComponent implements OnInit {
           
         }
       }
-
+    }
       }}
   }
 
