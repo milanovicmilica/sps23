@@ -64,6 +64,19 @@ export class DashfiveComponent implements OnInit {
       this.g=1;this.flag1=0;
     }
     else{
+      let n1=0;
+      if( /[A-Z][0-9].[0-9]./.test(this.word)==true )
+      {
+        n1=1;
+      }
+      if(n1==1)
+      {
+        this.message="Only cassettes are allowed!"
+      }
+      else{
+        this.message=""
+      }
+      if(n1==0){
       this.g=0;
       let done=0;
       for (let index = 0; index < this.allEmb.length; index++) {
@@ -127,7 +140,7 @@ export class DashfiveComponent implements OnInit {
         this.message1="Not found";
         this.flag1=0
       }
-      }}
+      }}}
   }
 message:string;
   confirm(){
@@ -179,26 +192,12 @@ message:string;
    
     if(event.key=="]")
   {
-    let n1=0;
-        if( /[A-Z][0-9].[0-9]./.test(this.word)==true )
-        {
-          n1=1;
-        }
-        if(n1==1)
-        {
-          this.message="Only cassettes are allowed!"
-        }
-        else{
-          this.message=""
-        }
+  
    console.log(this.word)
-   if(n1==0){
+  
     this.cassette=this.word
-    this.word=""}
-    else{
-      this.word=""
-      this.cassette=""
-    }
+    this.word=""
+ 
   }
   else{
     this.word+=event.key;
