@@ -285,7 +285,7 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     align-items: center;
     align-content: center;
     height: 55%;
-    margin-top: 3%;
+    margin-top: 2%;
     
 }
 .title1{
@@ -305,13 +305,13 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     color:#121637;
     letter-spacing: 4px;
     text-align: center;
-  margin-top: 1%;
+  margin-top: 2%;
    
 }
 .content1{
     width: 100%;
-    height: 70%;
-    margin-top: 3%;
+    height: 74%;
+    margin-top: 2%;
     display: flex;
     flex-direction: row;
 }
@@ -322,8 +322,8 @@ box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
     flex-direction: column;
 }
 .contdiv{
-    width: 90%;
-    margin-left: 10%;
+    width: 95%;
+    margin-left: 5%;
     height: 100%;
     display: flex;
     flex-direction: column;
