@@ -11,6 +11,7 @@ import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
 import { isThisTypeNode } from 'typescript';
 import { Bascet } from '../models/bascet';
+
 @Component({
   selector: 'app-processing',
   templateUrl: './processing.component.html',
@@ -168,6 +169,7 @@ export class ProcessingComponent implements OnInit {
   }
   processor:string;
 word:string;
+message:string;
   getProtocols(processor){
 
       this.trenProtocols=[];
@@ -207,8 +209,19 @@ word:string;
       }}
       if(flag==0){
         this.word+="]"
-        
-       if(this.addf==0)
+        let n1=0;
+        if( /[A-Z][0-9].[0-9]./.test(this.word)==true )
+        {
+          n1=1;
+        }
+        if(n1==1)
+        {
+          this.message="Only cassettes are allowed!"
+        }
+        else{
+          this.message=""
+        }
+       if(this.addf==0 && n1==0)
         this.cassettearray.push(this.word)
 
          
