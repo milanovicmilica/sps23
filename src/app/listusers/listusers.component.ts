@@ -45,8 +45,8 @@ for (let index = 0; index < this.allUsers.length; index++) {
   }
   allPaths:User[]=[];
 allAdmins:User[]=[];
-  allUsers:User[];
-  allLabs:User[];
+  allUsers:User[]=[];
+  allLabs:User[]=[];
   allAdministrative:User[]=[];
   allSpec:User[]=[];
   logout(){
