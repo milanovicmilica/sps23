@@ -69,4 +69,7 @@ allAdmins:User[]=[];
   {
     this.router.navigate(['/listusers']);
   }
+  gotolp(){
+    this.router.navigate(['/listprocessor']);
+  }
 }

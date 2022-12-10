@@ -228,7 +228,7 @@ app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols', (req,
     });
 })
 app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors'
-|| '/dashfourproc/guest/getallprocessors', (req, res) => {
+|| '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', (req, res) => {
     
     Processor.find({
        

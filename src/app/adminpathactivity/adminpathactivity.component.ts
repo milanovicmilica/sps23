@@ -222,6 +222,9 @@ export class AdminpathactivityComponent implements OnInit {
       
     }
   }
+  gotolp(){
+    this.router.navigate(['/listprocessor']);
+  }
   gotolaact(){
     this.router.navigate(['/adlabactivity']);
   }

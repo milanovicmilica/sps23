@@ -121,6 +121,9 @@ export class AdminadsactivityComponent implements OnInit {
 
      })
   }
+  gotolp(){
+    this.router.navigate(['/listprocessor']);
+  }
   gotolaact(){
     this.router.navigate(['/adlabactivity']);
   }

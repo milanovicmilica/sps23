@@ -730,6 +730,9 @@ curryear:number;
   {
     this.router.navigate(['/listusers']);
   }
+  gotolp(){
+    this.router.navigate(['/listprocessor']);
+  }
   ch(){
     if(this.period=='Year')
     {
