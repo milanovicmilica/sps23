@@ -55,6 +55,7 @@ import { LoginarchiveComponent } from './loginarchive/loginarchive.component';
 import { ArchivedashComponent } from './archivedash/archivedash.component';
 import { AddcabinetComponent } from './addcabinet/addcabinet.component';
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
+import { ListusersComponent } from './listusers/listusers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,6 +107,7 @@ import { MatButtonToggleModule } from "@angular/material/button-toggle";
     LoginarchiveComponent,
     ArchivedashComponent,
     AddcabinetComponent,
+    ListusersComponent,
 
   ],
   imports: [

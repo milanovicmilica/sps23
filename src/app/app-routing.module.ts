@@ -24,6 +24,7 @@ import { DashfiveComponent } from './dashfive/dashfive.component';
 import { DashsevenComponent } from './dashseven/dashseven.component';
 import { DashsixComponent } from './dashsix/dashsix.component';
 import { GrossnextComponent } from './grossnext/grossnext.component';
+import { ListusersComponent } from './listusers/listusers.component';
 import { LoginaccessioningComponent } from './loginaccessioning/loginaccessioning.component';
 import { LoginarchiveComponent } from './loginarchive/loginarchive.component';
 import { LogincoverComponent } from './logincover/logincover.component';
@@ -97,6 +98,7 @@ const routes: Routes = [
 { path: 'login-archive', component:LoginarchiveComponent},
 { path: 'archivedash', component:ArchivedashComponent},
 { path: 'addcabinet', component:AddcabinetComponent},
+{ path: 'listusers', component:ListusersComponent},
 ]  ;
 
 @NgModule({
