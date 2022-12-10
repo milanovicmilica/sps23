@@ -578,6 +578,10 @@ export class AdminlabactivityComponent implements OnInit {
         }
       }
   }
+  gotolistusers()
+  {
+    this.router.navigate(['/listusers']);
+  }
   gotolaact(){
     this.router.navigate(['/adlabactivity']);
   }

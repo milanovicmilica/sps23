@@ -231,6 +231,10 @@ export class AdminpathactivityComponent implements OnInit {
   gotolabactivity(){
     this.router.navigate(['/labactivity']);
   }
+  gotolistusers()
+  {
+    this.router.navigate(['/listusers']);
+  }
   //reseting values when changing periods
   ch(){
     if(this.period=='Year')

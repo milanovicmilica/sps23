@@ -130,6 +130,10 @@ export class AdminadsactivityComponent implements OnInit {
   gotopathactivity(){
     this.router.navigate(['/pathactivity']);
   }
+  gotolistusers()
+  {
+    this.router.navigate(['/listusers']);
+  }
   ch(){
     if(this.period=='Year')
     {

@@ -49,6 +49,10 @@ allAdmins:User[]=[];
   allLabs:User[];
   allAdministrative:User[]=[];
   allSpec:User[]=[];
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
   gotolaact(){
     this.router.navigate(['/labactivity']);
   }

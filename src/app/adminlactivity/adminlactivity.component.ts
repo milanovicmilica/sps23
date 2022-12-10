@@ -726,6 +726,10 @@ curryear:number;
   gotolabactivity(){
     this.router.navigate(['/labactivity']);
   }
+  gotolistusers()
+  {
+    this.router.navigate(['/listusers']);
+  }
   ch(){
     if(this.period=='Year')
     {
