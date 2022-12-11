@@ -17,4 +17,5 @@ export class Sample{
     niz2:number[];
     nizOznaka:string[];
     nizQr:string[];
+    print:number;
 }

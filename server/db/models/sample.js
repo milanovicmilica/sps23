@@ -74,6 +74,10 @@ const SampleSchema = new mongoose.Schema({
         type: [String]
        
     },
+    print: {
+        type: Number,
+        
+    },
 });
 
 

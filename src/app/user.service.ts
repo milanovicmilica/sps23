@@ -152,7 +152,7 @@ export class UserService {
     
       return this.http.post('https://sps23.herokuapp.com/addcabinet/guest/addCabinet', data)
     }
-  addSample(caseid,sample,s2,brTipa,num,id,slovo, spec, ihc){
+  addSample(caseid,sample,s2,brTipa,num,id,slovo, spec, ihc,print){
 
 
     const data={
@@ -165,7 +165,8 @@ export class UserService {
       id:id,
       slovo:slovo,
       spec:spec,
-      ihc:ihc
+      ihc:ihc,
+      print:print
     }
 
     return this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSample', data)
@@ -574,13 +575,14 @@ export class UserService {
 
     return this.http.post('https://sps23.herokuapp.com/dashseven/guest/updateSectioning', data)
   }
-  updateSampleCode(caseid,slovo,s){
+  updateSampleCode(caseid,slovo,s,p){
     const data={
       
     
       caseid:caseid,
       slovo:slovo,
-      s:s
+      s:s,
+      p:p
      
     }
 

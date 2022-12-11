@@ -612,7 +612,7 @@ app.post('/acssecond/guest/addSample', (req, res) => {
 
     let newP = new Sample({
         caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
-        id : req.body.id,    slovo: req.body.slovo,  spec:req.body.spec,ihc:req.body.ihc})
+        id : req.body.id,    slovo: req.body.slovo,  spec:req.body.spec,ihc:req.body.ihc , print:req.body.print})
             newP.save().then((us2) => {
                 
                 res.send({ message: 'user' });
@@ -661,6 +661,7 @@ app.post('/acssecond/guest/updateSampleCode', (req, res) => {
         if(user==null){   res.send({ message: 'nema' });}
 
         Sample.collection.updateOne({'caseid' : req.body.caseid, 'slovo':req.body.slovo}, {$set: {'code' : req.body.s}});
+        Sample.collection.updateOne({'caseid' : req.body.caseid, 'slovo':req.body.slovo}, {$set: {'print' : req.body.p}});
         res.send({ message: 'user' });
       
 

@@ -5,6 +5,51 @@ import { Case } from '../models/case';
 import { Hospital } from '../models/hospital';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
+import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+const printBarcode = async (cid,a) => {
+  try {
+    // Create a new instance of the object
+    const browserPrint = new ZebraBrowserPrintWrapper();
+    // Select default printer
+    const defaultPrinter = await browserPrint.getAvailablePrinters();
+    // Set the printer
+    browserPrint.setPrinter(defaultPrinter[0]);
+
+    // Check printer status
+    const printerStatus = await browserPrint.checkPrinterStatus();
+    // Check if the printer is ready
+    if (printerStatus.isReadyToPrint) {
+      // ZPL script to print a simple barcode
+
+      const zpl = `
+      ^XA~TA000~JSN^LT0^MNW^MTT^PON^PMN^LH0,0^JMA^PR4,4~SD15^JUS^LRN^CI0^XZ
+      ^XA
+      ^MMT
+      ^PW456
+      ^LL0650
+      ^LS0
+      ^FT0,114^A0N,47,52^FH\^FD`+cid+`^FS
+      ^FT0,140^A0N,22,21^FH\^FD`+`^FS
+      ^FT0,337^BQN,2,6
+      ^FH\^FDLA,`+a+`^FS
+      ^PQ1,0,1,Y^XZ
+      
+        `;
+
+      browserPrint.print(zpl);
+    } else {
+      // console.log("Error/s", printerStatus.errors);
+      console.log(printerStatus.errors, "error");
+      if (printerStatus.errors !== "Unknown Error") {
+        // errorFunction(printerStatus.errors);
+      } else {
+        // errorFunction("Please connect the printer or check the cable.");
+      }
+    }
+  } catch (error) {
+    // errorFunction("Please connect the printer or check the cable.");
+  }
+};
 @Component({
   selector: 'app-acsfirst',
   templateUrl: './acsfirst.component.html',
@@ -166,6 +211,9 @@ addcase(){
   
       if(resp['message']=='user added')
       {this.message='Case added'; 
+      let s="[spspIPMF"+this.format+"]";
+      printBarcode(this.format ,s);
+
       this.router.navigate(['/acssecond']);}
       else{ 
         if (resp['message']=='zauzeto')

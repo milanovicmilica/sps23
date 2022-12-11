@@ -124,10 +124,11 @@ export class AcssecondComponent implements OnInit {
           let c17=this.allSamples[index].niz2;
           let c18=this.allSamples[index].nizOznaka; 
           let c19=this.allSamples[index].nizQr;
+          let c20=this.allSamples[index].print;
           this.emptycase.pop();
           this.mySamples.push({caseid: this.c1, casetype:this.c2,sampletype:this.c3, acs:this.c4, num:this.c5,
              id:this.c6 ,slovo:this.c7, spec:this.c10,ihc:this.c11, choice:this.c12, firstch:this.c13, exbl:this.c14, code:this.c15 , niz1:c16, 
-            niz2:c17,nizOznaka:c18,nizQr:c19});
+            niz2:c17,nizOznaka:c18,nizQr:c19, print:c20});
         }
         
       }
@@ -312,7 +313,8 @@ print(b){
   if(b.acs!='External block' && b.acs!='External slide'){
   let s="[spspIPMF"+b.caseid+", "+b.slovo+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
   printBarcode(this.caseid,b.slovo ,s);
-  this.UserService.updateSampleCode(this.caseid,b.slovo,s).subscribe((resp)=>{
+  b.print++;
+  this.UserService.updateSampleCode(this.caseid,b.slovo,s,b.print).subscribe((resp)=>{
 
     if(resp['message']=='user')
     {
@@ -390,6 +392,7 @@ print(b){
           this.nizQr.push(s);
           let o=b.slovo+"EB"+(this.nizQr.length+1)+" HE";
           this.nizOznaka.push(o)
+          b.print++;
           printBarcode(this.caseid,o ,s);
           n+=1;
           brhe--;
@@ -403,6 +406,7 @@ print(b){
           this.nizQr.push(s);
           let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+this.ss[index];
           this.nizOznaka.push(o)
+          b.print++;
           printBarcode(this.caseid,o ,s);
           k+=1;
           br1--;
@@ -418,6 +422,7 @@ print(b){
           this.nizQr.push(s);
           let o=b.slovo+"EB"+(this.nizQr.length+1)+" "+this.ihc[index];
           this.nizOznaka.push(o)
+          b.print++;
           printBarcode(this.caseid,o ,s);
           k+=1;
           br1--;
@@ -434,7 +439,7 @@ print(b){
             this.nizOznaka=[];
             let s="[spspIPMF"+b.caseid+", "+b.slovo+"EB"+(b.id+1)+"-"+this.allCases[this.last].firstname+" "+this.allCases[this.last].lastname+"]";
 
-            this.UserService.updateSampleCode(this.caseid,b.slovo,s).subscribe((resp)=>{
+            this.UserService.updateSampleCode(this.caseid,b.slovo,s,b.print).subscribe((resp)=>{
           
               if(resp['message']=='user')
               {
@@ -449,6 +454,7 @@ print(b){
     }
   }
 }
+prints:number;
 addsample(){
 
   if(this.sample==null || this.sample=="")
@@ -470,7 +476,8 @@ addsample(){
     this.s2='BBMST'
     if(this.brTipa=='Iglena biopsija kostene srzi (IBKS)')
     this.brTipa='IBKS'
-  this.UserService.addSample(this.caseid,this.sample,this.s2,this.brTipa,this.num,id,slovo, this.spec, this.ihcsend).subscribe((resp)=>{
+    this.prints=0;
+  this.UserService.addSample(this.caseid,this.sample,this.s2,this.brTipa,this.num,id,slovo, this.spec, this.ihcsend,this.prints).subscribe((resp)=>{
 
     if(resp['message']=='user')
     {this.message='User added'; 
@@ -656,7 +663,37 @@ poc(){
     
     this.print(this.mySamples[index]);
   }
-  this.router.navigate(['/dashsecond']);
+ 
+}
+poc2(){
+  this.UserService.getAllSamples().subscribe((data: Sample[])=>{
+    this.allSamples=data;
+let mys:Sample[]=[];
+
+for (let index = 0; index < this.allSamples.length; index++) {
+  if(this.caseid==this.allSamples[index].caseid)
+  {
+    mys.push(this.allSamples[index])
+
+  }
+  
+}
+
+let nf=0;
+for (let index = 0; index < mys.length; index++) {
+  if(mys[index].print==0)
+  {
+    nf=1
+  }
+  
+}
+
+if(nf==0)
+ { this.router.navigate(['/dashsecond']);}
+else{
+
+}
+})
 }
 cl(){
   this.router.navigate(['/clacs']);

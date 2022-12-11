@@ -21,4 +21,5 @@ export class Case{
     month:number;
     day:number;
     worker:string;
+    
 }

@@ -94,6 +94,10 @@ const CaseSchema = new mongoose.Schema({
         type: String,
         
     },
+    print: {
+        type: [Number],
+        
+    },
 });
 
 
