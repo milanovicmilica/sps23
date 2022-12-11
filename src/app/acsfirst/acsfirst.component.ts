@@ -28,11 +28,9 @@ const printBarcode = async (cid,a) => {
       ^PW456
       ^LL0650
       ^LS0
-      ^FT45,331^A0B,42,40^FH\^FD`+cid+`^FS
-      ^FT44,185^A0B,41,40^FH\^FD`+ `^FS
+      ^FT45,318^A0B,42,40^FH\^FD`+cid+`^FS
       ^FT83,171^BQN,2,3
       ^FH\^FDLA,`+a+`^FS
-      ^FT71,327^A0B,21,28^FH\^FD`+`^FS
       ^PQ1,0,1,Y^XZ
       
         `;
