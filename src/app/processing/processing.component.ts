@@ -209,19 +209,8 @@ message:string;
       }}
       if(flag==0){
         this.word+="]"
-        let n1=0;
-        if( /[A-Z][0-9].[0-9]./.test(this.word)==true )
-        {
-          n1=1;
-        }
-        if(n1==1)
-        {
-          this.message="Only cassettes are allowed!"
-        }
-        else{
-          this.message=""
-        }
-       if(this.addf==0 && n1==0)
+      
+       if(this.addf==0 )
         this.cassettearray.push(this.word)
 
          
