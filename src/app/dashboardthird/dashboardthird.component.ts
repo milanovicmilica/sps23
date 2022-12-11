@@ -57,6 +57,7 @@ export class DashboardthirdComponent implements OnInit {
     });
   })
 }
+none:string='None';
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-grossing']);
