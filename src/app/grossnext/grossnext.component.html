@@ -64,12 +64,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
     <div class="middle">
 <div class="opt">
 <div  *ngFor="let s of mySamples; let i=index" (click)="plavi(s, i)">
-    <div *ngIf="lamp[i]==0" class="cards">
+    <div *ngIf="lamp[i]==0 && checkniz[i]==0" class="cards">
     <div ><img class="slika2" src="../../assets/Group 752.png"></div>
     <label class="lab2">{{s.slovo}}</label></div>
     <div *ngIf="lamp[i]==1" class="cards1">
         <div ><img class="slika2" src="../../assets/Group 752.png"></div>
         <label class="lab2">{{s.slovo}}</label></div>
+        <div *ngIf="lamp[i]==0 && checkniz[i]==1" class="cards2">
+          <div ><img class="slika2" src="../../assets/Group 752.png"></div>
+          <label class="lab2">{{s.slovo}}</label></div>
 </div>
 
 </div>

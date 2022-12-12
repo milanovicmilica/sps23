@@ -1,5 +1,5 @@
 import { ThisReceiver } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { NumberValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PrintFileTXT } from 'jsprintmanager';
@@ -143,13 +143,16 @@ export class GrossnextComponent implements OnInit {
           }
           this.array1=this.ss;
           this.array2=this.ihc;
-          
+          for (let index = 0; index < this.mySamples.length; index++) {
+            this.checkniz.push(0);
+            
+          }
           })
         })
 
     })
   }
-
+  checkniz:number[]=[];
   ftx:number=0;
   c1:string;
   c2:string;
@@ -207,7 +210,7 @@ export class GrossnextComponent implements OnInit {
   searchihc:string;
   niza:string[]=[];
 nizb:string[]=[];
-
+flagz:number;
 searchihcin()
 {
   if(this.searchihc!=null && this.searchihc!="")
@@ -385,6 +388,15 @@ searchssin(){
    clan:number;
   plavi(s, i)
   {
+    this.flagz=1;
+    for (let index = 0; index < this.checkniz.length; index++) {
+     if(this.checkniz[index]==0)
+     {
+      this.flagz=0;
+     }
+      
+    }
+    if(this.flagz==1){
     if (this.sem1==0){
       if(this.finish[i]==1)
       {this.message="Already added";}
@@ -440,7 +452,7 @@ searchssin(){
     }
 
 
-    }}
+    }}}
   }
 oduzmip(r)
 {
@@ -635,5 +647,28 @@ showCheckboxes2() {
     this.expanded2 = false;
   }
 }
+pro:string;
+word:string=""
+@HostListener('window:keypress', ['$event'])
+keyEvent(event: KeyboardEvent): void {
+ 
+  if(event.key=="]")
+{
 
+ console.log(this.word)
+
+  this.pro=this.word
+  for (let index = 0; index < this.mySamples.length; index++) {
+   if(this.pro==this.mySamples[index].code)
+  {
+    this.checkniz[index]=1;
+  }    
+  }
+  this.word=""
+
+}
+else{
+  this.word+=event.key;
+}
+}
 }
