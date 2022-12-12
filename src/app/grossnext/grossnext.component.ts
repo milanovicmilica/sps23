@@ -656,7 +656,7 @@ keyEvent(event: KeyboardEvent): void {
 {
 
  console.log(this.word)
-
+ this.word+=event.key;
   this.pro=this.word
   for (let index = 0; index < this.mySamples.length; index++) {
    if(this.pro==this.mySamples[index].code)
