@@ -386,6 +386,10 @@ box-shadow: 1px 3px 5px rgba(2, 2, 2, 0.441);
     width: 55vw;
  }
  .nf2{
-    width: 55vw;
+    width: 25vw;
+    margin-left: 20vw;
+ } 
+ .nf2{
+    width: 25vw;
     margin-left: 20vw;
  }
