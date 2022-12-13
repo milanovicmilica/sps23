@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../models/user';
 import { UserService } from '../user.service';
 @Component({
   selector: 'app-dashboardfirst',
@@ -11,6 +12,9 @@ export class DashboardfirstComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("first")) as User; 
+      
+    this.me=user1;
     this.k=[
       {
         ime:'Admin',
@@ -46,6 +50,7 @@ export class DashboardfirstComponent implements OnInit {
   message3:string;
   message4:string;
   k;
+  me:User;
   brTipa:number;
   firstname:string;
   lastname:string;
