@@ -273,6 +273,8 @@ else{ this.popup=1;
           this.unfProcess=[];
           this.message1=[];
           this.nizflags=[];
+          this.nizmin=[];
+          this.nizsek=[];
           this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
             this.allProcess=data;
             
@@ -282,9 +284,69 @@ else{ this.popup=1;
                 this.unfProcess.push(this.allProcess[index]);
                 this.nizflags.push(0);
                 this.message1.push("");
+
+                let minuti=new Date().getMinutes();
+                let sati=new Date().getHours();
+                let zbirmin=minuti+sati*60;
+                let dan=new Date().getDate();
+                let mesec=new Date().getMonth()+1;
+                let godina=new Date().getFullYear();
+                if(this.allProcess[index].posmonth==mesec)
+                {
+                  if(this.allProcess[index].posday==dan)
+                  {
+                    let zbir2=this.allProcess[index].poshours*60+this.allProcess[index].posminutes
+                    if(zbir2>zbirmin)
+                    {
+                      let x=zbir2-zbirmin
+                      this.nizmin.push(x);
+                      this.nizsek.push(this.allProcess[index].possec)
+                    }
+                    else{
+                      this.nizsek.push(0)
+                      this.nizmin.push(0)
+                    }
+                  }
+                  else{
+                    if(dan>this.allProcess[index].posday)
+                    {
+                      this.nizsek.push(0)
+                      this.nizmin.push(0)
+                    }
+                    else{
+                      if(dan<this.allProcess[index].posday)
+                      {
+                        let x=60-minuti;
+                        let y=this.allProcess[index].posminutes+x;
+                        this.nizmin.push(y);
+                        this.nizsek.push(this.allProcess[index].possec);
+                      }
+                    }
+                  }
+                }
+
+
               }
               
             }
+            this.pr=80;
+            for (let index = 0; index < this.unfProcess.length; index++) {
+              
+           
+             this.st2(index);
+            }
+            let intervalId = setInterval(() => {
+              this.pr--;
+                  if(this.pr==0)
+                  {
+                    clearInterval(intervalId)
+                  }
+                
+              
+             
+          
+              
+          }, 1000)
           })
        
       }
