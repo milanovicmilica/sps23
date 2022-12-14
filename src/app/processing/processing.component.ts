@@ -99,7 +99,7 @@ export class ProcessingComponent implements OnInit {
       let d=0;
       if(this.addf==1)
       {
-        this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length-1];
+      //  this.cassettearray[this.cassettearray.length-1]=this.prom[this.prom.length-1];
       }
       for (let index = 0; index < this.allProtocols.length; index++) {
        if(this.allProtocols[index].name==this.protocol && this.allProtocols[index].processor==this.processor)
@@ -252,6 +252,15 @@ message:string;
    
     }
   }}
+
+  @HostListener('window:keydown', ['$event'])
+  keyEvent2(event: KeyboardEvent): void {
+    if(event.key=="Backspace")
+    {
+      this.word=this.word.slice(0,this.word.length-1);
+      
+    }
+}
   addf:number;
   deletecass(i){
     this.cassettearray.splice(i,1);
@@ -262,9 +271,8 @@ message:string;
     this.word="";
     this.cassettearray.push("")
     if(this.cassettearray.length>1)
-    this.cassettearray[this.cassettearray.length-2]=this.prom[this.prom.length-1];
-    else{
-    }
+   // this.cassettearray[this.cassettearray.length-2]=this.prom[this.prom.length-1];
+  
     this.addf=1;
   }
   res(){
