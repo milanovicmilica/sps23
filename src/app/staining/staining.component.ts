@@ -178,6 +178,7 @@ freeStainers:string[]=[];
     this.slidearray.splice(i,1);
     else{
       this.prom.splice(i,1);
+      this.slidearray.splice(i,1);
     }
   }
   prom:string[]=[]
