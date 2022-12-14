@@ -187,8 +187,11 @@ freeStainers:string[]=[];
     if(this.addf==0)
     this.addf=1;
     this.word="";
-    this.prom.push("")
-
+    this.slidearray.push("")
+    if(this.slidearray.length>1)
+    this.slidearray[this.slidearray.length-2]=this.prom[this.prom.length-1];
+    else{
+    }
     this.addf=1;
   }
   @HostListener('window:keypress', ['$event'])
@@ -221,6 +224,7 @@ freeStainers:string[]=[];
         this.slidearray.push(this.word)
        else{
         this.prom[this.prom.length-1]=this.word;
+        
        }
          
         this.word="";
