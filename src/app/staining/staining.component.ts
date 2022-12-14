@@ -174,18 +174,21 @@ freeStainers:string[]=[];
   }
   addf:number;
   deletecass(i){
+    if(this.addf==0)
     this.slidearray.splice(i,1);
+    else{
+      this.prom.splice(i,1);
+    }
   }
   prom:string[]=[]
   word:string;
   addcass()
   { 
+    if(this.addf==0)
+    this.addf=1;
     this.word="";
-    this.slidearray.push("")
-    if(this.slidearray.length>1)
-    this.slidearray[this.slidearray.length-2]=this.prom[this.prom.length-1];
-    else{
-    }
+    this.prom.push("")
+
     this.addf=1;
   }
   @HostListener('window:keypress', ['$event'])
@@ -216,7 +219,9 @@ freeStainers:string[]=[];
        // this.word+="]"
        if(this.addf==0)
         this.slidearray.push(this.word)
-       
+       else{
+        this.prom[this.prom.length-1]=this.word;
+       }
          
         this.word="";
       }
