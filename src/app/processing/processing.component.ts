@@ -45,7 +45,7 @@ export class ProcessingComponent implements OnInit {
         }
         this.UserService.getAllBascets().subscribe((data: Bascet[])=>{
           this.allBascets=data;
-          this.addf=0;
+    //      this.addf=0;
         this.redSelect=0;})
       
       })
@@ -227,7 +227,7 @@ message:string;
     }
       else{
         let fl2=0
-        if(this.addf==0){
+     /*   if(this.addf==0){
         if(this.bascet!=null){
           for (let index = 0; index < this.bascet.length; index++) {
            if(index>0)
@@ -246,9 +246,12 @@ message:string;
       this.word+=event.key;
       if(this.word.search('undefined')!=-1)
       this.word=""}
-      }else{
+      }
+      else
+      *///{
         this.word+=event.key;
-      }}
+    //  }
+    }
    
     }
   }}
@@ -270,10 +273,10 @@ message:string;
   { 
     this.word="";
     this.cassettearray.push("")
-    if(this.cassettearray.length>1)
+   // if(this.cassettearray.length>1)
    // this.cassettearray[this.cassettearray.length-2]=this.prom[this.prom.length-1];
   
-    this.addf=1;
+   // this.addf=1;
   }
   res(){
     this.word=""

@@ -206,13 +206,14 @@ freeStainers:string[]=[];
      
     if (event.key == ']') {
       let flag=0;
+      this.word+="]"
      for (let index = 0; index < this.slidearray.length; index++) {
       if(this.slidearray[index]==this.word)
       {
         flag=1;
       }}
       if(flag==0){
-        this.word+="]"
+       // this.word+="]"
        if(this.addf==0)
         this.slidearray.push(this.word)
        
