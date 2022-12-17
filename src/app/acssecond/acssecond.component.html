@@ -88,11 +88,13 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="divb"  *ngFor="let d of hskin" ><button class="exb12" (click)="acschoice(d)">{{d}}</button> </div></div>
             <div class="acs2" *ngIf="sample=='Histology' && s2=='Lungs'" >
             <div class="divb" *ngFor="let a of hlungs" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
+            <div class="acs2" *ngIf="sample=='Histology' && s2=='Heart'" >
+              <div class="divb" *ngFor="let a of hheart" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             <div *ngIf="sample=='Histology' && s2=='Neuropathology'" class="acs2">
             <div class="divb" *ngFor="let a of hneuropathology"  ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             <div *ngIf="sample=='Histology' && s2=='Peripheral nervous system and muscles'" class="acs2">
             <div class="divb" *ngFor="let a of hperi" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
-            <div *ngIf="sample=='Histology' && s2=='Bones, bone marrow and soft tissues'"class="acs2" >
+            <div *ngIf="sample=='Histology' && s2=='Bones, bone marrow and soft tissues (BBMST)'"class="acs2" >
             <div class="divb" *ngFor="let a of hbbs"><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             <div *ngIf="sample=='Histology' && s2=='Hematopathology'" class="acs2">
             <div class="divb" *ngFor="let a of hhematology" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
@@ -123,7 +125,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="divb" *ngFor="let a of cneuropathology" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             <div *ngIf="sample=='Cytology' && s2=='Peripheral nervous system and muscles'" class="acs2">
             <div class="divb" *ngFor="let a of cperi" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
-            <div *ngIf="sample=='Cytology' && s2=='Bones, bone marrow and soft tissues'" class="acs2">
+            <div *ngIf="sample=='Cytology' && s2=='Bones, bone marrow and soft tissues (BBMST)'" class="acs2">
             <div class="divb" *ngFor="let a of cbbs" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             <div *ngIf="sample=='Cytology' && s2=='Hematopathology'" class="acs2">
             <div class="divb" *ngFor="let a of chematology" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
@@ -139,8 +141,10 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <div class="divb" *ngFor="let a of cnephro"><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             <div *ngIf="sample=='Cytology' && s2=='Urology' " class="acs2">
             <div class="divb" *ngFor="let a of curology" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
+            <div *ngIf="sample=='Cytology' && s2=='Gynecology'" class="acs2">
+              <div class="divb" *ngFor="let a of cgynecology" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             <div *ngIf="sample=='Cytology' && s2=='Head and cervix'" class="acs2">
-            <div class="divb" *ngFor="let a of cgynecology" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
+            <div class="divb" *ngFor="let a of chac" ><button class="exb12" (click)="acschoice(a.i)">{{a.i}}</button></div></div>
             
             <div *ngIf="sample=='External analysis' &&  s2!=null"class="acs2">
                 <div class="exbdiv">
@@ -390,6 +394,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
               <h2>You have to print all samples!</h2>
                   <button (click)="closepopup()">OK</button>
           </div>
+          <div class="popup" *ngIf="popup2==1">
+            <div class="zaglavlje">
+                <label class="logoz">SMART</label>
+                <label class="logo2z">PATH</label>
+                <label class="logoz">SOFT</label>
+            </div>
+            <h2>You have to choose Accessioning!</h2>
+                <button (click)="closepopup2()">OK</button>
+        </div>
             <div class="dred">
             <button class="signupDugme5" (click)="poc()" >PRINT ALL LABELS</button>
             <button class="signupDugme5" (click)="poc2()" >COMPLETE CASE</button>

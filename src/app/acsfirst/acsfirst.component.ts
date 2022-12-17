@@ -146,9 +146,9 @@ addcase(){
   this.g3=1;
   if( this.lastname!=null)
   this.g3=0;
-  if( this.pid==null)
+  if( this.pid==null || this.pid.length!=13)
   this.g4=1;
-  if( this.pid!=null)
+  if( this.pid!=null && this.pid.length==13)
   this.g4=0;
   if( this.date==null)
   this.g5=1;

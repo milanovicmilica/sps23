@@ -64,6 +64,7 @@ export class AcssecondComponent implements OnInit {
       this.allCases=data;
        this.last=this.allCases.length-1;
        this.HEflag=0;
+       this.flag3=0;
        this.f1=0;
        this.num=1;      this.expanded=false;   this.expanded2=false; 
        this.caseid=this.allCases[this.last].formatcn;
@@ -103,6 +104,7 @@ export class AcssecondComponent implements OnInit {
       this.flags1=0;
       this.flags2=0;
       this.popup=0;
+      this.popup2=0;
       this.UserService.getAllSamples().subscribe((data: Sample[])=>{
         this.allSamples=data;
       for (let index = 0; index < this.allSamples.length; index++) {
@@ -462,16 +464,39 @@ print(b){
   }
 }
 prints:number;
+flag3:number;
+popup2:number;
+closepopup2()
+{
+  this.popup2=0;
+}
 addsample(){
 
-  if(this.sample==null || this.sample=="")
+  if(this.sample==null || this.sample=="" )
   {
     this.flags1=1
   }
   else{this.flags1=0;}
   if(this.s2==null || this.s2=="")
-  {this.flags2=1}else{this.flags2=0}
-  if(this.flags1==0 && this.flags2==0){
+    {this.flags2=1}
+  else  
+    {this.flags2=0}
+  
+  if((this.sample=='Histology' || this.sample=='Cytology') && this.s2!=null )
+  {
+    if(this.s2!='Peripheral nervous system and muscles (PNS)' )
+    {
+      if(this.brTipa==null ||this.brTipa=="")
+      {
+        this.popup2=1;
+        this.flag3=1;
+      }
+      else{
+        this.flag3=0;
+      }
+    }
+  }
+  if(this.flags1==0 && this.flags2==0 && this.flag3==0){
   let id=this.mySamples.length;
   let slovo=this.slovo[id];
   if (this.firstch=="HE")
