@@ -60,7 +60,7 @@ export class DashfiveComponent implements OnInit {
     console.log(this.cassette)
     let cnt=0;
     for (let index = 0; index < this.cassette.length; index++) {
-      if(this.cassette[index]==']')
+      if(this.cassette.charAt(index)==']')
       cnt++
     }
     if(cnt>=2)
@@ -189,7 +189,7 @@ message:string;
     this.word+=event.key;
     let cnt=0;
     for (let index = 0; index < this.cassette.length; index++) {
-      if(this.cassette[index]==']')
+      if(this.cassette.charAt(index)==']')
       cnt++
     }
     if(cnt>=2)
@@ -204,7 +204,7 @@ message:string;
     this.cassette=this.word
     let cnt=0;
     for (let index = 0; index < this.cassette.length; index++) {
-      if(this.cassette[index]==']')
+      if(this.cassette.charAt(index)==']')
       cnt++
     }
     if(cnt>=2)
