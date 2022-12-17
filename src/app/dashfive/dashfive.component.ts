@@ -196,6 +196,16 @@ message:string;
     {
       this.word=this.word.slice(0,this.word.length-1)
     }
+    if(this.cassette!=null){
+      for (let index = 0; index < this.cassette.length; index++) {
+        if(this.cassette.charAt(index)==']')
+        cnt++
+      }
+      if(cnt>=2)
+      {
+        this.cassette=this.cassette.slice(0,this.cassette.length-1)
+      }
+    }
     if(event.key=="]")
   {
   
