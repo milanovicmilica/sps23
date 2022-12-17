@@ -58,6 +58,15 @@ export class DashfiveComponent implements OnInit {
     this.message=""
     this.message1=""
     console.log(this.cassette)
+    let cnt=0;
+    for (let index = 0; index < this.cassette.length; index++) {
+      if(this.cassette[index]==']')
+      cnt++
+    }
+    if(cnt>=2)
+    {
+      this.cassette=this.cassette.slice(0,this.cassette.length-1)
+    }
     this.flag1=0;
     if (this.cassette==null)
     {
@@ -178,12 +187,30 @@ message:string;
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
     this.word+=event.key;
+    let cnt=0;
+    for (let index = 0; index < this.cassette.length; index++) {
+      if(this.cassette[index]==']')
+      cnt++
+    }
+    if(cnt>=2)
+    {
+      this.cassette=this.cassette.slice(0,this.cassette.length-1)
+    }
     if(event.key=="]")
   {
   
    console.log(this.word)
   // this.word+=event.key;
     this.cassette=this.word
+    let cnt=0;
+    for (let index = 0; index < this.cassette.length; index++) {
+      if(this.cassette[index]==']')
+      cnt++
+    }
+    if(cnt>=2)
+    {
+      this.cassette=this.cassette.slice(0,this.cassette.length-1)
+    }
     this.word=""
  
   }
