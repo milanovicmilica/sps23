@@ -85,7 +85,7 @@ export class DashfiveComponent implements OnInit {
       let f0=0;
       this.message1=""
       for (let index = 0; index < this.allSamples.length; index++) {
-        if(this.cassette==this.allSamples[index].code)
+        if(this.cassette==this.allSamples[index].code && this.allSamples[index].acs=='External block')
         {
           f0=1;
           this.caseid=this.allSamples[index].caseid;
