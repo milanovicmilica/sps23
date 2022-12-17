@@ -62,7 +62,7 @@ export class AcsfirstComponent implements OnInit {
     this.num=2;
     this.vest=1357;
     let user1 = JSON.parse(sessionStorage.getItem("administrator")) as User; 
-      
+    
       this.me=user1;
     this.g1=0;    this.g2=0;this.g3=0;this.g4=0;this.g5=0;this.g6=0;this.g7=0;this.g8=0;this.g9=0;
     this.UserService.getAllPath().subscribe((data: User[])=>{
@@ -122,6 +122,7 @@ export class AcsfirstComponent implements OnInit {
   g1:number;  g2:number;  g3:number;  g4:number;
   g5:number;  g6:number;  g8:number;  g7:number;g9:number;
 vest:number;
+datePickerId:Date;
 case(){
   this.router.navigate(['clacs']);
 }
