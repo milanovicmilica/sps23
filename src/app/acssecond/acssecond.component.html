@@ -381,6 +381,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                 <hr class="lins">
             
             <label class="label3">TOTAL: {{mySamples.length}}</label>
+            <div class="popup" *ngIf="popup==1">
+              <div class="zaglavlje">
+                  <label class="logoz">SMART</label>
+                  <label class="logo2z">PATH</label>
+                  <label class="logoz">SOFT</label>
+              </div>
+              <h2>You have to print all samples!</h2>
+                  <button (click)="closepopup()">OK</button>
+          </div>
             <div class="dred">
             <button class="signupDugme5" (click)="poc()" >PRINT ALL LABELS</button>
             <button class="signupDugme5" (click)="poc2()" >COMPLETE CASE</button>

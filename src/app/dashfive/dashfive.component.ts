@@ -182,7 +182,7 @@ message:string;
   {
   
    console.log(this.word)
-  
+   this.word+=event.key;
     this.cassette=this.word
     this.word=""
  

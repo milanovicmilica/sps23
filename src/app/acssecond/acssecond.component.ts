@@ -102,6 +102,7 @@ export class AcssecondComponent implements OnInit {
       ]
       this.flags1=0;
       this.flags2=0;
+      this.popup=0;
       this.UserService.getAllSamples().subscribe((data: Sample[])=>{
         this.allSamples=data;
       for (let index = 0; index < this.allSamples.length; index++) {
@@ -265,6 +266,7 @@ ihcsend:string[]=[];
 firstch:string;
 niz1:number[]=[];
 niz2:number[]=[];
+popup:number;
 sss(){
 this.f1=1;
 }
@@ -277,6 +279,9 @@ minus(){
 }
 message:string;
 message2:string;
+closepopup(){
+  this.popup=0;
+}
 dodajs(b)
 {
 let s=0;
@@ -693,7 +698,7 @@ for (let index = 0; index < mys.length; index++) {
 if(nf==0)
  { this.router.navigate(['/dashsecond']);}
 else{
-
+this.popup=1;
 }
 })
 }
