@@ -177,18 +177,18 @@ message:string;
   word:string=""
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
-   
+    this.word+=event.key;
     if(event.key=="]")
   {
   
    console.log(this.word)
-   this.word+=event.key;
+  // this.word+=event.key;
     this.cassette=this.word
     this.word=""
  
   }
   else{
-    this.word+=event.key;
+   // this.word+=event.key;
   }
   }
   @HostListener('window:keydown', ['$event'])
