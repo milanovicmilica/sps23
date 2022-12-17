@@ -47,9 +47,10 @@ app.use(function (req, res, next) {
  * GET /lists
  * Purpose: Get all lists
  */
+
 app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
-    console.log('caoo')
+    // vraća listu korisnika
+   
     User.find({
         
     }).then((lists) => {
@@ -61,7 +62,7 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
 app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers' ||
 '/pathactivity/guest/getallusers' || '/adsactivity/guest/getallusers' || '/adlabactivity/guest/getallusers' 
 || '/listusers/guest/getallusers', (req, res) => {
-   
+   //vraća listu korisnika
 
     User.find({
        
@@ -73,7 +74,8 @@ app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/g
 })
 app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/sendoutlabmain/guest/getallsectioning' ||
 '/labactivity/guest/getallsectioning' || '/adlabactivity/guest/getallsectioning', (req, res) => {
-   
+   //vraća listu svih Sectioninga
+
     Sectioning.find({
        
     }).then((lists) => {
@@ -84,6 +86,7 @@ app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/se
 })
 app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess' || '/dasheight/guest/getallstainingprocess'
 || '/adlabactivity/guest/getallstainingprocess', (req, res) => {
+//vraća listu svih Staining procesa
 
     ProcessStaining.find({
        
@@ -94,6 +97,7 @@ app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess'
     });
 })
 app.get('/guest/getallstainers' || '/dashsix/guest/getallstainers' || '/staining/guest/getallstainers', (req, res) => {
+// vraća listu svih Stainer-a
 
     Stainer.find({
        
@@ -104,6 +108,7 @@ app.get('/guest/getallstainers' || '/dashsix/guest/getallstainers' || '/staining
     });
 })
 app.get('/addstprotocol/guest/getallstainers', (req, res) => {
+// vraća listu svih Stainer-a
 
     Stainer.find({
        
@@ -114,6 +119,7 @@ app.get('/addstprotocol/guest/getallstainers', (req, res) => {
     });
 })
 app.get('/dasheight/guest/getallrack', (req, res) => {
+//vrača listu svih Rack-ova
 
     Rack.find({
        
@@ -127,7 +133,8 @@ app.get('/dasheight/guest/getallrack', (req, res) => {
 
 app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/getallemb' || 
 '/adlabactivity/guest/getallemb', (req, res) => {
-    
+// vraća listu svih Embedding procesa
+
     Embedding.find({
        
     }).then((lists) => {
@@ -138,7 +145,8 @@ app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/g
 })
 app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide/guest/getallprocess' 
 || '/adlabactivity/guest/getallprocess', (req, res) => {
-    
+// vraća listu svih Processing procesa
+
     Process.find({
        
     }).then((lists) => {
@@ -148,6 +156,7 @@ app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide
     });
 })
 app.get('/pathreport/guest/getallreporting' || '/pathactivity/guest/getallreporting', (req, res) => {
+// vraća listu svih Reporting-a
     
     Reporting.find({
        
@@ -158,6 +167,7 @@ app.get('/pathreport/guest/getallreporting' || '/pathactivity/guest/getallreport
     });
 })
 app.get('/archivedash/guest/getallcabinets', (req, res) => {
+// vraća listu svih Kabineta
     
     Cabinet.find({
        
@@ -168,7 +178,8 @@ app.get('/archivedash/guest/getallcabinets', (req, res) => {
     });
 })
 app.get('/archivedash/guest/getallf', (req, res) => {
-    
+// vraća listu svih Fijoka     
+
     Fijoka.find({
        
     }).then((lists) => {
@@ -178,7 +189,8 @@ app.get('/archivedash/guest/getallf', (req, res) => {
     });
 })
 app.get('/sendoutpathdash/guest/getallsendout' || '/pathdash/guest/getallsendout' || '/adlabactivity/guest/getallsendout', (req, res) => {
-    
+// vraća listu svih Sendout-a     
+
     Sendout.find({
        
     }).then((lists) => {
@@ -188,7 +200,8 @@ app.get('/sendoutpathdash/guest/getallsendout' || '/pathdash/guest/getallsendout
     });
 })
 app.get('/dashfourproc/guest/getallbascets', (req, res) => {
-    
+// vraća listu svih slobodnih Basketa     
+
     Bascet.find({
        free:1
     }).then((lists) => {
@@ -198,7 +211,8 @@ app.get('/dashfourproc/guest/getallbascets', (req, res) => {
     });
 })
 app.get('/dashfour/guest/getallprocess', (req, res) => {
-    
+// vraća listu svih Processing procesa
+
     Process.find({
        
     }).then((lists) => {
@@ -208,7 +222,8 @@ app.get('/dashfour/guest/getallprocess', (req, res) => {
     });
 })
 app.get('/guest/getallprotocols2' || '/staining/guest/getallprotocols2', (req, res) => {
-    
+// vraća listu svih protokola za Staining proces
+
     Protocol2.find({
        
     }).then((lists) => {
@@ -218,7 +233,8 @@ app.get('/guest/getallprotocols2' || '/staining/guest/getallprotocols2', (req, r
     });
 })
 app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols', (req, res) => {
-    
+// vraća listu svih protokola za Processing proces
+
     Protocol.find({
        
     }).then((lists) => {
@@ -229,7 +245,8 @@ app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols', (req,
 })
 app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors'
 || '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', (req, res) => {
-    
+// vraća listu svih Procesora
+
     Processor.find({
        
     }).then((lists) => {
@@ -240,7 +257,8 @@ app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/
 })
 
 app.get('/pathaddgroup/guest/getallgroup' || '/pathedit/guest/getallgroup' || '/grossnext/guest/getallgroup', (req, res) => {
-    
+// vraća listu svih Grupa Favorita za Grossing
+
     PathGroup.find({
        
     }).then((lists) => {
@@ -252,7 +270,8 @@ app.get('/pathaddgroup/guest/getallgroup' || '/pathedit/guest/getallgroup' || '/
 app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/guest/getallsamples'
 || '/dashfive/guest/getallsamples' || '/dashseven/guest/getallsamples' || '/grossfirst/guest/getallsamples' ||
 '/grossnext/guest/getallsamples' || '/sendoutpathdash/guest/getallsamples' || '/pathdash/guest/getallsamples', (req, res) => {
-    
+// vraća listu svih Sample-ova (uzoraka)
+
     Sample.find({
        
     }).then((lists) => {
@@ -262,7 +281,8 @@ app.get('/guest/getallsamples' || '/acssecond/guest/getallsamples' || '/clacs/gu
     });
 })
 app.get('/guest/getallhospitals' || '/acsfirst/guest/getallhospitals', (req, res) => {
-    
+// vraća listu svh bolnica 
+
     Hospital.find({
        
     }).then((lists) => {
@@ -272,7 +292,8 @@ app.get('/guest/getallhospitals' || '/acsfirst/guest/getallhospitals', (req, res
     });
 })
 app.get('/guest/getallcases', (req, res) => {
-    
+// vraća listu svih slučajeva
+
     Case.find({
        
     }).then((lists) => {
@@ -282,7 +303,8 @@ app.get('/guest/getallcases', (req, res) => {
     });
 })
 app.get('/dasheight/guest/getallcover' || '/pathslide/guest/getallcover' || '/adlabactivity/guest/getallcover', (req, res) => {
-    
+//vraća listu svih Coverslipping procesa    
+
     Coverslipping.find({
        
     }).then((lists) => {
@@ -296,7 +318,8 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
 '/grossfirst/guest/getallcases' || '/grossnext/guest/getallcases' || '/sendoutpathdash/guest/getallcases' || 
 '/pathdash/guest/getallcases' || '/pathinfo/guest/getallcases' || '/pathslide/guest/getallcases' 
 || '/pathreport/guest/getallcases' || '/labactivity/guest/getallcases' || '/adsactivity/guest/getallcases', (req, res) => {
-    
+// vraća listu svih slučajeva (Case-eva)
+
     Case.find({
        
     }).then((lists) => {
@@ -307,7 +330,8 @@ app.get('/grossfirst/guest/getallcases' || '/acsfirst/guest/getallcases' || '/ac
 })
 app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/getallcs' || '/sendoutpathdash/guest/getallcs' 
 || '/pathdash/guest/getallcs' || '/pathslide/guest/getallcs' || '/grossnext/guest/getallcs' || '/labactivity/guest/getallcs', (req, res) => {
-    
+// vraća listu svih kaseta obrađenih na Grossing-u
+
     CS.find({
        
     }).then((lists) => {
@@ -317,7 +341,8 @@ app.get('/guest/getallcs' || '/dashfive/guest/getallcs' || '/dashseven/guest/get
     });
 })
 app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
-    
+// vraća listu svih Patologa
+
     User.find({
      type: 3  
     }).then((lists) => {
@@ -327,7 +352,8 @@ app.get('/guest/getallpath' || '/acsfirst/guest/getallpath', (req, res) => {
     });
 })
 app.get('/staining/guest/getallfreerack' || '/dasheight/guest/getallfreerack', (req, res) => {
-    
+// vraća listu svih slobodnih Rack-ova
+
     Rack.find({
      free: 1 
     }).then((lists) => {
@@ -344,7 +370,8 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
 || '/login-grossing/guest/loginprovera' || '/login-accessioning/guest/loginprovera' || '/login-processing/guest/loginprovera'
 || '/login-coverslipping/guest/loginprovera' || '/login-sendout/guest/loginprovera' || '/login-patholog/guest/loginprovera'
 || '/login-archive/guest/loginprovera', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // provera da li postoji korisnik sa datim korisničkim imenom i tačnost šifre
+
     User.findOne({
         username: req.body.username
     }).then((user) => {
@@ -368,7 +395,8 @@ app.post('/guest/loginprovera' || '/login-embedding/guest/loginprovera' || '/log
 app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/guest/login' || '/login-sectioning/guest/login' || '/login-grossing/guest/login'
 || '/login-accessioning/guest/login' || '/login-processing/guest/login' || '/login-coverslipping/guest/login' ||
 '/login-sendout/guest/login' || '/login-patholog/guest/login', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    //za navedenog korisnika proverava postojanje u bazi
+
     User.findOne({
         username: req.body.username,
         password: req.body.password
@@ -383,7 +411,8 @@ app.post('/guest/login' || '/login-embedding/guest/login' || '/login-staininghe/
     });
 })
 app.post('/addstprotocol/guest/addSTProtocol', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    //  Proverava da li postoji Staining protokol sa istim imenom u bazi i dodaje novi Staining protokol u bazu
+
     let name = req.body.name;
 
     let newP = new Protocol2({
@@ -413,7 +442,7 @@ app.post('/addstprotocol/guest/addSTProtocol', (req, res) => {
 })
 
 app.post('/grossnext/guest/addDc', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // Dodaje novu obrisanu kasetu u bazu na Grossingu
  
 
     let newP = new Dcassette({
@@ -433,7 +462,7 @@ app.post('/grossnext/guest/addDc', (req, res) => {
     });
 })
 app.post('/grossnext/guest/addDcqr', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+      // Dodaje novu obrisanu kasetu u bazu na Grossingu ima i (kaseta za koju je već Print urađen, ima QR)
  
 
     let newP = new Dcassette({
@@ -453,7 +482,8 @@ app.post('/grossnext/guest/addDcqr', (req, res) => {
     });
 })
 app.post('/addstainer/guest/addStainer', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // Proverava da li u sistemu postoji Stainer sa tim imenom i ukoliko ne postoji dodaje novi Stainer u bazu podataka
+
     let name = req.body.name;
 
     let newP = new Stainer({
@@ -482,7 +512,8 @@ app.post('/addstainer/guest/addStainer', (req, res) => {
     });
 })
 app.post('/addprocessor/guest/addProcessor', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // Proverava da li postoji procesor sa istim nazivom u sistemu i ukoliko ne postoji dodaje ga u bazu podataka
+
     let name = req.body.name;
 
     let newP = new Processor({
@@ -511,7 +542,8 @@ app.post('/addprocessor/guest/addProcessor', (req, res) => {
     });
 })
 app.post('/addprotocol/guest/addProtocol', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // Proverava da li postoji Processing protokol sa istim nazivom u bazi i ukoliko ne postoji dodaje ga u bazu podataka
+
     let name = req.body.name;
 
     let newP = new Protocol({
@@ -541,7 +573,7 @@ app.post('/addprotocol/guest/addProtocol', (req, res) => {
     });
 })
 app.post('/dashfirst/guest/addUser', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // Proverava da li postoji korisnik sa istim korisničkim imenom u bazi podataka i ukoliko ne postoji dodaje ga u bazu
    
 
     let newP = new User({
@@ -574,9 +606,9 @@ app.post('/dashfirst/guest/addUser', (req, res) => {
     });
 })
 app.post('/acsfirst/guest/addCase' || '${process.env.PORT}/guest/addCase' || '${process.env.PORT}/acsfirst/guest/addCase', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // Dodaje novi slučaj (Case) u bazu podataka
    
-    console.log('evoo u app1')
+   
     let newP = new Case({
         sender : req.body.sender, hospitalid: req.body.hospitalid,   contact: req.body.contact, address:req.body.address, firstname:req.body.firstname,
         lastname : req.body.lastname,    pid: req.body.pid,  date:req.body.date, lbo:req.body.lbo, hnum : req.body.hnum,bnum: req.body.bnum,
@@ -584,16 +616,16 @@ app.post('/acsfirst/guest/addCase' || '${process.env.PORT}/guest/addCase' || '${
          formatcn:req.body.formatcn, day:req.body.currday, month:req.body.currmonth, worker:req.body.worker
     });
             newP.save().then((us2) => {
-                console.log('evoo u app')
+               
                 res.send({ message: 'user added' });
-            }).catch((e) => {console.log('evoo u error')
+            }).catch((e) => {
                 res.send({ message: 'error' });
             });
 
 })
 
 app.post('/pathaddgroup/guest/addPathGroup', (req, res) => {
-    // We want to return an array of all the lists that belong to the authenticated user 
+    // Dodaje novu Grupu Favorita u bazu podataka 
    
     
     let newP = new PathGroup({
@@ -609,6 +641,7 @@ app.post('/pathaddgroup/guest/addPathGroup', (req, res) => {
 
 })
 app.post('/acssecond/guest/addSample', (req, res) => {    
+// Dodaje novi uzorak (Sample) u bazu podataka
 
     let newP = new Sample({
         caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
@@ -623,6 +656,7 @@ app.post('/acssecond/guest/addSample', (req, res) => {
 })
 
 app.post('/pathreport/guest/addReporting', (req, res) => {    
+// Dodaje novi Reporting u bazu podataka
 
     let newP = new Reporting({
         caseid : req.body.caseid, microreporting: req.body.microreporting,   pathologist: req.body.pathologist,
@@ -637,6 +671,7 @@ app.post('/pathreport/guest/addReporting', (req, res) => {
 
 })
 app.post('/acssecond/guest/addSampleSlide', (req, res) => {    
+// Dodaje novi uzorak (Sample) kao External Slide
 
     let newP = new Sample({
         caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
@@ -652,6 +687,7 @@ app.post('/acssecond/guest/addSampleSlide', (req, res) => {
 })
 
 app.post('/acssecond/guest/updateSampleCode', (req, res) => {   
+// Ažurira QR kod i broj printanja na odgovarajućem uzorku (Sample-u)
 
     Sample.findOne({
         caseid: req.body.caseid,
@@ -671,6 +707,7 @@ res.send({ message: 'error' });
 })
 
 app.post('/pathedit/guest/updatePathGroupss', (req, res) => {   
+// Ažurira special stain članove u okviru određene Grupe Favorita 
 
     PathGroup.findOne({
         pathologist: req.body.pathologist,
@@ -688,6 +725,7 @@ res.send({ message: 'error' });
 });
 })
 app.post('/pathedit/guest/updatePathGroupihc', (req, res) => {   
+// Ažurira IHC članove u okviru određene Grupe Favorita
 
     PathGroup.findOne({
         pathologist: req.body.pathologist,
@@ -705,6 +743,7 @@ res.send({ message: 'error' });
 });
 })
 app.post('/acssecond/guest/updateEXSSampleCode', (req, res) => {   
+// Ažurira niz QR kodova i oznaka u okviru jednog External Slide-a u okviru uzorka
 
     Sample.findOne({
         caseid: req.body.caseid,
@@ -723,6 +762,7 @@ res.send({ message: 'error' });
 });
 })
 app.post('/dashfourproc/guest/addprocess', (req, res) => {    
+// Za navedeni Procesor ažurira zauzetost i rezerviše (ažurira) Basket i dodaje Processing Proces u bazu podataka
 
     let newP = new Process({
         processor : req.body.processor, protocol: req.body.protocol,   bascet: req.body.bascet, casette:req.body.casette, hours:req.body.hours,
@@ -754,6 +794,7 @@ app.post('/dashfourproc/guest/addprocess', (req, res) => {
 })
 
 app.post('/acssecond/guest/addSampleBlock', (req, res) => {    
+// Dodaje novi uzorak (Sample) u bazu podataka
 
     let newP = new Sample({
         caseid : req.body.caseid, casetype: req.body.casetype,   sampletype: req.body.sampletype, acs:req.body.acs, num:req.body.num,
@@ -768,6 +809,7 @@ app.post('/acssecond/guest/addSampleBlock', (req, res) => {
 
 })
 app.post('/sendoutlabmain/guest/addSendout', (req, res) => {    
+// Dodaje novi Sendout u bazu podataka
 
     let newP = new Sendout({
         caseid : req.body.caseid, sati: req.body.sati,   minuti: req.body.minuti, laborant:req.body.laborant, dan:req.body.dan,
@@ -782,6 +824,8 @@ app.post('/sendoutlabmain/guest/addSendout', (req, res) => {
 })
 
 app.post('/addcabinet/guest/addCabinet', (req, res) => {    
+// Proverava da li postoji Kabinet sa istim imenom i ukoliko ne postoji dodaje ga u bazu podataka
+
     Cabinet.findOne({
         name: req.body.name
       
@@ -802,6 +846,7 @@ app.post('/addcabinet/guest/addCabinet', (req, res) => {
 }})})
 
 app.post('/sendoutpathmain/guest/SendoutUpdate', (req, res) => {    
+// Ažurira Send out podatke vezane za obradu od strane patologa
 
     Sendout.findOne({
         caseid: req.body.caseid
@@ -823,6 +868,8 @@ app.post('/sendoutpathmain/guest/SendoutUpdate', (req, res) => {
 
 })
 app.post('/addbasket/guest/addBasket', (req, res) => {    
+// Proverava da li postoji basket sa tim nazivom i ukoliko ne postoji dodaje ga u bazu podataka
+
     Bascet.findOne({
         name: req.body.name
       
@@ -845,6 +892,8 @@ app.post('/addbasket/guest/addBasket', (req, res) => {
 
 })
 app.post('/addrack/guest/addRack', (req, res) => {    
+// Proverava da li postoji Rack sa tim nazivom i ukoliko ne postoji dodaje ga u bazu podataka
+
     Rack.findOne({
         name: req.body.name
       
@@ -867,7 +916,8 @@ app.post('/addrack/guest/addRack', (req, res) => {
 
 })
 app.post('/acssecond/guest/deleteSample', (req, res) => {    
-    
+// Briše uzorak sa odgovarajućim ID-jem i CaseID-em
+
     Sample.findOneAndRemove({
         id: req.body.id, caseid: req.body.caseid
        
@@ -890,7 +940,9 @@ app.post('/acssecond/guest/deleteSample', (req, res) => {
     });
 
 })
-app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid', (req, res) => {    
+app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid', (req, res) => {  
+    //Ažurira uzorak (Sample), njegov ID (nakon brisanja određenog Sample-a menjaju se ID preostalih Sample-ova)
+
     let sniz=['A','B','C','D','E','F','G','H','I',
     'J','K','L','M','N','O','P','Q','R','S','T',
     'U','V','W','X','Y','Z']; console.log("evoooo2")
@@ -899,11 +951,11 @@ app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid'
        
     }).then((user) => {
         if(user==null)
-        {         console.log("evooooc")
+        {        
                 res.send({ message: 'nema' }); 
 
         }else{
-            console.log("evoooo")
+         
             for (let index = 0; index < user.length; index++) {
                 Sample.collection.updateOne({ 'id': user[index].id, 'caseid': req.body.caseid }, {$set: {'id': index}})     
                 
@@ -918,7 +970,9 @@ app.post('/acssecond/guest/changeid' || '/acssecond/guest/deleteSample/changeid'
     });
 
 })
-app.post('/acssecond/guest/changeslovo', (req, res) => {    
+app.post('/acssecond/guest/changeslovo', (req, res) => {  
+    // Ažurira slovnu oznaku uzorka (Nakon brisanja uzorka na Accessioningu menja se slovna oznaka preostalih uzoraka vezanih za taj slučaj)
+    
     let sniz=['A','B','C','D','E','F','G','H','I',
     'J','K','L','M','N','O','P','Q','R','S','T',
     'U','V','W','X','Y','Z'];
@@ -948,7 +1002,8 @@ app.post('/acssecond/guest/changeslovo', (req, res) => {
 
 })
 app.post('/dashfour/guest/endprocess', (req, res) => {    
-    
+   // Ažurira određeni Processing Proces i oslobađa odgovarajući basket 
+
     Process.findOne({
         bascet: req.body.bascet
        
@@ -977,7 +1032,8 @@ app.post('/dashfour/guest/endprocess', (req, res) => {
 
 })
 app.post('/dashfour/guest/updateProcessor', (req, res) => {    
-    
+  // Ažurira odgovarajući procesor (oslobađa ga)  
+
     Processor.findOne({
         name: req.body.processor
        
@@ -1001,7 +1057,8 @@ app.post('/dashfour/guest/updateProcessor', (req, res) => {
 
 })
 app.post('/dashfive/guest/confirmEmb', (req, res) => {    
-    
+  // Dodaje novi Embedding proces u bazu podataka  
+
     let newP = new Embedding({
         cassette : req.body.cassette, caseid: req.body.caseid,   day: req.body.day, time:req.body.time, minute:req.body.minute, 
         month: req.body.month, year: req.body.year, lab:req.body.lab
@@ -1015,7 +1072,8 @@ app.post('/dashfive/guest/confirmEmb', (req, res) => {
 
 })
 app.post('/dasheight/guest/confirmCoverslipping', (req, res) => {    
-    
+   // Dodaje novi Coverslipping u bazu podataka 
+
     let newP = new Coverslipping({
         rack : req.body.rack, caseid: req.body.caseid,   day: req.body.day, time:req.body.time, minute:req.body.minute,
         month: req.body.month, year:req.body.year, laborant:req.body.laborant, slides:req.body.slides
@@ -1029,7 +1087,8 @@ app.post('/dasheight/guest/confirmCoverslipping', (req, res) => {
 
 })
 app.post('/dashsix/guest/endsprocess', (req, res) => {    
-    
+   // Ažurira odgovarajući Staining Proces (beleži kraj procesa i informacije o tome) i odgovarajući Rack 
+
     ProcessStaining.findOne({
         bascet: req.body.bascet,
        casette:req.body.cassette
@@ -1059,7 +1118,8 @@ app.post('/dashsix/guest/endsprocess', (req, res) => {
 })
 
 app.post('/dashsix/guest/updateStainer', (req, res) => {    
-    
+    // Ažurira odgovarajući Stainer
+
     Stainer.findOne({
         name: req.body.stainer
        
@@ -1083,6 +1143,8 @@ app.post('/dashsix/guest/updateStainer', (req, res) => {
 
 })
 app.post('/staining/guest/addstainingprocess', (req, res) => {   
+// Dodaje novi Staining Proces u bazu podataka, rezerviše (ažurira i zauzima) određeni Stainer i Rack.
+
 let user1=new ProcessStaining({stainer:req.body.stainer, protocol:req.body.protocol, 
     bascet:req.body.bascet, casette:req.body.casette, hours:req.body.hours, minutes:req.body.minutes,
 status:req.body.status, poshours:req.body.poshours, posminutes:req.body.posminutes, posday:req.body.posday,
@@ -1106,6 +1168,7 @@ posmonth:req.body.posmonth, posyear:req.body.posyear, possec:req.body.possec })
     })
 })
 app.post('/dashseven/guest/addSectioning', (req, res) => {    
+// Ukoliko Sectioning za tu cassetu ne postoji dodaje ga u bazu, a ukoliko postoji ažurira njegovo stanje QR kodova, printova i oznaka
 
     let user1=new Sectioning({cassette:req.body.cassette, day:req.body.dan, month:req.body.mesec,
         year:req.body.godina, nizprint:req.body.nizprint, nizQr:req.body.nizQr, done:0, nizOznaka:req.body.nizOznaka
@@ -1129,6 +1192,7 @@ app.post('/dashseven/guest/addSectioning', (req, res) => {
             })
 })
 app.post('/dashseven/guest/updateSectioning', (req, res) => {    
+// za odgovarajući Sectioning beleži kada je gotov i informacije o završetku Sectioning procesa
 
     Sectioning.findOne({cassette:req.body.cassette}, (err,user)=>{
                     
@@ -1147,7 +1211,8 @@ app.post('/dashseven/guest/updateSectioning', (req, res) => {
     })
 })
 app.post('/archivedash/guest/updateF', (req, res) => {    
-
+// Za odgovarajuču fijoku ažurira listu QR kodova koji se nalaze u njoj
+    
     Fijoka.findOne({name:req.body.name, cabinet:req.body.cabinet}, (err,user)=>{
                     
         if(user==null)  {   
@@ -1163,6 +1228,7 @@ app.post('/archivedash/guest/updateF', (req, res) => {
     })
 })
 app.post('/grossnext/guest/addprcs', (req, res) => {    
+// Ukoliko informacije o datoj kaseti na Grossingu nisu zavedene u bazi beleži ih, a ukoliko jesu, ažurira broj printova
 
     let user1=new CS({caseid:req.body.caseid,
         podslovo:req.body.podslovo, slovo:req.body.slovo, print:req.body.print ,code:req.body.code ,path:req.body.path,
@@ -1183,6 +1249,7 @@ app.post('/grossnext/guest/addprcs', (req, res) => {
     })
 })
 app.post('/grossnext/guest/addCS', (req, res) => {    
+// Za određenu kasetu na Grossing-u ažurira dodatne informacije o kaseti
 
     CS.findOne({'caseid':req.body.caseid, 'podslovo' :req.body.podslovo}, (err,user)=>{
             
