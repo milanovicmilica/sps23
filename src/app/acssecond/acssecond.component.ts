@@ -174,10 +174,12 @@ for (let index = 0; index < this.niz2.length; index++) {
   }
   exblpovecaj(i)
   {
+    if(this.niz1[i]<9)
     this.niz1[i]++;
   }
   exblpovecaj2(i)
   {
+    if(this.niz2[i]<9)
     this.niz2[i]++;
   }
   exblumanji(i)
@@ -766,6 +768,7 @@ else
 this.HEflag=0;
 }
 Addpl(){
+  if(this.Exbl<9)
   this.Exbl=this.Exbl+1;
 }
 Subpl(){
