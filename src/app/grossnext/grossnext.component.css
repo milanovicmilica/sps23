@@ -118,28 +118,7 @@ font-family: 'Raleway', sans-serif;
     box-shadow: 2px 4px 6px rgba(19, 19, 19, 0.548);
     background-color: transparent;
 }
-.in1{
-    border-color:rgba(255, 127, 80, 0.877);
-    border-radius: 4pt;
-    height: 4.5vh;
-    width: 15vw;
-}
-.in1::after{
-    border-color:rgba(255, 127, 80, 0.877);
-}
-.in1:hover{
-    background-color: transparent;
-}
-.dugme1{
-    border-color: rgba(255, 127, 80, 0.877);
-    background-color: rgb(255, 255, 255);
-    border-width: thin;
-    border-spacing: 3vh;
-    border-radius: 4pt;
-    width: 10vw;
-    height: 10vh;
-    letter-spacing: 3px;
-}
+
 .navbar{
     background-color:#121637;
     
@@ -489,7 +468,7 @@ table {
     height:80%;
     margin-top: 5%;
     padding: 5%;
-    border-color: #135308;
+    border-color: #16b104;
     border-width: medium;
     border-style: solid;
     border-radius: 4px;
