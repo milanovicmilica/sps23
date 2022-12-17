@@ -308,6 +308,7 @@ searchssin(){
    
   }
   pkas(){
+    if(this.brK<9){
     this.brK=this.brK+1;
     this.brk2=this.brk2+1;
     let n=this.uz+this.brK;
@@ -317,7 +318,7 @@ searchssin(){
     let ds=[[n][n2]];
     this.niz.push(ds);
     this.comm.push("");
-    this.printano.push(0);
+    this.printano.push(0);}
   }
   dkas()
   {
@@ -476,10 +477,11 @@ let s;
       }
       
     }
+    if(this.plocice[s]<9){
     this.plocice[s]++;
     let n=r+'.'+this.plocice[s];
     this.niz[s].push(n);
-
+    }
   }
   dodajs(b)
 {
@@ -518,6 +520,7 @@ let s=0;
     message2:string;
     exblpovecaj(i)
     {
+      if(this.niz1[i]<9)
       this.niz1[i]++;
     }
     exblumanji(i)
@@ -527,6 +530,7 @@ let s=0;
   }
   exblpovecaj2(i)
   {
+    if(this.niz2[i]<9)
     this.niz2[i]++;
   }
   exblumanji2(i)
@@ -571,6 +575,7 @@ let s=0;
          {this.finish[this.clan]=1; 
          this.sem1=0;
          this.lamp[this.clan]=0;
+         this.checkniz[this.clan]=2
          this.znakD=0;}
          this.start=this.start+1;
         for (let index = 0; index < this.niz1.length; index++) {
