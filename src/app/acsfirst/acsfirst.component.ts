@@ -172,7 +172,10 @@ addcase(){
   {
     this.message='Health insurance number must have 11 numbers*'
   }
-  
+  if(this.pid.length!=13)
+  {
+    this.message='Personal ID number must have 13 numbers*'
+  }
   this.UserService.getAllCases().subscribe((data: Case[])=>{
     this.allCases=data;
     //this.newcn=this.allCases.length;
