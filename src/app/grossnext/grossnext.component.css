@@ -455,8 +455,8 @@ table {
     margin-top: 5%;
     padding: 5%;
     border-color: #376191;
-    border-width: medium;
-    border-style: thick;
+    border-width: thick;
+    border-style: solid;
     border-radius: 4px;
     box-shadow: 3px 6px 10px 4px rgba(10, 18, 95, 0.1);
   }
