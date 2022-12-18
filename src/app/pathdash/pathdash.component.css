@@ -334,7 +334,7 @@ table tr:nth-child(odd) td{
 }
 table {
     border-collapse: collapse;
-    width: 75%;
+    width: 95%;
     border-color: #3f3f3f;
     
   }
