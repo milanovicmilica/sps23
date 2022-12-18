@@ -64,12 +64,12 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
               <tr *ngFor="let a of allCase;let i=index" class="redovi">
                 <td class="pr">{{(i+1)}}</td>
                 <td class="pr"><input type="radio" class="rad" name="r1" [value]="a.formatcn"  [(ngModel)]="case" ></td>
-                <td>{{a.formatcn}}</td>
-                <td>{{a.firstname}}</td>
-                <td>{{a.lastname}}</td>
-                <td>{{a.date}}</td>
-                <td>{{a.gen}}</td>
-                <td>{{numofSpec[i]}}</td>
+                <td class="left1">{{a.formatcn}}</td>
+                <td class="left1">{{a.firstname}}</td>
+                <td class="left1">{{a.lastname}}</td>
+                <td class="left1">{{a.date}}</td>
+                <td class="left1">{{a.gen}}</td>
+                <td class="left1">{{numofSpec[i]}}</td>
               </tr>
               </tbody>
         </table>
