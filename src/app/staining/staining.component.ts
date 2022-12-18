@@ -233,7 +233,7 @@ freeStainers:string[]=[];
         if(flag==0)
         {
           if(this.slidearray.length>0){
-          if(this.slidearray[this.slidearray.length-1].length>2)
+          if(this.slidearray[this.slidearray.length-1].length>10)
           this.slidearray.push(this.word)
           else{
             this.slidearray[this.slidearray.length-1]=this.word
