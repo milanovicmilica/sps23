@@ -31,6 +31,7 @@ export class StainingComponent implements OnInit {
    this.g2=0;
    this.addf=0;
    this.redSelect=0;
+   this.word=""
       this.UserService.getAllProtocols2().subscribe((data: Protocol2[])=>{
         this.allProtocols=data;
         for (let index = 0; index < this.allStainers.length; index++) {
