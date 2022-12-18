@@ -459,7 +459,7 @@ print(i,podslovo,bb1,bb2)
     let oznaka=podslovo+"."+bb1+"."+ " "+bb2;
     this.nizOznaka[i]=oznaka;
   }
-//  printBarcode(this.caseid,podslovo,bb1,bb2 ,a);
+  printBarcode(this.caseid,podslovo,bb1,bb2 ,a);
 console.log(this.cassette)
   this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint, this.nizOznaka).subscribe((resp)=>{
     
@@ -590,7 +590,14 @@ console.log(this.cassette)
         this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
   
           this.allSectionings=data;
-        
+        for (let index = 0; index < this.he.length; index++) {
+          printBarcode(this.caseid,this.podslovo,(index+1),this.he[index] ,this.nizQr[index]);
+          
+        }
+        for (let index = 0; index < this.ssihc.length; index++) {
+          printBarcode(this.caseid,this.podslovo,(index+this.he.length+1),this.ssihc[index] ,this.nizQr[index+this.he.length]);
+          
+        }
         });
       
   
