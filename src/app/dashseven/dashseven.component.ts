@@ -124,7 +124,19 @@ export class DashsevenComponent implements OnInit {
     this.nizQr=[]
     this.nizprint=[]
     let flagDone=0
-   
+    let cnt=0;
+    for (let index = 0; index < this.cassette.length; index++) {
+          
+           
+      if(this.cassette.charAt(index)==']')
+      cnt++
+    
+    }
+    if(cnt>=2)
+    {
+      this.cassette=this.cassette.slice(0,this.cassette.length-1)
+    }
+
     for (let index = 0; index < this.allSectionings.length; index++) {
       if(this.allSectionings[index].cassette==this.cassette)
       {
@@ -448,6 +460,7 @@ print(i,podslovo,bb1,bb2)
     this.nizOznaka[i]=oznaka;
   }
 //  printBarcode(this.caseid,podslovo,bb1,bb2 ,a);
+console.log(this.cassette)
   this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint, this.nizOznaka).subscribe((resp)=>{
     
     if(resp['message']=='user')
