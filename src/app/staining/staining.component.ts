@@ -199,9 +199,11 @@ freeStainers:string[]=[];
     }else{
       this.redSelect=0;
     let x;
-
+    if(this.word.search('undefined')!=-1)
+    this.word=""
     this.word+=event.key;
-
+    if(this.word.search('undefined')!=-1)
+    this.word=""
     if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
       {this.word='';
     
@@ -213,6 +215,7 @@ freeStainers:string[]=[];
     for (let index = 0; index < this.word.length; index++) {
       if(this.word.charAt(index)==']')
       cnt++
+    
     }
     if(cnt>=2)
     {
@@ -227,7 +230,11 @@ freeStainers:string[]=[];
         }
         if(flag==0)
         {
+          if(this.slidearray[this.slidearray.length-1].length>2)
           this.slidearray.push(this.word)
+          else{
+            this.slidearray[this.slidearray.length-1]=this.word
+          }
         }
          
         this.word="";
