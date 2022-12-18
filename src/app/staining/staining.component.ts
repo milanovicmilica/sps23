@@ -199,7 +199,7 @@ freeStainers:string[]=[];
     }else{
       this.redSelect=0;
     let x;
-    if(this.word){
+    if(this.word!=null){
     if(this.word.search('undefined')!=-1)
     this.word=""}
     this.word+=event.key;
@@ -232,11 +232,18 @@ freeStainers:string[]=[];
         }
         if(flag==0)
         {
+          if(this.slidearray.length>0){
           if(this.slidearray[this.slidearray.length-1].length>2)
           this.slidearray.push(this.word)
           else{
             this.slidearray[this.slidearray.length-1]=this.word
           }
+        }
+        else
+        {
+          this.slidearray.push(this.word)
+        }
+
         }
          
         this.word="";
