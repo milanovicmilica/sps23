@@ -75,7 +75,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     <option *ngFor="let a of allrack">{{a.name}}</option>
                     </select>
                     <div class="div1">
-                        <div class="div1prim" *ngFor="let s of slidearray; let i=index">
+                        <div class="div1prim" *ngFor="let s of slidearray; let i=index;  trackBy:trackByFn">
                         <input  type="text" class="input1prim"  *ngIf="addf==0 && slidearray.length>0" [(ngModel)]="slidearray[i]">
                        
                         <button class="minidelete" (click)="deletecass(i)" >DELETE</button>

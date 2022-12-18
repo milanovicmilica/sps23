@@ -192,6 +192,9 @@ freeStainers:string[]=[];
    
   
   }
+  trackByFn(index: any, item: any) {
+    return index;
+ }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
     if(this.bascet==null)
