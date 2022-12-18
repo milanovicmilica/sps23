@@ -199,8 +199,9 @@ freeStainers:string[]=[];
     }else{
       this.redSelect=0;
     let x;
+    if(this.word){
     if(this.word.search('undefined')!=-1)
-    this.word=""
+    this.word=""}
     this.word+=event.key;
     if(this.word.search('undefined')!=-1)
     this.word=""
