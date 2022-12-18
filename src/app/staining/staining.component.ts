@@ -245,6 +245,19 @@ freeStainers:string[]=[];
         }
          
         this.word="";
+
+        for (let index = 0; index < this.slidearray.length; index++) {
+          for (let index2 = 0; index2 < this.slidearray[index].length; index2++) {
+            if(this.slidearray[index].charAt(index2)==']')
+            cnt++
+          
+          }
+          if(cnt>=2)
+          {
+            this.slidearray[index]=this.slidearray[index].slice(0,this.slidearray[index].length-1)
+          }
+        }
+
       }
    
    
