@@ -33,6 +33,7 @@ export class ProcessingComponent implements OnInit {
 
    this.g1=0;
    this.g2=0;
+   this.word=""
       this.UserService.getAllProtocols().subscribe((data: Protocol[])=>{
         this.allProtocols=data;
         for (let index = 0; index < this.allProcessors.length; index++) {
@@ -81,7 +82,19 @@ export class ProcessingComponent implements OnInit {
   g1:number;
   g2:number;
   startprocess(){
-
+    let cnt;
+    for (let index = 0; index < this.cassettearray.length; index++) {
+      cnt=0;
+      for (let index2 = 0; index2 < this.cassettearray[index].length; index2++) {
+        if(this.cassettearray[index].charAt(index2)==']')
+        cnt++
+      
+      }
+      if(cnt>=2)
+      {
+        this.cassettearray[index]=this.cassettearray[index].slice(0,this.cassettearray[index].length-1)
+      }
+    }
     if(this.bascet==null)
     this.g1=1;
     else this.g1=0;
@@ -183,6 +196,9 @@ message:string;
       }
   }
   z1:number;
+  trackByFn(index: any, item: any) {
+    return index;
+ }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
     if(this.bascet==null)
@@ -191,67 +207,76 @@ message:string;
     }else{
       this.redSelect=0;
     let x;
-    if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
-      {this.word='';
+    if(this.word!=null){
+   
+    this.word+=event.key;
+ 
     
-      if(this.bascet!=null)
-      {
-    this.word=""}
+   
+    
+    let cnt=0;
+    if(this.word!=null){
+    for (let index = 0; index < this.word.length; index++) {
+      if(this.word.charAt(index)==']')
+      cnt++
+    
     }
-     
-    if (event.key == ']') {
-      let flag=0;
+    if(cnt>=2)
+    {
+      this.word=this.word.slice(0,this.word.length-1)
+    }
+     }
+
 
      for (let index = 0; index < this.cassettearray.length; index++) {
-      if(this.cassettearray[index]==this.word)
-      {
-        flag=1;
-      }}
-      if(flag==0){
-        this.word+="]"
+      cnt=0;
+      for (let index2 = 0; index2 < this.cassettearray[index].length; index2++) {
+        if(this.cassettearray[index].charAt(index2)==']')
+        cnt++
       
-       if(this.addf==0 )
-        this.cassettearray.push(this.word)
+      }
+      if(cnt>=2)
+      {
+        this.cassettearray[index]=this.cassettearray[index].slice(0,this.cassettearray[index].length-1)
+      }
+    }
 
+    if (event.key == ']') {
+      let flag=0;
+        for (let index = 0; index < this.cassettearray.length; index++) {
+        if(this.word==this.cassettearray[index])
+          flag=1;
+        }
+        if(flag==0)
+        {
+          if(this.cassettearray.length>0){
+           
+            let p1=this.word;
+            p1=p1.slice(0,p1.length-1)
+          if(this.cassettearray[this.cassettearray.length-1]==p1)
+          {//this.slidearray.push(this.word)
+          }
+          else{
+            this.cassettearray.push(this.word)
+          }
+        }
+        else
+        {
+          this.cassettearray.push(this.word)
+        }
+
+        }
          
         this.word="";
+
+  
+
       }
    
-    } else {
-      if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
-      {this.word='';
-    
-      if(this.bascet!=null)
-      {
-    this.word=""}
-    }
-      else{
-        let fl2=0
-        if(this.addf==0){
-        if(this.bascet!=null){
-          for (let index = 0; index < this.bascet.length; index++) {
-           if(index>0)
-           {if(this.bascet.charAt(index)!='undefined')
-            x=x+this.bascet.charAt(index)
-           }
-            
-          }
-         
-          if(this.word==x)
-          {this.word="";
-          fl2=1;}
-        }
-        if(event.key=='"')
-        {this.word+="["}else{
-      this.word+=event.key;
-      if(this.word.search('undefined')!=-1)
-      this.word=""}
-      }else{
-        this.word+=event.key;
-      }}
    
-    }
-  }}
+  }
+}
+}
 
   @HostListener('window:keydown', ['$event'])
   keyEvent2(event: KeyboardEvent): void {
@@ -270,10 +295,6 @@ message:string;
   { 
     this.word="";
     this.cassettearray.push("")
-    if(this.cassettearray.length>1)
-    this.cassettearray[this.cassettearray.length-2]=this.prom[this.prom.length-1];
-  
-    this.addf=1;
   }
   res(){
     this.word=""
