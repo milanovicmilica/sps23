@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
 import { Process } from '../models/process';
@@ -81,7 +81,10 @@ export class DashsevenComponent implements OnInit {
           this.UserService.getAllEmb().subscribe((data: Embedding[])=>{
             this.allEmb=data;
             this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
-              this.allSectionings=data;});
+              this.allSectionings=data;
+            
+            this.word=""
+            });
           })
         })
     })})
@@ -450,7 +453,10 @@ print(i,podslovo,bb1,bb2)
     if(resp['message']=='user')
     { 
       this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
-        this.allSectionings=data;});
+
+        this.allSectionings=data;
+      
+      });
     
 
     }
@@ -525,12 +531,62 @@ print(i,podslovo,bb1,bb2)
   printall(){
     
     for (let index = 0; index < this.he.length; index++) {
+      console.log(index, this.podslovo, index+1, this.he[index])
       this.print(index,this.podslovo,index+1,this.he[index]);
       
     }
 for (let index = 0; index < this.ssihc.length; index++) {
- this.print(index+this.he.length,this.podslovo,this.he.length+index+1,this.ssihc[index]);
+  console.log(index + this.he.length, this.podslovo, index+1+this.he.length, this.ssihc[index])
+  this.print(index+this.he.length,this.podslovo,this.he.length+index+1,this.ssihc[index]);
   
 }
   }
-}
+  word:string;
+  @HostListener('window:keypress', ['$event'])
+  keyEvent(event: KeyboardEvent): void {
+
+    this.word+=event.key;
+    let cnt=0;
+    for (let index = 0; index < this.word.length; index++) {
+    
+     
+        if(this.word.charAt(index)==']')
+        cnt++
+      
+      }
+      if(cnt>=2)
+      {
+        this.word=this.word.slice(0,this.word.length-1)
+      }
+    if (event.key == ']') {
+      let flag=0;
+       
+          this.cassette=this.word
+          this.word="";
+          let cnt=0;
+          for (let index = 0; index < this.cassette.length; index++) {
+          
+           
+              if(this.cassette.charAt(index)==']')
+              cnt++
+            
+            }
+            if(cnt>=2)
+            {
+              this.cassette=this.cassette.slice(0,this.cassette.length-1)
+            }
+
+        }
+
+        
+         
+        
+
+  
+
+      }
+   
+   
+  }
+
+
