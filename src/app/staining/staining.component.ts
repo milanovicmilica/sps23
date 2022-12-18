@@ -258,6 +258,8 @@ freeStainers:string[]=[];
         if(flag==0)
         {
           if(this.slidearray.length>0){
+            console.log(this.slidearray[this.slidearray.length-1])
+            console.log(this.word)
           if(this.slidearray[this.slidearray.length-1]==this.word)
           {//this.slidearray.push(this.word)
           }
