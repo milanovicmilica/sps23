@@ -121,9 +121,9 @@ export class ProcessingComponent implements OnInit {
         let minuti1=this.allProtocols[index].minutes;
         posh=sati1+vreme;
         
-        if(posh>24){
-        while(posh>24){
-        if(posh>24)
+        if(posh>=24){
+        while(posh>=24){
+        if(posh>=24)
         {
           let prom=posh;
           posh=(posh%24);
