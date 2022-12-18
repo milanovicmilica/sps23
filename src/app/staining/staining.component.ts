@@ -213,6 +213,7 @@ freeStainers:string[]=[];
     this.word=""}
     }
     let cnt=0;
+    if(this.word!=null){
     for (let index = 0; index < this.word.length; index++) {
       if(this.word.charAt(index)==']')
       cnt++
@@ -222,7 +223,7 @@ freeStainers:string[]=[];
     {
       this.word=this.word.slice(0,this.word.length-1)
     }
-
+     }
     if (event.key == ']') {
       let flag=0;
         for (let index = 0; index < this.slidearray.length; index++) {
