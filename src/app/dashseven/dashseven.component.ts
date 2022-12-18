@@ -542,17 +542,69 @@ console.log(this.cassette)
 
   }
   printall(){
+    let dan=new Date().getDate();
+  let mesec=new Date().getMonth()+1;
+  let godina=new Date().getFullYear();
+
+  let flag=0;let a; 
+  let fs;
+  for (let index = 0; index < this.allSectionings.length; index++) {
+    if(this.allSectionings[index].cassette==this.cassette)
+    {
     
-    for (let index = 0; index < this.he.length; index++) {
-      console.log(index, this.podslovo, index+1, this.he[index])
-      this.print(index,this.podslovo,index+1,this.he[index]);
-      
+     fs=this.allSectionings[index];
+      this.nizprint= this.allSectionings[index].nizprint;
+      this.nizQr= this.allSectionings[index].nizQr;
+      this.nizOznaka= this.allSectionings[index].nizOznaka;
+      flag=1;
     }
-for (let index = 0; index < this.ssihc.length; index++) {
-  console.log(index + this.he.length, this.podslovo, index+1+this.he.length, this.ssihc[index])
-  this.print(index+this.he.length,this.podslovo,this.he.length+index+1,this.ssihc[index]);
+    
+  }
+
+  if(flag==0){
+    for (let index2 = 0; index2 < this.nizprint.length; index2++) {
+      this.nizprint[index2]=0;
+      
+    }}
+    for (let index = 0; index < this.he.length; index++) {
+    
+      this.nizprint[index]++;
+      let oznaka=this.podslovo+"."+(index+1)+"."+ " "+this.he[index];
+      this.nizOznaka[index]=oznaka;
+      a="[spspIPMF"+this.caseid+", "+this.podslovo+"."+(index+1)+"."+" "+this.he[index]+"-"+this.firstname+" "+this.lastname+"]"
+      this.nizQr[index]=a;
+    }
+    for (let index = 0; index < this.ssihc.length; index++) {
+ 
+      this.nizprint[index+this.he.length]++;
+      let oznaka=this.podslovo+"."+(index+this.he.length+1)+"."+ " "+this.ssihc[index];
+      this.nizOznaka[index+this.he.length]=oznaka;
+      a="[spspIPMF"+this.caseid+", "+this.podslovo+"."+(index+this.he.length+1)+"."+" "+this.ssihc[index]+"-"+this.firstname+" "+this.lastname+"]"
+      this.nizQr[index+this.he.length]=a;
+    }
   
-}
+    this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint, this.nizOznaka).subscribe((resp)=>{
+    
+      if(resp['message']=='user')
+      { 
+        this.UserService.getAllSectioning().subscribe((data: Sectioning[])=>{
+  
+          this.allSectionings=data;
+        
+        });
+      
+  
+      }
+      else{ 
+        if (resp['message']=='zauzeto')
+        { }
+        else{
+        }
+      }
+  
+    })
+
+
   }
   word:string;
   @HostListener('window:keypress', ['$event'])
