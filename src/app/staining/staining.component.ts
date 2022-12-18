@@ -222,6 +222,21 @@ freeStainers:string[]=[];
       this.word=this.word.slice(0,this.word.length-1)
     }
      }
+
+
+     for (let index = 0; index < this.slidearray.length; index++) {
+      cnt=0;
+      for (let index2 = 0; index2 < this.slidearray[index].length; index2++) {
+        if(this.slidearray[index].charAt(index2)==']')
+        cnt++
+      
+      }
+      if(cnt>=2)
+      {
+        this.slidearray[index]=this.slidearray[index].slice(0,this.slidearray[index].length-1)
+      }
+    }
+
     if (event.key == ']') {
       let flag=0;
         for (let index = 0; index < this.slidearray.length; index++) {
@@ -246,18 +261,7 @@ freeStainers:string[]=[];
          
         this.word="";
 
-        for (let index = 0; index < this.slidearray.length; index++) {
-          cnt=0;
-          for (let index2 = 0; index2 < this.slidearray[index].length; index2++) {
-            if(this.slidearray[index].charAt(index2)==']')
-            cnt++
-          
-          }
-          if(cnt>=2)
-          {
-            this.slidearray[index]=this.slidearray[index].slice(0,this.slidearray[index].length-1)
-          }
-        }
+  
 
       }
    
