@@ -201,18 +201,12 @@ freeStainers:string[]=[];
       this.redSelect=0;
     let x;
     if(this.word!=null){
-    if(this.word.search('undefined')!=-1)
-    this.word=""}
+   
     this.word+=event.key;
-    if(this.word.search('undefined')!=-1)
-    this.word=""
-    if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
-      {this.word='';
+ 
     
-      if(this.bascet!=null)
-      {
-    this.word=""}
-    }
+   
+    
     let cnt=0;
     if(this.word!=null){
     for (let index = 0; index < this.word.length; index++) {
@@ -253,4 +247,4 @@ freeStainers:string[]=[];
    
   }
 }
-}
+}}
