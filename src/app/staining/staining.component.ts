@@ -66,7 +66,19 @@ export class StainingComponent implements OnInit {
   g2:number;
   allrack:Rack[];
   startprocess(){
-
+    let cnt;
+    for (let index = 0; index < this.slidearray.length; index++) {
+      cnt=0;
+      for (let index2 = 0; index2 < this.slidearray[index].length; index2++) {
+        if(this.slidearray[index].charAt(index2)==']')
+        cnt++
+      
+      }
+      if(cnt>=2)
+      {
+        this.slidearray[index]=this.slidearray[index].slice(0,this.slidearray[index].length-1)
+      }
+    }
     if(this.bascet==null)
     this.g1=1;
     else this.g1=0;
