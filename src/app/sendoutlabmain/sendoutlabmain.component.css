@@ -447,7 +447,8 @@ background-color: #3c90efd3;
     width: 10%;
     height: 10%;
     margin-left: 40%;
-    margin-top: 3%;
+    
+    align-self: center;
   }
   .signupDugme:hover{
     background-color: #2e84e7db;
@@ -456,6 +457,7 @@ background-color: #3c90efd3;
     width: 10%;
     height: 10%;
     margin-left: 3%;
+    align-self: center;
   }
   .divh{
     width: 47%;
