@@ -76,7 +76,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                     </select>
                     <div class="div1">
                         <div class="div1prim" *ngFor="let s of slidearray; let i=index">
-                        <input  type="text" class="input1prim"  [value]="s"   *ngIf="addf==0 && slidearray.length>0" [(ngModel)]="slidearray[i]">
+                        <input  type="text" class="input1prim"  *ngIf="addf==0 && slidearray.length>0" [(ngModel)]="slidearray[i]">
                        
                         <button class="minidelete" (click)="deletecass(i)" >DELETE</button>
                         </div>
