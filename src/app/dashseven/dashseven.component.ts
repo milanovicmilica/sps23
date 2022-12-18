@@ -447,7 +447,7 @@ print(i,podslovo,bb1,bb2)
     let oznaka=podslovo+"."+bb1+"."+ " "+bb2;
     this.nizOznaka[i]=oznaka;
   }
-  printBarcode(this.caseid,podslovo,bb1,bb2 ,a);
+//  printBarcode(this.caseid,podslovo,bb1,bb2 ,a);
   this.UserService.addSectioning(this.cassette,dan,mesec,godina,this.nizQr,this.nizprint, this.nizOznaka).subscribe((resp)=>{
     
     if(resp['message']=='user')
