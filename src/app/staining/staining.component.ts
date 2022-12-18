@@ -185,15 +185,11 @@ freeStainers:string[]=[];
   word:string;
   addcass()
   { 
-    if(this.addf==0)
-    this.addf=1;
+    
     this.word="";
     this.slidearray.push("")
-    if(this.slidearray.length>1)
-    this.slidearray[this.slidearray.length-2]=this.prom[this.prom.length-1];
-    else{
-    }
-    this.addf=1;
+   
+  
   }
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
@@ -203,6 +199,9 @@ freeStainers:string[]=[];
     }else{
       this.redSelect=0;
     let x;
+
+    this.word+=event.key;
+
     if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
       {this.word='';
     
@@ -210,60 +209,31 @@ freeStainers:string[]=[];
       {
     this.word=""}
     }
-     
+    let cnt=0;
+    for (let index = 0; index < this.word.length; index++) {
+      if(this.word.charAt(index)==']')
+      cnt++
+    }
+    if(cnt>=2)
+    {
+      this.word=this.word.slice(0,this.word.length-1)
+    }
+
     if (event.key == ']') {
       let flag=0;
-      this.word+="]"
-     for (let index = 0; index < this.slidearray.length; index++) {
-      if(this.slidearray[index]==this.word)
-      {
-        flag=1;
-      }}
-      if(flag==0){
-       // this.word+="]"
-       if(this.addf==0)
-        this.slidearray.push(this.word)
-       else{
-        this.prom[this.prom.length-1]=this.word;
-        
-       }
+        for (let index = 0; index < this.slidearray.length; index++) {
+        if(this.word==this.slidearray[index])
+          flag=1;
+        }
+        if(flag==0)
+        {
+          this.slidearray.push(this.word)
+        }
          
         this.word="";
       }
    
-    } else {
-      if(this.word=='undefined' || this.word=='undefined'+this.bascet || this.word==this.bascet )
-      {this.word='';
-    
-      if(this.bascet!=null)
-      {
-    this.word=""}
-    }
-      else{
-        let fl2=0
-        if(this.addf==0){
-        if(this.bascet!=null){
-          for (let index = 0; index < this.bascet.length; index++) {
-           if(index>0)
-           {if(this.bascet.charAt(index)!='undefined')
-            x=x+this.bascet.charAt(index)
-           }
-            
-          }
-         
-          if(this.word==x)
-          {this.word="";
-          fl2=1;}
-        }
-        if(event.key=='"')
-        {this.word+="["}else{
-      this.word+=event.key;
-      if(this.word.search('undefined')!=-1)
-      this.word=""}
-      }else{
-        this.word+=event.key;
-      }}
    
-    }
-  }}
+  }
+}
 }
