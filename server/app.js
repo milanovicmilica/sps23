@@ -144,7 +144,7 @@ app.get('/guest/getallemb' || '/dashfive/guest/getallemb' || '/dashseven/guest/g
     });
 })
 app.get('/guest/getallprocess' || '/dashfour/guest/getallprocess' || '/pathslide/guest/getallprocess' 
-|| '/adlabactivity/guest/getallprocess', (req, res) => {
+|| '/adlabactivity/guest/getallprocess' || '/dashfourproc/guest/getallprocess', (req, res) => {
 // vraća listu svih Processing procesa
 
     Process.find({

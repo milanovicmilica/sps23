@@ -758,7 +758,8 @@ export class UserService {
   {
     return this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocess') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallprocess') ||
-    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallprocess');
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallprocess') ||
+    this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprocess');
   }
   getAllEmb()
   {
