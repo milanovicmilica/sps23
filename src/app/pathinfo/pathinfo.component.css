@@ -487,9 +487,9 @@ background-color: #3c90efd3;
     align-items: center;
   }
   .l1{
-    text-align: center;
+    text-align: left;
     font-weight: bolder;
-    align-self: center;
+    align-self: left;
     width: 100%;
   }
   ::-webkit-scrollbar {
