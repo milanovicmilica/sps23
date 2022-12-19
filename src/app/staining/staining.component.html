@@ -82,6 +82,15 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
                         </div>
                         <label id="lab"></label>
                         </div>
+                        <div class="popup" *ngIf="popup==1">
+                            <div class="zaglavlje">
+                                <label class="logoz">SMART</label>
+                                <label class="logo2z">PATH</label>
+                                <label class="logoz">SOFT</label>
+                            </div>
+                            <h2>You have to print all samples!</h2>
+                                <button (click)="closepopup()">OK</button>
+                        </div>
                         <div class="div2">
                             <button class="addfield" (click)="addcass()">ADD FIELD</button>
                         <button class="button1" (click)="startprocess()">START PROCESS</button>

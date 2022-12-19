@@ -85,7 +85,7 @@ app.get('/guest/getallsectioning' || '/dashseven/guest/getallsectioning' || '/se
     });
 })
 app.get('/guest/getallstainingprocess' || '/dashsix/guest/getallstainingprocess' || '/dasheight/guest/getallstainingprocess'
-|| '/adlabactivity/guest/getallstainingprocess', (req, res) => {
+|| '/adlabactivity/guest/getallstainingprocess' || '/staining/guest/getallstainingprocess', (req, res) => {
 //vraća listu svih Staining procesa
 
     ProcessStaining.find({

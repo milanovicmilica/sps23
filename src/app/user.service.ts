@@ -818,7 +818,8 @@ export class UserService {
     return this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess') || 
     this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainingprocess') ||
     this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallstainingprocess') ||
-    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallstainingprocess')
+    this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallstainingprocess') ||
+    this.http.get('https://sps23.herokuapp.com/staining/guest/getallstainingprocess')
   }
   getAllSectioning()
   {

@@ -11,6 +11,7 @@ import { BarcodeFormat } from '@zxing/library';
 import { Protocol2 } from '../models/protocol2';
 import { Stainer } from '../models/stainer';
 import { Rack } from '../models/rack';
+import { ProcessStaining } from '../models/processstaining';
 @Component({
   selector: 'app-staining',
   templateUrl: './staining.component.html',
@@ -27,9 +28,12 @@ export class StainingComponent implements OnInit {
       this.allStainers=data;
       this.UserService.getAllFreeRack().subscribe((data: Rack[])=>{
         this.allrack=data;
+        this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
+          this.allstainings=data;
    this.g1=0;
    this.g2=0;
    this.addf=0;
+   this.popup=0;
    this.redSelect=0;
    this.word=""
       this.UserService.getAllProtocols2().subscribe((data: Protocol2[])=>{
@@ -44,7 +48,7 @@ export class StainingComponent implements OnInit {
         }
         //this.casette.push("");
        // this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
-  
+      })
       })
       })
     })
@@ -57,6 +61,7 @@ export class StainingComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['/login-staininghe']);
   }
+  allstainings:ProcessStaining[];
   bascet:string;
   casette:string;
   slidearray:string[]=[];
@@ -65,6 +70,9 @@ export class StainingComponent implements OnInit {
   g1:number;
   g2:number;
   allrack:Rack[];
+  closepopup(){
+    this.popup=0;
+  }
   startprocess(){
     let cnt;
     for (let index = 0; index < this.slidearray.length; index++) {
@@ -207,6 +215,7 @@ freeStainers:string[]=[];
   trackByFn(index: any, item: any) {
     return index;
  }
+ popup:number;
   @HostListener('window:keypress', ['$event'])
   keyEvent(event: KeyboardEvent): void {
     if(this.bascet==null)
@@ -257,6 +266,19 @@ freeStainers:string[]=[];
         }
         if(flag==0)
         {
+          let flag2=0;
+          for (let index = 0; index < this.allstainings.length; index++) {
+            
+            for (let index2 = 0; index2 < this.allstainings[index].casette.length; index2++) {
+             if(this.allstainings[index].casette[index2]==this.word)
+             {
+              flag2=1;
+              this.popup=1;
+             }
+              
+            }
+          }
+          if(flag2==0){
           if(this.slidearray.length>0){
            
             let p1=this.word;
@@ -272,7 +294,7 @@ freeStainers:string[]=[];
         {
           this.slidearray.push(this.word)
         }
-
+      }
         }
          
         this.word="";
