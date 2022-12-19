@@ -176,7 +176,13 @@ showCheckboxesright(i)
 {
   
   if (!this.exp[i]) {
-  
+  for (let index = 0; index < this.exp.length; index++) {
+    if(index!=i)
+    {
+      this.exp[index]=false;
+    }
+    
+  }
     this.exp[i] = true;
   } else {
  
