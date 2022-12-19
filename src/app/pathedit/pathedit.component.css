@@ -33,7 +33,7 @@ width: 100%;
   flex-direction: row;
   text-align: left;
   width: 60%;
- 
+ margin-left: 5%;
 }
 .oneopt{
     display: flex;
@@ -260,7 +260,7 @@ width: 40%;
   width: 35%;
   padding: 1%;
   height:100%;
-  margin-bottom: 8%;
+  margin-bottom: 15%;
  align-items: flex-end;
  align-self: flex-end;
  align-content: flex-end;
