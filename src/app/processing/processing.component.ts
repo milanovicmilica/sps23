@@ -11,6 +11,7 @@ import { Result } from '@zxing/library';
 import { BarcodeFormat } from '@zxing/library';
 import { isThisTypeNode } from 'typescript';
 import { Bascet } from '../models/bascet';
+import { Process } from '../models/process';
 
 @Component({
   selector: 'app-processing',
@@ -46,7 +47,10 @@ export class ProcessingComponent implements OnInit {
         }
         this.UserService.getAllBascets().subscribe((data: Bascet[])=>{
           this.allBascets=data;
+          this.UserService.getAllProcess().subscribe((data: Process[])=>{
+            this.allProcessings=data;})
           this.addf=0;
+          this.popup=0;
         this.redSelect=0;})
       
       })
@@ -54,6 +58,7 @@ export class ProcessingComponent implements OnInit {
     })
   }
   me:User;
+  allProcessings:Process[];
   allBascets:Bascet[];
   allProcessors:Processor[];
   allProtocols:Protocol[];
@@ -70,6 +75,7 @@ export class ProcessingComponent implements OnInit {
   qrResultString: string;
   qrResult: Result;
   redSelect:number;
+  popup:number;
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login-processing']);
@@ -78,7 +84,9 @@ export class ProcessingComponent implements OnInit {
     this.router.navigate(['/dashfour']);
   }
 
-
+  closepopup(){
+    this.popup=0;
+  }
   g1:number;
   g2:number;
   startprocess(){
@@ -249,6 +257,19 @@ message:string;
         }
         if(flag==0)
         {
+          let flag2=0;
+          for (let index = 0; index < this.allProcessors.length; index++) {
+            
+            for (let index2 = 0; index2 < this.allProcessings[index].casette.length; index2++) {
+             if(this.allProcessings[index].casette[index2]==this.word)
+             {
+              flag2=1;
+              this.popup=1;
+             }
+              
+            }
+          }
+          if(flag2==0){
           if(this.cassettearray.length>0){
            
             let p1=this.word;
@@ -266,7 +287,7 @@ message:string;
         }
 
         }
-         
+      }
         this.word="";
 
   
