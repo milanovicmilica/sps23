@@ -61,7 +61,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <th>Number of Specimens:</th>
               </tr>
              <tbody>
-              <tr *ngFor="let a of allCase;let i=index" class="redovi">
+              <tr *ngFor="let a of allCase;let i=index" class="redovi" (click)="radiofill(a,i)">
                 <td class="pr">{{(i+1)}}</td>
                 <td class="pr"><input type="radio" class="rad" name="r1" [value]="a.formatcn"  [(ngModel)]="case" ></td>
                 <td class="left1">{{a.formatcn}}</td>

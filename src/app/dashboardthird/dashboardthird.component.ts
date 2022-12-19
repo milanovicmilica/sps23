@@ -57,6 +57,9 @@ export class DashboardthirdComponent implements OnInit {
     });
   })
 }
+radiofill(a,i){
+  this.case=a.formatcn;
+}
 none:string='None';
   logout(){
     sessionStorage.clear();
