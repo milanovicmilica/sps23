@@ -258,7 +258,7 @@ message:string;
         if(flag==0)
         {
           let flag2=0;
-          for (let index = 0; index < this.allProcessors.length; index++) {
+          for (let index = 0; index < this.allProcessings.length; index++) {
             
             for (let index2 = 0; index2 < this.allProcessings[index].casette.length; index2++) {
              if(this.allProcessings[index].casette[index2]==this.word)
