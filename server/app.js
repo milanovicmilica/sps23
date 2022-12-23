@@ -1463,6 +1463,4 @@ app.get('/login-archive', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
-app.listen(4000, ()=>{
-    console.log("server is listening on 3000")
-}) || app.listen(process.env.PORT);
+ app.listen(process.env.PORT);
