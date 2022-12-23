@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
@@ -23,7 +24,7 @@ export class CaselistadComponent implements OnInit {
         this.n1.push(k);
         k=k+1
         let a=this.allCase[index].date;
-        console.log(a);
+       // console.log(a);
      
       }
       this.me=user1;
@@ -52,6 +53,8 @@ export class CaselistadComponent implements OnInit {
 }
 logout(){
   sessionStorage.clear();
+  localStorage.clear()
+    this.UserService.removeSession();
   this.router.navigate(['/login-accessioning']);
 }
 day:string[]=[];

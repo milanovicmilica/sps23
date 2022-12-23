@@ -9,6 +9,7 @@ import { Sectioning } from '../models/sectioning';
 import { Cs } from '../models/infocs';
 import { Case } from '../models/case';
 import { Sample } from '../models/sample';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sendoutpatmain',
@@ -20,8 +21,8 @@ export class SendoutpatmainComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    this.me=user1.body;
     let s=JSON.parse(sessionStorage.getItem("case")) as String; 
     this.case=s;
     console.log(this.case)
@@ -85,6 +86,8 @@ export class SendoutpatmainComponent implements OnInit {
   mess:string=""
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-sendout']);
   }
 

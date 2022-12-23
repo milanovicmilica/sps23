@@ -1,4 +1,5 @@
 
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
@@ -19,8 +20,8 @@ export class PatheditComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    this.me=user1.body;
     this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
       this.allPathGroups=data;
       for (let index = 0; index < this.allPathGroups.length; index++) {
@@ -91,6 +92,8 @@ else{
 }
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-pathologist']);
   }
   promeni()

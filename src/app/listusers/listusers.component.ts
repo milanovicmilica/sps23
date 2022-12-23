@@ -51,6 +51,8 @@ allAdmins:User[]=[];
   allSpec:User[]=[];
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['']);
   }
   gotolaact(){

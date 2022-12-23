@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Process } from '../models/process';
@@ -15,8 +16,8 @@ export class DashboardfourthComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+    this.me=user1.body;
     this.UserService.getAllProcess().subscribe((data: Process[])=>{
       this.allProcess=data;
       
@@ -32,6 +33,8 @@ export class DashboardfourthComponent implements OnInit {
   }
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-processing']);
   }
 

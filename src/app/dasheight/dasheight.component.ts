@@ -12,6 +12,7 @@ import { Embedding } from '../models/embedding';
 import { Rack } from '../models/rack';
 import { Coverslipping } from '../models/coverslipping';
 import { ProcessStaining } from '../models/processstaining';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-dasheight',
   templateUrl: './dasheight.component.html',
@@ -21,8 +22,8 @@ export class DasheightComponent implements OnInit {
 
   constructor(private router: Router, private UserService: UserService) { }
 
-  ngOnInit(): void {  let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-  this.me=user1;
+  ngOnInit(): void {  let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+  this.me=user1.body;
   this.g=0;
   this.flag1=0;
   this.UserService.getAllFreeRack().subscribe((data: Rack[])=>{
@@ -51,6 +52,8 @@ export class DasheightComponent implements OnInit {
   message1:string;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-coverslipping']);
   }
   search(){

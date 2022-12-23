@@ -14,6 +14,7 @@ import { Stainer } from '../models/stainer';
 import { Process } from '../models/process';
 import { ProcessStaining } from '../models/processstaining';
 import { Rack } from '../models/rack';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-dashsix',
   templateUrl: './dashsix.component.html',
@@ -24,8 +25,8 @@ export class DashsixComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+    this.me=user1.body;
     this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
       this.allProcess=data;
    
@@ -128,6 +129,8 @@ st2(index){
 
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-staininghe']);
   }
   me:User;

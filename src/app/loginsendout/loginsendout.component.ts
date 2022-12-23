@@ -2,6 +2,7 @@ import { Component, OnInit,HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../models/user';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-loginsendout',
@@ -30,43 +31,33 @@ export class LoginsendoutComponent implements OnInit {
       this.message0='';
       this.message1='';
     let flag=0;
-    this.UserService.loginProvera(this.username,this.password).subscribe((resp: String)=>{
-
-      if(resp['message']=='ne')
-      {
-        this.message='Wrong password';
-        flag=1;
-      }
-      if(resp['message']=='nema')
-      {
-        this.message='This user do not exist';
-        flag=1;
-      }
+ 
       if(flag==0)
       {
-        this.UserService.login(this.username,this.password).subscribe((user: User)=>{
+        this.UserService.login(this.username,this.password).subscribe((user:  HttpResponse<any>)=>{
           if(user){
             
-            if (user.type==0 )//za admina
+            if (user.body.type==0 )//za admina
             {  /*sessionStorage.setItem("first", JSON.stringify(user));
                 this.router.navigate(['/dashfirst']);*/
+                this.message='Wrong password';
             }
             else{
-              if(user.type==1)
+              if(user.body.type==1)
               {
                 sessionStorage.setItem("laborant", JSON.stringify(user));
                 this.router.navigate(['/sendoutlabdash']);
               }
               else{
-                if(user.type==2 )
+                if(user.body.type==2 )
                 {
-                  
+                  this.message='Wrong password';
                  // sessionStorage.setItem("administrator", JSON.stringify(user));
                   
                   //this.router.navigate(['/dashsecond']);
                 }
                 else{
-                  if(user.type==3 )
+                  if(user.body.type==3 )
                 {
                   
                   sessionStorage.setItem("patolog", JSON.stringify(user));
@@ -85,7 +76,8 @@ export class LoginsendoutComponent implements OnInit {
       }
 
 
-    })}
+  
+    }
     
    
   }

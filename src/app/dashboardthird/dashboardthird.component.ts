@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
@@ -16,16 +17,16 @@ export class DashboardthirdComponent implements OnInit {
   ngOnInit(): void {
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
-      let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
+      let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
       
-      this.me=user1;
+      this.me=user1.body;
       let k=1;
       for (let index = 0; index < this.allCase.length; index++) {
         
         this.n1.push(k);
         k=k+1
       }
-      this.me=user1;
+      this.me=user1.body;
       for (let index = 0; index < this.allCase.length; index++) {
        this.numofSpec.push(0);
         
@@ -63,6 +64,8 @@ radiofill(a,i){
 none:string='None';
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-grossing']);
   }
   specU:User[]=[];

@@ -4,4 +4,5 @@ export class User{
     type: number;
     firstname: string;
     lastname: string;
+    _id:string;
 }

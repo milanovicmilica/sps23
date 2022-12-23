@@ -1,3 +1,4 @@
+import { HttpResponse, HttpResponseBase } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
@@ -16,8 +17,8 @@ export class PathdashComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    this.me=user1.body;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
     
@@ -30,7 +31,7 @@ export class PathdashComponent implements OnInit {
     //    console.log(a);
      
       }
-      this.me=user1;
+      this.me=user1.body;
 
  this.UserService.getAllCs().subscribe((data: Cs[])=>{
       this.allcs=data;
@@ -121,6 +122,8 @@ for (let index = 0; index < this.myCases.length; index++) {
 me:User;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-pathologist']);
   }
   day:string[]=[];
@@ -153,7 +156,7 @@ allcs:Cs[]=[];
    
     this.message='';
     sessionStorage.setItem("case", JSON.stringify(this.case));
-    sessionStorage.setItem("patolog", JSON.stringify(this.me));
+    //sessionStorage.setItem("patolog", JSON.stringify(this.me));
     this.router.navigate(['/pathinfo']);
 
   }

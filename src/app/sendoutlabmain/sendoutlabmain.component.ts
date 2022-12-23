@@ -9,6 +9,7 @@ import { Sectioning } from '../models/sectioning';
 import { Cs } from '../models/infocs';
 import { Case } from '../models/case';
 import { Sample } from '../models/sample';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sendoutlabmain',
@@ -20,8 +21,8 @@ export class SendoutlabmainComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+    this.me=user1.body;
     let s=JSON.parse(sessionStorage.getItem("slide")) as String; 
     this.slide=s;
     console.log(this.slide)
@@ -226,6 +227,8 @@ export class SendoutlabmainComponent implements OnInit {
   semallslides:number[][]=[];
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-sendout']);
   }
 word:string="";

@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
@@ -18,8 +19,8 @@ export class PathreportComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    this.me=user1.body;
     let s=JSON.parse(sessionStorage.getItem("case")) as string; 
     this.case=s;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
@@ -63,6 +64,8 @@ export class PathreportComponent implements OnInit {
   message:string;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-pathologist']);
   }
   addRepo()

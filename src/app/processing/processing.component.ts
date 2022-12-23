@@ -12,6 +12,7 @@ import { BarcodeFormat } from '@zxing/library';
 import { isThisTypeNode } from 'typescript';
 import { Bascet } from '../models/bascet';
 import { Process } from '../models/process';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-processing',
@@ -27,8 +28,8 @@ export class ProcessingComponent implements OnInit {
 
   ngOnInit(): void {
    // this.casette.push("");
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+    this.me=user1.body;
     this.UserService.getAllProcessors().subscribe((data: Processor[])=>{
       this.allProcessors=data;
 
@@ -78,6 +79,8 @@ export class ProcessingComponent implements OnInit {
   popup:number;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-processing']);
   }
   procpoc(){

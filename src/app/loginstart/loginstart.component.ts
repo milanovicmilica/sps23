@@ -2,6 +2,7 @@ import { Component, OnInit,HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../models/user';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-loginstart',
   templateUrl: './loginstart.component.html',
@@ -32,7 +33,7 @@ allUse:User[]=[];
       this.message0='';
       this.message1='';
     let flag=0;
-    this.UserService.loginProvera(this.username,this.password).subscribe((resp: String)=>{
+    /*this.UserService.loginProvera(this.username,this.password).subscribe((resp: String)=>{
      
       if(resp['message']=="ne")
       {
@@ -46,50 +47,34 @@ allUse:User[]=[];
         flag=1;
       }else{
       if(flag==0 && resp['message']=="ok")
-      {
-        this.UserService.login(this.username,this.password).subscribe((user: User)=>{
+      {*/
+        this.UserService.login(this.username,this.password).subscribe((user: HttpResponse<any>)=>{
           if(user){
+          //  console.log(user._id)
+            console.log(user)
             
-            if (user.type==0 )//za admina
+            if (user.body.type==0 )//za admina
             {  sessionStorage.setItem("first", JSON.stringify(user));
+            
                 this.router.navigate(['/dashfirst']);
             }
             else{
-              if(user.type==1)
-              {
-              //  sessionStorage.setItem("laborant", JSON.stringify(user));
-                //this.router.navigate(['/dashfour']);
-              }
-              else{
-                if(user.type==2 )
-                {
-                  
-              //    sessionStorage.setItem("administrator", JSON.stringify(user));
-                  
-                //  this.router.navigate(['/dashsecond']);
-                }
-                else{
-                  if(user.type==3 )
-                {
-                  
-              //    sessionStorage.setItem("patolog", JSON.stringify(user));
-                  
-                //  this.router.navigate(['/grossfirst']);
-                }
-                }
+              this.message='Wrong password';
+              flag=1;
+             
                 
-              }
+              
             }
           }
           
         })
       }}
-    }
+    
 
-    })}
+    //})}
     
    
-  }
+ // }
   visible:boolean=true;
   changetype:boolean=true;
 

@@ -11,6 +11,7 @@ import { Cs } from '../models/infocs';
 import { Embedding } from '../models/embedding';
 import { Cabinet } from '../models/cabinet';
 import { Fijoka } from '../models/fijoka';
+import { HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -22,8 +23,8 @@ export class ArchivedashComponent implements OnInit {
 
   constructor(private router: Router, private UserService: UserService) { }
 
-  ngOnInit(): void {  let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-  this.me=user1;
+  ngOnInit(): void {  let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+  this.me=user1.body;
   this.UserService.getAllCabinets().subscribe((data: Cabinet[])=>{
     this.allCabinets=data;
     console.log(this.allCabinets.length)
@@ -36,6 +37,8 @@ export class ArchivedashComponent implements OnInit {
   me:User;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-archive']);
   }
   inputval:string;

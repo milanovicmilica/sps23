@@ -6,6 +6,7 @@ import { Hospital } from '../models/hospital';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+import { HttpResponse } from '@angular/common/http';
 const printBarcode = async (cid,a) => {
   try {
     // Create a new instance of the object
@@ -61,9 +62,9 @@ export class AcsfirstComponent implements OnInit {
   ngOnInit(): void {
     this.num=2;
     this.vest=1357;
-    let user1 = JSON.parse(sessionStorage.getItem("administrator")) as User; 
+    let user1 = JSON.parse(sessionStorage.getItem("administrator")) as  HttpResponse<any>; 
   this.today = new Date;
-      this.me=user1;
+      this.me=user1.body;
     this.g1=0;    this.g2=0;this.g3=0;this.g4=0;this.g5=0;this.g6=0;this.g7=0;this.g8=0;this.g9=0;
     this.UserService.getAllPath().subscribe((data: User[])=>{
       this.allPath=data;
@@ -76,6 +77,8 @@ export class AcsfirstComponent implements OnInit {
   }
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-accessioning']);
   }
   today:Date;

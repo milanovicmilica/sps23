@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../models/case';
@@ -19,15 +20,15 @@ export class PathinfoComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    this.me=user1.body;
     let s=JSON.parse(sessionStorage.getItem("case")) as string; 
     this.case=s;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
     
     for (let index = 0; index < this.allCase.length; index++) {
-    if(this.allCase[index].formatcn==this.case)
+    if(this.allCase[index].formatcn && this.allCase[index].formatcn==this.case)
     {
       this.my=this.allCase[index];
     }
@@ -43,7 +44,7 @@ export class PathinfoComponent implements OnInit {
           this.allCase=data;
        
         for (let index = 0; index < this.allCase.length; index++) {
-          if(this.case==this.allCase[index].formatcn)
+          if(this.allCase[index].formatcn && this.case==this.allCase[index].formatcn)
           {this.my=this.allCase[index]}
         }
         for (let index = 0; index < this.allSample.length; index++) {
@@ -90,6 +91,8 @@ export class PathinfoComponent implements OnInit {
   me:User;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-pathologist']);
   }
   predjinaRep()

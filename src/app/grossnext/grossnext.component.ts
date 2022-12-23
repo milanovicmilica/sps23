@@ -11,6 +11,7 @@ import { Sample } from '../models/sample';
 import { User } from '../models/user';
 import { UserService } from '../user.service';
 import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+import { HttpResponse } from '@angular/common/http';
 
 
 const printBarcode = async (r,bc,cid) => {
@@ -73,10 +74,10 @@ export class GrossnextComponent implements OnInit {
       this.allCase=data;
       this.znakD=0;
       this.expanded=false;   this.expanded2=false; 
-      let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
+      let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
       this.pojavise1=0;
       this.pojavise2=0;
-      this.me=user1;
+      this.me=user1.body;
       this.sem1=0;
       let c = JSON.parse(sessionStorage.getItem("case")) as string; 
       this.case=c;
@@ -174,6 +175,8 @@ export class GrossnextComponent implements OnInit {
   allGroups:pathGroup[];
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-grossing']);
   }
   allCase:Case[];

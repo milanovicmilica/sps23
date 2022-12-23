@@ -12,6 +12,7 @@ import { Protocol2 } from '../models/protocol2';
 import { Stainer } from '../models/stainer';
 import { Rack } from '../models/rack';
 import { ProcessStaining } from '../models/processstaining';
+import { HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-staining',
   templateUrl: './staining.component.html',
@@ -22,8 +23,8 @@ export class StainingComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+    this.me=user1.body;
     this.UserService.getAllStainers().subscribe((data: Stainer[])=>{
       this.allStainers=data;
       this.UserService.getAllFreeRack().subscribe((data: Rack[])=>{
@@ -59,6 +60,8 @@ export class StainingComponent implements OnInit {
   redSelect:number;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-staininghe']);
   }
   allstainings:ProcessStaining[];

@@ -9,6 +9,7 @@ import { Sample } from '../models/sample';
 import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
 import { Embedding } from '../models/embedding';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sendoutlabdash',
@@ -20,12 +21,14 @@ export class SendoutlabdashComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+    this.me=user1.body;
   }
 me:User;
 logout(){
   sessionStorage.clear();
+  localStorage.clear()
+    this.UserService.removeSession();
   this.router.navigate(['/login-sendout']);
 }
 slide:string="";

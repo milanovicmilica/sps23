@@ -11,6 +11,7 @@ import { Cs } from '../models/infocs';
 import { Embedding } from '../models/embedding';
 import { Sectioning } from '../models/sectioning';
 import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+import { HttpResponse } from '@angular/common/http';
 const printBarcode = async (cid,ln,ns,st,a) => {
   try {
     // Create a new instance of the object
@@ -68,8 +69,8 @@ export class DashsevenComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+    this.me=user1.body;
     this.g=0;
     this.flag1=0;
     this.UserService.getAllSamples().subscribe((data: Sample[])=>{
@@ -485,6 +486,8 @@ console.log(this.cassette)
 
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['/login-sectioning']);
   }
 

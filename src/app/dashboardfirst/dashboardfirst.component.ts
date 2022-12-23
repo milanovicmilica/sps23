@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
@@ -12,9 +13,13 @@ export class DashboardfirstComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("first")) as User; 
-      
-    this.me=user1;
+    let user1 = JSON.parse(sessionStorage.getItem("first")) as HttpResponse<any>; 
+      if(!user1 || user1.body.type!=0){
+        localStorage.clear();
+        sessionStorage.clear();
+        this.router.navigate(['']);
+      }else{
+    this.me=user1.body;
     this.k=[
       {
         ime:'Admin',
@@ -38,7 +43,7 @@ export class DashboardfirstComponent implements OnInit {
       },
      
     
-    ]
+    ]}
   }
 
   username:string;
@@ -56,6 +61,7 @@ export class DashboardfirstComponent implements OnInit {
   lastname:string;
   logout(){
     sessionStorage.clear();
+    this.UserService.removeSession();
     this.router.navigate(['']);
   }
   addprotocol(){
