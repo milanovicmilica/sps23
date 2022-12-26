@@ -311,7 +311,7 @@ app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols' || '/l
     });
 })
 app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors'
-|| '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', authenticate, (req, res) => {
+|| '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', (req, res) => {
 // vraća listu svih Procesora
 
     Processor.find({
@@ -1481,4 +1481,4 @@ app.get('/login-archive', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
- app.listen(process.env.PORT || 4000);
+ app.listen(process.env.PORT );
