@@ -101,17 +101,7 @@ export class UserService {
      username: username,
      password: password
     }
-     return this.http.post('http://localhost:4000/guest/loginprovera', data) ||
-     this.http.post('http://localhost:4000/login-embedding/guest/loginprovera', data) ||
-     this.http.post('http://localhost:4000/login-staininghe/guest/loginprovera', data) ||
-     this.http.post('http://localhost:4000/login-sectioning/guest/loginprovera', data) || 
-     this.http.post('http://localhost:4000/login-grossing/guest/loginprovera', data) || 
-     this.http.post('http://localhost:4000/login-accessioning/guest/loginprovera', data) || 
-     this.http.post('http://localhost:4000/login-processing/guest/loginprovera', data) || 
-     this.http.post('http://localhost:4000/login-coverslipping/guest/loginprovera', data) ||
-     this.http.post('http://localhost:4000/login-sendout/guest/loginprovera', data) ||
-     this.http.post('http://localhost:4000/login-patholog/guest/loginprovera', data) || 
-     this.http.post('http://localhost:4000/login-archive/guest/loginprovera', data) ||  this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
+     return  this.http.post('https://sps23.herokuapp.com/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/login-embedding/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/login-staininghe/guest/loginprovera', data) ||
      this.http.post('https://sps23.herokuapp.com/login-sectioning/guest/loginprovera', data) || 
@@ -136,8 +126,7 @@ export class UserService {
      lastname:lastname
     }
 
-    return this.http.post('http://localhost:4000/dashfirst/guest/addUser', data) ||
-     this.http.post('https://sps23.herokuapp.com/dashfirst/guest/addUser', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfirst/guest/addUser', data)
   }
   addProtocol(name,hours, minutes, processor){
     let t=0;
@@ -150,8 +139,7 @@ export class UserService {
      processor:processor
     }
 
-    return this.http.post('http://localhost:4000/addprotocol/guest/addProtocol', data) ||
-    this.http.post('https://sps23.herokuapp.com/addprotocol/guest/addProtocol', data)
+    return this.http.post('https://sps23.herokuapp.com/addprotocol/guest/addProtocol', data)
   }
   addSTProtocol(name,hours, minutes, stainer){
     let t=0;
@@ -164,8 +152,7 @@ export class UserService {
       stainer:stainer
     }
 
-    return this.http.post('http://localhost:4000/addstprotocol/guest/addSTProtocol', data)||
-    this.http.post('https://sps23.herokuapp.com/addstprotocol/guest/addSTProtocol', data)
+    return this.http.post('https://sps23.herokuapp.com/addstprotocol/guest/addSTProtocol', data)
   }
   addProcessor(name,num, free){
   let t=0;
@@ -178,8 +165,7 @@ export class UserService {
    
   }
 
-  return this.http.post('http://localhost:4000/addprocessor/guest/addProcessor', data) ||
-  this.http.post('https://sps23.herokuapp.com/addprocessor/guest/addProcessor', data)
+  return this.http.post('https://sps23.herokuapp.com/addprocessor/guest/addProcessor', data)
   }
   addBasket(name, free){
     let t=0;
@@ -192,8 +178,7 @@ export class UserService {
      
     }
   
-    return this.http.post('http://localhost:4000/addbasket/guest/addBasket', data)||
-     this.http.post('https://sps23.herokuapp.com/addbasket/guest/addBasket', data)
+    return this.http.post('https://sps23.herokuapp.com/addbasket/guest/addBasket', data)
     }
     addRack(name, free){
       let t=0;
@@ -206,8 +191,7 @@ export class UserService {
        
       }
     
-      return this.http.post('http://localhost:4000/addrack/guest/addRack', data) ||
-  this.http.post('https://sps23.herokuapp.com/addrack/guest/addRack', data)
+      return this.http.post('https://sps23.herokuapp.com/addrack/guest/addRack', data)
       }
   addStainer(name,num, free){
     let t=0;
@@ -220,8 +204,7 @@ export class UserService {
      
     }
   
-    return this.http.post('http://localhost:4000/addstainer/guest/addStainer', data)||
-    this.http.post('https://sps23.herokuapp.com/addstainer/guest/addStainer', data)
+    return this.http.post('https://sps23.herokuapp.com/addstainer/guest/addStainer', data)
     }
     addCabinet(rows,name,typesofrow,qr){
       const data={
@@ -233,8 +216,7 @@ export class UserService {
        
       }
     
-      return this.http.post('http://localhost:4000/addcabinet/guest/addCabinet', data) ||
-      this.http.post('https://sps23.herokuapp.com/addcabinet/guest/addCabinet', data)
+      return this.http.post('https://sps23.herokuapp.com/addcabinet/guest/addCabinet', data)
     }
   addSample(caseid,sample,s2,brTipa,num,id,slovo, spec, ihc,print){
 
@@ -253,8 +235,7 @@ export class UserService {
       print:print
     }
 
-    return this.http.post('http://localhost:4000/acssecond/guest/addSample', data) ||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSample', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSample', data)
 
   }
   addSampleSlide(caseid,sample,s2,brTipa,num,id,slovo, choice, firstch, spec, ihc, niz1,niz2, exbl){
@@ -278,8 +259,7 @@ export class UserService {
       exbl:exbl
     }
 
-    return this.http.post('http://localhost:4000/acssecond/guest/addSampleSlide', data)||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSampleSlide', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSampleSlide', data)
 
   }
   addSampleBlock(caseid,sample,s2,brTipa,num,id,slovo, exbl, spec,ihc, niz1,niz2){
@@ -301,8 +281,7 @@ export class UserService {
       niz2:niz2
     }
 
-    return this.http.post('http://localhost:4000/acssecond/guest/addSampleBlock', data)||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSampleBlock', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/addSampleBlock', data)
 
   }
   printCassette(caseid,slovo,podslovo,print,code,path, asistent)
@@ -320,8 +299,7 @@ export class UserService {
       asistent:asistent,
     }
 
-    return this.http.post('http://localhost:4000/grossnext/guest/addprcs', data)||
-    this.http.post('https://sps23.herokuapp.com/grossnext/guest/addprcs', data)
+    return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addprcs', data)
   }
   addCS(caseid,brK,specstain,ihc,slovo, plocice,comm, path, asistent, podslovo, niz1,niz2,day,month,year,hours,minutes){
 
@@ -347,8 +325,7 @@ export class UserService {
       minutes:minutes
     }
 
-    return this.http.post('http://localhost:4000/grossnext/guest/addCS', data)||
-    this.http.post('https://sps23.herokuapp.com/grossnext/guest/addCS', data)
+    return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addCS', data)
 
   }
   addProcess(processor,protocol,bascet,casette,hours,minutes,status,poshours,posminutes,posday,posmonth,posyear){
@@ -371,8 +348,7 @@ export class UserService {
       posyear:posyear
     }
 
-    return this.http.post('http://localhost:4000/dashfourproc/guest/addprocess', data)||
-    this.http.post('https://sps23.herokuapp.com/dashfourproc/guest/addprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfourproc/guest/addprocess', data)
 
   }
   addProcessStaining(stainer,protocol,bascet,casette,hours,minutes,status,poshours,posminutes,posday,posmonth,posyear,possec){
@@ -396,8 +372,7 @@ export class UserService {
       possec:possec
     }
 
-    return this.http.post('http://localhost:4000/staining/guest/addstainingprocess', data)||
-    this.http.post('https://sps23.herokuapp.com/staining/guest/addstainingprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/staining/guest/addstainingprocess', data)
 
   }
   addPathGroup(pathologist,groupname, type, ss,ihc){
@@ -412,8 +387,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/pathaddgroup/guest/addPathGroup', data)||
-    this.http.post('https://sps23.herokuapp.com/pathaddgroup/guest/addPathGroup', data)
+    return this.http.post('https://sps23.herokuapp.com/pathaddgroup/guest/addPathGroup', data)
   }
   addDc(dan,mesec,godina, hours, minutes, caseid,pathologist,mark)
   {
@@ -431,8 +405,7 @@ export class UserService {
       mark:mark
     }
 
-    return this.http.post('http://localhost:4000/grossnext/guest/addDc', data)||
-    this.http.post('https://sps23.herokuapp.com/grossnext/guest/addDc', data)
+    return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addDc', data)
   }
   addDcQr(Qr,dan,mesec,godina, hours, minutes, caseid,pathologist,mark)
   {
@@ -450,8 +423,7 @@ export class UserService {
       mark:mark
     }
 
-    return this.http.post('http://localhost:4000/grossnext/guest/addDcqr', data)||
-    this.http.post('https://sps23.herokuapp.com/grossnext/guest/addDcqr', data)
+    return this.http.post('https://sps23.herokuapp.com/grossnext/guest/addDcqr', data)
   }
   endProcess(bascet, endhours,endminutes, endday,endmonth,endyear,lab,casette)
   {
@@ -469,8 +441,7 @@ export class UserService {
       casette:casette
     }
 
-    return this.http.post('http://localhost:4000/dashfour/guest/endprocess', data)||
-    this.http.post('https://sps23.herokuapp.com/dashfour/guest/endprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfour/guest/endprocess', data)
   }
   endSProcess(bascet, endhours,endminutes,cassette, endday,endmonth,endyear,lab)
   {
@@ -488,8 +459,7 @@ export class UserService {
       endyear:endyear
     }
 
-    return this.http.post('http://localhost:4000/dashsix/guest/endsprocess', data)||
-    this.http.post('https://sps23.herokuapp.com/dashsix/guest/endsprocess', data)
+    return this.http.post('https://sps23.herokuapp.com/dashsix/guest/endsprocess', data)
   }
   updateProcessor(processor)
   {
@@ -502,8 +472,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/dashfour/guest/updateProcessor', data)||
-    this.http.post('https://sps23.herokuapp.com/dashfour/guest/updateProcessor', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfour/guest/updateProcessor', data)
   }
   updateF(name,cabinet,piece)
   {
@@ -518,8 +487,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/archivedash/guest/updateF', data)||
-    this.http.post('https://sps23.herokuapp.com/archivedash/guest/updateF', data)
+    return this.http.post('https://sps23.herokuapp.com/archivedash/guest/updateF', data)
   }
   updateStainer(stainer)
   {
@@ -532,8 +500,7 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/dashsix/guest/updateStainer', data)||
-    this.http.post('https://sps23.herokuapp.com/dashsix/guest/updateStainer', data)
+    return this.http.post('https://sps23.herokuapp.com/dashsix/guest/updateStainer', data)
   }
   changeID(caseid)
   {
@@ -543,8 +510,7 @@ export class UserService {
      
       caseid:caseid
     }
-    return this.http.post('http://localhost:4000/acssecond/guest/changeid', data)||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeid', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeid', data)
   }
   changeslovo(caseid)
   {
@@ -554,8 +520,7 @@ export class UserService {
      
       caseid:caseid
     }
-    return this.http.post('http://localhost:4000/acssecond/guest/changeslovo', data)||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeslovo', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/changeslovo', data)
   }
   deleteSample(id, caseid){
 
@@ -567,8 +532,7 @@ export class UserService {
       caseid:caseid
     }
 
-    return this.http.post('http://localhost:4000/acssecond/guest/deleteSample', data)||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/deleteSample', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/deleteSample', data)
 
   }
   findCassette(cassette)
@@ -580,8 +544,8 @@ export class UserService {
       
     }
 
-    return this.http.post('http://localhost:4000/guest/findCassette', data)||
-    this.http.post('http://localhost:4000/guest/findCassette', data)
+    return this.http.post('https://sps23.herokuapp.com/guest/findCassette', data)||
+    this.http.post('https://sps23.herokuapp.com/guest/findCassette', data)
   }
   confirmEmb(caseid, cassette, dan,mesec,godina, time, minute, lab)
   {
@@ -598,8 +562,7 @@ export class UserService {
       lab:lab
     }
 
-    return this.http.post('http://localhost:4000/dashfive/guest/confirmEmb', data)||
-    this.http.post('https://sps23.herokuapp.com/dashfive/guest/confirmEmb', data)
+    return this.http.post('https://sps23.herokuapp.com/dashfive/guest/confirmEmb', data)
   }
   addSectioning(cassette,dan,mesec,godina,nizQr,nizprint, nizOznaka)
   {
@@ -615,8 +578,7 @@ export class UserService {
       nizOznaka:nizOznaka
     }
 
-    return this.http.post('http://localhost:4000/dashseven/guest/addSectioning', data)||
-    this.http.post('https://sps23.herokuapp.com/dashseven/guest/addSectioning', data)
+    return this.http.post('https://sps23.herokuapp.com/dashseven/guest/addSectioning', data)
   }
   addSendout(laborant,caseid,sati,minuti,dan,mesec,godina){
     const data={
@@ -631,8 +593,7 @@ export class UserService {
       sati:sati
     }
 
-    return this.http.post('http://localhost:4000/sendoutlabmain/guest/addSendout', data)||
-    this.http.post('https://sps23.herokuapp.com/sendoutlabmain/guest/addSendout', data)
+    return this.http.post('https://sps23.herokuapp.com/sendoutlabmain/guest/addSendout', data)
   }
   SendoutUpdate(patolog,caseid,endsati,endminuti,enddan,endmesec,endgodina){
     const data={
@@ -647,8 +608,7 @@ export class UserService {
       endsati:endsati
     }
 
-    return this.http.post('http://localhost:4000/sendoutpathmain/guest/SendoutUpdate', data)||
-    this.http.post('https://sps23.herokuapp.com/sendoutpathmain/guest/SendoutUpdate', data)
+    return this.http.post('https://sps23.herokuapp.com/sendoutpathmain/guest/SendoutUpdate', data)
   }
   confirmCoverslipping(caseid,rack, dan, mesec, godina, time, minute, lab, slides){
 
@@ -666,8 +626,7 @@ export class UserService {
       slides:slides
     }
 
-    return this.http.post('http://localhost:4000/dasheight/guest/confirmCoverslipping', data)||
-    this.http.post('https://sps23.herokuapp.com/dasheight/guest/confirmCoverslipping', data)
+    return this.http.post('https://sps23.herokuapp.com/dasheight/guest/confirmCoverslipping', data)
   }
   updateSectioning(cassette, lab, hour,minute)
   {
@@ -681,8 +640,7 @@ export class UserService {
      
     }
 
-    return this.http.post('http://localhost:4000/dashseven/guest/updateSectioning', data)||
-    this.http.post('https://sps23.herokuapp.com/dashseven/guest/updateSectioning', data)
+    return this.http.post('https://sps23.herokuapp.com/dashseven/guest/updateSectioning', data)
   }
   updateSampleCode(caseid,slovo,s,p){
     const data={
@@ -695,8 +653,7 @@ export class UserService {
      
     }
 
-    return this.http.post('http://localhost:4000/acssecond/guest/updateSampleCode', data)||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateSampleCode', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateSampleCode', data)
   }
   updateEXSSampleCode(caseid,slovo,nizQr,nizOznaka)
   {
@@ -710,8 +667,7 @@ export class UserService {
      
     }
 
-    return this.http.post('http://localhost:4000/acssecond/guest/updateEXSSampleCode', data)||
-    this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateEXSSampleCode', data)
+    return this.http.post('https://sps23.herokuapp.com/acssecond/guest/updateEXSSampleCode', data)
   }
   updatePathGroupss(pathologist,groupname, ss)
   {
@@ -725,8 +681,7 @@ export class UserService {
      
     }
 
-    return this.http.post('http://localhost:4000/pathedit/guest/updatePathGroupss', data)||
-    this.http.post('https://sps23.herokuapp.com/pathedit/guest/updatePathGroupss', data)
+    return this.http.post('https://sps23.herokuapp.com/pathedit/guest/updatePathGroupss', data)
   }
   updatePathGroupihc(pathologist,groupname, ihc)
   {
@@ -740,8 +695,7 @@ export class UserService {
      
     }
 
-    return this.http.post('http://localhost:4000/pathedit/guest/updatePathGroupihc', data)||
-    this.http.post('https://sps23.herokuapp.com/pathedit/guest/updatePathGroupihc', data)
+    return this.http.post('https://sps23.herokuapp.com/pathedit/guest/updatePathGroupihc', data)
   }
   addCase(sender,hospitalid,contact,address,firstname,lastname,
     pid,date,lbo,hnum,num,diagnosis,pathologist,adcomments,format,cn, gen, currday,currmonth, worker){
@@ -771,8 +725,7 @@ export class UserService {
 
     }
 
-    return this.http.post('http://localhost:4000/acsfirst/guest/addCase', data)||
-    this.http.post('https://sps23.herokuapp.com/acsfirst/guest/addCase', data)
+    return this.http.post('https://sps23.herokuapp.com/acsfirst/guest/addCase', data)
   }
   addReporting(caseid,pathologist, microreporting,pathdiagnosis, day,month,year, hours,minutes)
   {
@@ -791,23 +744,14 @@ export class UserService {
 
     }
 
-    return this.http.post('http://localhost:4000/pathreport/guest/addReporting', data)||
-    this.http.post('https://sps23.herokuapp.com/pathreport/guest/addReporting', data)
+    return this.http.post('https://sps23.herokuapp.com/pathreport/guest/addReporting', data)
   }
   getAllPath(){
-    return this.http.get('http://localhost:4000/guest/getallpath') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallpath') ||
+    return this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallpath') ||
     this.http.get('https://sps23.herokuapp.com/guest/getallpath') || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallpath') 
   }
   getAllCs(){
-    return this.http.get('http://localhost:4000/guest/getallcs') ||
-    this.http.get('http://localhost:4000/dashfive/guest/getallcs') || 
-    this.http.get('http://localhost:4000/dashseven/guest/getallcs') ||
-    this.http.get('http://localhost:4000/sendoutpathdash/guest/getallcs') || 
-    this.http.get('http://localhost:4000/pathdash/guest/getallcs') || 
-    this.http.get('http://localhost:4000/pathslide/guest/getallcs') ||
-    this.http.get('http://localhost:4000/grossnext/guest/getallcs') ||
-    this.http.get('http://localhost:4000/labactivity/guest/getallcs')||
-    this.http.get('https://sps23.herokuapp.com/guest/getallcs') ||
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcs') ||
     this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallcs') || 
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallcs') ||
     this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallcs') || 
@@ -817,23 +761,7 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallcs');
   }
   getAllCases(){
-    return this.http.get('http://localhost:4000/guest/getallcases') || 
-    this.http.get('http://localhost:4000/grossfirst/guest/getallcases') 
-    || this.http.get('http://localhost:4000/acsfirst/guest/getallcases') ||
-     this.http.get('http://localhost:4000/acssecond/guest/getallcases') ||
-    this.http.get('http://localhost:4000/clacs/guest/getallcases') ||
-    this.http.get('http://localhost:4000/dashfive/guest/getallcases') ||
-    this.http.get('http://localhost:4000/dashseven/guest/getallcases') || 
-    this.http.get('http://localhost:4000/grossfirst/guest/getallcases') || 
-    this.http.get('http://localhost:4000/grossnext/guest/getallcases') || 
-    this.http.get('http://localhost:4000/sendoutpathdash/guest/getallcases') ||
-    this.http.get('http://localhost:4000/pathdash/guest/getallcases') ||
-    this.http.get('http://localhost:4000/pathinfo/guest/getallcases') || 
-    this.http.get('http://localhost:4000/pathreport/guest/getallcases') ||
-    this.http.get('http://localhost:4000/pathslide/guest/getallcases') || 
-    this.http.get('http://localhost:4000/labactivity/guest/getallcases') || 
-    this.http.get('http://localhost:4000/adsactivity/guest/getallcases') ||
-    this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 
+    return this.http.get('https://sps23.herokuapp.com/guest/getallcases') || 
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallcases') 
     || this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallcases') ||
      this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallcases') ||
@@ -851,38 +779,22 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/adsactivity/guest/getallcases');
   }
   getAllHospitals(){
-    return this.http.get('http://localhost:4000/guest/getallhospitals') ||
-     this.http.get('http://localhost:4000/acsfirst/guest/getallhospitals')||
-     this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || 
+    return this.http.get('https://sps23.herokuapp.com/guest/getallhospitals') || 
      this.http.get('https://sps23.herokuapp.com/acsfirst/guest/getallhospitals')
   }
   getAllSendout(){
-    return this.http.get('http://localhost:4000/sendoutpathdash/guest/getallsendout') ||
-    this.http.get('http://localhost:4000/pathdash/guest/getallsendout') || 
-    this.http.get('http://localhost:4000/adlabactivity/guest/getallsendout')||
-    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsendout') ||
+    return this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallsendout') ||
     this.http.get('https://sps23.herokuapp.com/pathdash/guest/getallsendout') || 
     this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallsendout');
   }
   getAllReportings()
   {
-    return this.http.get('http://localhost:4000/pathreport/guest/getallreporting') || 
-    this.http.get('http://localhost:4000/pathactivity/guest/getallreporting')||
-    this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallreporting') || 
+    return this.http.get('https://sps23.herokuapp.com/pathreport/guest/getallreporting') || 
     this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallreporting');
   }
   getAllSamples()
   {
-    return this.http.get('http://localhost:4000/guest/getallsamples') || 
-    this.http.get('http://localhost:4000/acssecond/guest/getallsamples')
-    || this.http.get('http://localhost:4000/clacs/guest/getallsamples') ||
-    this.http.get('http://localhost:4000/dashfive/guest/getallsamples') ||
-    this.http.get('http://localhost:4000/dashseven/guest/getallsamples') || 
-    this.http.get('http://localhost:4000/grossfirst/guest/getallsamples') ||
-    this.http.get('http://localhost:4000/grossnext/guest/getallsamples') ||
-    this.http.get('http://localhost:4000/sendoutpathdash/guest/getallsamples') ||
-    this.http.get('http://localhost:4000/pathdash/guest/getallsamples') ||
-    this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || 
+    return this.http.get('https://sps23.herokuapp.com/guest/getallsamples') || 
     this.http.get('https://sps23.herokuapp.com/acssecond/guest/getallsamples')
     || this.http.get('https://sps23.herokuapp.com/clacs/guest/getallsamples') ||
     this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallsamples') ||
@@ -898,103 +810,68 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/addprotocol/guest/getallprocessors') ||
     this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocessors') ||
     this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprocessors') ||
-    this.http.get('https://sps23.herokuapp.com/listprocessor/guest/getallprocessors') ||
-    this.http.get('http://localhost:4000/guest/getallprocessors') ||  
-    this.http.get('http://localhost:4000/addprotocol/guest/getallprocessors') ||
-    this.http.get('http://localhost:4000/dashfour/guest/getallprocessors') ||
-    this.http.get('http://localhost:4000/dashfourproc/guest/getallprocessors') ||
-    this.http.get('http://localhost:4000/listprocessor/guest/getallprocessors');
+    this.http.get('https://sps23.herokuapp.com/listprocessor/guest/getallprocessors');
   }
   
   getAllProtocols()
   {
-    return this.http.get('http://localhost:4000/guest/getallprotocols')||
-    this.http.get('http://localhost:4000/dashfourproc/guest/getallprotocols') ||
-    this.http.get('https://sps23.herokuapp.com/guest/getallprotocols')||
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols')||
     this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprotocols')||
-    this.http.get('http://localhost:4000/listprocessor/guest/getallprotocols') || 
     this.http.get('https://sps23.herokuapp.com/listprocessor/guest/getallprotocols');
   }
   getAllProtocols2()
   {
-    return this.http.get('http://localhost:4000/guest/getallprotocols2') ||
-    this.http.get('http://localhost:4000/staining/guest/getallprotocols2') ||
-    this.http.get('https://sps23.herokuapp.com/guest/getallprotocols2') ||
+    return this.http.get('https://sps23.herokuapp.com/guest/getallprotocols2') ||
     this.http.get('https://sps23.herokuapp.com/staining/guest/getallprotocols2');
   }
   getAllProcess()
   {
-    return this.http.get('http://localhost:4000/dashfour/guest/getallprocess') ||
-    this.http.get('http://localhost:4000/pathslide/guest/getallprocess') ||
-    this.http.get('http://localhost:4000/adlabactivity/guest/getallprocess') ||
-    this.http.get('http://localhost:4000/dashfourproc/guest/getallprocess') ||
-    this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocess') ||
+    return this.http.get('https://sps23.herokuapp.com/dashfour/guest/getallprocess') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallprocess') ||
     this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallprocess') ||
     this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprocess');
   }
   getAllEmb()
   {
-    return this.http.get('http://localhost:4000/guest/getallemb') ||
-    this.http.get('http://localhost:4000/dashfive/guest/getallemb') || 
-    this.http.get('http://localhost:4000/dashseven/guest/getallemb') ||
-    this.http.get('http://localhost:4000/adlabactivity/guest/getallemb')||
-    this.http.get('https://sps23.herokuapp.com/guest/getallemb') ||
+    return  this.http.get('https://sps23.herokuapp.com/guest/getallemb') ||
     this.http.get('https://sps23.herokuapp.com/dashfive/guest/getallemb') || 
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallemb') ||
     this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallemb');
   }
   getAllStainers()
   {
-    return this.http.get('http://localhost:4000/guest/getallstainers') ||
-    this.http.get('http://localhost:4000/dashsix/guest/getallstainers') ||
-    this.http.get('http://localhost:4000/staining/guest/getallstainers') ||
-    this.http.get('https://sps23.herokuapp.com/guest/getallstainers') ||
+    return this.http.get('https://sps23.herokuapp.com/guest/getallstainers') ||
     this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainers') ||
     this.http.get('https://sps23.herokuapp.com/staining/guest/getallstainers');
   }
  
   getAllStainersAdmin()
   {
-    return this.http.get('http://localhost:4000/addstprotocol/guest/getallstainers')||
-    this.http.get('https://sps23.herokuapp.com/addstprotocol/guest/getallstainers')
+    return this.http.get('https://sps23.herokuapp.com/addstprotocol/guest/getallstainers')
   }
   getAllRack()
   {
-    return this.http.get('http://localhost:4000/dasheight/guest/getallrack')||
-    this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallrack')
+    return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallrack')
   }
   getAllBascets()
   {
-    return this.http.get('http://localhost:4000/dashfourproc/guest/getallbascets')||
-    this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallbascets')
+    return this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallbascets')
   }
   getAllCover()
   {
-    return this.http.get('http://localhost:4000/dasheight/guest/getallcover') ||
-    this.http.get('http://localhost:4000/pathslide/guest/getallcover') ||
-    this.http.get('http://localhost:4000/adlabactivity/guest/getallcover')||
-    this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallcover') ||
+    return this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallcover') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallcover') ||
     this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallcover');
   }
   getAllFreeRack()
   {
-    return this.http.get('http://localhost:4000/staining/guest/getallfreerack') ||
-    this.http.get('http://localhost:4000/dasheight/guest/getallfreerack')||
-    this.http.get('https://sps23.herokuapp.com/staining/guest/getallfreerack') ||
+    return this.http.get('https://sps23.herokuapp.com/staining/guest/getallfreerack') ||
     this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallfreerack')
   }
   getAllUsers()
   { 
 
-    return this.http.get('http://localhost:4000/grossfirst/guest/getallusers') ||
-    this.http.get('http://localhost:4000/pathslide/guest/getallusers') ||
-    this.http.get('http://localhost:4000/pathactivity/guest/getallusers') || 
-    this.http.get('http://localhost:4000/adsactivity/guest/getallusers') ||
-    this.http.get('http://localhost:4000/adlabactivity/guest/getallusers') ||
-    this.http.get('http://localhost:4000/listusers/guest/getallusers') ||
-    this.http.get('https://sps23.herokuapp.com/guest/getallusers') || 
+    return this.http.get('https://sps23.herokuapp.com/guest/getallusers') || 
     this.http.get('https://sps23.herokuapp.com/grossfirst/guest/getallusers') ||
     this.http.get('https://sps23.herokuapp.com/pathslide/guest/getallusers') ||
     this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallusers') || 
@@ -1004,21 +881,13 @@ export class UserService {
   }
   getAllPathGroups()
   {
-    return this.http.get('http://localhost:4000/pathaddgroup/guest/getallgroup') ||
-    this.http.get('http://localhost:4000/pathedit/guest/getallgroup') ||
-    this.http.get('http://localhost:4000/grossnext/guest/getallgroup')||
-    this.http.get('https://sps23.herokuapp.com/pathaddgroup/guest/getallgroup') ||
+    return this.http.get('https://sps23.herokuapp.com/pathaddgroup/guest/getallgroup') ||
     this.http.get('https://sps23.herokuapp.com/pathedit/guest/getallgroup') ||
     this.http.get('https://sps23.herokuapp.com/grossnext/guest/getallgroup')  ;
   }
   getAllStainingProcess()
   {
-    return this.http.get('http://localhost:4000/guest/getallstainingprocess') || 
-    this.http.get('http://localhost:4000/dashsix/guest/getallstainingprocess') ||
-    this.http.get('http://localhost:4000/dasheight/guest/getallstainingprocess') ||
-    this.http.get('http://localhost:4000/adlabactivity/guest/getallstainingprocess') ||
-    this.http.get('http://localhost:4000/staining/guest/getallstainingprocess')||
-    this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess') || 
+    return this.http.get('https://sps23.herokuapp.com/guest/getallstainingprocess') || 
     this.http.get('https://sps23.herokuapp.com/dashsix/guest/getallstainingprocess') ||
     this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallstainingprocess') ||
     this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallstainingprocess') ||
@@ -1026,12 +895,7 @@ export class UserService {
   }
   getAllSectioning()
   {
-    return this.http.get('http://localhost:4000/guest/getallsectioning') || 
-    this.http.get('http://localhost:4000/dashseven/guest/getallsectioning')||
-    this.http.get('http://localhost:4000/sendoutlabmain/guest/getallsectioning') ||
-    this.http.get('http://localhost:4000/labactivity/guest/getallsectioning') || 
-    this.http.get('http://localhost:4000/adlabactivity/guest/getallsectioning')||
-    this.http.get('https://sps23.herokuapp.com/guest/getallsectioning') || 
+    return this.http.get('https://sps23.herokuapp.com/guest/getallsectioning') || 
     this.http.get('https://sps23.herokuapp.com/dashseven/guest/getallsectioning')||
     this.http.get('https://sps23.herokuapp.com/sendoutlabmain/guest/getallsectioning') ||
     this.http.get('https://sps23.herokuapp.com/labactivity/guest/getallsectioning') || 
@@ -1039,14 +903,12 @@ export class UserService {
   }
   getAllCabinets()
   {
-    return this.http.get('http://localhost:4000/archivedash/guest/getallcabinets')||
-    this.http.get('https://sps23.herokuapp.com/archivedash/guest/getallcabinets');
+    return this.http.get('https://sps23.herokuapp.com/archivedash/guest/getallcabinets');
     
   }
   getAllf()
   {
-    return this.http.get('http://localhost:4000/archivedash/guest/getallf')||
-    this.http.get('https://sps23.herokuapp.com/archivedash/guest/getallf');
+    return this.http.get('https://sps23.herokuapp.com/archivedash/guest/getallf');
     
   }
   dodajKupcaPoc(ime, prezime, korime, lozinka, grad, datum, telefon, mejl, slika){
@@ -1106,7 +968,7 @@ export class UserService {
   }
 
   getNewAccessToken() {
-    return this.http.get(`http://localhost:4000/users/me/access-token` || `https://sps23.herokuapp.com/users/me/access-token`, {
+    return this.http.get( `https://sps23.herokuapp.com/users/me/access-token`, {
       headers: {
         'x-refresh-token': this.getRefreshToken(),
         '_id': this.getUserId()
