@@ -17,93 +17,7 @@ export class UserService {
       username: username,
       password: password
      }
-      return this.http.post('http://localhost:4000/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-       
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        })
-      )|| this.http.post('http://localhost:4000/login-embedding/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-        
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) )||
-      this.http.post('http://localhost:4000/login-staininghe/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-         
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) ||
-      this.http.post('http://localhost:4000/login-sectioning/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-      
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) || 
-      this.http.post('http://localhost:4000/login-grossing/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-      
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) || 
-      this.http.post('http://localhost:4000/login-accessioning/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-    
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) || 
-      this.http.post('http://localhost:4000/login-processing/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-     
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) ||
-      this.http.post('http://localhost:4000/login-coverslipping/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-        
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) ||
-      this.http.post('http://localhost:4000/login-sendout/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-          
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) ||
-      this.http.post('http://localhost:4000/login-patholog/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-         
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) || 
-      this.http.post('http://localhost:4000/login-archive/guest/login', data, {observe: 'response'}).pipe(
-        shareReplay(),
-        tap((res: HttpResponse<any>) => {
-          // the auth tokens will be in the header of this response
-         
-         this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
-          console.log("LOGGED IN!");
-        }) ) || this.http.post('https://sps23.herokuapp.com/guest/login', data, {observe: 'response'}).pipe(
+      return  this.http.post('https://sps23.herokuapp.com/guest/login', data, {observe: 'response'}).pipe(
           shareReplay(),
           tap((res: HttpResponse<any>) => {
          
@@ -1074,8 +988,7 @@ export class UserService {
   getAllUsers()
   { 
 
-    return this.http.get('http://localhost:4000/guest/getallusers') || 
-    this.http.get('http://localhost:4000/grossfirst/guest/getallusers') ||
+    return this.http.get('http://localhost:4000/grossfirst/guest/getallusers') ||
     this.http.get('http://localhost:4000/pathslide/guest/getallusers') ||
     this.http.get('http://localhost:4000/pathactivity/guest/getallusers') || 
     this.http.get('http://localhost:4000/adsactivity/guest/getallusers') ||
