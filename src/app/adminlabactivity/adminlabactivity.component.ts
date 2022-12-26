@@ -221,6 +221,8 @@ export class AdminlabactivityComponent implements OnInit {
       }
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['']);
   }
   curryear:number;

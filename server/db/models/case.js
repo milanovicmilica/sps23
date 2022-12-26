@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 
 
 // JWT Secret
-const jwtSecret = "51778657246321226641fsdklafjasdkljfsklfjd7148924065";
+const jwtSecret = "5177865724asdsakdallafjasdkljfsklfjd7148924065";
 
 const CaseSchema = new mongoose.Schema({
     sender: {

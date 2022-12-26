@@ -35,6 +35,24 @@ app.use(function (req, res, next) {
 
 
 /* END MIDDLEWARE  */
+let authenticate = (req, res, next) => {
+    let token = req.header('x-access-token');
+    console.log(req);
+    console.log(token)
+    
+    jwt.verify(token, User.getJWTSecret(), (err, decoded) => {
+        if (err) {
+            // there was an error
+            // jwt is invalid - * DO NOT AUTHENTICATE *
+            res.status(401).send(err);
+        } else {
+            // jwt is valid
+            console.log("valid auth")
+            req.user_id = decoded._id;
+            next();
+        }
+    });
+}
 
 
 let verifySession = (req, res, next) => {
@@ -112,7 +130,7 @@ app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/g
 '/pathactivity/guest/getallusers' || '/adsactivity/guest/getallusers' || '/adlabactivity/guest/getallusers' 
 || '/listusers/guest/getallusers', (req, res) => {
    //vraća listu korisnika
-
+  
     User.find({
        
     }).then((lists) => {
@@ -281,7 +299,7 @@ app.get('/guest/getallprotocols2' || '/staining/guest/getallprotocols2', (req, r
         res.send(e);
     });
 })
-app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols', (req, res) => {
+app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols' || '/listprocessor/guest/getallprotocols', (req, res) => {
 // vraća listu svih protokola za Processing proces
 
     Protocol.find({
@@ -293,7 +311,7 @@ app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols', (req,
     });
 })
 app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors'
-|| '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', (req, res) => {
+|| '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', authenticate, (req, res) => {
 // vraća listu svih Procesora
 
     Processor.find({
@@ -579,7 +597,7 @@ app.post('/addstainer/guest/addStainer', (req, res) => {
         res.send({ message: 'error' });
     });
 })
-app.post('/addprocessor/guest/addProcessor', (req, res) => {
+app.post('/addprocessor/guest/addProcessor',(req, res) => {
     // Proverava da li postoji procesor sa istim nazivom u sistemu i ukoliko ne postoji dodaje ga u bazu podataka
 
     let name = req.body.name;

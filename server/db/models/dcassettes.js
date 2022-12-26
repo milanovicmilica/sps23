@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 
 
 // JWT Secret
-const jwtSecret = "51778657246321226641fsdklafjasdkljfsklfjd7148924065";
+const jwtSecret = "asdnajsdasndmas045043054395094358jsdjka";
 
 const DcassettesSchema = new mongoose.Schema({
     Qr: {

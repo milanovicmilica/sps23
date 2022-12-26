@@ -28,6 +28,8 @@ export class AddstainerComponent implements OnInit {
   message4:string;
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['']);
   }
   name:string;

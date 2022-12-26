@@ -143,6 +143,11 @@ UserSchema.statics.hasRefreshTokenExpired = (expiresAt) => {
     }
 }
 
+UserSchema.statics.getJWTSecret = () => {
+    return jwtSecret;
+}
+
+
 
 UserSchema.pre('save', function (next) {
     let user = this;

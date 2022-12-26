@@ -14,6 +14,8 @@ export class AddbascetComponent implements OnInit {
   }
   logout(){
     sessionStorage.clear();
+    localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['']);
   }
   name:string;

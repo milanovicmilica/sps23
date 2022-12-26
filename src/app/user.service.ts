@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpResponse} from '@angular/common/http'
 import { pluck, shareReplay, tap,  } from 'rxjs/operators';
-
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
    }
 
    login(username, password){
@@ -103,17 +103,83 @@ export class UserService {
          
          this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
           console.log("LOGGED IN!");
-        }) ) || this.http.post('https://sps23.herokuapp.com/guest/login', data) || 
-        this.http.post('https://sps23.herokuapp.com/login-embedding/guest/login', data) ||
-        this.http.post('https://sps23.herokuapp.com/login-staininghe/guest/login', data) ||
-        this.http.post('https://sps23.herokuapp.com/login-sectioning/guest/login', data) || 
-        this.http.post('https://sps23.herokuapp.com/login-grossing/guest/login', data) || 
-        this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/login', data) || 
-        this.http.post('https://sps23.herokuapp.com/login-processing/guest/login', data) ||
-        this.http.post('https://sps23.herokuapp.com/login-coverslipping/guest/login', data) ||
-        this.http.post('https://sps23.herokuapp.com/login-sendout/guest/login', data) ||
-        this.http.post('https://sps23.herokuapp.com/login-patholog/guest/login', data) || 
-        this.http.post('https://sps23.herokuapp.com/login-archive/guest/login', data);
+        }) ) || this.http.post('https://sps23.herokuapp.com/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) )|| 
+        this.http.post('https://sps23.herokuapp.com/login-embedding/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) ) ||
+        this.http.post('https://sps23.herokuapp.com/login-staininghe/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) ) ||
+        this.http.post('https://sps23.herokuapp.com/login-sectioning/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) )|| 
+        this.http.post('https://sps23.herokuapp.com/login-grossing/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) )|| 
+        this.http.post('https://sps23.herokuapp.com/login-accessioning/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) ) || 
+        this.http.post('https://sps23.herokuapp.com/login-processing/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) ) ||
+        this.http.post('https://sps23.herokuapp.com/login-coverslipping/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) )||
+        this.http.post('https://sps23.herokuapp.com/login-sendout/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) )||
+        this.http.post('https://sps23.herokuapp.com/login-patholog/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) ) || 
+        this.http.post('https://sps23.herokuapp.com/login-archive/guest/login', data, {observe: 'response'}).pipe(
+          shareReplay(),
+          tap((res: HttpResponse<any>) => {
+         
+           this.setSession(res.body._id, res.headers.get('x-access-token'), res.headers.get('x-refresh-token'));
+            console.log("LOGGED IN!");
+          }) );
    }
    loginProvera(username, password){
     const data={
@@ -931,7 +997,9 @@ export class UserService {
     return this.http.get('http://localhost:4000/guest/getallprotocols')||
     this.http.get('http://localhost:4000/dashfourproc/guest/getallprotocols') ||
     this.http.get('https://sps23.herokuapp.com/guest/getallprotocols')||
-    this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprotocols')
+    this.http.get('https://sps23.herokuapp.com/dashfourproc/guest/getallprotocols')||
+    this.http.get('http://localhost:4000/listprocessor/guest/getallprotocols') || 
+    this.http.get('https://sps23.herokuapp.com/listprocessor/guest/getallprotocols');
   }
   getAllProtocols2()
   {
@@ -1004,7 +1072,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/dasheight/guest/getallfreerack')
   }
   getAllUsers()
-  {
+  { 
+
     return this.http.get('http://localhost:4000/guest/getallusers') || 
     this.http.get('http://localhost:4000/grossfirst/guest/getallusers') ||
     this.http.get('http://localhost:4000/pathslide/guest/getallusers') ||
@@ -1117,9 +1186,14 @@ export class UserService {
   setAccessToken(accessToken: string) {
     localStorage.setItem('x-access-token', accessToken)
   }
-  
+  logout() {
+    this.removeSession();
+
+    this.router.navigate(['/login']);
+  }
+
   getNewAccessToken() {
-    return this.http.get(`http://localhost:4000/users/me/access-token`, {
+    return this.http.get(`http://localhost:4000/users/me/access-token` || `https://sps23.herokuapp.com/users/me/access-token`, {
       headers: {
         'x-refresh-token': this.getRefreshToken(),
         '_id': this.getUserId()

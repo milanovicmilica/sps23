@@ -74,6 +74,8 @@ export class AdminpathactivityComponent implements OnInit {
   curryear:number;
   logout(){
     sessionStorage.clear();
+     localStorage.clear()
+    this.UserService.removeSession();
     this.router.navigate(['']);
   }
   chpath(){
