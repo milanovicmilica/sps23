@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,6 +57,7 @@ import { AddcabinetComponent } from './addcabinet/addcabinet.component';
 import { MatButtonToggleModule } from "@angular/material/button-toggle";
 import { ListusersComponent } from './listusers/listusers.component';
 import { ListprocessorComponent } from './listprocessor/listprocessor.component';
+import { WebreqinterceptorService } from './webreqinterceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -122,7 +123,9 @@ import { ListprocessorComponent } from './listprocessor/listprocessor.component'
     QRCodeModule,
     MatButtonToggleModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: WebreqinterceptorService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

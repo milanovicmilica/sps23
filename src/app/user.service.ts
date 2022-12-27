@@ -964,7 +964,7 @@ export class UserService {
   logout() {
     this.removeSession();
 
-    this.router.navigate(['/login']);
+   // this.router.navigate(['/login']);
   }
 
   getNewAccessToken() {

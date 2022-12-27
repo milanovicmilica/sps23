@@ -37,7 +37,7 @@ app.use(function (req, res, next) {
 /* END MIDDLEWARE  */
 let authenticate = (req, res, next) => {
     let token = req.header('x-access-token');
-    console.log(req);
+   
     console.log(token)
     
     jwt.verify(token, User.getJWTSecret(), (err, decoded) => {
@@ -311,7 +311,7 @@ app.get('/guest/getallprotocols' || '/dashfourproc/guest/getallprotocols' || '/l
     });
 })
 app.get('/guest/getallprocessors' || '/addprotocol/guest/getallprocessors' || '/dashfour/guest/getallprocessors'
-|| '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', (req, res) => {
+|| '/dashfourproc/guest/getallprocessors' || '/listprocessor/guest/getallprocessors', authenticate,(req, res) => {
 // vraća listu svih Procesora
 
     Processor.find({
