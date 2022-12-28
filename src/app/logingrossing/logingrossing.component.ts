@@ -73,7 +73,7 @@ export class LogingrossingComponent implements OnInit {
     
    
   }
-  visible:boolean=true;
+  visible:boolean=false;
   changetype:boolean=true;
 
   viewpass(){

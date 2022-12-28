@@ -42,7 +42,7 @@ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw
             <label class="username">Password:</label>
             <div class="divzaloz">
                 <input [type]="changetype?'password':'text'" class="poljazaUnos" name='password' [(ngModel)]='password' id="id_password">
-                <span class="eyeicon" style="width:15px; position:relative; top:-30px; left:92%" (click)="viewpass()"><i class="fa fa-eye" [ngClass]="visible?'fa fa-eye-slash':'fa fa-eye'"></i></span>
+                <span class="eyeicon" style="width:15px; position:relative; top:-30px; left:92%" (click)="viewpass()"><i class="fa fa-eye" [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
                </div>
             <span class='error'>{{message1}}</span>
             <button class="signupDugme" (click)='login()' >LOGIN</button>

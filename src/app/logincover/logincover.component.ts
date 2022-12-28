@@ -72,9 +72,8 @@ export class LogincoverComponent implements OnInit {
     
    
   }
-  visible:boolean=true;
+  visible:boolean=false;
   changetype:boolean=true;
-
   viewpass(){
 this.visible=!this.visible;
 this.changetype=!this.changetype;

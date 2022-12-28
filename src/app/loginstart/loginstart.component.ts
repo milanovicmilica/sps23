@@ -75,8 +75,8 @@ allUse:User[]=[];
     
    
  // }
-  visible:boolean=true;
-  changetype:boolean=true;
+ visible:boolean=false;
+ changetype:boolean=true;
 
   viewpass(){
 this.visible=!this.visible;
