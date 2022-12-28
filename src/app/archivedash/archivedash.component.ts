@@ -26,7 +26,7 @@ export class ArchivedashComponent implements OnInit {
   ngOnInit(): void {  
   let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
    
-  if(!user1 || user1.body.type!=3){
+  if(!user1 || user1.body.type!=1){
     localStorage.clear();
     sessionStorage.clear();
     this.router.navigate(['/login-archive']);
