@@ -63,6 +63,13 @@ export class AcsfirstComponent implements OnInit {
     this.num=2;
     this.vest=1357;
     let user1 = JSON.parse(sessionStorage.getItem("administrator")) as  HttpResponse<any>; 
+   
+    if(!user1 || user1.body.type!=2){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-accessioning']);
+    }else{
+  this.me=user1.body;
   this.today = new Date;
       this.me=user1.body;
     this.g1=0;    this.g2=0;this.g3=0;this.g4=0;this.g5=0;this.g6=0;this.g7=0;this.g8=0;this.g9=0;
@@ -73,7 +80,7 @@ export class AcsfirstComponent implements OnInit {
         this.UserService.getAllHospitals().subscribe((data: Hospital[])=>{
           this.allHospital=data;
           })
-        
+    }
   }
   logout(){
     sessionStorage.clear();

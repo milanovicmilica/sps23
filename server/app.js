@@ -1424,10 +1424,7 @@ app.get('/login-processing', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
-app.get('/grossfirst', (req, res) =>
-    res.sendFile('index.html', {root: '../dist/sps/'}),
-    
-);
+
 app.get('/dashsecond', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
@@ -1530,6 +1527,26 @@ app.get('/listusers', (req, res) =>
     
 );
 app.get('/listprocessor', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/grossfirst', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/grossnext', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/acsfirst', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/acssecond', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/clacs', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );

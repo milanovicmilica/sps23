@@ -15,11 +15,17 @@ export class DashboardthirdComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as  HttpResponse<any>; 
+   
+    if(!user1 || user1.body.type!=3){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-grossing']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
-      let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
-      
-      this.me=user1.body;
+
       let k=1;
       for (let index = 0; index < this.allCase.length; index++) {
         
@@ -56,7 +62,7 @@ export class DashboardthirdComponent implements OnInit {
         }
       })
     });
-  })
+  })}
 }
 radiofill(a,i){
   this.case=a.formatcn;

@@ -15,6 +15,14 @@ export class CaselistadComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("administrator")) as  HttpResponse<any>; 
+   
+    if(!user1 || user1.body.type!=2){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-accessioning']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
       let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
@@ -48,7 +56,7 @@ export class CaselistadComponent implements OnInit {
       
       })
 
-  })
+  })}
 
 }
 logout(){

@@ -69,15 +69,22 @@ export class GrossnextComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as  HttpResponse<any>; 
+   
+    if(!user1 || user1.body.type!=3){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-grossing']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
       this.znakD=0;
       this.expanded=false;   this.expanded2=false; 
-      let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    
       this.pojavise1=0;
       this.pojavise2=0;
-      this.me=user1.body;
+    
       this.sem1=0;
       let c = JSON.parse(sessionStorage.getItem("case")) as string; 
       this.case=c;
@@ -151,7 +158,7 @@ export class GrossnextComponent implements OnInit {
           })
         })
 
-    })
+    })}
   }
   checkniz:number[]=[];
   ftx:number=0;

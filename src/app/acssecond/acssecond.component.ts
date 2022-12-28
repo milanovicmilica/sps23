@@ -4,6 +4,8 @@ import { Case } from '../models/case';
 import { Sample } from '../models/sample';
 import { UserService } from '../user.service';
 import ZebraBrowserPrintWrapper from "zebra-browser-print-wrapper";
+import { User } from '../models/user';
+import { HttpResponse } from '@angular/common/http';
 const printBarcode = async (cid,o,a) => {
   try {
     // Create a new instance of the object
@@ -60,6 +62,14 @@ export class AcssecondComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("administrator")) as  HttpResponse<any>; 
+   
+    if(!user1 || user1.body.type!=2){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-accessioning']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCases=data;
        this.last=this.allCases.length-1;
@@ -147,7 +157,7 @@ export class AcssecondComponent implements OnInit {
       } this.expanded = false; this.expanded2=false;
       })
     })
-      
+  }
   }
   logout(){
     sessionStorage.clear();
@@ -156,6 +166,7 @@ export class AcssecondComponent implements OnInit {
     this.router.navigate(['/login-accessioning']);
   }
 c12:string;c13:string; c15:string;
+me:User;
 acschoice(d)
 {
   this.brTipa=d;
