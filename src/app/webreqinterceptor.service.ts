@@ -22,8 +22,7 @@ export class WebreqinterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
     // Handle the request
     request = this.addAuthHeader(request);
-    console.log('1')
-    console.log(request)
+   
     // call next() and handle the response
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
@@ -31,7 +30,7 @@ export class WebreqinterceptorService implements HttpInterceptor {
 
         if (error.status === 401) {
           // 401 error so we are unauthorized
-          console.log('2')
+         
           // refresh the access token
           return this.refreshAccessToken()
             .pipe(
@@ -59,7 +58,7 @@ export class WebreqinterceptorService implements HttpInterceptor {
           // this code will run when the access token has been refreshed
           observer.next();
           observer.complete();
-          console.log('a')
+         
         })
       })
     } else {
@@ -70,7 +69,7 @@ export class WebreqinterceptorService implements HttpInterceptor {
           console.log("Access Token Refreshed!");
           this.refreshingAccessToken = false;
           this.accessTokenRefreshed.next;
-          console.log('b')
+         
         })
       )
     }
@@ -81,8 +80,7 @@ export class WebreqinterceptorService implements HttpInterceptor {
   addAuthHeader(request: HttpRequest<any>) {
     // get the access token
     const token = this.userservice.getAccessToken();
-    console.log('41')
-    console.log(token)
+   
     if (token) {
       // append the access token to the request header
       return request.clone({
