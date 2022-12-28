@@ -76,7 +76,7 @@ export class LoginpathologComponent implements OnInit {
    
   }
   visible:boolean=false;
-  changetype:boolean=false;
+  changetype:boolean=true;
 
   viewpass(){
 this.visible=!this.visible;
