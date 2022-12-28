@@ -964,6 +964,51 @@ export class UserService {
   logout() {
     this.removeSession();
 
+    let env=(sessionStorage.getItem("env")) as string; 
+    if(env=='admin')
+    {
+      this.router.navigate(['/']);
+    }
+    if(env=='accessioning')
+    {
+      this.router.navigate(['/login-accessioning']);
+    }
+    if(env=='grossing')
+    {
+      this.router.navigate(['/login-grossing']);
+    }
+    if(env=='processing')
+    {
+      this.router.navigate(['/login-processing']);
+    }
+    if(env=='embedding')
+    {
+      this.router.navigate(['/login-embedding']);
+    }
+    if(env=='staining')
+    {
+      this.router.navigate(['/login-staininghe']);
+    }
+    if(env=='sectioning')
+    {
+      this.router.navigate(['/login-sectioning']);
+    }
+    if(env=='coverslipping')
+    {
+      this.router.navigate(['/login-coverslipping']);
+    }
+    if(env=='sendout')
+    {
+      this.router.navigate(['/login-sendout']);
+    }
+    if(env=='pathologist')
+    {
+      this.router.navigate(['/login-pathologist']);
+    }
+    if(env=='archive')
+    {
+      this.router.navigate(['/login-archive']);
+    }
    // this.router.navigate(['/login']);
   }
 
