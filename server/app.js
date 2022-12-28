@@ -1550,4 +1550,12 @@ app.get('/clacs', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
+app.get('/dashfourproc', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/staining', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
  app.listen(process.env.PORT );
