@@ -22,7 +22,15 @@ export class DasheightComponent implements OnInit {
 
   constructor(private router: Router, private UserService: UserService) { }
 
-  ngOnInit(): void {  let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+  ngOnInit(): void {  
+
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+   
+    if(!user1 || user1.body.type!=1){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-coverslipping']);
+    }else{
   this.me=user1.body;
   this.g=0;
   this.flag1=0;
@@ -32,7 +40,7 @@ export class DasheightComponent implements OnInit {
       this.allCsl=data;
      })
    })
-
+  }
   }
   allCsl:Coverslipping[];
   allRack:Rack[];

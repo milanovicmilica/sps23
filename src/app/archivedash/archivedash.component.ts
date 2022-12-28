@@ -23,8 +23,15 @@ export class ArchivedashComponent implements OnInit {
 
   constructor(private router: Router, private UserService: UserService) { }
 
-  ngOnInit(): void {  let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-  this.me=user1.body;
+  ngOnInit(): void {  
+  let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+   
+  if(!user1 || user1.body.type!=3){
+    localStorage.clear();
+    sessionStorage.clear();
+    this.router.navigate(['/login-archive']);
+  }else{
+this.me=user1.body;
   this.UserService.getAllCabinets().subscribe((data: Cabinet[])=>{
     this.allCabinets=data;
     console.log(this.allCabinets.length)
@@ -33,7 +40,7 @@ export class ArchivedashComponent implements OnInit {
       console.log(this.allf.length)
   });
 })
-  }
+  }}
   me:User;
   logout(){
     sessionStorage.clear();

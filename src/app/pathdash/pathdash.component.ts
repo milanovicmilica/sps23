@@ -18,7 +18,13 @@ export class PathdashComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=3){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-pathologist']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
     
@@ -117,7 +123,7 @@ for (let index = 0; index < this.myCases.length; index++) {
       }
       })
 
-  })})})
+  })})})}
   }
 me:User;
   logout(){

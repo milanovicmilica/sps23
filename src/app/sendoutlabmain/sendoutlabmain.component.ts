@@ -22,7 +22,13 @@ export class SendoutlabmainComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=1){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-sendout']);
+    }else{
+  this.me=user1.body;
     let s=JSON.parse(sessionStorage.getItem("slide")) as String; 
     this.slide=s;
     console.log(this.slide)
@@ -208,7 +214,7 @@ export class SendoutlabmainComponent implements OnInit {
       })})})
 
     })
-  }
+  }}
   me:User;
   slide:String;
   allSectioning:Sectioning[]=[];

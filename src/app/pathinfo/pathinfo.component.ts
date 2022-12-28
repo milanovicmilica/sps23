@@ -21,7 +21,13 @@ export class PathinfoComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=3){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-pathologist']);
+    }else{
+  this.me=user1.body;
     let s=JSON.parse(sessionStorage.getItem("case")) as string; 
     this.case=s;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
@@ -81,7 +87,7 @@ export class PathinfoComponent implements OnInit {
     })
     })
 
-  }
+  }}
   allCase:Case[];
   allcass:Cs[]=[];
   allexbl:Sample[]=[];

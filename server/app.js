@@ -1558,4 +1558,53 @@ app.get('/staining', (req, res) =>
     res.sendFile('index.html', {root: '../dist/sps/'}),
     
 );
+app.get('/dasheight', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/sendoutlabdash', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/sendoutlabmain', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/sendoutpathdash', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/sendoutpathmain', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+
+app.get('/pathinfo', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/pathslide', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/pathaddgroup', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/pathedit', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/pathreport', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/pathdash', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
+app.get('/archivedash', (req, res) =>
+    res.sendFile('index.html', {root: '../dist/sps/'}),
+    
+);
  app.listen(process.env.PORT );

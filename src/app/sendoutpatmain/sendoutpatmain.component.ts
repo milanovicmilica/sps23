@@ -22,7 +22,13 @@ export class SendoutpatmainComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=3){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-sendout']);
+    }else{
+  this.me=user1.body;
     let s=JSON.parse(sessionStorage.getItem("case")) as String; 
     this.case=s;
     console.log(this.case)
@@ -71,7 +77,7 @@ export class SendoutpatmainComponent implements OnInit {
         })
       })
     })
-  }
+  }}
   myCase:Case;
   case:String='';
   me:User;

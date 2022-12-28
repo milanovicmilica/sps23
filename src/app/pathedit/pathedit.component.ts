@@ -21,7 +21,13 @@ export class PatheditComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=3){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-pathologist']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
       this.allPathGroups=data;
       for (let index = 0; index < this.allPathGroups.length; index++) {
@@ -34,7 +40,7 @@ export class PatheditComponent implements OnInit {
       this.niz=this.ss;
       this.niz2=this.ihc;
     })
-  }
+  }}
   me:User;
   allPathGroups:pathGroup[];
   myPathGroups:pathGroup[]=[];

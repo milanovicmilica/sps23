@@ -20,7 +20,13 @@ export class PathaddgroupComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=3){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-pathologist']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllPathGroups().subscribe((data: pathGroup[])=>{
       this.allPathGroups=data;
       var checkboxes = document.getElementById("checkboxes1");
@@ -51,7 +57,7 @@ export class PathaddgroupComponent implements OnInit {
      
     })
 
-  }
+  }}
   searchihcin()
   {
     if(this.searchihc!=null && this.searchihc!="")
