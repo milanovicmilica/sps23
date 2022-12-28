@@ -15,9 +15,15 @@ export class DashboardfourthComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-
     let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=1){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-processing']);
+    }else{
+  this.me=user1.body;
+ 
     this.UserService.getAllProcess().subscribe((data: Process[])=>{
       this.allProcess=data;
       
@@ -29,7 +35,7 @@ export class DashboardfourthComponent implements OnInit {
         }
         
       }
-    })
+    })}
   }
   logout(){
     sessionStorage.clear();

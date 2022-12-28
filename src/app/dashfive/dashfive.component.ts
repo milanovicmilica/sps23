@@ -21,7 +21,13 @@ export class DashfiveComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=1){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-embedding']);
+    }else{
+  this.me=user1.body;
     this.g=0;
     this.flag1=0;
     this.UserService.getAllSamples().subscribe((data: Sample[])=>{
@@ -35,7 +41,7 @@ export class DashfiveComponent implements OnInit {
           
           })
         })
-    })})
+    })})}
 
   }
   allEmb:Embedding[];

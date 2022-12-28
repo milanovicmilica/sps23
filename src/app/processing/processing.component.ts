@@ -28,8 +28,14 @@ export class ProcessingComponent implements OnInit {
 
   ngOnInit(): void {
    // this.casette.push("");
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-    this.me=user1.body;
+   let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
+   
+   if(!user1 || user1.body.type!=1){
+     localStorage.clear();
+     sessionStorage.clear();
+     this.router.navigate(['/login-processing']);
+   }else{
+ this.me=user1.body;
     this.UserService.getAllProcessors().subscribe((data: Processor[])=>{
       this.allProcessors=data;
 
@@ -56,7 +62,7 @@ export class ProcessingComponent implements OnInit {
       
       })
     
-    })
+    })}
   }
   me:User;
   allProcessings:Process[];

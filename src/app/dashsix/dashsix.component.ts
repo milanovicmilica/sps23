@@ -26,7 +26,13 @@ export class DashsixComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=1){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-staininghe']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllStainingProcess().subscribe((data: ProcessStaining[])=>{
       this.allProcess=data;
    
@@ -99,7 +105,7 @@ export class DashsixComponent implements OnInit {
         
     }, 1000)
     })
-  }
+  }}
 
 pr:number;
 st2(index){

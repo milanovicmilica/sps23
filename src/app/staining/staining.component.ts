@@ -24,7 +24,13 @@ export class StainingComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-    this.me=user1.body;
+   
+    if(!user1 || user1.body.type!=1){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/login-staininghe']);
+    }else{
+  this.me=user1.body;
     this.UserService.getAllStainers().subscribe((data: Stainer[])=>{
       this.allStainers=data;
       this.UserService.getAllFreeRack().subscribe((data: Rack[])=>{
@@ -52,7 +58,7 @@ export class StainingComponent implements OnInit {
       })
       })
       })
-    })
+    })}
   }
 
 
