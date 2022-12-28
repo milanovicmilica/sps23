@@ -1,5 +1,7 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../models/user';
 import { UserService } from '../user.service';
 @Component({
   selector: 'app-addrack',
@@ -11,6 +13,13 @@ export class AddrackComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("first")) as HttpResponse<any>; 
+    if(!user1 || user1.body.type!=0){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['']);
+    }else{
+  this.me=user1.body;}
   }
 
   logout(){
@@ -21,7 +30,7 @@ export class AddrackComponent implements OnInit {
   }
   name:string;
   num:number;
-
+me:User;
   addprotocol(){
     this.router.navigate(['/addprotocol']);
   }

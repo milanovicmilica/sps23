@@ -1,3 +1,4 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit ,destroyPlatform,ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
@@ -21,6 +22,13 @@ export class AdminadsactivityComponent implements OnInit {
   ctx: any;
   @ViewChild('mychart') mychart:any;
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("first")) as HttpResponse<any>; 
+    if(!user1 || user1.body.type!=0){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['']);
+    }else{
+  this.me=user1.body;
     let date=new Date();
     let dan=new Date().getDate();
     let mesec=new Date().getMonth()+1;
@@ -41,7 +49,7 @@ export class AdminadsactivityComponent implements OnInit {
     }
     })
 
-  }
+  }}
   obj:any;
   destroyChart() {
     this.obj.destroy();
@@ -52,6 +60,7 @@ export class AdminadsactivityComponent implements OnInit {
     this.UserService.removeSession();
     this.router.navigate(['']);
   }  
+  me:User;
   allUsers: User[];
   ads: User[]=[];
   activity:string;

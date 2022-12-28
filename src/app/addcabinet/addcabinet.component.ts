@@ -1,10 +1,11 @@
-import { HttpUploadProgressEvent } from '@angular/common/http';
+import { HttpResponse, HttpUploadProgressEvent } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Processor } from '../models/processors';
 import { Protocol } from '../models/protocol';
 import { UserService } from '../user.service';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { User } from '../models/user';
 @Component({
   selector: 'app-addcabinet',
   templateUrl: './addcabinet.component.html',
@@ -15,6 +16,13 @@ export class AddcabinetComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("first")) as HttpResponse<any>; 
+    if(!user1 || user1.body.type!=0){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['']);
+    }else{
+  this.me=user1.body;}
   }
   logout(){
     sessionStorage.clear();
@@ -22,6 +30,7 @@ export class AddcabinetComponent implements OnInit {
     this.UserService.removeSession();
     this.router.navigate(['']);
   } 
+  me:User;
    name:string;
   hours:number;
   minutes:number;

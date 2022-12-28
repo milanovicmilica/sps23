@@ -1,4 +1,5 @@
 
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit ,destroyPlatform,ViewChild} from '@angular/core';
 
 
@@ -42,6 +43,13 @@ export class AdminlactivityComponent implements OnInit {
   @ViewChild('mychart4') mychart4:any;
   @ViewChild('mychart5') mychart5:any;
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("first")) as HttpResponse<any>; 
+    if(!user1 || user1.body.type!=0){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['']);
+    }else{
+  this.me=user1.body;
     let date=new Date();
     let dan=new Date().getDate();
     let mesec=new Date().getMonth()+1;
@@ -297,7 +305,8 @@ this.nizStaining.push(0)
         })
       })
     })})
-  }
+  }}
+  me:User;
   obj:any;
   obj1:any;
   obj2:any;

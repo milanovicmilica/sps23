@@ -1,6 +1,7 @@
 
 
 
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit, destroyPlatform,ViewChild } from '@angular/core';
 
 import { Router } from '@angular/router';
@@ -9,6 +10,7 @@ import Chart from 'chart.js/auto'
 import { Case } from '../models/case';
 import { Cs } from '../models/infocs';
 import { Sectioning } from '../models/sectioning';
+import { User } from '../models/user';
 import { UserService } from '../user.service';
 @Component({
   selector: 'app-adminlabactivity',
@@ -22,6 +24,13 @@ export class AdminlabactivityComponent implements OnInit {
   ctx: any;
   @ViewChild('mychart') mychart:any;
   ngOnInit(): void {
+    let user1 = JSON.parse(sessionStorage.getItem("first")) as HttpResponse<any>; 
+    if(!user1 || user1.body.type!=0){
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['']);
+    }else{
+  this.me=user1.body;
     let date=new Date();
     let dan=new Date().getDate();
     let mesec=new Date().getMonth()+1;
@@ -37,28 +46,9 @@ export class AdminlabactivityComponent implements OnInit {
       this.curryear=novi.getFullYear();
     
      let br;
-   // this.fl4=1;
+   
       
-     
-        /*this.canvas = this.mychart.nativeElement; 
-        this.ctx = this.canvas.getContext('2d');
-        Chart.register(LineController, LineElement, PointElement, LinearScale, Title);
-        this.obj=new Chart(this.ctx, {
-          type: 'bar',
-          data: {
-              datasets: [{
-                  label: 'Number of cases',
-                  data: this.marray,
-                  backgroundColor: "rgba(18, 22, 55, 0.85)",
-                  hoverBackgroundColor:"rgba(18, 22, 156, 0.4)",
-                  borderColor: "#ffffff",
-                  //fill: true,
-              },
-              ],
-              labels: this.months
-          }, });*/
-      
-    }
+    }}
       
       obj:any;
       destroyChart() {
@@ -225,6 +215,7 @@ export class AdminlabactivityComponent implements OnInit {
     this.UserService.removeSession();
     this.router.navigate(['']);
   }
+  me:User;
   curryear:number;
   fl4:number;
   fl5:number;
