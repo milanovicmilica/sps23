@@ -20,7 +20,7 @@ export class AddprocessorComponent implements OnInit {
       sessionStorage.clear();
       this.router.navigate(['']);
     }else{
-      let env=JSON.parse(sessionStorage.getItem("env")) as string; 
+      let env=(sessionStorage.getItem("env")) as string; 
       console.log(env)
   this.me=user1.body;}
   }

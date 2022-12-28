@@ -63,7 +63,7 @@ export class AcssecondComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("administrator")) as  HttpResponse<any>; 
-   let env=JSON.parse(sessionStorage.getItem("env")) as string; 
+   let env=(sessionStorage.getItem("env")) as string; 
    console.log(env)
     if(!user1 || user1.body.type!=2){
       localStorage.clear();
