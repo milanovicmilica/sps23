@@ -44,7 +44,9 @@ export class LoginprocessingComponent implements OnInit {
             else{
               if(user.body.type==1)
               {
+                let s="processing"
                 sessionStorage.setItem("laborant", JSON.stringify(user));
+                sessionStorage.setItem("env", s);
               this.router.navigate(['/dashfour']);
               }
               else{

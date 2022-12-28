@@ -47,9 +47,9 @@ export class LoginaccessioningComponent implements OnInit {
               else{
                 if(user.body.type==2 )
                 {
-                  
+                  let s="accessioning"
                   sessionStorage.setItem("administrator", JSON.stringify(user));
-                  
+                  sessionStorage.setItem("env", s);
                   this.router.navigate(['/dashsecond']);
                 }
                 else{

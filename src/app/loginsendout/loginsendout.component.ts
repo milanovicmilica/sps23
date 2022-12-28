@@ -45,7 +45,9 @@ export class LoginsendoutComponent implements OnInit {
             else{
               if(user.body.type==1)
               {
+                let s="sendout"
                 sessionStorage.setItem("laborant", JSON.stringify(user));
+                sessionStorage.setItem("env", s);
                 this.router.navigate(['/sendoutlabdash']);
               }
               else{
@@ -59,9 +61,9 @@ export class LoginsendoutComponent implements OnInit {
                 else{
                   if(user.body.type==3 )
                 {
-                  
+                  let s="sendout"
                   sessionStorage.setItem("patolog", JSON.stringify(user));
-                  
+                  sessionStorage.setItem("env", s);
                   this.router.navigate(['/sendoutpathdash']);
                 }
                 }

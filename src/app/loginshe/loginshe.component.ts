@@ -44,7 +44,9 @@ export class LoginsheComponent implements OnInit {
             else{
               if(user.body.type==1)
               {
+                let s="staining"
                 sessionStorage.setItem("laborant", JSON.stringify(user));
+                sessionStorage.setItem("env", s);
                 this.router.navigate(['/dashsix']);
               }
               else{

@@ -52,9 +52,9 @@ export class LogingrossingComponent implements OnInit {
                 else{
                   if(user.body.type==3 )
                 {
-                  
+                  let s="grossing"
                   sessionStorage.setItem("patolog", JSON.stringify(user));
-                  
+                  sessionStorage.setItem("env", s);
                   this.router.navigate(['/grossfirst']);
                 }
                 }

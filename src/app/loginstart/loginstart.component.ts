@@ -54,8 +54,9 @@ allUse:User[]=[];
             console.log(user)
             
             if (user.body.type==0 )//za admina
-            {  sessionStorage.setItem("first", JSON.stringify(user));
-            
+            {  let s="admin"
+              sessionStorage.setItem("first", JSON.stringify(user));
+            sessionStorage.setItem("env", s);
                 this.router.navigate(['/dashfirst']);
             }
             else{

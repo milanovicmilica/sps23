@@ -44,7 +44,9 @@ export class LoginsectioningComponent implements OnInit {
             else{
               if(user.body.type==1)
               {
+                let s="sectioning"
                 sessionStorage.setItem("laborant", JSON.stringify(user));
+                sessionStorage.setItem("env", s);
                 this.router.navigate(['/dashseven']);
               }
               else{

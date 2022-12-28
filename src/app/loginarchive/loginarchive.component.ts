@@ -41,8 +41,9 @@ export class LoginarchiveComponent implements OnInit {
             }
             else{
               if(user.body.type==1)
-              {
+              {let s="archive"
                 sessionStorage.setItem("laborant", JSON.stringify(user));
+                sessionStorage.setItem("env", s);
                 this.router.navigate(['/archivedash']);
               }
               else{
