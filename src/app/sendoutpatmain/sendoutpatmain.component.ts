@@ -21,14 +21,14 @@ export class SendoutpatmainComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User;
    
-    if(!user1 || user1.body.type!=3){
+    if(!user1 || user1.type!=3){
       localStorage.clear();
       sessionStorage.clear();
       this.router.navigate(['/login-sendout']);
     }else{
-  this.me=user1.body;
+  this.me=user1;
     let s=JSON.parse(sessionStorage.getItem("case")) as String; 
     this.case=s;
     console.log(this.case)
