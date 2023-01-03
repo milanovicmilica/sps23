@@ -63,7 +63,7 @@ export class LoginsendoutComponent implements OnInit {
                 {
                   let s="sendout"
                   sessionStorage.setItem("patolog", JSON.stringify(user));
-                  sessionStorage.setItem("p1", user.body.username);
+                  sessionStorage.setItem("p1",JSON.stringify(user.body.username));
                   sessionStorage.setItem("env", s);
                   this.router.navigate(['/sendoutpathdash']);
                 }
