@@ -877,7 +877,8 @@ export class UserService {
     this.http.get('https://sps23.herokuapp.com/pathactivity/guest/getallusers') || 
     this.http.get('https://sps23.herokuapp.com/adsactivity/guest/getallusers') ||
     this.http.get('https://sps23.herokuapp.com/adlabactivity/guest/getallusers') ||
-    this.http.get('https://sps23.herokuapp.com/listusers/guest/getallusers');
+    this.http.get('https://sps23.herokuapp.com/listusers/guest/getallusers') ||
+    this.http.get('https://sps23.herokuapp.com/sendoutpathdash/guest/getallusers');
   }
   getAllPathGroups()
   {

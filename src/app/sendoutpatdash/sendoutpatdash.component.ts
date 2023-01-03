@@ -18,14 +18,31 @@ export class SendoutpatdashComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
-   
-    if(!user1 || user1.type!=3){
+
+   // let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>;
+   let p1=JSON.parse(sessionStorage.getItem("p1")) as string;
+   if(!p1){
+    localStorage.clear();
+    sessionStorage.clear();
+    this.router.navigate(['/login-sendout']);
+   }else{
+   this.UserService.getAllUsers().subscribe((data: User[])=>{
+    this.allUsers=data;
+    
+    for (let index = 0; index < this.allUsers.length; index++) {
+     if(this.allUsers[index].username==p1)
+     {
+      this.me=this.allUsers[index]
+     }
+      
+    }
+
+    if(!p1 || this.me.type!=3){
       localStorage.clear();
       sessionStorage.clear();
       this.router.navigate(['/login-sendout']);
     }else{
-  this.me=user1;
+
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
       
@@ -38,7 +55,7 @@ export class SendoutpatdashComponent implements OnInit {
     //    console.log(a);
      
       }
-      this.me=user1;
+      
 
  this.UserService.getAllCs().subscribe((data: Cs[])=>{
       this.allcs=data;
@@ -123,9 +140,9 @@ for (let index = 0; index < this.myCases.length; index++) {
         
       }
       })
-
+    
   })})})
-  }}
+  }})}}
 me:User;
   logout(){
     sessionStorage.clear();
@@ -133,6 +150,7 @@ me:User;
     this.UserService.removeSession();
     this.router.navigate(['/login-sendout']);
   }
+  allUsers:User[];
   day:string[]=[];
   month:number[]=[];
   year:number[]=[];

@@ -128,7 +128,7 @@ app.get('${process.env.PORT}/guest/getallusers', (req, res) => {
 })
 app.get('/guest/getallusers' || '/grossfirst/guest/getallusers' || '/pathslide/guest/getallusers' ||
 '/pathactivity/guest/getallusers' || '/adsactivity/guest/getallusers' || '/adlabactivity/guest/getallusers' 
-|| '/listusers/guest/getallusers', (req, res) => {
+|| '/listusers/guest/getallusers' || '/sendoutpathdash/guest/getallusers', (req, res) => {
    //vraća listu korisnika
   
     User.find({
