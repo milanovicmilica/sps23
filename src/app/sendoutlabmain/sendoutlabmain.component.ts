@@ -21,14 +21,14 @@ export class SendoutlabmainComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-    console.log(user1.body.type)
-    if(!user1 || user1.body.type!=1){
+    let user1 = JSON.parse(sessionStorage.getItem("laborant")) as User; 
+   // console.log(user1.body.type)
+    if(!user1 || user1.type!=1){
       localStorage.clear();
       sessionStorage.clear();
       this.router.navigate(['/login-sendout']);
     }else{
-  this.me=user1.body;
+  this.me=user1;
     let s=JSON.parse(sessionStorage.getItem("slide")) as String; 
     this.slide=s;
     console.log(this.slide)
