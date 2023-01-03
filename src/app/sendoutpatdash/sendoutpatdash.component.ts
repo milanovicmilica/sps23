@@ -18,14 +18,14 @@ export class SendoutpatdashComponent implements OnInit {
   constructor(private router: Router, private UserService: UserService) { }
 
   ngOnInit(): void {
-    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as HttpResponse<any>; 
+    let user1 = JSON.parse(sessionStorage.getItem("patolog")) as User; 
    
-    if(!user1 || user1.body.type!=3){
+    if(!user1 || user1.type!=3){
       localStorage.clear();
       sessionStorage.clear();
       this.router.navigate(['/login-sendout']);
     }else{
-  this.me=user1.body;
+  this.me=user1;
     this.UserService.getAllCases().subscribe((data: Case[])=>{
       this.allCase=data;
       
@@ -38,7 +38,7 @@ export class SendoutpatdashComponent implements OnInit {
     //    console.log(a);
      
       }
-      this.me=user1.body;
+      this.me=user1;
 
  this.UserService.getAllCs().subscribe((data: Cs[])=>{
       this.allcs=data;
