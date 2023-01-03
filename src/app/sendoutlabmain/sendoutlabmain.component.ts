@@ -22,7 +22,7 @@ export class SendoutlabmainComponent implements OnInit {
 
   ngOnInit(): void {
     let user1 = JSON.parse(sessionStorage.getItem("laborant")) as HttpResponse<any>; 
-   
+    console.log(user1.body.type)
     if(!user1 || user1.body.type!=1){
       localStorage.clear();
       sessionStorage.clear();
